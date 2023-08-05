@@ -941,7 +941,8 @@ public class LatinIME extends InputMethodService implements KeyboardActionListen
         mInputLogic.onSubtypeChanged(SubtypeLocaleUtils.getCombiningRulesExtraValue(subtype),
                 mSettings.getCurrent());
 
-        mSuggestionStripView.changeLangSwitchKey(subtype);
+
+        //mSuggestionStripView.changeLangSwitchKey(subtype);
 
         //updateSelectedLanguageIndex();
 
