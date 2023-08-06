@@ -1519,12 +1519,15 @@ public final class InputLogic {
 
     public void performUpdateSuggestionStripSync(final SettingsValues settingsValues,
             final int inputStyle) {
+
+
         long startTimeMillis = 0;
         if (DebugFlags.DEBUG_ENABLED) {
             startTimeMillis = System.currentTimeMillis();
         }
         // Check if we have a suggestion engine attached.
         if (!settingsValues.needsToLookupSuggestions()) {
+            Log.d("SuggestionDebug", "updateBatchInput: ");
             if (mWordComposer.isComposingWord()) {
                 Log.w(TAG, "Called updateSuggestionsOrPredictions but suggestions were not "
                         + "requested!");
@@ -1633,7 +1636,7 @@ public final class InputLogic {
         }
         // If for some strange reason (editor bug or so) we measure the text before the cursor as
         // longer than what the entire text is supposed to be, the safe thing to do is bail out.
-        if(true) return; //changes
+        //if(true) return; //changes
         if (range.mHasUrlSpans) return; // If there are links, we don't resume suggestions. Making
         // edits to a linkified text through batch commands would ruin the URL spans, and unless
         // we take very complicated steps to preserve the whole link, we can't do things right so

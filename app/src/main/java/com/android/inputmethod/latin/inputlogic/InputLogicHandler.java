@@ -19,6 +19,7 @@ package com.android.inputmethod.latin.inputlogic;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Message;
+import android.util.Log;
 
 import com.android.inputmethod.compat.LooperCompatUtils;
 import com.android.inputmethod.latin.LatinIME;
@@ -215,6 +216,7 @@ class InputLogicHandler implements Handler.Callback {
 
     public void getSuggestedWords(final int inputStyle, final int sequenceNumber,
             final OnGetSuggestedWordsCallback callback) {
+
         mNonUIThreadHandler.obtainMessage(
                 MSG_GET_SUGGESTED_WORDS, inputStyle, sequenceNumber, callback).sendToTarget();
     }

@@ -106,7 +106,8 @@ public final class InputAttributes {
                 || InputType.TYPE_TEXT_VARIATION_URI == variation
                 || InputType.TYPE_TEXT_VARIATION_FILTER == variation
 //                || flagNoSuggestions
-                || flagAutoComplete;
+                //|| flagAutoComplete
+        ;
         mShouldShowSuggestions = !shouldSuppressSuggestions;
 
         mShouldInsertSpacesAutomatically = InputTypeUtils.isAutoSpaceFriendlyType(inputType);
