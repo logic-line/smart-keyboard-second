@@ -169,7 +169,9 @@ public final class KeyboardSwitcher implements KeyboardState.SwitchActions {
             WordComposer.isPhonetic = false;
         }
 
-        mLatinIME.mSuggestionStripView.changeLangSwitchKey(mRichImm.getCurrentSubtype().getRawSubtype());
+        if(mLatinIME!=null){
+            mLatinIME.mSuggestionStripView.changeLangSwitchKey(mRichImm.getCurrentSubtype().getRawSubtype());
+        }
 
         mLatinIME.languageSwitcher.persist();
 
