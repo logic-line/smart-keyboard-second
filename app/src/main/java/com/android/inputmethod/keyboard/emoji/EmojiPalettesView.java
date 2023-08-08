@@ -89,6 +89,7 @@ public final class EmojiPalettesView extends LinearLayout implements OnTabChange
     private final int mCategoryIndicatorBackgroundResId;
     private final int mCategoryPageIndicatorColor;
     private final int mCategoryPageIndicatorBackground;
+    private final int keyBackgroundId;
     private EmojiPalettesAdapter mEmojiPalettesAdapter;
     private final EmojiLayoutParams mEmojiLayoutParams;
     private final DeleteKeyOnTouchListener mDeleteKeyOnTouchListener;
@@ -134,10 +135,13 @@ public final class EmojiPalettesView extends LinearLayout implements OnTabChange
 
         final TypedArray keyboardViewAttr = context.obtainStyledAttributes(attrs,
                 R.styleable.KeyboardView, defStyle, R.style.KeyboardView);
-        final int keyBackgroundId = keyboardViewAttr.getResourceId(
+         keyBackgroundId = keyboardViewAttr.getResourceId(
                 R.styleable.KeyboardView_keyBackground, 0);
+
+
         mFunctionalKeyBackgroundId = keyboardViewAttr.getResourceId(
                 R.styleable.KeyboardView_functionalKeyBackground, keyBackgroundId);
+
         mSpacebarBackgroundId = keyboardViewAttr.getResourceId(
                 R.styleable.KeyboardView_spacebarBackground, keyBackgroundId);
         keyboardViewAttr.recycle();
@@ -217,9 +221,11 @@ public final class EmojiPalettesView extends LinearLayout implements OnTabChange
         // TODO: Replace background color with its own setting rather than using the
         //       category page indicator background as a workaround.
 
-
         if(!CustomThemeHelper.isCustomThemeApplicable(getContext())){
+            Log.d(TAG, "addTab: "+mCategoryPageIndicatorBackground);
             iconView.setBackgroundColor(mCategoryPageIndicatorBackground);
+        }else {
+            iconView.setBackgroundColor(CustomThemeHelper.selectedCustomTheme.dominateColor);
         }
 
         int tabIconResId = mEmojiCategory.getCategoryTabIcon(categoryId);
@@ -287,7 +293,11 @@ public final class EmojiPalettesView extends LinearLayout implements OnTabChange
 
         // deleteKey depends only on OnTouchListener.
         mDeleteKey = (ImageButton) findViewById(R.id.emoji_keyboard_delete);
-        mDeleteKey.setBackgroundResource(mFunctionalKeyBackgroundId);
+        if(CustomThemeHelper.isCustomThemeApplicable(getContext())){
+            mDeleteKey.setBackgroundResource(0);
+        }else{
+            mDeleteKey.setBackgroundResource(mFunctionalKeyBackgroundId);
+        }
         mDeleteKey.setTag(Constants.CODE_DELETE);
         mDeleteKey.setOnTouchListener(mDeleteKeyOnTouchListener);
 

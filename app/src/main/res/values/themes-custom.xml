@@ -85,7 +85,6 @@
         >
         <item name="categoryIndicatorEnabled">false</item>
         <item name="categoryPageIndicatorColor">@color/highlight_color_lxx_light</item>
-        <item name="categoryPageIndicatorBackground">@color/emoji_tab_page_indicator_background_lxx_light</item>
         <item name="iconEmojiRecentsTab">@drawable/ic_emoji_recents_lxx_light</item>
         <item name="iconEmojiCategory1Tab">@drawable/ic_emoji_people_lxx_light</item>
         <item name="iconEmojiCategory2Tab">@drawable/ic_emoji_objects_lxx_light</item>
