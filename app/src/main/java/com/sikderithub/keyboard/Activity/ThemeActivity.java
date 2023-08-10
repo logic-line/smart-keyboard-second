@@ -63,6 +63,8 @@ public class ThemeActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
+        mRichImm = RichInputMethodManager.getInstance();
+
         CustomThemeHelper.loadSelectedCustomTheme();
 
         setContentView(R.layout.activity_theme_demo);
@@ -109,7 +111,7 @@ public class ThemeActivity extends AppCompatActivity {
 
 
         EditorInfo editorInfo = new EditorInfo();
-        mRichImm = RichInputMethodManager.getInstance();
+
         mSettings = Settings.getInstance();
 
 
