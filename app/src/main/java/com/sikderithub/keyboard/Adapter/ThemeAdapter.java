@@ -2,6 +2,7 @@ package com.sikderithub.keyboard.Adapter;
 
 import android.content.Context;
 import android.content.res.Resources;
+import android.util.Log;
 import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,6 +25,7 @@ import com.sikderithub.keyboard.R;
 import com.sikderithub.keyboard.ThemeMainKeyboardView;
 
 public class ThemeAdapter extends RecyclerView.Adapter<ThemeAdapter.MyViewHodler> {
+    private static final String TAG = "ThemeAdapter";
     private Context context;
     private KeyboardTheme[] keyboardThemes;
     private SettingsValues currentSettingsValues;
@@ -46,6 +48,9 @@ public class ThemeAdapter extends RecyclerView.Adapter<ThemeAdapter.MyViewHodler
         this.context = context;
         this.keyboardThemes = keyboardThemes;
         currentSettingsValues = Settings.getInstance().getCurrent();
+        if(currentSettingsValues==null){
+            Log.d(TAG, "ThemeAdapter: currentSettingsValues==null");
+        }
         selectedThemeId = KeyboardTheme.getKeyboardTheme(context).mThemeId;
         setHasStableIds(true);
     }

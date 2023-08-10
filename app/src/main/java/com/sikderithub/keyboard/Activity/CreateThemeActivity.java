@@ -26,6 +26,7 @@ import android.util.Log;
 import android.view.ContextThemeWrapper;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -40,6 +41,9 @@ import com.android.inputmethod.keyboard.KeyboardId;
 import com.android.inputmethod.keyboard.KeyboardLayoutSet;
 import com.android.inputmethod.keyboard.KeyboardTheme;
 import com.android.inputmethod.keyboard.MainKeyboardView;
+import com.android.inputmethod.latin.AudioAndHapticFeedbackManager;
+import com.android.inputmethod.latin.InputAttributes;
+import com.android.inputmethod.latin.RichInputMethodManager;
 import com.android.inputmethod.latin.RichInputMethodSubtype;
 import com.android.inputmethod.latin.settings.Settings;
 import com.android.inputmethod.latin.settings.SettingsValues;
@@ -61,6 +65,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
 public class CreateThemeActivity extends AppCompatActivity {
@@ -85,6 +90,8 @@ public class CreateThemeActivity extends AppCompatActivity {
     private String imageOverLay = null;
     private Drawable drawable;
     private int textColor;
+    private RichInputMethodManager mRichImm;
+    private Settings mSettings;
 
 
     @Override
@@ -93,9 +100,15 @@ public class CreateThemeActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setTitle("Create Theme");
+
+        RichInputMethodManager.init(this);
+        Settings.init(this);
+        
         setContentView(R.layout.activity_create_theme);
 
-
+        mRichImm = RichInputMethodManager.getInstance();
+        mSettings = Settings.getInstance();
+        loadSettings();
 
         mainKeyboardView = findViewById(R.id.keyboardView);
         cvChangeImage = findViewById(R.id.cvChangeImgae);
@@ -188,6 +201,19 @@ public class CreateThemeActivity extends AppCompatActivity {
             }
         });
 
+
+    }
+
+    void loadSettings() {
+        final Locale locale = mRichImm.getCurrentSubtypeLocale();
+        final EditorInfo editorInfo = new EditorInfo();
+
+        final InputAttributes inputAttributes = new InputAttributes(
+                editorInfo, false, getPackageName());
+
+        mSettings.loadSettings(this, locale, inputAttributes);
+        final SettingsValues currentSettingsValues = mSettings.getCurrent();
+        AudioAndHapticFeedbackManager.getInstance().onSettingsChanged(currentSettingsValues);
 
     }
 

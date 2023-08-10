@@ -23,6 +23,9 @@ import android.view.inputmethod.EditorInfo;
 import com.android.inputmethod.keyboard.KeyboardLayoutSet;
 import com.android.inputmethod.keyboard.KeyboardTheme;
 import com.android.inputmethod.keyboard.MainKeyboardView;
+import com.android.inputmethod.latin.AudioAndHapticFeedbackManager;
+import com.android.inputmethod.latin.InputAttributes;
+import com.android.inputmethod.latin.settings.SettingsValues;
 import com.sikderithub.keyboard.Adapter.CustomThemeAdapter;
 import com.sikderithub.keyboard.Adapter.ThemeAdapter;
 import com.sikderithub.keyboard.Models.Theme;
@@ -37,6 +40,7 @@ import com.sikderithub.keyboard.local.Dao.QuestionDatabase;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class ThemeActivity extends AppCompatActivity {
     private static final String TAG = "ThemeDemoActivity";
@@ -59,11 +63,14 @@ public class ThemeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        RichInputMethodManager.init(this);
+        Settings.init(this);
+
         getSupportActionBar().setTitle("Themes");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-        mRichImm = RichInputMethodManager.getInstance();
 
         CustomThemeHelper.loadSelectedCustomTheme();
 
@@ -71,6 +78,10 @@ public class ThemeActivity extends AppCompatActivity {
         pref = PreferenceManager.getDefaultSharedPreferences(this);
         mThemeContext = new ContextThemeWrapper(this, R.style.KeyboardTheme_ICS);
         themes = KeyboardTheme.KEYBOARD_THEMES;
+
+        mRichImm = RichInputMethodManager.getInstance();
+        mSettings = Settings.getInstance();
+        loadSettings();
 
 
         rvCustomTheme = findViewById(R.id.rvCustomTheme);
@@ -112,7 +123,6 @@ public class ThemeActivity extends AppCompatActivity {
 
         EditorInfo editorInfo = new EditorInfo();
 
-        mSettings = Settings.getInstance();
 
 
 
@@ -189,6 +199,19 @@ public class ThemeActivity extends AppCompatActivity {
         // keyboard layout with this context.
         final WindowManager wm = (WindowManager) getSystemService(Context.WINDOW_SERVICE);
         return createDisplayContext(wm.getDefaultDisplay());
+    }
+
+    void loadSettings() {
+        final Locale locale = mRichImm.getCurrentSubtypeLocale();
+        final EditorInfo editorInfo = new EditorInfo();
+
+        final InputAttributes inputAttributes = new InputAttributes(
+                editorInfo, false, getPackageName());
+
+        mSettings.loadSettings(this, locale, inputAttributes);
+        final SettingsValues currentSettingsValues = mSettings.getCurrent();
+        AudioAndHapticFeedbackManager.getInstance().onSettingsChanged(currentSettingsValues);
+
     }
 
     @Override

@@ -19,6 +19,8 @@ package com.android.inputmethod.dictionarypack;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
+import android.util.Log;
 
 public final class EventHandler extends BroadcastReceiver {
     /**
@@ -40,7 +42,17 @@ public final class EventHandler extends BroadcastReceiver {
      */
     @Override
     public void onReceive(final Context context, final Intent intent) {
+        Log.d("EventHandlerFire", "onReceive: ");
         intent.setClass(context, DictionaryService.class);
-        context.startService(intent);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            context.startForegroundService(intent);
+        } else {
+            context.startService(intent);
+        }
+
+
+
+        //context.startService(intent);
+
     }
 }

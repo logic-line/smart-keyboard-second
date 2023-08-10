@@ -48,6 +48,7 @@ public class GkEngine  {
 
 
     public static void setGkAsShown(CurrentGk currentGk){
+
         cachedGk.remove(currentGk.position);
         currentGk.gk.isShown = true;
 
@@ -69,7 +70,7 @@ public class GkEngine  {
             return null;
         }
 
-        int gkPosition = random.nextInt(cachedGk.size());
+        int gkPosition =  random.nextInt(cachedGk.size()-1);
         return new CurrentGk(cachedGk.get(gkPosition), gkPosition);
     }
 }

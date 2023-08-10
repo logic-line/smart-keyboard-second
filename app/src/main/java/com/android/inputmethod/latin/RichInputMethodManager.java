@@ -85,6 +85,11 @@ public class RichInputMethodManager {
         return mImmWrapper != null;
     }
 
+    @UsedForTesting
+    public boolean isInitilized(){
+        return isInitilized();
+    }
+
     private void checkInitialized() {
         if (!isInitialized()) {
             throw new RuntimeException(TAG + " is used before initialization");

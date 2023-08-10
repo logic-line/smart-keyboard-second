@@ -234,7 +234,7 @@ public class MainKeyboardView extends KeyboardView implements DrawingProxy,
     public MainKeyboardView(final Context context, final AttributeSet attrs, final int defStyle) {
         super(context, attrs, defStyle);
         customThemeHelper =new CustomThemeHelper();
-
+        AccessibilityUtils.init(context);
         final DrawingPreviewPlacerView drawingPreviewPlacerView =
                 new DrawingPreviewPlacerView(context, attrs);
 

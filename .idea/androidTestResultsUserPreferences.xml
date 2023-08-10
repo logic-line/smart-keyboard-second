@@ -3,6 +3,19 @@
   <component name="AndroidTestResultsUserPreferences">
     <option name="androidTestResultsTableState">
       <map>
+        <entry key="-386694586">
+          <value>
+            <AndroidTestResultsTableState>
+              <option name="preferredColumnWidths">
+                <map>
+                  <entry key="Duration" value="90" />
+                  <entry key="OnePlus MT2111" value="120" />
+                  <entry key="Tests" value="360" />
+                </map>
+              </option>
+            </AndroidTestResultsTableState>
+          </value>
+        </entry>
         <entry key="1072281036">
           <value>
             <AndroidTestResultsTableState>
@@ -10,6 +23,7 @@
                 <map>
                   <entry key="Duration" value="90" />
                   <entry key="OnePlus MT2111" value="120" />
+                  <entry key="Pixel_7_Pro_A11" value="120" />
                   <entry key="Tests" value="360" />
                 </map>
               </option>

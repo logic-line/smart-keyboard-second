@@ -133,6 +133,7 @@ public final class Settings implements SharedPreferences.OnSharedPreferenceChang
     }
 
     public static void init(final Context context) {
+        Log.d("SettingsInit", "init: called");
         sInstance.onCreate(context);
     }
 
