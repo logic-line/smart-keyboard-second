@@ -21,7 +21,7 @@ public class PhoneticBangla {
             "n", "p", "f", "b", "v", "m", "z", "r", "l", "S", "s", "h", "R",
             "y", "Y", ":", "q", "Q", "P", "G", "H", "J", "K", "L", "C", "V",
             "B", "M", "Z", "^"};
-    public String dchar[] = {"rr", "ng", "Tw", "Tm", "Ty", "DD", "Dy", "NT",
+    public String dchar[] = {"rr", "ng", "Tw", "Tm", "Ty", "DD", "Dy", "NT", "ch", "Ch",
             "nc", "jj", "jy", "jr", "jw", "cy", "gg", "kt", "hh", "HH", "SH",
             "tT", "hl", "hr", "hy", "hm", "hw", "sp", "sn", "st", "sT", "kh", "hn",
             "hN", "sl", "sr", "sy", "sm", "sw", "sf", "Sl", "Sr", "Sy", "Sm",
@@ -32,11 +32,11 @@ public class PhoneticBangla {
             "pp", "pn", "pt", "pT", "ns", "ny", "nm", "dr", "dy", "dm", "dv",
             "dw", "nd", "nt", "nD", "nT", "Ny", "Nm", "Nw", "Nn", "dd", "dg",
             "tr", "ty", "tm", "tw", "tn", "tt", "TT", "nj", "ee", "oo", "OI",
-            "OU", "gh", "Ng", "ch", "jh", "NG", "Th", "Dh", "th", "dh",
+            "OU", "gh", "Ng",  "jh", "NG", "Th", "Dh", "th", "dh",
             "ph", "bh", "sh", "Sh", "Rh", "kk", "kT", "kw", "km", "ky", "kr",
             "kl", "kx", "ks", "gN", "dn", "gn", "gw", "gm", "gy", "gr", "gl",
-            "cc", "Kh", "Gh", "Ch", "Jh", "Ph", "Bh", "cr", "ND", "Dr", "Cr",
-            "nk", "Tr", "Dz", "vw", "cw", "qq", "ry"
+            "cc", "Kh", "Gh", "Jh", "Ph", "Bh", "cr", "ND", "Dr", "Cr",
+            "nk", "Tr", "Dz", "vw", "cw", "qq", "ry", "lf"
     };
     public String tchar[] = {"spr", "NTh", "Dhr", "NDh", "NDy", "Dhy", "NGc",
             "jjh", "jjw", "ghn", "ktr", "kTr", "nTr", "ngo", "sth", "sty",
@@ -197,6 +197,7 @@ public class PhoneticBangla {
         jbr.put("ry", "র\u200D্য");
 
 
+        jbr.put("lf", "ল্ফ");
         jbr.put("spr", "স্প্র‌");
         jbr.put("rr", "র্");
         jbr.put("kk", "ক্ক");
