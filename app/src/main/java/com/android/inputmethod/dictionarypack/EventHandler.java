@@ -42,12 +42,16 @@ public final class EventHandler extends BroadcastReceiver {
      */
     @Override
     public void onReceive(final Context context, final Intent intent) {
-        Log.d("EventHandlerFire", "onReceive: ");
-        intent.setClass(context, DictionaryService.class);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            context.startForegroundService(intent);
-        } else {
-            context.startService(intent);
+        try{
+            Log.d("EventHandlerFire", "onReceive: ");
+            intent.setClass(context, DictionaryService.class);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                context.startForegroundService(intent);
+            } else {
+                context.startService(intent);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
         }
 
 

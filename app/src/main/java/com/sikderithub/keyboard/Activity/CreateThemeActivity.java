@@ -346,7 +346,10 @@ public class CreateThemeActivity extends AppCompatActivity {
 
     private void imageSelected(Uri selectedImageUri) {
 
-
+        if(selectedImageUri==null){
+            Toast.makeText(this, "Background Image Not Selected", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
         this.selectedImageUri = selectedImageUri.toString();
 

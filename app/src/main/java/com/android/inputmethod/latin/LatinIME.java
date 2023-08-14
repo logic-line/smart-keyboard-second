@@ -1586,6 +1586,11 @@ public class LatinIME extends InputMethodService implements KeyboardActionListen
         if (Constants.CODE_SHORTCUT == event.mKeyCode) {
             mRichImm.switchToShortcutIme(this);
         }
+
+        if(mSuggestionStripView!=null){
+            mSuggestionStripView.cancelVoiceRecognizer();
+        }
+
         final InputTransaction completeInputTransaction =
                 mInputLogic.onCodeInput(mSettings.getCurrent(), event,
                         mKeyboardSwitcher.getKeyboardShiftMode(),

@@ -144,6 +144,8 @@ public final class EmojiPalettesView extends LinearLayout implements OnTabChange
 
         mSpacebarBackgroundId = keyboardViewAttr.getResourceId(
                 R.styleable.KeyboardView_spacebarBackground, keyBackgroundId);
+
+
         keyboardViewAttr.recycle();
         final KeyboardLayoutSet.Builder builder = new KeyboardLayoutSet.Builder(
                 context, null /* editorInfo */);

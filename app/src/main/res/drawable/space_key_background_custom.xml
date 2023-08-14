@@ -9,5 +9,7 @@
         android:drawable="@drawable/baseline_arrow_right_white"
         android:gravity="end|center_vertical" />
 
-    <item android:drawable="@drawable/btn_keyboard_key_custom"/>
+    <item android:gravity="center_vertical"
+        android:drawable="@drawable/btn_keyboard_key_custom"
+        />
 </layer-list>

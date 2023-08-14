@@ -19,6 +19,26 @@
 -->
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <style
+        name="KeyboardView.CUSTOM_BASE"
+        parent="KeyboardView"
+        >
+        <item name="keyTypeface">normal</item>
+        <item name="keyLetterSize">@fraction/config_key_letter_ratio_lxx</item>
+        <item name="keyLabelSize">@fraction/config_key_label_ratio_lxx</item>
+        <item name="keyHintLetterRatio">@fraction/config_key_hint_letter_ratio_lxx</item>
+        <item name="keyShiftedLetterHintRatio">@fraction/config_key_shifted_letter_hint_ratio_lxx</item>
+        <item name="keyLargeLetterRatio">@fraction/config_key_large_letter_ratio_lxx</item>
+        <item name="keyLabelOffCenterRatio">-80%</item>
+        <item name="keyHintLabelRatio">@fraction/config_key_hint_label_ratio_lxx</item>
+        <item name="keyHintLabelOffCenterRatio">300%</item>
+        <item name="keyLabelFlags">alignHintLabelToBottom</item>
+        <item name="spacebarIconWidthRatio">0.9</item>
+        <!-- No popup hint letter -->
+        <item name="keyPopupHintLetter"></item>
+    </style>
+
+
     <style name="KeyboardTheme.CUSTOM" parent="KeyboardIcons.Holo">
         <item name="inputViewStyle">@style/InputView.LXX</item>
         <item name="keyboardStyle">@style/Keyboard.Custom</item>
@@ -41,8 +61,8 @@
     </style>
     <style
         name="KeyboardView.Custom"
-        parent="KeyboardView.MJ">
-        <item name="android:background">@color/keyboard_background_mj_light</item>
+        parent="KeyboardView.CUSTOM_BASE">
+        <item name="android:background">@color/auto_correct_color_lxx_dark</item>
         <item name="keyBackground">@drawable/btn_keyboard_key_custom</item>
         <item name="functionalKeyBackground">@drawable/btn_keyboard_key_custom</item>
         <item name="spacebarBackground">@drawable/space_key_background_custom</item>
@@ -81,7 +101,7 @@
          attributes. -->
     <style
         name="EmojiPalettesView.Custom"
-        parent="MainKeyboardView.MJ_Light"
+        parent="MainKeyboardView.Custom"
         >
         <item name="categoryIndicatorEnabled">false</item>
         <item name="categoryPageIndicatorColor">@color/highlight_color_lxx_light</item>
@@ -114,7 +134,7 @@
     </style>
     <style
         name="MoreKeysKeyboardView.Custom"
-        parent="KeyboardView.MJ_Light"
+        parent="KeyboardView.Custom"
         >
         <item name="android:background">@drawable/keyboard_popup_panel_background_lxx_light</item>
         <item name="keyBackground">@drawable/btn_keyboard_key_popup_lxx_light</item>
@@ -133,7 +153,7 @@
     </style>
     <style
         name="SuggestionStripView.Custom"
-        parent="KeyboardView.MJ_Light"
+        parent="KeyboardView.Custom"
         >
         <item name="suggestionsCountInStrip">@integer/config_suggestions_count_in_strip</item>
         <item name="centerSuggestionPercentile">@fraction/config_center_suggestion_percentile</item>

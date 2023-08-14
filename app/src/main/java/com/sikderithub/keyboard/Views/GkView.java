@@ -446,7 +446,7 @@ public class GkView extends RelativeLayout implements View.OnTouchListener{
 //                return false;
 //            }
 
-            delayAndShowContent(3000);
+            //delayAndShowContent(3000);
 
             this.setVisibility(GONE);
             invalidate();
@@ -461,7 +461,7 @@ public class GkView extends RelativeLayout implements View.OnTouchListener{
             Log.d(TAG, "showContent: ad not laoded");
             //loadBannerAd();
             loadNativeAd();
-            delayAndShowContent(2000);
+            //delayAndShowContent(2000);
             return false;
         }
 

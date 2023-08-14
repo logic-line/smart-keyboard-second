@@ -277,7 +277,7 @@ public final class SuggestionStripView extends RelativeLayout implements OnClick
         );DrawableCompat.setTint(
                 DrawableCompat.wrap(savedIconRes),
                 emojiColor
-        );;DrawableCompat.setTint(
+        );DrawableCompat.setTint(
                 DrawableCompat.wrap(themeIconRes),
                 emojiColor
         );
@@ -321,11 +321,6 @@ public final class SuggestionStripView extends RelativeLayout implements OnClick
 
 
 
-        
-
-
-
-
 
         for (int pos = 0; pos < SuggestedWords.MAX_SUGGESTIONS; pos++) {
             final TextView word = new TextView(context, null, R.attr.suggestionWordStyle);
@@ -364,6 +359,12 @@ public final class SuggestionStripView extends RelativeLayout implements OnClick
         final TypedArray keyboardAttr = context.obtainStyledAttributes(attrs,
                 R.styleable.Keyboard, defStyle, R.style.SuggestionStripView);
         final Drawable iconVoice = keyboardAttr.getDrawable(R.styleable.Keyboard_iconShortcutKey);
+
+        DrawableCompat.setTint(
+                DrawableCompat.wrap(iconVoice),
+                emojiColor
+        );
+
         mVoiceKey.setImageDrawable(iconVoice);
 
         keyboardAttr.recycle();
@@ -831,6 +832,12 @@ public final class SuggestionStripView extends RelativeLayout implements OnClick
         }
 
 
+    }
+
+    public void cancelVoiceRecognizer(){
+        if(speechRecognizer!=null){
+            speechRecognizer.cancel();
+        }
     }
 
     private void setVoiceRecordingStatus(VoiceRecordingStatus voiceRecordingStatus){

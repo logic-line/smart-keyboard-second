@@ -142,13 +142,17 @@ public class ThemeAdapter extends RecyclerView.Adapter<ThemeAdapter.MyViewHodler
             clickParent.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    selectedThemeId = keyboardThemes[getAdapterPosition()].mThemeId;
+                    int pos = getAdapterPosition();
+                    if (pos>=0){
+                        selectedThemeId = keyboardThemes[pos].mThemeId;
 
-                    if(defaultThemeSelectListener!=null){
-                        defaultThemeSelectListener.onSelect(selectedThemeId);
+                        if(defaultThemeSelectListener!=null){
+                            defaultThemeSelectListener.onSelect(selectedThemeId);
+                        }
+
+                        notifyDataSetChanged();
                     }
 
-                    notifyDataSetChanged();
                 }
             });
 
