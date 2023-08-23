@@ -20,7 +20,7 @@
 
 <KeyboardLayoutSet
     xmlns:keybaord="http://schemas.android.com/apk/res-auto">
-    <Feature keybaord:supportedScript="bengali" />
+    <Feature keybaord:supportedScript="latin" />
     <Element
         keybaord:elementName="alphabet"
         keybaord:elementKeyboard="@xml/kbd_qwerty"
