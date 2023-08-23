@@ -102,9 +102,12 @@ public class SlidingLocaleDrawable extends Drawable {
 
             if (mCurrentLanguage == null) {
                 final LanguageSwitcher languageSwitcher = LanguageSwitcher.instance;
+                if(languageSwitcher!=null){
                     mCurrentLanguage = Constant.getLanguageName(languageSwitcher.getInputLocale());
                     mNextLanguage =  Constant.getLanguageName(languageSwitcher.getNextInputLocale());
                     mPrevLanguage =  Constant.getLanguageName(languageSwitcher.getPrevInputLocale());
+                }
+
             }
 
             Log.d(TAG, "mCurrentLanguage: "+mCurrentLanguage);

@@ -16,6 +16,8 @@
 
 package com.android.inputmethod.latin.utils;
 
+import android.util.Log;
+
 import java.util.Locale;
 import java.util.TreeMap;
 
@@ -23,7 +25,7 @@ import java.util.TreeMap;
  * A class to help with handling different writing scripts.
  */
 public class ScriptUtils {
-
+    private static final String TAG = "ScriptUtils";
     // Used for hardware keyboards
     public static final int SCRIPT_UNKNOWN = -1;
 
@@ -79,6 +81,7 @@ public class ScriptUtils {
      * as appropriate, and explicitly excludes CJK, Arabic and Hebrew characters.
      */
     public static boolean isLetterPartOfScript(final int codePoint, final int scriptId) {
+        Log.d(TAG, "isLetterPartOfScript: "+scriptId);
         switch (scriptId) {
         case SCRIPT_ARABIC:
             // Arabic letters can be in any of the following blocks:

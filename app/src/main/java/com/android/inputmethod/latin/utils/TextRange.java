@@ -18,6 +18,7 @@ package com.android.inputmethod.latin.utils;
 
 import android.text.Spanned;
 import android.text.style.SuggestionSpan;
+import android.util.Log;
 
 import java.util.Arrays;
 
@@ -25,6 +26,7 @@ import java.util.Arrays;
  * Represents a range of text, relative to the current cursor position.
  */
 public final class TextRange {
+    private static final String TAG = "TextRange";
     private final CharSequence mTextAtCursor;
     private final int mWordAtCursorStartIndex;
     private final int mWordAtCursorEndIndex;
@@ -107,6 +109,9 @@ public final class TextRange {
 
     public TextRange(final CharSequence textAtCursor, final int wordAtCursorStartIndex,
             final int wordAtCursorEndIndex, final int cursorIndex, final boolean hasUrlSpans) {
+        Log.d(TAG, "TextRange: textAtCursor "+textAtCursor);
+        Log.d(TAG, "TextRange: mWordAtCursorStartIndex "+wordAtCursorStartIndex);
+        Log.d(TAG, "TextRange: mWordAtCursorEndIndex "+wordAtCursorEndIndex);
         if (wordAtCursorStartIndex < 0 || cursorIndex < wordAtCursorStartIndex
                 || cursorIndex > wordAtCursorEndIndex
                 || wordAtCursorEndIndex > textAtCursor.length()) {
@@ -117,6 +122,8 @@ public final class TextRange {
         mWordAtCursorEndIndex = wordAtCursorEndIndex;
         mCursorIndex = cursorIndex;
         mHasUrlSpans = hasUrlSpans;
+
+
         mWord = mTextAtCursor.subSequence(mWordAtCursorStartIndex, mWordAtCursorEndIndex);
     }
 }

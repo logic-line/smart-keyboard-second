@@ -100,6 +100,8 @@ public class SavedGkViews extends LinearLayout {
     @Override
     protected void onVisibilityChanged(@NonNull View changedView, int visibility) {
         super.onVisibilityChanged(changedView, visibility);
-        adapter.notifyDataSetChanged();
+        if(adapter!=null){
+            adapter.notifyDataSetChanged();
+        }
     }
 }

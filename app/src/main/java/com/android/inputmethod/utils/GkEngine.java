@@ -47,7 +47,7 @@ public class GkEngine {
         cachedGkLock.lock();
         try {
             currentGk.gk.isSaved = true;
-            cachedGk.add(currentGk.position, currentGk.gk);
+            //cachedGk.add(currentGk.position, currentGk.gk);
 
             QuestionDatabase.databaseWriteExecutor.execute(() -> {
                 QuestionDatabase.getDatabase(MyApp.getApContext())
@@ -62,20 +62,23 @@ public class GkEngine {
     public static void setGkAsShown(CurrentGk currentGk) {
         cachedGkLock.lock();
         try {
-            cachedGk.remove(currentGk.position);
-            currentGk.gk.isShown = true;
+            int positionToRemove = currentGk.position;
+            if (positionToRemove >= 0 && positionToRemove < cachedGk.size()) {
+                cachedGk.remove(positionToRemove);
+                currentGk.gk.isShown = true;
 
-            QuestionDatabase.databaseWriteExecutor.execute(() -> {
-                QuestionDatabase.getDatabase(MyApp.getApContext())
-                        .questionDAO()
-                        .updateGk(currentGk.gk);
-            });
+                QuestionDatabase.databaseWriteExecutor.execute(() -> {
+                    QuestionDatabase.getDatabase(MyApp.getApContext())
+                            .questionDAO()
+                            .updateGk(currentGk.gk);
+                });
+            }
         } finally {
             cachedGkLock.unlock();
         }
     }
 
-    private Random random;
+    private final Random random;
 
     public GkEngine() {
         random = new Random();

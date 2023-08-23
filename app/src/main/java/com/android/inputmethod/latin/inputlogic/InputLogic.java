@@ -1597,7 +1597,6 @@ public final class InputLogic {
             final boolean forStartInput,
             // TODO: remove this argument, put it into settingsValues
             final int currentKeyboardScriptId) {
-        Log.d(TAG, "restartSuggestionsOnWordTouchedByCursor: called");
         // HACK: We may want to special-case some apps that exhibit bad behavior in case of
         // recorrection. This is a temporary, stopgap measure that will be removed later.
         // TODO: remove this.
@@ -1618,6 +1617,7 @@ public final class InputLogic {
             mSuggestionStripViewAccessor.setNeutralSuggestionStrip();
             return;
         }
+
         final int expectedCursorPosition = mConnection.getExpectedSelectionStart();
         if (!mConnection.isCursorTouchingWord(settingsValues.mSpacingAndPunctuations,
                     true /* checkTextAfter */)) {
@@ -1626,6 +1626,7 @@ public final class InputLogic {
             mLatinIME.mHandler.postUpdateSuggestionStrip(SuggestedWords.INPUT_STYLE_RECORRECTION);
             return;
         }
+
         final TextRange range = mConnection.getWordRangeAtCursor(
                 settingsValues.mSpacingAndPunctuations, currentKeyboardScriptId);
         if (null == range) return; // Happens if we don't have an input connection at all
@@ -1634,6 +1635,7 @@ public final class InputLogic {
             mLatinIME.setNeutralSuggestionStrip();
             return;
         }
+
         // If for some strange reason (editor bug or so) we measure the text before the cursor as
         // longer than what the entire text is supposed to be, the safe thing to do is bail out.
         //if(true) return; //changes

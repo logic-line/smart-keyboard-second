@@ -33,6 +33,7 @@ import android.view.inputmethod.InputConnection;
 import android.view.inputmethod.InputMethodManager;
 
 import com.android.inputmethod.compat.InputConnectionCompatUtils;
+import com.android.inputmethod.latin.common.CodePointUtils;
 import com.android.inputmethod.latin.common.Constants;
 import com.android.inputmethod.latin.common.StringUtils;
 import com.android.inputmethod.latin.common.UnicodeSurrogate;
@@ -686,10 +687,12 @@ public final class RichInputConnection implements PrivateCommandPerformer {
     private static boolean isPartOfCompositionForScript(final int codePoint,
             final SpacingAndPunctuations spacingAndPunctuations, final int scriptId) {
         // We always consider word connectors part of compositions.
-        return spacingAndPunctuations.isWordConnector(codePoint)
+        boolean value =  spacingAndPunctuations.isWordConnector(codePoint)
                 // Otherwise, it's part of composition if it's part of script and not a separator.
                 || (!spacingAndPunctuations.isWordSeparator(codePoint)
                         && ScriptUtils.isLetterPartOfScript(codePoint, scriptId));
+
+        return value;
     }
 
     /**
@@ -722,7 +725,10 @@ public final class RichInputConnection implements PrivateCommandPerformer {
         // Going backward, find the first breaking point (separator)
         int startIndexInBefore = before.length();
         while (startIndexInBefore > 0) {
+
             final int codePoint = Character.codePointBefore(before, startIndexInBefore);
+            boolean v = isPartOfCompositionForScript(codePoint, spacingAndPunctuations, scriptId);
+            Log.d(TAG, "getWordRangeAtCursor: "+v);
             if (!isPartOfCompositionForScript(codePoint, spacingAndPunctuations, scriptId)) {
                 break;
             }
@@ -731,7 +737,6 @@ public final class RichInputConnection implements PrivateCommandPerformer {
                 --startIndexInBefore;
             }
         }
-
         // Find last word separator after the cursor
         int endIndexInAfter = -1;
         while (++endIndexInAfter < after.length()) {
@@ -750,14 +755,19 @@ public final class RichInputConnection implements PrivateCommandPerformer {
         // We don't use TextUtils#concat because it copies all spans without respect to their
         // nature. If the text includes a PARAGRAPH span and it has been split, then
         // TextUtils#concat will crash when it tries to concat both sides of it.
+        Log.d(TAG, "getWordRangeAtCursor: before "+startIndexInBefore);
+        Log.d(TAG, "getWordRangeAtCursor: after "+after);
         return new TextRange(
                 SpannableStringUtils.concatWithNonParagraphSuggestionSpansOnly(before, after),
-                        startIndexInBefore, before.length() + endIndexInAfter, before.length(),
+                        startIndexInBefore, 
+                before.length() + endIndexInAfter, 
+                before.length(),
                         hasUrlSpans);
     }
 
     public boolean isCursorTouchingWord(final SpacingAndPunctuations spacingAndPunctuations,
             boolean checkTextAfter) {
+        Log.d(TAG, "isCursorTouchingWord: ");
         if (checkTextAfter && isCursorFollowedByWordCharacter(spacingAndPunctuations)) {
             // If what's after the cursor is a word character, then we're touching a word.
             return true;
