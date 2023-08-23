@@ -31,6 +31,14 @@
         android:icon="@mipmap/ic_launcher_round"
         android:label="@string/english_ime_name"
         android:supportsRtl="true">
+
+        <!-- Real AdMob app ID: App id ca-app-pub-8326396827024206~1471282859 -->
+        <!-- Sample AdMob app ID: ca-app-pub-3940256099942544~3347511713 -->
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-3940256099942544~3347511713" />
+
+
         <activity
             android:name="com.yalantis.ucrop.UCropActivity"
             android:screenOrientation="portrait"
@@ -47,10 +55,9 @@
         <activity
             android:name=".Activity.UpdateActivity"
             android:exported="false"
-            android:theme="@style/Theme.AppCompat.DayNight" /> <!-- Sample AdMob app ID: ca-app-pub-3940256099942544~3347511713 -->
-        <meta-data
-            android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-3940256099942544~3347511713" />
+            android:theme="@style/Theme.AppCompat.DayNight" />
+
+
 
         <activity
             android:name=".Activity.ThemeActivity"

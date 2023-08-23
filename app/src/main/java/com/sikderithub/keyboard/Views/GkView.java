@@ -270,7 +270,7 @@ public class GkView extends RelativeLayout implements View.OnTouchListener{
             return;
         }
 
-        AdLoader adLoader = new AdLoader.Builder(getContext(), "ca-app-pub-3940256099942544/2247696110")
+        AdLoader adLoader = new AdLoader.Builder(getContext(), getResources().getString(R.string.admob_native_ad_gk))
                 .forNativeAd(nativeAd -> {
 //                        NativeTemplateStyle styles = new
 //                                NativeTemplateStyle.Builder().withMainBackgroundColor(background).build();
