@@ -259,7 +259,6 @@ public final class WordComposer {
      * @return true if the cursor is still inside the composing word, false otherwise.
      */
     public boolean moveCursorByAndReturnIfInsideComposingWord(final int expectedMoveAmount) {
-        Log.d(TAG, "moveCursorByAndReturnIfInsideComposingWord: "+expectedMoveAmount);
         int actualMoveAmount = 0;
         int cursorPos = mCursorPositionWithinWord;
         // TODO: Don't make that copy. We can do this directly from mTypedWordCache.
@@ -274,9 +273,28 @@ public final class WordComposer {
         } else {
             // Moving the cursor backward for the expected amount or until the start of the word
             // has been reached, whichever comes first.
+//            while (actualMoveAmount > expectedMoveAmount && cursorPos > 0) {
+//                --cursorPos;
+//                actualMoveAmount -= Character.charCount(codePoints[cursorPos]);
+//            }
             while (actualMoveAmount > expectedMoveAmount && cursorPos > 0) {
+
                 --cursorPos;
-                actualMoveAmount -= Character.charCount(codePoints[cursorPos]);
+
+                if (cursorPos >= codePoints.length) {
+                    Log.e("CursorOutOfBounds", "Cursor position is out of bounds");
+                    break;
+                }
+
+                int charCount = Character.charCount(codePoints[cursorPos]);
+                if (actualMoveAmount >= charCount) {
+                    actualMoveAmount -= charCount;
+                } else {
+                    // Adjust actualMoveAmount to avoid going negative
+                    break;
+                }
+
+                Log.d("LoopDebug", "cursorPos: " + cursorPos + ", actualMoveAmount: " + actualMoveAmount);
             }
         }
         // If the actual and expected amounts differ, we crossed the start or the end of the word

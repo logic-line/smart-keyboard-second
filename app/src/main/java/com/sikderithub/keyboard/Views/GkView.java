@@ -266,9 +266,6 @@ public class GkView extends RelativeLayout implements View.OnTouchListener{
     }
 
     private void loadNativeAd() {
-        if(mNativeAd!=null && isAdLoaded){
-            return;
-        }
 
         AdLoader adLoader = new AdLoader.Builder(getContext(), getResources().getString(R.string.admob_native_ad_gk))
                 .forNativeAd(nativeAd -> {
@@ -277,7 +274,7 @@ public class GkView extends RelativeLayout implements View.OnTouchListener{
 //                        mNativeAdView.setStyles(styles);
                     isAdLoaded = true;
                     mNativeAd = nativeAd;
-                    Log.d(TAG, "loadNativeAd: ad loaded");
+
 
                 }).withAdListener(new AdListener() {
                     @Override
@@ -286,6 +283,17 @@ public class GkView extends RelativeLayout implements View.OnTouchListener{
                         Log.d(TAG, "onAdFailedToLoad: "+loadAdError.getMessage());
                         isAdLoaded = false;
                         mNativeAd = null;
+                    }
+
+                    @Override
+                    public void onAdLoaded() {
+                        super.onAdLoaded();
+                        Log.d(TAG, "loadNativeAd: ad loaded");
+                    }
+
+                    @Override
+                    public void onAdImpression() {
+                        super.onAdImpression();
                     }
                 })
                 .build();
@@ -344,7 +352,6 @@ public class GkView extends RelativeLayout implements View.OnTouchListener{
                     Log.d(TAG, "run: Dismiss");
                     popupWindow.dismiss();
                     countDownTimer.onFinish();
-
                 }
             }
         };
@@ -360,6 +367,10 @@ public class GkView extends RelativeLayout implements View.OnTouchListener{
         popupWindow.showAtLocation(this, Gravity.BOTTOM, 0 , 0 );
 
         handler.postDelayed(runnable, 1000);
+    }
+
+    private void resetViews(){
+
     }
 
     private void startEngine() {
@@ -391,6 +402,7 @@ public class GkView extends RelativeLayout implements View.OnTouchListener{
         Log.d(TAG, "showContent: called "+new Gson().toJson(MyApp.getConfig()));
         if(MyApp.getConfig().gk_view_ad_status==1 ){
             if(MyApp.getConfig().gk_view_ad_type==1){
+                Log.d(TAG, "showContent: gk ad enable");
 
                 //admob ad
 
@@ -403,25 +415,33 @@ public class GkView extends RelativeLayout implements View.OnTouchListener{
                 if(gkShowed==MyApp.getConfig().gk_ad_interval){
                     Log.d(TAG, "showContent: show ad called");
                     //showAd
-                    showAd();
-                    return;
+                    if(showAd()){
+                        return;
+                    }
+                }else{
+                    Log.d(TAG, "showContent: ad will show after "+(MyApp.getConfig().gk_ad_interval-gkShowed));
                 }
             } else if (MyApp.getConfig().gk_view_ad_type==2) {
                 //show custom ad
                 Log.d(TAG, "showContent: show custom ad");
             }
+        }else {
+
         }
 
         if(MyApp.getConfig().show_gk==1){
 
-            if(!showGk()){
-                showAd();
+            if(showGk()){
+                //showAd();
+               return;
             }
 
         }else{
             Log.d(TAG, "showContent: gk  hidden");
-            showAd();
+            //showAd();
         }
+
+        this.setVisibility(GONE);
 
     }
 
@@ -460,8 +480,10 @@ public class GkView extends RelativeLayout implements View.OnTouchListener{
         if(!isAdLoaded || mNativeAd==null){
             Log.d(TAG, "showContent: ad not laoded");
             //loadBannerAd();
-            loadNativeAd();
+            //loadNativeAd();
             //delayAndShowContent(2000);
+            //showContent();
+
             return false;
         }
 
@@ -515,6 +537,9 @@ public class GkView extends RelativeLayout implements View.OnTouchListener{
             mOptionalGkHolder.setVisibility(GONE);
             nonOptionGkText.setText(gk.gk.question);
 
+        }
+        if(gkShowed>MyApp.getConfig().gk_ad_interval){
+            gkShowed = 0;
         }
         startEngine();
         //GkEngine.setGkAsShown(currentGk);
