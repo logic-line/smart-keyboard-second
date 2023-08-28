@@ -31,7 +31,7 @@ import com.sikderithub.keyboard.R;
 
 final class EmojiPalettesAdapter extends PagerAdapter {
     private static final String TAG = EmojiPalettesAdapter.class.getSimpleName();
-    private static final boolean DEBUG_PAGER = false;
+    private static final boolean DEBUG_PAGER = true;
 
     private final EmojiPageKeyboardView.OnKeyEventListener mListener;
     private final DynamicGridKeyboard mRecentsKeyboard;
@@ -91,6 +91,7 @@ final class EmojiPalettesAdapter extends PagerAdapter {
     @Override
     public void setPrimaryItem(final ViewGroup container, final int position,
             final Object object) {
+        Log.d(TAG, "setPrimaryItem: "+position);
         if (mActivePosition == position) {
             return;
         }
@@ -123,11 +124,6 @@ final class EmojiPalettesAdapter extends PagerAdapter {
 
         EmojiPageKeyboardView keyboardView = view.findViewById(R.id.emoji_keyboard_page);
 
-        if (position==0){
-            //GkView gkView = view.findViewById(R.id.gkView);
-            //gkView.startGkView(true);
-            //gkView.setVisibility(View.VISIBLE);
-        }
         keyboardView.setKeyboard(keyboard);
         keyboardView.setOnKeyEventListener(mListener);
 

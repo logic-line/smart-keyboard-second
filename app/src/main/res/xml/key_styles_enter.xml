@@ -252,7 +252,7 @@
         >
             <key-style
                 keybaord:styleName="enterKeyStyle"
-                keybaord:parentStyle="emojiKeyStyle" />
+                keybaord:parentStyle="defaultEnterKeyStyle" />
         </case>
         <case
             keybaord:imeAction="actionGo"

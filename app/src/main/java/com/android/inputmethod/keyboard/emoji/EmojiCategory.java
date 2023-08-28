@@ -281,6 +281,7 @@ final class EmojiCategory {
     }
 
     public void setCurrentCategoryPageId(final int id) {
+        Log.d(TAG, "setCurrentCategoryPageId: "+id);
         mCurrentCategoryPageId = id;
     }
 

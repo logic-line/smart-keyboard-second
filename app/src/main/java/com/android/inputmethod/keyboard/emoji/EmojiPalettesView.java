@@ -529,7 +529,7 @@ public final class EmojiPalettesView extends LinearLayout implements OnTabChange
         setupAlphabetKey(mAlphabetKeyRight, switchToAlphaLabel, params);
         mEmojiPager.setAdapter(mEmojiPalettesAdapter);
         mCurrentPagerPosition = 0;
-        setCurrentCategoryId(mEmojiCategory.getRecentTabId(), true /* force */);
+        setCurrentCategoryId(0, false /* force */);
         mEmojiPager.setCurrentItem(mCurrentPagerPosition);
         updateGkView();
 
