@@ -20,9 +20,11 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 
 public final class EmojiCategoryPageIndicatorView extends View {
+    private static final String TAG = "EmojiCategoryPageIndica";
     private static final float BOTTOM_MARGIN_RATIO = 1.0f;
     private final Paint mPaint = new Paint();
     private int mCategoryPageSize = 0;

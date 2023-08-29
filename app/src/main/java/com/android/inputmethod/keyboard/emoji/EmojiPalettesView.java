@@ -482,7 +482,7 @@ public final class EmojiPalettesView extends LinearLayout implements OnTabChange
     @Override
     public void onReleaseKey(final Key key) {
         mEmojiPalettesAdapter.addRecentKey(key);
-        mEmojiCategory.saveLastTypedCategoryPage();
+        //mEmojiCategory.saveLastTypedCategoryPage(); //disable category type page id //category page will show from first
         final int code = key.getCode();
         if (code == Constants.CODE_OUTPUT_TEXT) {
             mKeyboardActionListener.onTextInput(key.getOutputText());
@@ -528,9 +528,9 @@ public final class EmojiPalettesView extends LinearLayout implements OnTabChange
         setupAlphabetKey(mAlphabetKeyLeft, switchToAlphaLabel, params);
         setupAlphabetKey(mAlphabetKeyRight, switchToAlphaLabel, params);
         mEmojiPager.setAdapter(mEmojiPalettesAdapter);
-        mCurrentPagerPosition = 0;
+        //mCurrentPagerPosition = 0;
         setCurrentCategoryId(0, false /* force */);
-        mEmojiPager.setCurrentItem(mCurrentPagerPosition);
+        mEmojiPager.setCurrentItem(0);
         updateGkView();
 
     }

@@ -85,6 +85,7 @@ final class EmojiPalettesAdapter extends PagerAdapter {
 
     @Override
     public int getCount() {
+
         return mEmojiCategory.getTotalPageCountOfAllCategories();
     }
 
