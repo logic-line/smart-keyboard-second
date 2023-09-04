@@ -888,8 +888,10 @@ public class LatinIME extends InputMethodService implements KeyboardActionListen
 
     @Override
     public void onStartInput(final EditorInfo editorInfo, final boolean restarting) {
-        Log.d(TAG, "onStartInput: ");
         mHandler.onStartInput(editorInfo, restarting);
+        if(mTopView!=null){
+            mTopView.onStartInput(editorInfo);
+        }
     }
 
     @Override
@@ -911,10 +913,12 @@ public class LatinIME extends InputMethodService implements KeyboardActionListen
         mHandler.onFinishInputView(finishingInput);
         mStatsUtilsManager.onFinishInputView();
         mGestureConsumer = GestureConsumer.NULL_GESTURE_CONSUMER;
+
     }
 
     @Override
     public void onFinishInput() {
+        Log.d(TAG, "onFinishInputView: onFinishInput");
         mHandler.onFinishInput();
     }
 

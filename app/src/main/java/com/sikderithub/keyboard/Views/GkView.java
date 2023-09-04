@@ -272,6 +272,7 @@ public class GkView extends RelativeLayout implements View.OnTouchListener{
 //                        NativeTemplateStyle styles = new
 //                                NativeTemplateStyle.Builder().withMainBackgroundColor(background).build();
 //                        mNativeAdView.setStyles(styles);
+                    Log.d(TAG, "loadNativeAd: add loaded");
                     isAdLoaded = true;
                     mNativeAd = nativeAd;
 
@@ -407,7 +408,7 @@ public class GkView extends RelativeLayout implements View.OnTouchListener{
                 //admob ad
 
                 if(gkShowed==MyApp.getConfig().gk_ad_interval-1){
-                    Log.d(TAG, "showContent: banner ad load called");
+                    Log.d(TAG, "showContent:  ad load called");
                     //loadBannerAd();
                     loadNativeAd();
                 }

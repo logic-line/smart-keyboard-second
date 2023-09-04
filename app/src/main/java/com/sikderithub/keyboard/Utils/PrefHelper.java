@@ -8,6 +8,7 @@ import com.sikderithub.keyboard.MyApp;
 
 public class PrefHelper {
 
+    public static final String LAST_AD_SHOWN = "LAST_AD_SHOWN";
     public static String PREF_LAST_AD_SHOW_KEY = "100100121";
 
     private static SharedPreferences getPreferences() {

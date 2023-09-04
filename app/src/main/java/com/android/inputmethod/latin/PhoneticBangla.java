@@ -779,24 +779,38 @@ public class PhoneticBangla {
         }
     }
 
-    public List<KeyMap> getPhoneticKeyMapInList() {
+    public List<KeyMap> getPhoneticKeyMapInList(){
         List<KeyMap> keyMapList = new ArrayList<>();
 
-        List<Char> charList = new ArrayList<>();
-        for (Map.Entry<String, String> entry : srb.entrySet()) {
-            Char c = new Char(entry.getKey(), entry.getKey());
-            charList.add(c);
-        }
-
-        keyMapList.add(new KeyMap("SRB", charList));
+        keyMapList.add(new KeyMap("স্বরবর্ণ", mapToList(srb)));
+        keyMapList.add(new KeyMap("কার", mapToList(kar)));
+        keyMapList.add(new KeyMap("ব্যঞ্জনবর্ণ", mapToList(bbr)));
+        keyMapList.add(new KeyMap("যুক্তবর্ণ ", mapToList(jbr)));
+        //keyMapList.add(new KeyMap("Single Char", mapToList(other)));
 
         return keyMapList;
-
     }
 
-    public class Char {
-        String key;
-        String value;
+
+    private List<Char> mapToList(Map<String, String> map){
+
+        List<Char> chars = new ArrayList<>();
+
+        for (Map.Entry<String, String> entry : map.entrySet()) {
+            String key = entry.getKey();
+            String value = entry.getValue();
+
+            Char ch = new Char(key, value);
+            chars.add(ch);
+        }
+
+        return chars;
+    }
+
+
+    public class Char{
+        private String key;
+        private String value;
 
         public Char(String key, String value) {
             this.key = key;
@@ -812,9 +826,9 @@ public class PhoneticBangla {
         }
     }
 
-    public class KeyMap {
+    public class KeyMap{
         private String title;
-        private List<Char> charList = new ArrayList<>();
+        private List<Char> charList;
 
         public KeyMap(String title, List<Char> charList) {
             this.title = title;
@@ -825,16 +839,9 @@ public class PhoneticBangla {
             return title;
         }
 
-        public void setTitle(String title) {
-            this.title = title;
-        }
-
         public List<Char> getCharList() {
             return charList;
         }
-
-        public void setCharList(List<Char> charList) {
-            this.charList = charList;
-        }
     }
+
 }

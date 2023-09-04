@@ -32,6 +32,7 @@ public class Config {
     @Ignore
     public Update update;
     public String tutorial_link;
+    public int top_ad_interval = 480;
 
 
 

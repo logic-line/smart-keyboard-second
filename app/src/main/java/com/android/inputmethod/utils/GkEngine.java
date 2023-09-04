@@ -29,11 +29,12 @@ public class GkEngine {
     private static Lock cachedGkLock = new ReentrantLock();
 
     public static void getGkFromLocal() {
+        Log.d(TAG, "getGkFromLocal: called");
         QuestionDatabase.databaseWriteExecutor.execute(() -> {
             List<Gk> newCachedGk = QuestionDatabase.getDatabase(MyApp.getApContext())
                     .questionDAO()
-                    .getQuestions();
-
+                    .getNotShownQuestions();
+            Log.d(TAG, "getGkFromLocal: "+newCachedGk.size());
             cachedGkLock.lock();
             try {
                 cachedGk = newCachedGk;

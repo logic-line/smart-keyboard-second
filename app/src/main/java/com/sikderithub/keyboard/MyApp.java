@@ -113,9 +113,9 @@ public class MyApp extends Application {
                                     QuestionDatabase.databaseWriteExecutor.execute(() -> {
                                         if(response.body().data.size()>0){
 
-                                            QuestionDatabase.getDatabase(getInstance())
-                                                            .questionDAO()
-                                                                    .clearQuestionTable();;
+//                                            QuestionDatabase.getDatabase(getInstance())
+//                                                            .questionDAO()
+//                                                                    .clearQuestionTable();;
 
                                             QuestionDatabase.getDatabase(getInstance())
                                                     .questionDAO()

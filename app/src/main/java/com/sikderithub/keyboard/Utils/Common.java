@@ -17,7 +17,7 @@ import java.util.regex.Pattern;
 
 public class Common {
     private static final String TAG = "Common";
-    public static String LAST_AD_DATE_FORMAT = "yyyy-MM-dd";
+    public static String LAST_AD_DATE_FORMAT = "yyyy-MM-dd HH:mm:ss";
     public static String INSTALL_DATE_TIME_FORMAT = "yyyy-MM-dd HH:mm:ss";
 
     public static String PREF_INSTALL_TIME_KEY = "PREF_INSTALL_TIME_KEY";
@@ -52,6 +52,7 @@ public class Common {
 
             long differenceInMillis = currDate.getTime() - installLDate.getTime();
             int daysDiff = (int) TimeUnit.DAYS.convert(differenceInMillis, TimeUnit.MILLISECONDS);
+
             Log.d(TAG, "isAdShownAllowed: "+daysDiff);
             if(daysDiff<=config.ad_hold_time-1){
                 return false;

@@ -251,7 +251,10 @@ public class TemplateView extends FrameLayout {
    * https://developers.google.com/admob/android/native-unified#destroy_ad
    */
   public void destroyNativeAd() {
-    nativeAd.destroy();
+    if(nativeAd!=null){
+      nativeAd.destroy();
+    }
+
   }
 
   public String getTemplateTypeName() {

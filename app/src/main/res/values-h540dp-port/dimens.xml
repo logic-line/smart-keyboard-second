@@ -2,5 +2,5 @@
 <resources>
 
     <!--Native Ad size-->
-    <dimen name="native_ad_gk_view_size">68dp</dimen>
+    <dimen name="native_ad_gk_view_size">80dp</dimen>
 </resources>

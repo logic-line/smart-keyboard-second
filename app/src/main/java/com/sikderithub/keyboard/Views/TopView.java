@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.view.inputmethod.EditorInfo;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
@@ -16,6 +17,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.android.inputmethod.latin.common.Constants;
+import com.android.inputmethod.latin.utils.InputTypeUtils;
 import com.bumptech.glide.Glide;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdLoader;
@@ -39,12 +41,29 @@ import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
+import java.util.concurrent.TimeUnit;
 
 public class TopView extends RelativeLayout {
     private static final String TAG = "TopView";
     private TemplateView mNativeAdView;
     private ImageView imgUpdate;
     private View view;
+    private boolean isPasswordField = false;
+
+    public void onFinishInputView(boolean finishingInput) {
+        if (mNativeAdView!=null){
+            mNativeAdView.destroyNativeAd();
+        }
+    }
+
+    public void onStartInput(EditorInfo editorInfo) {
+        if(InputTypeUtils.isPasswordInputType(editorInfo.inputType)){
+            isPasswordField = true;
+        }else{
+            isPasswordField = false;
+        }
+    }
+
     private enum ContentType{
         AD,
         UPDATE,
@@ -136,7 +155,10 @@ public class TopView extends RelativeLayout {
     }
 
     private ContentType getContentType(){
-        if(!isToadyAdShown()){
+        if(isPasswordField){
+            return ContentType.NONE;
+        }
+        if(true){
             return ContentType.AD;
         }else if(isUpdateAvailable()){
             return ContentType.UPDATE;
@@ -148,7 +170,7 @@ public class TopView extends RelativeLayout {
 
 
     private int getViewVisibility() {
-        if(isUpdateAvailable() || !isToadyAdShown()){
+        if(isUpdateAvailable() || !isAdIntervalPassed()){
             return VISIBLE;
         }
         return GONE;
@@ -165,10 +187,26 @@ public class TopView extends RelativeLayout {
         return PrefHelper.getPref(todayDateInString, false);
     }
 
+    private boolean isAdIntervalPassed(){
+        long lastAdShownInMills = PrefHelper.getPref(PrefHelper.LAST_AD_SHOWN, 0L);
+        long currentTimesInMills = System.currentTimeMillis();
+
+        // Calculate the time difference in milliseconds
+        long timeDifferenceInMilliseconds = currentTimesInMills - lastAdShownInMills;
+
+        // Convert the time difference to minutes
+        long timeDifferenceInMinutes = timeDifferenceInMilliseconds / (60 * 1000);
+        // Check if the time difference is greater than 3 minutes
+
+        return timeDifferenceInMinutes >= MyApp.getConfig().top_ad_interval;
+    }
+
     private void setAdAsShown(){
         SimpleDateFormat sdf = new SimpleDateFormat(Common.LAST_AD_DATE_FORMAT,  Locale.getDefault());
         String todayDateInString = sdf.format(new Date());
         PrefHelper.putPref(todayDateInString, true);
+
+        PrefHelper.putPref(PrefHelper.LAST_AD_SHOWN, System.currentTimeMillis());
     }
 
     private void loadNativeAd() {

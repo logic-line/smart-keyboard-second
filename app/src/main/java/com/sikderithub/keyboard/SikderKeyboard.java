@@ -48,7 +48,6 @@ public class SikderKeyboard extends MyLatinIME {
 
     @Override
     public void onStartInput(EditorInfo editorInfo, boolean restarting) {
-        Log.d(TAG, "onStartInput: ");
         super.onStartInput(editorInfo, restarting);
     }
 
