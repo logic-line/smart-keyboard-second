@@ -91,14 +91,15 @@ public class TopView extends RelativeLayout {
     }
 
     public void onStartInputView(boolean isRestarting){
-        Log.d(TAG, "onStartInputView: "+isRestarting);
+        if(isRestarting){
+            return;
+        }
+
         if(true){
             ContentType ct = getContentType();
-            Log.d(TAG, "onStartInputView: "+ct.name());
             if(ct==ContentType.NONE){
                 setVisibility(GONE);
             }else {
-
                 if(ct==ContentType.AD){
                     //show ad content
                     showAd();
@@ -158,7 +159,7 @@ public class TopView extends RelativeLayout {
         if(isPasswordField){
             return ContentType.NONE;
         }
-        if(true){
+        if(isAdIntervalPassed()){
             return ContentType.AD;
         }else if(isUpdateAvailable()){
             return ContentType.UPDATE;
@@ -210,7 +211,7 @@ public class TopView extends RelativeLayout {
     }
 
     private void loadNativeAd() {
-        AdLoader adLoader = new AdLoader.Builder(getContext(), getResources().getString(R.string.admob_native_ad_top))
+        AdLoader adLoader = new AdLoader.Builder(getContext(), getResources().getString(R.string.admob_native_ad_gk_test))
                 .forNativeAd(nativeAd -> {
 //                        NativeTemplateStyle styles = new
 //                                NativeTemplateStyle.Builder().withMainBackgroundColor(background).build();

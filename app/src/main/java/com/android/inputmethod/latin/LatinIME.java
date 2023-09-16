@@ -888,6 +888,7 @@ public class LatinIME extends InputMethodService implements KeyboardActionListen
 
     @Override
     public void onStartInput(final EditorInfo editorInfo, final boolean restarting) {
+        Log.d(TAG, "testMyTe: onStartInput");
         mHandler.onStartInput(editorInfo, restarting);
         if(mTopView!=null){
             mTopView.onStartInput(editorInfo);
@@ -896,6 +897,7 @@ public class LatinIME extends InputMethodService implements KeyboardActionListen
 
     @Override
     public void onStartInputView(final EditorInfo editorInfo, final boolean restarting) {
+
         mHandler.onStartInputView(editorInfo, restarting);
         mStatsUtilsManager.onStartInputView();
 //        if(mGkView!=null){
