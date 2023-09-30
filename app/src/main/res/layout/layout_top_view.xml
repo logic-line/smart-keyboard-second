@@ -1,10 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <merge xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+
+    <FrameLayout
+        android:id="@+id/ad_view_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+         />
+
     <com.sikderithub.keyboard.Views.NativeAd.TemplateView
+        android:visibility="gone"
         android:id="@+id/templateView"
         android:layout_width="match_parent"
         android:layout_height="@dimen/native_ad_gk_view_size"
-    />
+        />
+
 
     <ImageView
         android:scaleType="fitXY"

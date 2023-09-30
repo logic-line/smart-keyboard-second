@@ -37,6 +37,9 @@ public class Common {
 
 
     public static boolean isAdShownAllowed() {
+//        if (true){
+//            return true;
+//        }
         try{
             if(getInstallTime()==null){
                 return false;
