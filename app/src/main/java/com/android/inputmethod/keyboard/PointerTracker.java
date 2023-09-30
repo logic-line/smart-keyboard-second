@@ -39,7 +39,7 @@ import com.android.inputmethod.latin.common.InputPointers;
 import com.android.inputmethod.latin.define.DebugFlags;
 import com.android.inputmethod.latin.settings.Settings;
 import com.android.inputmethod.latin.utils.ResourceUtils;
-import com.sikderithub.keyboard.R;
+import com.banglakeyboard.pro.R;
 
 import java.util.ArrayList;
 

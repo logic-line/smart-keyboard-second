@@ -45,7 +45,7 @@
             ads:adUnitId="ca-app-pub-3940256099942544/6300978111">
         </com.google.android.gms.ads.AdView>
 
-        <com.sikderithub.keyboard.Views.NativeAd.TemplateView
+        <com.banglakeyboard.pro.Views.NativeAd.TemplateView
             android:id="@+id/templateView"
             android:layout_width="match_parent"
             android:layout_height="@dimen/native_ad_gk_view_size"

@@ -18,7 +18,7 @@
 */
 -->
 
-<merge xmlns:keybaord="http://schemas.android.com/apk/res/com.sikderithub.keyboard">
+<merge xmlns:keybaord="http://schemas.android.com/apk/res/com.banglakeyboard.pro">
     <!-- U+0636: "ض" ARABIC LETTER DAD
          U+0661: "١" ARABIC-INDIC DIGIT ONE -->
     <Key

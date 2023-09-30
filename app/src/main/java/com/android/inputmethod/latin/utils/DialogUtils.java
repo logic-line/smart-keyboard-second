@@ -19,7 +19,7 @@ package com.android.inputmethod.latin.utils;
 import android.content.Context;
 import android.view.ContextThemeWrapper;
 
-import com.sikderithub.keyboard.R;
+import com.banglakeyboard.pro.R;
 
 public final class DialogUtils {
     private DialogUtils() {

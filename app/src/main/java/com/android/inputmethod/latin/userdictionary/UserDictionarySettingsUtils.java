@@ -20,7 +20,7 @@ import android.content.Context;
 import android.text.TextUtils;
 
 import com.android.inputmethod.latin.common.LocaleUtils;
-import com.sikderithub.keyboard.R;
+import com.banglakeyboard.pro.R;
 
 import java.util.Locale;
 

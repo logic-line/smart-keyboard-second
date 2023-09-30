@@ -29,7 +29,7 @@ import android.widget.TextView;
 
 import androidx.core.view.ViewCompat;
 
-import com.sikderithub.keyboard.R;
+import com.banglakeyboard.pro.R;
 
 public final class SetupStartIndicatorView extends LinearLayout {
     public SetupStartIndicatorView(final Context context, final AttributeSet attrs) {

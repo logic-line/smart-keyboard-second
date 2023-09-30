@@ -20,7 +20,7 @@ import com.android.inputmethod.keyboard.PointerTracker;
 import com.android.inputmethod.keyboard.internal.DrawingProxy;
 import com.android.inputmethod.latin.LatinIME;
 import com.android.inputmethod.latin.common.Constants;
-import com.sikderithub.keyboard.R;
+import com.banglakeyboard.pro.R;
 
 import java.util.ArrayList;
 import java.util.List;

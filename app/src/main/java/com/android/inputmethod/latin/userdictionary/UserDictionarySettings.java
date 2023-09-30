@@ -38,7 +38,7 @@ import android.widget.SectionIndexer;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 
-import com.sikderithub.keyboard.R;
+import com.banglakeyboard.pro.R;
 
 import java.util.Locale;
 

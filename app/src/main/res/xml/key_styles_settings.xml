@@ -19,7 +19,7 @@
 -->
 
 <merge
-    xmlns:keybaord="http://schemas.android.com/apk/res/com.sikderithub.keyboard"
+    xmlns:keybaord="http://schemas.android.com/apk/res/com.banglakeyboard.pro"
 >
     <!-- Key style for the key which may have settings key as more keys. -->
     <switch>

@@ -31,7 +31,7 @@ import com.android.inputmethod.keyboard.Keyboard;
 import com.android.inputmethod.keyboard.KeyboardId;
 import com.android.inputmethod.keyboard.KeyboardLayoutSet;
 import com.android.inputmethod.latin.settings.Settings;
-import com.sikderithub.keyboard.R;
+import com.banglakeyboard.pro.R;
 
 import java.util.ArrayList;
 import java.util.Collections;

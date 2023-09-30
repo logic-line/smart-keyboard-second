@@ -21,7 +21,7 @@
 <!-- Note: This emoji code point list is valid prior to JB-MR2 (API < 18).
      There is another emoji code point list for JB-MR2 and KLP and later under
      res/xml/values-v1[89].-->
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Placeholder codeArrays for recents emoji keyboard.
          Do not remove these keys, because they are used as a template. -->
     <array
@@ -34,14 +34,12 @@
     </array>
     <array
         name="emoji_nature"
-        format="string"
-    >
+        format="string" tools:ignore="InconsistentArrays">
         <item>2744</item> <!-- SNOWFLAKE -->
     </array>
     <array
         name="emoji_symbols"
-        format="string"
-    >
+        format="string" tools:ignore="InconsistentArrays">
         <item>2460</item> <!-- CIRCLED DIGIT ONE -->
         <item>2461</item> <!-- CIRCLED DIGIT TWO -->
         <item>2462</item> <!-- CIRCLED DIGIT THREE -->
@@ -79,15 +77,13 @@
     </array>
     <array
         name="emoji_faces"
-        format="string"
-    >
+        format="string" tools:ignore="InconsistentArrays">
         <item>270C</item> <!-- VICTORY HAND -->
         <item>2764</item> <!-- HEAVY BLACK HEART -->
     </array>
     <array
         name="emoji_objects"
-        format="string"
-    >
+        format="string" tools:ignore="InconsistentArrays">
         <item>260e</item> <!-- BLACK TELEPHONE -->
         <item>2709</item> <!-- ENVELOPE -->
         <item>2712</item> <!-- BLACK NIB -->

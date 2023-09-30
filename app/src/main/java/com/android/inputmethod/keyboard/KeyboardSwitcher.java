@@ -50,9 +50,9 @@ import com.android.inputmethod.latin.utils.RecapitalizeStatus;
 import com.android.inputmethod.latin.utils.ResourceUtils;
 import com.android.inputmethod.latin.utils.ScriptUtils;
 import com.android.inputmethod.utils.LanguageSwitcher;
-import com.sikderithub.keyboard.R;
-import com.sikderithub.keyboard.Utils.CustomThemeHelper;
-import com.sikderithub.keyboard.Views.TopView;
+import com.banglakeyboard.pro.R;
+import com.banglakeyboard.pro.Utils.CustomThemeHelper;
+import com.banglakeyboard.pro.Views.TopView;
 
 import javax.annotation.Nonnull;
 

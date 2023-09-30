@@ -31,8 +31,8 @@ import android.view.MenuItem;
 import com.android.inputmethod.latin.define.ProductionFlags;
 import com.android.inputmethod.latin.utils.ApplicationUtils;
 import com.android.inputmethod.latin.utils.FeedbackUtils;
-import com.sikderithub.keyboard.Activity.KeyMapActivity;
-import com.sikderithub.keyboard.R;
+import com.banglakeyboard.pro.Activity.KeyMapActivity;
+import com.banglakeyboard.pro.R;
 
 public final class SettingsFragment extends PreferenceFragment {
     // We don't care about menu grouping.

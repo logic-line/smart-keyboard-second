@@ -22,7 +22,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.RadioButton;
 
-import com.sikderithub.keyboard.R;
+import com.banglakeyboard.pro.R;
 
 /**
  * Radio Button preference
