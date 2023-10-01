@@ -221,8 +221,7 @@ final class EmojiCategory {
     private void addShownCategoryId(final int categoryId) {
         // Load a keyboard of categoryId
         getKeyboard(categoryId, 0 /* categoryPageId */);
-        final CategoryProperties properties =
-                new CategoryProperties(categoryId, getCategoryPageCount(categoryId));
+        final CategoryProperties properties =new CategoryProperties(categoryId, getCategoryPageCount(categoryId));
         mShownCategories.add(properties);
     }
 

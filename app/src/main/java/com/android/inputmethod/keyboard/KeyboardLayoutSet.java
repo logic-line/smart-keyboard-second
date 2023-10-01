@@ -188,6 +188,7 @@ public final class KeyboardLayoutSet {
         ElementParams elementParams = mParams.mKeyboardLayoutSetElementIdToParamsMap.get(
                 keyboardLayoutSetElementId);
 
+
         if (elementParams == null) {
             elementParams = mParams.mKeyboardLayoutSetElementIdToParamsMap.get(
                     KeyboardId.ELEMENT_ALPHABET);
@@ -201,6 +202,7 @@ public final class KeyboardLayoutSet {
                 && elementParams.mSupportsSplitLayout;
 
         final KeyboardId id = new KeyboardId(keyboardLayoutSetElementId, mParams);
+
 
         try {
             return getKeyboard(elementParams, id);
