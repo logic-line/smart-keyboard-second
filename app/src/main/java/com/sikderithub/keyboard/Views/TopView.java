@@ -4,12 +4,16 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.util.AttributeSet;
+import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.inputmethod.EditorInfo;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
@@ -22,6 +26,8 @@ import com.bumptech.glide.Glide;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdLoader;
 import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
+import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.LoadAdError;
 import com.google.android.gms.common.util.SharedPreferencesUtils;
 import com.sikderithub.keyboard.BuildConfig;
@@ -44,11 +50,14 @@ import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
 public class TopView extends RelativeLayout {
+    private static final String AD_UNIT_ID = "ca-app-pub-3940256099942544/9214589741";
     private static final String TAG = "TopView";
     private TemplateView mNativeAdView;
     private ImageView imgUpdate;
     private View view;
     private boolean isPasswordField = false;
+    private FrameLayout adContainerView;
+    private AdView adView;
 
     public void onFinishInputView(boolean finishingInput) {
         if (mNativeAdView!=null){
@@ -85,30 +94,33 @@ public class TopView extends RelativeLayout {
         }
         mNativeAdView = findViewById(R.id.templateView);
         imgUpdate = findViewById(R.id.imgUpdate);
+        adContainerView = findViewById(R.id.ad_view_container);
 
         setVisibility(GONE);
 
     }
 
     public void onStartInputView(boolean isRestarting){
+        Log.d(TAG, "onStartInputView: ");
         if(isRestarting){
+            Log.d(TAG, "onStartInputView: "+isRestarting);
             return;
         }
 
-        if(true){
-            ContentType ct = getContentType();
-            if(ct==ContentType.NONE){
-                setVisibility(GONE);
-            }else {
-                if(ct==ContentType.AD){
-                    //show ad content
-                    showAd();
-                }else {
-                    //show update content
-                    showUpdateBanner();
-                }
+        ContentType ct = getContentType();
+        Log.d(TAG, "ContentType: "+ct.name());
 
+        if(ct==ContentType.NONE){
+            setVisibility(GONE);
+        }else {
+            if(ct==ContentType.AD){
+                //show ad content
+                showAd();
+            }else {
+                //show update content
+                showUpdateBanner();
             }
+
         }
     }
 
@@ -144,18 +156,22 @@ public class TopView extends RelativeLayout {
 
     private void showAd() {
         imgUpdate.setVisibility(GONE);
-        if(!Common.isAdShownAllowed()){
-            Log.d(TAG, "showAd: not allowed");
-            setVisibility(VISIBLE);
-            mNativeAdView.setVisibility(GONE);
-            return;
 
+        if(!Common.isAdShownAllowed()){
+            Log.d(TAG, "showAd: ad shown not allowed");
+            setVisibility(VISIBLE);
+            adContainerView.setVisibility(GONE);
+            return;
         }
-        mNativeAdView.setVisibility(VISIBLE);
-        loadNativeAd();
+        adContainerView.setVisibility(VISIBLE);
+        //loadNativeAd();
+        loadBanner();
     }
 
     private ContentType getContentType(){
+//        if(true){
+//            return ContentType.AD;
+//        }
         if(isPasswordField){
             return ContentType.NONE;
         }
@@ -237,6 +253,81 @@ public class TopView extends RelativeLayout {
                 .build();
 
         adLoader.loadAd(new AdRequest.Builder().build());
+    }
+
+    private void loadBanner() {
+        Log.d(TAG, "loadBanner: ");
+        // Create an ad request.
+        adView = new AdView(getContext());
+        adView.setAdUnitId(AD_UNIT_ID);
+        adContainerView.removeAllViews();
+        adContainerView.addView(adView);
+
+        AdSize adSize = getAdSize();
+        adView.setAdSize(adSize);
+        
+        adView.setAdListener(new AdListener() {
+            @Override
+            public void onAdClicked() {
+                super.onAdClicked();
+            }
+
+            @Override
+            public void onAdClosed() {
+                super.onAdClosed();
+            }
+
+            @Override
+            public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+                super.onAdFailedToLoad(loadAdError);
+                Log.d(TAG, "onAdFailedToLoad: "+loadAdError.getMessage());
+                adContainerView.setVisibility(GONE);
+                setVisibility(GONE);
+                measure(0, 0);
+            }
+
+            @Override
+            public void onAdImpression() {
+                super.onAdImpression();
+            }
+
+            @Override
+            public void onAdLoaded() {
+                super.onAdLoaded();
+                adContainerView.setVisibility(VISIBLE);
+                setVisibility(VISIBLE);
+                requestLayout();
+                setAdAsShown();
+                Log.d(TAG, "onAdLoaded: "+adContainerView.getVisibility());
+            }
+        });
+
+        AdRequest adRequest = new AdRequest.Builder().build();
+
+
+        // Start loading the ad in the background.
+        adView.loadAd(adRequest);
+    }
+
+    private AdSize getAdSize() {
+        // Determine the screen width (less decorations) to use for the ad width.
+        WindowManager wm = (WindowManager)getContext().getSystemService(Context.WINDOW_SERVICE);
+
+        Display display = wm.getDefaultDisplay();
+        DisplayMetrics outMetrics = new DisplayMetrics();
+        display.getMetrics(outMetrics);
+
+        float density = outMetrics.density;
+
+        float adWidthPixels = adContainerView.getWidth();
+
+        // If the ad hasn't been laid out, default to the full screen width.
+        if (adWidthPixels == 0) {
+            adWidthPixels = outMetrics.widthPixels;
+        }
+
+        int adWidth = (int) (adWidthPixels / density);
+        return AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(getContext(), adWidth);
     }
 
 }

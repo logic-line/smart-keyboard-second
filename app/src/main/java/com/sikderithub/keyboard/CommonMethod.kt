@@ -27,6 +27,7 @@ import android.view.animation.Transformation
 import android.webkit.MimeTypeMap
 import android.widget.Toast
 import androidx.annotation.ColorInt
+import com.google.android.gms.ads.AdSize
 import java.text.SimpleDateFormat
 import java.util.*
 import java.util.concurrent.TimeUnit
@@ -464,5 +465,6 @@ object CommonMethod {
         // Combine the RGB components into a single color integer
         return Color.rgb(oppositeRed, oppositeGreen, oppositeBlue)
     }
+
 
 }
