@@ -35,7 +35,7 @@
             <Key
                 keybaord:keySpec="!text/keyspec_tablet_period"
                 keybaord:keyHintLabel="!text/keyhintlabel_tablet_period"
-                keybaord:keyLabelFlags="hasPopupHint"
+                keybaord:keyLabelFlags="hasPopupHint |followFunctionalTextColor"
                 keybaord:moreKeys="!text/morekeys_tablet_period"
                 keybaord:backgroundType="functional"
                 keybaord:keyStyle="hasShiftedLetterHintStyle" />
