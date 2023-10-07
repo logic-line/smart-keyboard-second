@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
 /*
 **
 ** Copyright 2014, The Android Open Source Project
@@ -28,6 +27,7 @@
         <item>Custom</item>
         <item>New Theme</item>
         <item>@string/elegant_midnight_aqua</item>
+        <item>@string/dark_lime</item>
     </string-array>
     <!-- An element must be a keyboard theme id of
          {@link com.android.inputmethod.keyboard.KeyboardTheme#THEME_ID_ICS} etc. -->
@@ -40,5 +40,6 @@
         <item>6</item>
         <item>7</item>
         <item>8</item>
+        <item>9</item>
     </integer-array>
 </resources>

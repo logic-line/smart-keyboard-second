@@ -259,6 +259,7 @@
             <enum name="Custom" value="6" />
             <enum name="NewTheme" value="7" />
             <enum name="ElegantMidnightAqua" value="8" />
+            <enum name="DarkLime" value="9" />
         </attr>
         <!-- Touch position correction -->
         <attr name="touchPositionCorrectionData" format="reference" />
