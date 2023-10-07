@@ -227,7 +227,7 @@
             <key-style
                 keybaord:styleName="defaultEnterKeyStyle"
                 keybaord:keySpec="!icon/enter_key|!code/key_enter"
-                keybaord:keyLabelFlags="preserveCase|autoXScale|followKeyLabelRatio|followFunctionalTextColor|keepBackgroundAspectRatio"
+                keybaord:keyLabelFlags="preserveCase|autoXScale|followKeyLabelRatio|followFunctionalTextColor"
                 keybaord:keyActionFlags="noKeyPreview"
                 keybaord:backgroundType="action"
                 keybaord:parentStyle="navigateMoreKeysStyle" />

@@ -42,6 +42,7 @@
         <include
             keybaord:keyboardLayout="@xml/key_period" />
         <Key
+            keybaord:backgroundType="action"
             keybaord:keyStyle="enterKeyStyle"
             keybaord:keyWidth="15%p" />
     </Row>
