@@ -48,7 +48,7 @@
         <default>
             <Key
                 keybaord:keySpec="!text/keyspec_comma"
-                keybaord:keyLabelFlags="hasPopupHint"
+                keybaord:keyLabelFlags="hasPopupHint|followFunctionalTextColor"
                 keybaord:keyStyle="settingsMoreKeysStyle" />
         </default>
     </switch>

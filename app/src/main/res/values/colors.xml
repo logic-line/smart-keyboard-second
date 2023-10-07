@@ -105,4 +105,10 @@
     <color name="key_text_color_mj_light">@android:color/white</color>
     <color name="mj_light_key_color">#000000</color>
 
+
+    <color name="elegant_midnight_aqua_functional_bg_color">#009788</color>
+    <color name="elegant_midnight_aqua_key_bg_color">#1C1C1E</color>
+    <color name="elegant_midnight_aqua_key_color">#84DCE8</color>
+    <color name="elegant_midnight_aqua_key_inactivated_color">#27706B</color>
+
 </resources>

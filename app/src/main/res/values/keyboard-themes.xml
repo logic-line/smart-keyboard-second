@@ -27,6 +27,7 @@
         <item>@string/keyboard_theme_holo_blue</item>
         <item>Custom</item>
         <item>New Theme</item>
+        <item>@string/elegant_midnight_aqua</item>
     </string-array>
     <!-- An element must be a keyboard theme id of
          {@link com.android.inputmethod.keyboard.KeyboardTheme#THEME_ID_ICS} etc. -->
@@ -38,5 +39,6 @@
         <item>0</item>
         <item>6</item>
         <item>7</item>
+        <item>8</item>
     </integer-array>
 </resources>

@@ -49,7 +49,7 @@
                 keybaord:keySpec="!text/keyspec_tablet_comma"
                 keybaord:moreKeys="!text/morekeys_tablet_comma,%"
                 keybaord:keyHintLabel="!text/keyhintlabel_tablet_comma"
-                keybaord:keyLabelFlags="hasPopupHint"
+                keybaord:keyLabelFlags="hasPopupHint | followFunctionalTextColor"
                 keybaord:keyStyle="settingsMoreKeysStyle" />
         </default>
     </switch>
