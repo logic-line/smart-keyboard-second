@@ -79,6 +79,7 @@
         name="EmojiPalettesView.dark_lime"
         parent="MainKeyboardView.dark_lime"
         >
+        <item name="android:background">@drawable/dark_lime_keyboard_background</item>
         <item name="categoryIndicatorEnabled">false</item>
         <item name="categoryPageIndicatorColor">@color/highlight_color_lxx_dark</item>
         <item name="categoryPageIndicatorBackground">@color/gnt_black</item>
