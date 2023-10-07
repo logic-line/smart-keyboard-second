@@ -22,9 +22,7 @@
     <style
         name="InputView.MJ"
         parent="InputView"
-        >
-
-    </style>
+        />
     <!-- LXX KeyboardView theme (LXX_Light and LXX_Dark) -->
     <style
         name="KeyboardView.MJ"
