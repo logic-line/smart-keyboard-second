@@ -131,4 +131,11 @@
     <color name="oceanic_elegance_key">#80DEEB</color>
     <color name="oceanic_elegance_key_inactive">#117B7C</color>
     <color name="oceanic_elegance_functional_key">#81CBC4</color>
+
+    <color name="purple_haze_background">#683CB9</color>
+    <color name="purple_haze_key_bg">#EEE8F6</color>
+    <color name="purple_haze_functional_key_bg">#301B92</color>
+    <color name="purple_haze_key">#301B92</color>
+    <color name="purple_haze_key_inactive">#B39EDB</color>
+    <color name="purple_haze_functional_key">#F1F1F4</color>
 </resources>

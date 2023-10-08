@@ -361,6 +361,7 @@ mobile devices. [CHAR LIMIT=25] -->
     <string name="midnight_blossom" translatable="false">Midnight Bolossom</string>
     <string name="mystic_magenta" translatable="false">Mystic Magenta</string>
     <string name="oceanic_elegance" translatable="false">Oceanic Elegance</string>
+    <string name="purple_haze" translatable="false">Purple Haze</string>
     <string name="dark_lime" translatable="false">Dark Lime</string>
 
     <!-- Title of the preference settings for custom input styles (language and keyboard layout pairs) [CHAR LIMIT=35]-->

@@ -31,6 +31,7 @@
         <item>@string/midnight_blossom</item>
         <item>@string/mystic_magenta</item>
         <item>@string/oceanic_elegance</item>
+        <item>@string/purple_haze</item>
     </string-array>
     <!-- An element must be a keyboard theme id of
          {@link com.android.inputmethod.keyboard.KeyboardTheme#THEME_ID_ICS} etc. -->
@@ -47,5 +48,6 @@
         <item>10</item>
         <item>11</item>
         <item>12</item>
+        <item>13</item>
     </integer-array>
 </resources>
