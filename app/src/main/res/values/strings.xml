@@ -359,6 +359,7 @@ mobile devices. [CHAR LIMIT=25] -->
     <string name="keyboard_theme_mj_light" translatable="false">MJ Light</string>
     <string name="elegant_midnight_aqua" translatable="false">Elegant Midnight Aqua</string>
     <string name="midnight_blossom" translatable="false">Midnight Bolossom</string>
+    <string name="mystic_magenta" translatable="false">Mystic Magenta</string>
     <string name="dark_lime" translatable="false">Dark Lime</string>
 
     <!-- Title of the preference settings for custom input styles (language and keyboard layout pairs) [CHAR LIMIT=35]-->

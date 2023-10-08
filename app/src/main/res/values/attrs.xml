@@ -261,6 +261,7 @@
             <enum name="ElegantMidnightAqua" value="8" />
             <enum name="DarkLime" value="9" />
             <enum name="MidnightBlossom" value="10" />
+            <enum name="MysticMagenta" value="11"/>
         </attr>
         <!-- Touch position correction -->
         <attr name="touchPositionCorrectionData" format="reference" />

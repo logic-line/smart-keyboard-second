@@ -44,6 +44,7 @@ public final class KeyboardTheme implements Comparable<KeyboardTheme> {
     public static final int THEME_ELEGANT_MIDNIGHT_AQUA = 8;
     public static final int THEME_DARK_LIME = 9;
     public static final int THEME_MIDNIGHT_BOLOSSOM = 10;
+    public static final int THEME_MYSTIC_MAGENTA = 11;
     public static final int DEFAULT_THEME_ID = THEME_ID_KLP;
     /* package private for testing */
     public static final KeyboardTheme[] KEYBOARD_THEMES = {
@@ -63,6 +64,9 @@ public final class KeyboardTheme implements Comparable<KeyboardTheme> {
             new KeyboardTheme(THEME_DARK_LIME, "Dark Lime", R.style.KeyboardTheme_dark_lime,
                     // Default theme for LXX.
                     VERSION_CODES.LOLLIPOP),
+            new KeyboardTheme(THEME_MYSTIC_MAGENTA, "Mystic Magenta", R.style.KeyboardTheme_mystic_magenta,
+                    // Default theme for LXX.
+                    VERSION_CODES.LOLLIPOP),
             new KeyboardTheme(THEME_ID_ICS, "ICS", R.style.KeyboardTheme_ICS,
                     // This has never been selected because we support ICS or later.
                     VERSION_CODES.BASE),
@@ -72,8 +76,6 @@ public final class KeyboardTheme implements Comparable<KeyboardTheme> {
             new KeyboardTheme(THEME_ID_LXX_LIGHT, "LXXLight", KeyboardTheme_LXX_Light,
                     // Default theme for LXX.
                     VERSION_CODES.LOLLIPOP),
-
-
             new KeyboardTheme(THEME_ID_LXX_DARK, "LXXDark", R.style.KeyboardTheme_LXX_Dark,
                     // This has never been selected as default theme.
                     VERSION_CODES.BASE),

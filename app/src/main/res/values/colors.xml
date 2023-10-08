@@ -119,4 +119,11 @@
     <color name="midnight_bolossom_key_color">#BB90A0</color>
     <color name="midnight_bolossom_sliding_preview_color">#220815</color>
 
+    <color name="mystic_magenta_key_bg">#EA1E63</color>
+    <color name="mystic_magenta_functional_bg">#1C1C1E</color>
+    <color name="mystic_magenta_key_inactivated_color">#F58FB1</color>
+    <color name="mystic_magenta_key_color">#fff</color>
+    <color name="mystic_magenta_functional_key_color">#EA1E63</color>
+
+
 </resources>
