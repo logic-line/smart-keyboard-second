@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <style name="KeyboardTheme.oceanic_elegance" parent="KeyboardIcons.LXX_Dark">
+        <item name="iconDeleteKey">@drawable/keyboard_delete_oceanic_elegance</item>
+        <item name="iconShiftKey">@drawable/keyboard_shift_oceanic_elegance</item>
+        <item name="iconShiftKeyShifted">@drawable/keyboard_shift_locked_oceanic_elegance</item>
+        <item name="iconEnterKey">@drawable/keyboard_return_oceanic_elegance</item>
+        <item name="iconGoKey">@drawable/keyboard_go_oceanic_elegance</item>
+        <item name="iconSearchKey">@drawable/keyboard_search_oceanic_elegance</item>
+        <item name="iconSendKey">@drawable/keyboard_send_oceanic_elegance</item>
+        <item name="iconDoneKey">@drawable/keyboard_done_oceanic_elegance</item>
+        <item name="iconEmojiActionKey">@drawable/keyboard_smiley_oceanic_elegance</item>
+        <item name="iconEmojiNormalKey">@drawable/keyboard_smiley_oceanic_elegance</item>
+
+        <item name="inputViewStyle">@style/InputView.MJ</item>
+        <item name="keyboardStyle">@style/Keyboard.oceanic_elegance</item>
+        <item name="keyboardViewStyle">@style/KeyboardView.oceanic_elegance</item>
+        <item name="mainKeyboardViewStyle">@style/MainKeyboardView.oceanic_elegance</item>
+        <item name="emojiPalettesViewStyle">@style/EmojiPalettesView.oceanic_elegance</item>
+        <item name="moreKeysKeyboardStyle">@style/MoreKeysKeyboard.oceanic_elegance</item>
+        <item name="moreKeysKeyboardViewStyle">@style/MoreKeysKeyboardView.oceanic_elegance</item>
+        <item name="moreKeysKeyboardViewForActionStyle">@style/MoreKeysKeyboardView.oceanic_elegance.Action</item>
+        <item name="suggestionStripViewStyle">@style/SuggestionStripView.oceanic_elegance</item>
+        <item name="suggestionWordStyle">@style/SuggestionWord.oceanic_elegance</item>
+        <item name="gkViewStyle">@style/questionTextStyle.oceanic_elegance</item>
+    </style>
+    <style
+        name="Keyboard.oceanic_elegance"
+        parent="Keyboard"
+        >
+        <!-- This should be aligned with KeyboardTheme.THEME_ID_* -->
+        <item name="themeId">ElegantMidnightAqua</item>
+    </style>
+    <style
+        name="KeyboardView.oceanic_elegance"
+        parent="KeyboardView.MJ">
+        <item name="android:background">@color/oceanic_elegance_background</item>
+        <item name="keyBackground">@drawable/btn_keyboard_key_oceanic_elegance</item>
+        <item name="functionalKeyBackground">@drawable/btn_keyboard_key_functional_oceanic_elegance</item>
+        <item name="spacebarBackground">@drawable/space_key_background_oceanic_elegance</item>
+        <item name="keyTextColor">@color/mystic_magenta_key_color</item>
+        <item name="keyTextInactivatedColor">@color/oceanic_elegance_key_inactive</item>
+        <item name="functionalTextColor">@color/oceanic_elegance_functional_key</item>
+        <item name="keyHintLetterColor">@color/oceanic_elegance_key_inactive</item>
+        <item name="keyHintLabelColor">@color/key_hint_label_color_holo</item>
+        <item name="keyShiftedLetterHintInactivatedColor">@color/key_shifted_letter_hint_inactivated_color_holo</item>
+        <item name="keyShiftedLetterHintActivatedColor">@color/mystic_magenta_key_color</item>
+        <item name="keyPreviewTextColor">@color/oceanic_elegance_key_bg</item>
+    </style>
+    <style
+        name="MainKeyboardView.oceanic_elegance"
+        parent="KeyboardView.oceanic_elegance"
+        >
+
+        <item name="keyPreviewBackground">@drawable/elegant_midnight_aqua_key_preview_bg</item>
+        <item name="keyPreviewHeight">@dimen/config_key_preview_height_holo</item>
+        <item name="keyPreviewOffset">@dimen/config_key_preview_offset_holo</item>
+        <item name="keyPreviewShowUpAnimator">@anim/key_preview_show_up_holo</item>
+        <item name="keyPreviewDismissAnimator">@anim/key_preview_dismiss_holo</item>
+        <item name="gestureFloatingPreviewTextColor">@color/highlight_color_ics</item>
+        <item name="gestureFloatingPreviewColor">@color/gesture_floating_preview_color_holo</item>
+        <item name="gestureTrailColor">@color/highlight_color_ics</item>
+        <item name="slidingKeyInputPreviewColor">@color/oceanic_elegance_key_inactive</item>
+        <item name="languageOnSpacebarTextColor">@android:color/white</item>
+        <item name="languageOnSpacebarTextShadowRadius">1.0</item>
+        <item name="languageOnSpacebarTextShadowColor">@color/spacebar_text_shadow_color_holo</item>
+        <item name="spaceBarLeftIcon">@drawable/baseline_arrow_left_black</item>
+    </style>
+    <!-- Though {@link com.android.inputmethod.keyboard.emoji.EmojiPalettesView} doesn't extend
+         {@link com.android.inputmethod.keyboard.KeyboardView}, some views inside it, for instance
+         delete button, need themed {@link com.android.inputmethod.keyboard.KeyboardView}
+         attributes. -->
+    <style
+        name="EmojiPalettesView.oceanic_elegance"
+        parent="MainKeyboardView.oceanic_elegance"
+        >
+        <item name="categoryIndicatorEnabled">false</item>
+        <item name="categoryPageIndicatorColor">@color/highlight_color_lxx_dark</item>
+        <item name="categoryPageIndicatorBackground">@color/gnt_black</item>
+        <item name="iconEmojiRecentsTab">@drawable/ic_emoji_recents_lxx_dark</item>
+        <item name="iconEmojiCategory1Tab">@drawable/ic_emoji_people_lxx_dark</item>
+        <item name="iconEmojiCategory2Tab">@drawable/ic_emoji_objects_lxx_dark</item>
+        <item name="iconEmojiCategory3Tab">@drawable/ic_emoji_nature_lxx_dark</item>
+        <item name="iconEmojiCategory4Tab">@drawable/ic_emoji_places_lxx_dark</item>
+        <item name="iconEmojiCategory5Tab">@drawable/ic_emoji_symbols_lxx_dark</item>
+        <item name="iconEmojiCategory6Tab">@drawable/ic_emoji_emoticons_lxx_dark</item>
+        <item name="iconEmojiCategory7Tab">@drawable/ic_emoji_flag_lxx_dark</item>
+        <item name="iconEmojiCategory8Tab">@drawable/ic_emoji_people_lxx_dark</item>
+        <item name="iconEmojiCategory9Tab">@drawable/ic_emoji_nature_lxx_dark</item>
+        <item name="iconEmojiCategory10Tab">@drawable/ic_emoji_food_lxx_dark</item>
+        <item name="iconEmojiCategory11Tab">@drawable/ic_emoji_places_lxx_dark</item>
+        <item name="iconEmojiCategory12Tab">@drawable/ic_emoji_activity_lxx_dark</item>
+        <item name="iconEmojiCategory13Tab">@drawable/ic_emoji_objects_lxx_dark</item>
+        <item name="iconEmojiCategory14Tab">@drawable/ic_emoji_symbols_lxx_dark</item>
+        <item name="iconEmojiCategory15Tab">@drawable/ic_emoji_flag_lxx_dark</item>
+        <item name="iconEmojiCategory16Tab">@drawable/ic_emoji_people_lxx_dark</item>
+    </style>
+    <style
+        name="MoreKeysKeyboard.oceanic_elegance"
+        parent="Keyboard.oceanic_elegance"
+        >
+        <item name="keyboardTopPadding">0%p</item>
+        <item name="keyboardBottomPadding">0%p</item>
+        <item name="horizontalGap">0%p</item>
+        <item name="touchPositionCorrectionData">@null</item>
+    </style>
+    <style
+        name="MoreKeysKeyboardView.oceanic_elegance"
+        parent="KeyboardView.oceanic_elegance"
+        >
+        <item name="android:background">@drawable/keyboard_popup_panel_background_klp</item>
+        <item name="keyBackground">@drawable/btn_keyboard_key_popup_lxx_dark</item>
+        <item name="divider">@drawable/more_keys_divider</item>
+        <item name="keyTypeface">normal</item>
+        <item name="verticalCorrection">@dimen/config_more_keys_keyboard_vertical_correction_holo</item>
+    </style>
+    <style
+        name="MoreKeysKeyboardView.oceanic_elegance.Action"
+        parent="MoreKeysKeyboardView.oceanic_elegance"
+        >
+        <item name="android:background">@android:color/transparent</item>
+        <item name="keyBackground">@drawable/btn_keyboard_key_popup_action_lxx_dark</item>
+        <item name="divider">@null</item>
+        <item name="keyLabelFlags">keepBackgroundAspectRatio</item>
+    </style>
+    <style
+        name="SuggestionStripView.oceanic_elegance"
+        parent="KeyboardView.oceanic_elegance"
+        >
+        <item name="suggestionsCountInStrip">@integer/config_suggestions_count_in_strip</item>
+        <item name="centerSuggestionPercentile">@fraction/config_center_suggestion_percentile</item>
+        <item name="maxMoreSuggestionsRow">@integer/config_max_more_suggestions_row</item>
+        <item name="minMoreSuggestionsWidth">@fraction/config_min_more_suggestions_width</item>
+        <item name="android:background">@drawable/keybaord_suggest_strip_mj_light</item>
+        <item name="android:src">@drawable/suggestions_strip_divider_holo</item>
+        <item name="suggestionStripOptions">autoCorrectBold|validTypedWordBold</item>
+        <item name="colorValidTypedWord">@color/typed_word_color_ics</item>
+        <item name="colorTypedWord">@color/auto_correct_color_lxx_dark</item>
+        <item name="colorAutoCorrect">@color/highlight_color_ics</item>
+        <item name="colorSuggested">@color/oceanic_elegance_key_inactive</item>
+        <item name="alphaObsoleted">70%</item>
+        <item name="savedGkIcon">@drawable/bookmark_generic_white</item>
+        <item name="emojiIcon">@drawable/emoji_generic_black</item>
+        <item name="backIcon">@drawable/arrow_left_black</item>
+        <item name="messageIcon">@drawable/message</item>
+        <item name="updateIcon">@drawable/updated</item>
+        <item name="themeIcon">@drawable/theme_generic_white</item>
+    </style>
+    <style
+        name="SuggestionWord.oceanic_elegance"
+        parent="SuggestionWord"
+        >
+        <item name="android:background">@drawable/btn_suggestion_lxx_dark</item>
+        <item name="android:textColor">@color/highlight_color_lxx_dark</item>
+    </style>
+
+    <style name="questionTextStyle.oceanic_elegance" parent="SuggestionStripView.oceanic_elegance">
+        <item name="questIonTextColor">@android:color/white</item>
+    </style>
+
+</resources>

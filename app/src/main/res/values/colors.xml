@@ -125,5 +125,10 @@
     <color name="mystic_magenta_key_color">#fff</color>
     <color name="mystic_magenta_functional_key_color">#EA1E63</color>
 
-
+    <color name="oceanic_elegance_background">#1C1C1E</color>
+    <color name="oceanic_elegance_key_bg">#016064</color>
+    <color name="oceanic_elegance_functional_key_bg">#009788</color>
+    <color name="oceanic_elegance_key">#80DEEB</color>
+    <color name="oceanic_elegance_key_inactive">#117B7C</color>
+    <color name="oceanic_elegance_functional_key">#81CBC4</color>
 </resources>
