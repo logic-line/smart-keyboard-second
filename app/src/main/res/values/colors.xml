@@ -115,4 +115,8 @@
     <color name="dark_lime_key_bg_color">#1C1B1E</color>
     <color name="dark_lime_key_inactivated_color">#555457</color>
 
+    <color name="midnight_bolossom_functional_bg">#F390B1</color>
+    <color name="midnight_bolossom_key_color">#BB90A0</color>
+    <color name="midnight_bolossom_sliding_preview_color">#220815</color>
+
 </resources>

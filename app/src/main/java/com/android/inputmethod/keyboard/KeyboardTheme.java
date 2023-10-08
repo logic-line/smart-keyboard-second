@@ -57,7 +57,7 @@ public final class KeyboardTheme implements Comparable<KeyboardTheme> {
             new KeyboardTheme(THEME_ELEGANT_MIDNIGHT_AQUA, "Elegant Midnight Aqua", R.style.KeyboardTheme_Elegant_midnight_aqua,
                     // Default theme for LXX.
                     VERSION_CODES.LOLLIPOP),
-            new KeyboardTheme(THEME_MIDNIGHT_BOLOSSOM, "Midnight Bolossom", R.style.KeyboardTheme_Elegant_midnight_aqua,
+            new KeyboardTheme(THEME_MIDNIGHT_BOLOSSOM, "Midnight Bolossom", R.style.KeyboardTheme_midnight_bolossom,
                     // Default theme for LXX.
                     VERSION_CODES.LOLLIPOP),
             new KeyboardTheme(THEME_DARK_LIME, "Dark Lime", R.style.KeyboardTheme_dark_lime,
