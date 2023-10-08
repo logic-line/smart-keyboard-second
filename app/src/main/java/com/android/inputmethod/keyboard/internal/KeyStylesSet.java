@@ -21,7 +21,7 @@ import android.util.Log;
 import android.util.SparseArray;
 
 import com.android.inputmethod.latin.utils.XmlParseUtils;
-import com.sikderithub.keyboard.R;
+import com.banglakeyboard.pro.R;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;

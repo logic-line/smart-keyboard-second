@@ -52,8 +52,8 @@ import com.android.inputmethod.latin.settings.Settings;
 import com.android.inputmethod.latin.settings.SettingsValues;
 import com.android.inputmethod.latin.utils.ResourceUtils;
 import com.android.inputmethod.latin.utils.ViewLayoutUtils;
-import com.sikderithub.keyboard.R;
-import com.sikderithub.keyboard.Utils.CustomThemeHelper;
+import com.banglakeyboard.pro.R;
+import com.banglakeyboard.pro.Utils.CustomThemeHelper;
 
 import java.util.ArrayList;
 

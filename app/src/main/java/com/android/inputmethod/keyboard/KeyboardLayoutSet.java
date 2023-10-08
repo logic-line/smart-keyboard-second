@@ -42,7 +42,7 @@ import com.android.inputmethod.latin.utils.InputTypeUtils;
 import com.android.inputmethod.latin.utils.ScriptUtils;
 import com.android.inputmethod.latin.utils.SubtypeLocaleUtils;
 import com.android.inputmethod.latin.utils.XmlParseUtils;
-import com.sikderithub.keyboard.R;
+import com.banglakeyboard.pro.R;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -188,6 +188,7 @@ public final class KeyboardLayoutSet {
         ElementParams elementParams = mParams.mKeyboardLayoutSetElementIdToParamsMap.get(
                 keyboardLayoutSetElementId);
 
+
         if (elementParams == null) {
             elementParams = mParams.mKeyboardLayoutSetElementIdToParamsMap.get(
                     KeyboardId.ELEMENT_ALPHABET);
@@ -201,6 +202,7 @@ public final class KeyboardLayoutSet {
                 && elementParams.mSupportsSplitLayout;
 
         final KeyboardId id = new KeyboardId(keyboardLayoutSetElementId, mParams);
+
 
         try {
             return getKeyboard(elementParams, id);

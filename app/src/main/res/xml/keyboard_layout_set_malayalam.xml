@@ -19,7 +19,7 @@
 -->
 
 <KeyboardLayoutSet
-    xmlns:keybaord="http://schemas.android.com/apk/res/com.sikderithub.keyboard">
+    xmlns:keybaord="http://schemas.android.com/apk/res/com.banglakeyboard.pro">
     <Feature
         keybaord:supportedScript="malayalam" />
     <Element

@@ -24,7 +24,7 @@ import android.util.Log;
 
 import com.android.inputmethod.keyboard.PointerTracker;
 import com.android.inputmethod.latin.common.CoordinateUtils;
-import com.sikderithub.keyboard.R;
+import com.banglakeyboard.pro.R;
 
 /**
  * Draw rubber band preview graphics during sliding key input.

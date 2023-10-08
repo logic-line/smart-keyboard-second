@@ -23,7 +23,7 @@ import android.util.Xml;
 import com.android.inputmethod.keyboard.Key;
 import com.android.inputmethod.keyboard.Keyboard;
 import com.android.inputmethod.latin.utils.ResourceUtils;
-import com.sikderithub.keyboard.R;
+import com.banglakeyboard.pro.R;
 
 import org.xmlpull.v1.XmlPullParser;
 

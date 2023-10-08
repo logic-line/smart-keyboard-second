@@ -18,7 +18,7 @@
 */
 -->
 
-<merge xmlns:keybaord="http://schemas.android.com/apk/res/com.sikderithub.keyboard">
+<merge xmlns:keybaord="http://schemas.android.com/apk/res/com.banglakeyboard.pro">
     <!-- U+0634: "ش" ARABIC LETTER SHEEN
          U+069C: "ڜ" ARABIC LETTER SEEN WITH THREE DOTS BELOW AND THREE DOTS ABOVE -->
     <!-- TODO: DroidSansArabic lacks the glyph of U+069C ARABIC LETTER SEEN WITH THREE DOTS BELOW AND THREE DOTS ABOVE -->

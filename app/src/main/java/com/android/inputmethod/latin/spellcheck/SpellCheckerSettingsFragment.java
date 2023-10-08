@@ -30,7 +30,7 @@ import com.android.inputmethod.latin.permissions.PermissionsUtil;
 import com.android.inputmethod.latin.settings.SubScreenFragment;
 import com.android.inputmethod.latin.settings.TwoStatePreferenceHelper;
 import com.android.inputmethod.latin.utils.ApplicationUtils;
-import com.sikderithub.keyboard.R;
+import com.banglakeyboard.pro.R;
 
 /**
  * Preference screen.

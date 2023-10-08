@@ -18,7 +18,7 @@
 */
 -->
 
-<merge xmlns:keybaord="http://schemas.android.com/apk/res/com.sikderithub.keyboard" >
+<merge xmlns:keybaord="http://schemas.android.com/apk/res/com.banglakeyboard.pro" >
     <include keybaord:keyboardLayout="@xml/rowkeys_qwerty1" />
     <!-- U+006F/U+02BB: "oʻ" LATIN SMALL LETTER O/MODIFIER LETTER TURNED COMMA -->
     <Key

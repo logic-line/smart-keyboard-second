@@ -102,10 +102,10 @@ import com.android.inputmethod.latin.utils.StatsUtilsManager;
 import com.android.inputmethod.latin.utils.SubtypeLocaleUtils;
 import com.android.inputmethod.latin.utils.ViewLayoutUtils;
 import com.android.inputmethod.utils.LanguageSwitcher;
-import com.sikderithub.keyboard.R;
-import com.sikderithub.keyboard.Utils.CustomThemeHelper;
-import com.sikderithub.keyboard.Views.SavedGkViews;
-import com.sikderithub.keyboard.Views.TopView;
+import com.banglakeyboard.pro.R;
+import com.banglakeyboard.pro.Utils.CustomThemeHelper;
+import com.banglakeyboard.pro.Views.SavedGkViews;
+import com.banglakeyboard.pro.Views.TopView;
 
 import java.io.FileDescriptor;
 import java.io.PrintWriter;

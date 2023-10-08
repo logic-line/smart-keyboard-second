@@ -32,7 +32,7 @@ import android.util.Log;
 
 import com.android.inputmethod.latin.common.LocaleUtils;
 import com.android.inputmethod.latin.utils.DebugLogUtils;
-import com.sikderithub.keyboard.R;
+import com.banglakeyboard.pro.R;
 
 import java.io.File;
 import java.io.FileNotFoundException;

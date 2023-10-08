@@ -65,13 +65,12 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.LoadAdError;
-import com.sikderithub.keyboard.Models.Theme;
-import com.sikderithub.keyboard.MyApp;
-import com.sikderithub.keyboard.R;
-import com.sikderithub.keyboard.Utils.Common;
-import com.sikderithub.keyboard.Utils.CustomThemeHelper;
-import com.sikderithub.keyboard.Views.GkView;
-import com.sikderithub.keyboard.Views.NativeAd.TemplateView;
+import com.banglakeyboard.pro.Models.Theme;
+import com.banglakeyboard.pro.MyApp;
+import com.banglakeyboard.pro.R;
+import com.banglakeyboard.pro.Utils.Common;
+import com.banglakeyboard.pro.Utils.CustomThemeHelper;
+import com.banglakeyboard.pro.Views.NativeAd.TemplateView;
 
 /**
  * View class to implement Emoji palettes.
@@ -131,7 +130,6 @@ public final class EmojiPalettesView extends LinearLayout implements OnTabChange
     public EmojiPalettesView(final Context context, final AttributeSet attrs, final int defStyle) {
         super(context, attrs, defStyle);
 
-        GkEngine.getGkFromLocal();
 
         if(CustomThemeHelper.isCustomThemeApplicable(getContext()) && CustomThemeHelper.selectedCustomTheme!=null){
             Drawable bgDrawable = CustomThemeHelper.getKeyboardBackgroundDrawable(context,CustomThemeHelper.selectedCustomTheme);

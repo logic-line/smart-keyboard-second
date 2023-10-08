@@ -33,7 +33,7 @@ import com.android.inputmethod.latin.userdictionary.UserDictionaryAddWordFragmen
 import com.android.inputmethod.latin.userdictionary.UserDictionaryList;
 import com.android.inputmethod.latin.userdictionary.UserDictionaryLocalePicker;
 import com.android.inputmethod.latin.userdictionary.UserDictionarySettings;
-import com.sikderithub.keyboard.Fragments.TutorialFragment;
+import com.banglakeyboard.pro.Fragments.TutorialFragment;
 
 import java.util.HashSet;
 

@@ -19,7 +19,7 @@
 -->
 
 <merge
-    xmlns:keybaord="http://schemas.android.com/apk/res/com.sikderithub.keyboard"
+    xmlns:keybaord="http://schemas.android.com/apk/res/com.banglakeyboard.pro"
 >
     <!-- Navigate more keys style -->
     <include keybaord:keyboardLayout="@xml/key_styles_navigate_more_keys" />
@@ -227,7 +227,7 @@
             <key-style
                 keybaord:styleName="defaultEnterKeyStyle"
                 keybaord:keySpec="!icon/enter_key|!code/key_enter"
-                keybaord:keyLabelFlags="preserveCase|autoXScale|followKeyLabelRatio|followFunctionalTextColor|keepBackgroundAspectRatio"
+                keybaord:keyLabelFlags="preserveCase|autoXScale|followKeyLabelRatio|followFunctionalTextColor"
                 keybaord:keyActionFlags="noKeyPreview"
                 keybaord:backgroundType="action"
                 keybaord:parentStyle="navigateMoreKeysStyle" />
