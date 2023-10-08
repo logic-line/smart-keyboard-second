@@ -28,6 +28,7 @@
         <item>New Theme</item>
         <item>@string/elegant_midnight_aqua</item>
         <item>@string/dark_lime</item>
+        <item>@string/midnight_blossom</item>
     </string-array>
     <!-- An element must be a keyboard theme id of
          {@link com.android.inputmethod.keyboard.KeyboardTheme#THEME_ID_ICS} etc. -->
@@ -41,5 +42,6 @@
         <item>7</item>
         <item>8</item>
         <item>9</item>
+        <item>10</item>
     </integer-array>
 </resources>
