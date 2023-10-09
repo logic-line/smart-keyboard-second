@@ -7,7 +7,7 @@
         <item name="iconShiftKey">@drawable/sym_keyboard_shift_holo_dark</item>
         <item name="iconShiftKeyShifted">@drawable/sym_keyboard_shift_locked_holo_dark</item>
 
-        <item name="inputViewStyle">@style/InputView.MJ</item>
+        <item name="inputViewStyle">@style/InputView.midnight_bolossom</item>
         <item name="keyboardStyle">@style/Keyboard.midnight_bolossom</item>
         <item name="keyboardViewStyle">@style/KeyboardView.midnight_bolossom</item>
         <item name="mainKeyboardViewStyle">@style/MainKeyboardView.midnight_bolossom</item>
@@ -20,16 +20,24 @@
         <item name="gkViewStyle">@style/questionTextStyle.midnight_bolossom</item>
     </style>
     <style
+        name="InputView.midnight_bolossom"
+        parent="InputView.MJ"
+        >
+        <!-- This should be aligned with KeyboardTheme.THEME_ID_* -->
+
+
+    </style>
+    <style
         name="Keyboard.midnight_bolossom"
         parent="Keyboard"
         >
         <!-- This should be aligned with KeyboardTheme.THEME_ID_* -->
         <item name="themeId">ElegantMidnightAqua</item>
+        <item name="android:background">@color/black</item>
     </style>
     <style
         name="KeyboardView.midnight_bolossom"
         parent="KeyboardView.MJ">
-        <item name="android:background">@color/black</item>
         <item name="keyBackground">@drawable/btn_keyboard_key_midnight_bolossom</item>
         <item name="functionalKeyBackground">@drawable/btn_keyboard_key_functional_midnight_bolossom</item>
         <item name="spacebarBackground">@drawable/space_key_background_elegant_midnight_aqua</item>
@@ -69,9 +77,9 @@
         name="EmojiPalettesView.midnight_bolossom"
         parent="MainKeyboardView.midnight_bolossom"
         >
+        <item name="android:background">@color/black</item>
         <item name="categoryIndicatorEnabled">false</item>
         <item name="categoryPageIndicatorColor">@color/highlight_color_lxx_dark</item>
-        <item name="categoryPageIndicatorBackground">@color/gnt_black</item>
         <item name="iconEmojiRecentsTab">@drawable/ic_emoji_recents_lxx_dark</item>
         <item name="iconEmojiCategory1Tab">@drawable/ic_emoji_people_lxx_dark</item>
         <item name="iconEmojiCategory2Tab">@drawable/ic_emoji_objects_lxx_dark</item>
@@ -126,7 +134,6 @@
         <item name="centerSuggestionPercentile">@fraction/config_center_suggestion_percentile</item>
         <item name="maxMoreSuggestionsRow">@integer/config_max_more_suggestions_row</item>
         <item name="minMoreSuggestionsWidth">@fraction/config_min_more_suggestions_width</item>
-        <item name="android:background">@drawable/keybaord_suggest_strip_mj_light</item>
         <item name="android:src">@drawable/suggestions_strip_divider_holo</item>
         <item name="suggestionStripOptions">autoCorrectBold|validTypedWordBold</item>
         <item name="colorValidTypedWord">@color/typed_word_color_ics</item>

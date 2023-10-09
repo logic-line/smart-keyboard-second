@@ -7,7 +7,7 @@
         <item name="iconShiftKey">@drawable/sym_keyboard_shift_holo_dark</item>
         <item name="iconShiftKeyShifted">@drawable/sym_keyboard_shift_locked_holo_dark</item>
 
-        <item name="inputViewStyle">@style/InputView.MJ</item>
+        <item name="inputViewStyle">@style/InputView.Elegant_midnight_aqua</item>
         <item name="keyboardStyle">@style/Keyboard.Elegant_midnight_aqua</item>
         <item name="keyboardViewStyle">@style/KeyboardView.Elegant_midnight_aqua</item>
         <item name="mainKeyboardViewStyle">@style/MainKeyboardView.Elegant_midnight_aqua</item>
@@ -20,16 +20,25 @@
         <item name="gkViewStyle">@style/questionTextStyle.Elegant_midnight_aqua</item>
     </style>
     <style
+        name="InputView.Elegant_midnight_aqua"
+        parent="InputView.MJ"
+        >
+        <!-- This should be aligned with KeyboardTheme.THEME_ID_* -->
+
+
+    </style>
+
+    <style
         name="Keyboard.Elegant_midnight_aqua"
         parent="Keyboard"
         >
         <!-- This should be aligned with KeyboardTheme.THEME_ID_* -->
         <item name="themeId">ElegantMidnightAqua</item>
+        <item name="android:background">@color/black</item>
     </style>
     <style
         name="KeyboardView.Elegant_midnight_aqua"
         parent="KeyboardView.MJ">
-        <item name="android:background">@color/black</item>
         <item name="keyBackground">@drawable/btn_keyboard_key_elegant_midnight_aqua</item>
         <item name="functionalKeyBackground">@drawable/btn_keyboard_key_functional_elegant_midnight_aqua</item>
         <item name="spacebarBackground">@drawable/space_key_background_elegant_midnight_aqua</item>
@@ -69,9 +78,9 @@
         name="EmojiPalettesView.Elegant_midnight_aqua"
         parent="MainKeyboardView.Elegant_midnight_aqua"
         >
+        <item name="android:background">@color/black</item>
         <item name="categoryIndicatorEnabled">false</item>
         <item name="categoryPageIndicatorColor">@color/highlight_color_lxx_dark</item>
-        <item name="categoryPageIndicatorBackground">@color/gnt_black</item>
         <item name="iconEmojiRecentsTab">@drawable/ic_emoji_recents_lxx_dark</item>
         <item name="iconEmojiCategory1Tab">@drawable/ic_emoji_people_lxx_dark</item>
         <item name="iconEmojiCategory2Tab">@drawable/ic_emoji_objects_lxx_dark</item>
