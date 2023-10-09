@@ -23,7 +23,7 @@ import android.view.KeyEvent;
 
 import com.android.inputmethod.keyboard.KeyboardSwitcher;
 import com.android.inputmethod.latin.settings.Settings;
-import com.sikderithub.keyboard.R;
+import com.banglakeyboard.pro.R;
 
 import java.util.ArrayList;
 import java.util.HashSet;

@@ -16,11 +16,10 @@
 
 <!-- Note: This emoji code point list is valid on KLP and later (API >= 19).
      There is another emoji code point list for JB-MR2 under res/xml/values and values-v18.-->
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <array
         name="emoji_nature"
-        format="string"
-    >
+        format="string" tools:ignore="InconsistentArrays">
         <item>1f415</item>
         <item>1f436</item>
         <item>1f429</item>
@@ -202,8 +201,7 @@
     </array>
     <array
         name="emoji_symbols"
-        format="string"
-    >
+        format="string" tools:ignore="InconsistentArrays">
         <item>fe82e|0031,20e3|99</item> <!-- TODO: fix support min sdk version (99) -->
         <item>fe82f|0032,20e3|99</item> <!-- TODO: fix support min sdk version (99) -->
         <item>fe830|0033,20e3|99</item> <!-- TODO: fix support min sdk version (99) -->
@@ -431,8 +429,7 @@
     </array>
     <array
         name="emoji_faces"
-        format="string"
-    >
+        format="string" tools:ignore="InconsistentArrays">
         <item>263a</item>
         <item>1f60a</item>
         <item>1f600</item>
@@ -1454,7 +1451,8 @@
     <array
         name="emoji_eight_smiley_people"
         format="string"
-    >
+        >
+        <!-- Smiley faces -->
         <item>1f600</item>
         <item>1f601</item>
         <item>1f602</item>
@@ -1462,132 +1460,79 @@
         <item>1f604</item>
         <item>1f605</item>
         <item>1f606</item>
+        <item>1f607</item>
+        <item>1f608</item>
         <item>1f609</item>
         <item>1f60a</item>
         <item>1f60b</item>
-        <item>1f60e</item>
+        <item>1f60c</item>
         <item>1f60d</item>
-        <item>1f618</item>
-        <item>1f617</item>
-        <item>1f619</item>
-        <item>1f61a</item>
-        <item>263a</item>
-        <item>1f642</item>
-        <item>1f917</item>
-        <item>1f607</item>
-        <item>1f914</item>
+        <item>1f60e</item>
+        <item>1f60f</item>
         <item>1f610</item>
         <item>1f611</item>
-        <item>1f636</item>
-        <item>1f644</item>
-        <item>1f60f</item>
-        <item>1f623</item>
-        <item>1f625</item>
-        <item>1f62e</item>
-        <item>1f910</item>
-        <item>1f62f</item>
-        <item>1f62a</item>
-        <item>1f62b</item>
-        <item>1f634</item>
-        <item>1f60c</item>
-        <item>1f913</item>
-        <item>1f61b</item>
-        <item>1f61c</item>
-        <item>1f61d</item>
-        <!-- Removed for lack of color glyph support.  <item>2639</item>  -->
-        <item>1f641</item>
         <item>1f612</item>
         <item>1f613</item>
         <item>1f614</item>
         <item>1f615</item>
         <item>1f616</item>
-        <item>1f643</item>
-        <item>1f637</item>
-        <item>1f912</item>
-        <item>1f915</item>
-        <item>1f911</item>
-        <item>1f632</item>
+        <item>1f617</item>
+        <item>1f618</item>
+        <item>1f619</item>
+        <item>1f61a</item>
+        <item>1f61b</item>
+        <item>1f61c</item>
+        <item>1f61d</item>
         <item>1f61e</item>
         <item>1f61f</item>
-        <item>1f624</item>
+        <item>1f620</item>
+        <item>1f621</item>
         <item>1f622</item>
-        <item>1f62d</item>
+        <item>1f623</item>
+        <item>1f624</item>
+        <item>1f625</item>
         <item>1f626</item>
         <item>1f627</item>
         <item>1f628</item>
         <item>1f629</item>
+        <item>1f62a</item>
+        <item>1f62b</item>
         <item>1f62c</item>
+        <item>1f62d</item>
+        <item>1f62e</item>
+        <item>1f62f</item>
         <item>1f630</item>
         <item>1f631</item>
+        <item>1f632</item>
         <item>1f633</item>
+        <item>1f634</item>
         <item>1f635</item>
-        <item>1f621</item>
-        <item>1f620</item>
-        <item>1f608</item>
-        <item>1f47f</item>
-        <item>1f479</item>
-        <item>1f47a</item>
-        <item>1f480</item>
-        <!-- Removed for lack of color glyph support.  <item>2620</item>  -->
-        <item>1f47b</item>
-        <item>1f47d</item>
-        <item>1f47e</item>
-        <item>1f916</item>
-        <item>1f4a9</item>
-        <item>1f63a</item>
+        <item>1f636</item>
+        <item>1f637</item>
         <item>1f638</item>
         <item>1f639</item>
+        <item>1f63a</item>
         <item>1f63b</item>
         <item>1f63c</item>
         <item>1f63d</item>
-        <item>1f640</item>
-        <item>1f63f</item>
         <item>1f63e</item>
+        <item>1f63f</item>
+        <item>1f640</item>
+        <item>1f641</item>
+        <item>1f642</item>
+        <item>1f643</item>
+        <item>1f644</item>
+        <item>1f645</item>
+        <item>1f646</item>
+        <item>1f647</item>
         <item>1f648</item>
         <item>1f649</item>
         <item>1f64a</item>
-        <item>1f466</item>
-        <item>1f467</item>
-        <item>1f468</item>
-        <item>1f469</item>
-        <item>1f474</item>
-        <item>1f475</item>
-        <item>1f476</item>
-        <item>1f471</item>
-        <item>1f46e</item>
-        <item>1f472</item>
-        <item>1f473</item>
-        <item>1f477</item>
-        <!-- Removed for lack of color glyph support.  <item>26d1</item>  -->
-        <item>1f478</item>
-        <item>1f482</item>
-        <item>1f575</item>
-        <item>1f385</item>
-        <item>1f47c</item>
-        <item>1f46f</item>
-        <item>1f486</item>
-        <item>1f487</item>
-        <item>1f470</item>
+        <item>1f64b</item>
+        <item>1f64c</item>
         <item>1f64d</item>
         <item>1f64e</item>
-        <item>1f645</item>
-        <item>1f646</item>
-        <item>1f481</item>
-        <item>1f64b</item>
-        <item>1f647</item>
-        <item>1f64c</item>
         <item>1f64f</item>
-        <item>1f5e3</item>
-        <item>1f464</item>
-        <item>1f465</item>
-        <item>1f6b6</item>
-        <item>1f3c3</item>
-        <item>1f483</item>
-        <item>1f574</item>
-        <item>1f46b</item>
-        <item>1f46c</item>
-        <item>1f46d</item>
-        <item>1f48f</item>
         <item>1f468,200d,2764,fe0f,200d,1f48b,200d,1f468</item>
         <item>1f469,200d,2764,fe0f,200d,1f48b,200d,1f469</item>
         <item>1f491</item>
@@ -1609,11 +1554,6 @@
         <item>1f469,200d,1f469,200d,1f467</item>
         <item>1f469,200d,1f469,200d,1f467,200d,1f466</item>
         <item>1f469,200d,1f469,200d,1f467,200d,1f467</item>
-        <!-- Removed for lack of color glyph support.  <item>1f3fb</item>  -->
-        <!-- Removed for lack of color glyph support.  <item>1f3fc</item>  -->
-        <!-- Removed for lack of color glyph support.  <item>1f3fd</item>  -->
-        <!-- Removed for lack of color glyph support.  <item>1f3fe</item>  -->
-        <!-- Removed for lack of color glyph support.  <item>1f3ff</item>  -->
         <item>1f4aa</item>
         <item>1f448</item>
         <item>1f449</item>
@@ -1634,7 +1574,7 @@
         <item>1f44b</item>
         <item>1f44f</item>
         <item>1f450</item>
-        <!-- Removed for lack of color glyph support.  <item>270d</item>  -->
+        <item>270d</item>
         <item>1f485</item>
         <item>1f442</item>
         <item>1f443</item>
@@ -1658,7 +1598,7 @@
         <item>1f49d</item>
         <item>1f49e</item>
         <item>1f49f</item>
-        <!-- Removed for lack of color glyph support.  <item>2763</item>  -->
+        <item>2763</item>
         <item>1f48c</item>
         <item>1f4a4</item>
         <item>1f4a2</item>
@@ -1700,7 +1640,43 @@
         <item>1f484</item>
         <item>1f48d</item>
         <item>1f48e</item>
+        <item>1f923</item>
+        <item>1fad0</item>
+        <item>1f970</item>
+        <item>1f929</item>
+        <item>1f972</item>
+        <item>1f92a</item>
+        <item>1f92d</item>
+        <item>1fac2</item>
+        <item>1fac3</item>
+        <item>1f92b</item>
+        <item>1fac1</item>
+        <item>1f928</item>
+        <item>1fac5</item>
+        <item>1f925</item>
+        <item>1f924</item>
+        <item>1f922</item>
+        <item>1f92e</item>
+        <item>1f927</item>
+        <item>1f975</item>
+        <item>1f976</item>
+        <item>1f974</item>
+        <item>1f92f</item>
+        <item>1f920</item>
+        <item>1f973</item>
+        <item>1f978</item>
+        <item>1f9d0</item>
+        <item>1fac4</item>
+        <item>1f97a</item>
+        <item>1f9b9</item>
+        <item>1f971</item>
+        <item>1f92c</item>
+        <item>1f921</item>
+        <item>1f47a</item>
+
+
     </array>
+
     <array
         name="emoji_eight_smiley_people_boring"
         format="string"

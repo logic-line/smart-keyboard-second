@@ -1,17 +1,10 @@
 package com.android.inputmethod.utils;
 
-import static org.junit.Assert.*;
-
 import android.util.Log;
 
-import com.sikderithub.keyboard.Models.Gk;
-
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
-import org.mockito.Mock;
-import org.mockito.runners.MockitoJUnitRunner;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

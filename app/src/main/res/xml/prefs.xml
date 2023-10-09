@@ -16,7 +16,7 @@
 
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:keybaord="http://schemas.android.com/apk/res/com.sikderithub.keyboard"
+    xmlns:keybaord="http://schemas.android.com/apk/res/com.banglakeyboard.pro"
     android:key="english_ime_settings">
     <PreferenceScreen
         android:fragment="com.android.inputmethod.latin.settings.PreferencesSettingsFragment"
@@ -47,8 +47,8 @@
         android:title="@string/settings_screen_tutorial"
         android:summary="Learn how to write bangla"
         android:key="screen_tutorial">
-        <intent android:targetPackage="com.sikderithub.keyboard"
-            android:targetClass="com.sikderithub.keyboard.Activity.KeyMapActivity" />
+        <intent android:targetPackage="com.banglakeyboard.pro"
+            android:targetClass="com.banglakeyboard.pro.Activity.KeyMapActivity" />
     </PreferenceScreen>
 
     <PreferenceScreen
@@ -56,7 +56,7 @@
         android:title="@string/settings_screen_photo_keyboard"
         android:summary="Set keyboard background photo"
         android:key="screen_custom_theme">
-        <intent android:targetPackage="com.sikderithub.keyboard"
-            android:targetClass="com.sikderithub.keyboard.Activity.ThemeActivity" />
+        <intent android:targetPackage="com.banglakeyboard.pro"
+            android:targetClass="com.banglakeyboard.pro.Activity.ThemeActivity" />
     </PreferenceScreen>
 </PreferenceScreen>

@@ -19,7 +19,7 @@
 -->
 
 <merge
-    xmlns:keybaord="http://schemas.android.com/apk/res/com.sikderithub.keyboard"
+    xmlns:keybaord="http://schemas.android.com/apk/res/com.banglakeyboard.pro"
 >
     <!-- TODO: Consolidate the layout specification between protrait and landscape.
          Ideally just the keyWidth should be different -->

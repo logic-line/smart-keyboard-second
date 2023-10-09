@@ -4,7 +4,7 @@
     "type": "APK",
     "kind": "Directory"
   },
-  "applicationId": "com.sikderithub.keyboard",
+  "applicationId": "com.banglakeyboard.pro",
   "variantName": "release",
   "elements": [
     {
@@ -13,7 +13,7 @@
       "attributes": [],
       "versionCode": 13,
       "versionName": "1.13",
-      "outputFile": "app-release.apk"
+      "outputFile": "bangla-keyboard-v13(1.13)-release.apk"
     }
   ],
   "elementType": "File"

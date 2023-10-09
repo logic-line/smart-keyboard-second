@@ -19,7 +19,7 @@
 -->
 
 <merge
-    xmlns:keybaord="http://schemas.android.com/apk/res/com.sikderithub.keyboard"
+    xmlns:keybaord="http://schemas.android.com/apk/res/com.banglakeyboard.pro"
 >
     <switch>
         <case
@@ -90,7 +90,6 @@
             <key-style
                 keybaord:styleName="emojiKeyStyle"
                 keybaord:keySpec="!icon/emoji_action_key|!code/key_emoji"
-                keybaord:keyLabelFlags="keepBackgroundAspectRatio"
                 keybaord:keyActionFlags="noKeyPreview"
                 keybaord:backgroundType="action" />
         </default>

@@ -37,7 +37,7 @@ import com.android.inputmethod.latin.common.StringUtils;
 import com.android.inputmethod.latin.utils.ResourceUtils;
 import com.android.inputmethod.latin.utils.XmlParseUtils;
 import com.android.inputmethod.latin.utils.XmlParseUtils.ParseException;
-import com.sikderithub.keyboard.R;
+import com.banglakeyboard.pro.R;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -121,7 +121,7 @@ import javax.annotation.Nonnull;
 // TODO: Write unit tests for this class.
 public class KeyboardBuilder<KP extends KeyboardParams> {
     private static final String BUILDER_TAG = "Keyboard.Builder";
-    private static final boolean DEBUG = false;
+    private static final boolean DEBUG = true;
 
     // Keyboard XML Tags
     private static final String TAG_KEYBOARD = "Keyboard";
@@ -168,6 +168,7 @@ public class KeyboardBuilder<KP extends KeyboardParams> {
     public KeyboardBuilder<KP> load(final int xmlId, final KeyboardId id) {
         mParams.mId = id;
         final XmlResourceParser parser = mResources.getXml(xmlId);
+        Log.d("KeyboardBuilder", "load: "+parser.getName());
         try {
             parseKeyboard(parser);
         } catch (XmlPullParserException e) {

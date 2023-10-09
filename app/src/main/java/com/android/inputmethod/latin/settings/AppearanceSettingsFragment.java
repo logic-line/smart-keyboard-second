@@ -20,7 +20,7 @@ import android.os.Bundle;
 
 import com.android.inputmethod.latin.common.Constants;
 import com.android.inputmethod.latin.define.ProductionFlags;
-import com.sikderithub.keyboard.R;
+import com.banglakeyboard.pro.R;
 
 /**
  * "Appearance" settings sub screen.

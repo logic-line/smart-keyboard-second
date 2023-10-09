@@ -19,7 +19,7 @@
 -->
 
 <merge
-    xmlns:keybaord="http://schemas.android.com/apk/res/com.sikderithub.keyboard"
+    xmlns:keybaord="http://schemas.android.com/apk/res/com.banglakeyboard.pro"
 >
     <switch>
         <case
@@ -48,7 +48,7 @@
         <default>
             <Key
                 keybaord:keySpec="!text/keyspec_comma"
-                keybaord:keyLabelFlags="hasPopupHint"
+                keybaord:keyLabelFlags="hasPopupHint|followFunctionalTextColor"
                 keybaord:keyStyle="settingsMoreKeysStyle" />
         </default>
     </switch>

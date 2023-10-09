@@ -30,7 +30,7 @@ import com.android.inputmethod.keyboard.KeyboardId;
 import com.android.inputmethod.keyboard.MainKeyboardView;
 import com.android.inputmethod.keyboard.PointerTracker;
 import com.android.inputmethod.latin.utils.SubtypeLocaleUtils;
-import com.sikderithub.keyboard.R;
+import com.banglakeyboard.pro.R;
 
 /**
  * This class represents a delegate that can be registered in {@link MainKeyboardView} to enhance

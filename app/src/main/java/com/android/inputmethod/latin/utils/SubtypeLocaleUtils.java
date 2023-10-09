@@ -28,7 +28,7 @@ import android.view.inputmethod.InputMethodSubtype;
 
 import com.android.inputmethod.latin.common.LocaleUtils;
 import com.android.inputmethod.latin.common.StringUtils;
-import com.sikderithub.keyboard.R;
+import com.banglakeyboard.pro.R;
 
 import java.util.HashMap;
 import java.util.Locale;

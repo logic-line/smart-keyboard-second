@@ -35,7 +35,7 @@ import com.android.inputmethod.latin.define.DecoderSpecificConstants;
 import com.android.inputmethod.latin.makedict.DictionaryHeader;
 import com.android.inputmethod.latin.makedict.UnsupportedFormatException;
 import com.android.inputmethod.latin.settings.SpacingAndPunctuations;
-import com.sikderithub.keyboard.R;
+import com.banglakeyboard.pro.R;
 
 import java.io.File;
 import java.io.FilenameFilter;

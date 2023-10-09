@@ -42,7 +42,7 @@ import com.android.inputmethod.latin.accounts.LoginAccountUtils;
 import com.android.inputmethod.latin.define.ProductionFlags;
 import com.android.inputmethod.latin.permissions.PermissionsUtil;
 import com.android.inputmethod.latin.utils.ManagedProfileUtils;
-import com.sikderithub.keyboard.R;
+import com.banglakeyboard.pro.R;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 

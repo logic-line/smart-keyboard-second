@@ -19,7 +19,7 @@
 -->
 
 <merge
-    xmlns:keybaord="http://schemas.android.com/apk/res/com.sikderithub.keyboard"
+    xmlns:keybaord="http://schemas.android.com/apk/res/com.banglakeyboard.pro"
 >
     <switch>
         <case
@@ -27,7 +27,7 @@
         >
             <Key
                 keybaord:keySpec="z"
-                keybaord:keyLabelFlags="hasPopupHint"
+                keybaord:keyLabelFlags="hasPopupHint|followFunctionalTextColor"
                 keybaord:moreKeys="!text/morekeys_punctuation,!text/morekeys_z" />
         </case>
 
@@ -35,7 +35,7 @@
             <Key
                 keybaord:keySpec="।"
                 keybaord:keyHintLabel="!text/keyhintlabel_period"
-                keybaord:keyLabelFlags="hasPopupHint|hasShiftedLetterHint"
+                keybaord:keyLabelFlags="hasPopupHint|hasShiftedLetterHint|followFunctionalTextColor"
                 keybaord:moreKeys="!text/morekeys_period"
                 keybaord:backgroundType="functional" />
         </case>
@@ -43,7 +43,7 @@
             <Key
                 keybaord:keySpec="!text/keyspec_period"
                 keybaord:keyHintLabel="!text/keyhintlabel_period"
-                keybaord:keyLabelFlags="hasPopupHint|hasShiftedLetterHint"
+                keybaord:keyLabelFlags="hasPopupHint|hasShiftedLetterHint|followFunctionalTextColor"
                 keybaord:moreKeys="!text/morekeys_period"
                 keybaord:backgroundType="functional" />
         </default>

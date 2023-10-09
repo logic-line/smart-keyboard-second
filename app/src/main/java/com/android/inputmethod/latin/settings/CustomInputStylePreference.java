@@ -36,7 +36,7 @@ import com.android.inputmethod.compat.ViewCompatUtils;
 import com.android.inputmethod.latin.RichInputMethodManager;
 import com.android.inputmethod.latin.utils.AdditionalSubtypeUtils;
 import com.android.inputmethod.latin.utils.SubtypeLocaleUtils;
-import com.sikderithub.keyboard.R;
+import com.banglakeyboard.pro.R;
 
 import java.util.TreeSet;
 

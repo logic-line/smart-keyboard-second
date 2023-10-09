@@ -39,7 +39,7 @@ import com.android.inputmethod.keyboard.internal.KeyboardRow;
 import com.android.inputmethod.keyboard.internal.MoreKeySpec;
 import com.android.inputmethod.latin.common.Constants;
 import com.android.inputmethod.latin.common.StringUtils;
-import com.sikderithub.keyboard.R;
+import com.banglakeyboard.pro.R;
 
 import java.util.Arrays;
 import java.util.Locale;

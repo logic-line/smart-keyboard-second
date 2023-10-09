@@ -25,7 +25,7 @@ import android.view.View;
 
 import androidx.core.view.ViewCompat;
 
-import com.sikderithub.keyboard.R;
+import com.banglakeyboard.pro.R;
 
 public final class SetupStepIndicatorView extends View {
     private final Path mIndicatorPath = new Path();

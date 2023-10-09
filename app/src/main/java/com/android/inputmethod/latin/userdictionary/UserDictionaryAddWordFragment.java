@@ -31,7 +31,7 @@ import android.widget.Spinner;
 
 import com.android.inputmethod.latin.userdictionary.UserDictionaryAddWordContents.LocaleRenderer;
 import com.android.inputmethod.latin.userdictionary.UserDictionaryLocalePicker.LocationChangedListener;
-import com.sikderithub.keyboard.R;
+import com.banglakeyboard.pro.R;
 
 import java.util.ArrayList;
 import java.util.Locale;

@@ -27,7 +27,7 @@ import android.util.Log;
 
 import com.android.inputmethod.dictionarypack.DictionaryPackConstants;
 import com.android.inputmethod.latin.utils.TargetPackageInfoGetterTask;
-import com.sikderithub.keyboard.R;
+import com.banglakeyboard.pro.R;
 
 /**
  * Receives broadcasts pertaining to dictionary management and takes the appropriate action.

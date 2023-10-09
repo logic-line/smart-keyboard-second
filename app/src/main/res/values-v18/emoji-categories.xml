@@ -16,11 +16,10 @@
 
 <!-- Note: This emoji code point list is valid on JB-MR2 (API == 18).
      There is another emoji code point list for KLP and later under res/xml/values-v19. -->
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <array
         name="emoji_nature"
-        format="string"
-    >
+        format="string" tools:ignore="InconsistentArrays">
         <!-- <item>1f415</item> -->
         <item>1f436</item>
         <item>1f429</item>
@@ -202,8 +201,7 @@
     </array>
     <array
         name="emoji_symbols"
-        format="string"
-    >
+        format="string" tools:ignore="InconsistentArrays">
         <!-- <item>fe82e|0031,20e3</item> -->
         <!-- <item>fe82f|0032,20e3</item> -->
         <!-- <item>fe830|0033,20e3</item> -->
@@ -431,8 +429,7 @@
     </array>
     <array
         name="emoji_faces"
-        format="string"
-    >
+        format="string" tools:ignore="InconsistentArrays">
         <item>263a</item>
         <item>1f60a</item>
         <!-- <item>1f600</item> -->

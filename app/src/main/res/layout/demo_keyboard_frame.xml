@@ -21,7 +21,7 @@
                 android:layout_height="wrap_content">
 
 
-                <com.sikderithub.keyboard.ThemeMainKeyboardView
+                <com.banglakeyboard.pro.ThemeMainKeyboardView
                     android:id="@+id/keyboardView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>

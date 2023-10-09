@@ -22,7 +22,7 @@ import android.util.Log;
 
 import com.android.inputmethod.latin.common.Constants;
 import com.android.inputmethod.latin.define.DebugFlags;
-import com.sikderithub.keyboard.R;
+import com.banglakeyboard.pro.R;
 
 // This hack is applied to certain classes of tablets.
 public final class BogusMoveEventDetector {

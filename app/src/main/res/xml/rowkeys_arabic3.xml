@@ -18,7 +18,7 @@
 */
 -->
 
-<merge xmlns:keybaord="http://schemas.android.com/apk/res/com.sikderithub.keyboard">
+<merge xmlns:keybaord="http://schemas.android.com/apk/res/com.banglakeyboard.pro">
     <include keybaord:keyboardLayout="@xml/keys_arabic3_left" />
     <!-- U+0621: "ء" ARABIC LETTER HAMZA -->
     <Key keybaord:keySpec="&#x0621;" />

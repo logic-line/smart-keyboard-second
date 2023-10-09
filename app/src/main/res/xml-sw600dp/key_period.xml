@@ -19,7 +19,7 @@
 -->
 
 <merge
-    xmlns:keybaord="http://schemas.android.com/apk/res/com.sikderithub.keyboard"
+    xmlns:keybaord="http://schemas.android.com/apk/res/com.banglakeyboard.pro"
 >
     <!-- The table period key which may have different label depending on locale -->
     <!-- Kept as a separate file for cleaner overriding by an overlay.  -->
@@ -35,7 +35,7 @@
             <Key
                 keybaord:keySpec="!text/keyspec_tablet_period"
                 keybaord:keyHintLabel="!text/keyhintlabel_tablet_period"
-                keybaord:keyLabelFlags="hasPopupHint"
+                keybaord:keyLabelFlags="hasPopupHint |followFunctionalTextColor"
                 keybaord:moreKeys="!text/morekeys_tablet_period"
                 keybaord:backgroundType="functional"
                 keybaord:keyStyle="hasShiftedLetterHintStyle" />

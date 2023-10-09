@@ -27,7 +27,7 @@ import android.text.TextUtils;
 import com.android.inputmethod.keyboard.PointerTracker;
 import com.android.inputmethod.latin.SuggestedWords;
 import com.android.inputmethod.latin.common.CoordinateUtils;
-import com.sikderithub.keyboard.R;
+import com.banglakeyboard.pro.R;
 
 import javax.annotation.Nonnull;
 

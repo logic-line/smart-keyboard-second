@@ -19,7 +19,7 @@
 -->
 
 <merge
-    xmlns:keybaord="http://schemas.android.com/apk/res/com.sikderithub.keyboard"
+    xmlns:keybaord="http://schemas.android.com/apk/res/com.banglakeyboard.pro"
 >
     <!-- U+05D6: "ז" HEBREW LETTER ZAYIN
          U+05D6 U+05F3: "ז׳" HEBREW LETTER ZAYIN + HEBREW PUNCTUATION GERESH -->

@@ -42,7 +42,7 @@ import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 
 import com.android.inputmethod.latin.common.LocaleUtils;
-import com.sikderithub.keyboard.R;
+import com.banglakeyboard.pro.R;
 
 import java.util.ArrayList;
 import java.util.Collection;

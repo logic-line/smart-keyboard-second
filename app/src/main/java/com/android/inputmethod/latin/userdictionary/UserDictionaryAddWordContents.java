@@ -28,7 +28,7 @@ import android.widget.EditText;
 
 import com.android.inputmethod.compat.UserDictionaryCompatUtils;
 import com.android.inputmethod.latin.common.LocaleUtils;
-import com.sikderithub.keyboard.R;
+import com.banglakeyboard.pro.R;
 
 import java.util.ArrayList;
 import java.util.Locale;
