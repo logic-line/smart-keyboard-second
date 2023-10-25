@@ -59,6 +59,7 @@ import com.android.inputmethod.latin.RichInputMethodSubtype;
 import com.android.inputmethod.latin.common.Constants;
 import com.android.inputmethod.latin.utils.ResourceUtils;
 import com.android.inputmethod.utils.GkEngine;
+import com.banglakeyboard.pro.customView.EmojiAdView;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdLoader;
 import com.google.android.gms.ads.AdRequest;
@@ -108,6 +109,7 @@ public final class EmojiPalettesView extends LinearLayout implements OnTabChange
     private View mSpacebarIcon;
     private TabHost mTabHost;
     private ViewPager mEmojiPager;
+    private EmojiAdView emojiAdView;
     private int mCurrentPagerPosition = 0;
     private EmojiCategoryPageIndicatorView mEmojiCategoryPageIndicatorView;
 
@@ -284,6 +286,7 @@ public final class EmojiPalettesView extends LinearLayout implements OnTabChange
         mEmojiPager.setOffscreenPageLimit(0);
         mEmojiPager.setPersistentDrawingCache(PERSISTENT_NO_CACHE);
         mEmojiLayoutParams.setPagerProperties(mEmojiPager);
+        emojiAdView = findViewById(R.id.emojiAdView);
 
         mEmojiCategoryPageIndicatorView =
                 (EmojiCategoryPageIndicatorView) findViewById(R.id.emoji_category_page_id_view);
@@ -365,12 +368,14 @@ public final class EmojiPalettesView extends LinearLayout implements OnTabChange
         adLoader.loadAd(new AdRequest.Builder().build());
     }
 
-    private void loadBannerAd() {
+    /*private void loadBannerAd() {
         if(MyApp.getConfig().emoji_view_ad_status==0 || !Common.isAdShownAllowed()){
+            Log.d(TAG, "loadBannerAd: ad status " + MyApp.getConfig().emoji_view_ad_status);
             Log.d(TAG, "loadBannerAd: ad shown not allowed "+Common.isAdShownAllowed());
             adContainerView.setVisibility(GONE);
             return;
         }
+        Log.d(TAG, "loadBannerAd: ad status " + MyApp.getConfig().emoji_view_ad_status);
         
         if(adContainerView.getChildCount()>0){
             Log.d(TAG, "loadBannerAd: Ad already laoded");
@@ -426,7 +431,7 @@ public final class EmojiPalettesView extends LinearLayout implements OnTabChange
 
         // Start loading the ad in the background.
         adView.loadAd(adRequest);
-    }
+    }*/
 
     @Override
     public boolean dispatchTouchEvent(final MotionEvent ev) {
@@ -578,7 +583,8 @@ public final class EmojiPalettesView extends LinearLayout implements OnTabChange
                                    final KeyboardIconsSet iconSet) {
 
         Log.d(TAG, "startEmojiPalettes: ");
-        loadBannerAd();
+        //loadBannerAd();
+        emojiAdView.loadBannerAds();
 
 
         final int deleteIconResId = iconSet.getIconResourceId(KeyboardIconsSet.NAME_DELETE_KEY);
