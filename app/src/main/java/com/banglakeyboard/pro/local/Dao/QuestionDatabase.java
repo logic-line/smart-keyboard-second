@@ -20,7 +20,7 @@ import com.banglakeyboard.pro.Models.Update;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-@Database(entities = {Gk.class, Config.class, Update.class, NotificationData.class, Theme.class}, version = 5, exportSchema = false)
+@Database(entities = {Gk.class, Config.class, Update.class, NotificationData.class, Theme.class}, version = 6, exportSchema = false)
 public abstract class QuestionDatabase extends RoomDatabase {
     public abstract QuestionDAO questionDAO();
     private static volatile QuestionDatabase INSTANCE;
