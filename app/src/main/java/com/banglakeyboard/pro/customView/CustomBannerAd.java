@@ -50,7 +50,6 @@ public class CustomBannerAd extends FrameLayout implements View.OnClickListener 
     private Button actionBtn;
     private TextView titleTv;
     private TextView descriptionTv;
-    private ConstraintLayout adsLayout;
     private CustomAdListener listener;
     private String actionUrl;
     private int adUId = -1;
@@ -86,7 +85,6 @@ public class CustomBannerAd extends FrameLayout implements View.OnClickListener 
         actionBtn = findViewById(R.id.btn_action);
         titleTv = findViewById(R.id.tv_title);
         descriptionTv = findViewById(R.id.tv_description);
-        adsLayout = findViewById(R.id.cv_ads);
 
         //adsLayout.setVisibility(GONE);
 
@@ -112,14 +110,12 @@ public class CustomBannerAd extends FrameLayout implements View.OnClickListener 
                                     BannerAds bannerAds = response.body().data;
                                     bindData(bannerAds);
                                 }else {
-                                    adsLayout.setVisibility(GONE);
                                     Log.d(TAG, "onResponse: error " + response.body().msg);
                                     if (listener != null){
                                         listener.onAdFailedToLoad(response.body().msg);
                                     }
                                 }
                             }else {
-                                adsLayout.setVisibility(GONE);
                                 if (listener != null){
                                     listener.onAdFailedToLoad("Unsuccessful Response");
                                 }
@@ -128,7 +124,6 @@ public class CustomBannerAd extends FrameLayout implements View.OnClickListener 
 
                         @Override
                         public void onFailure(Call<GenericResponse<BannerAds>> call, Throwable t) {
-                            adsLayout.setVisibility(GONE);
                             if (listener != null){
                                 listener.onAdFailedToLoad(t.getMessage());
                             }
@@ -136,7 +131,6 @@ public class CustomBannerAd extends FrameLayout implements View.OnClickListener 
                     });
                 }else {
                     Log.d(TAG, "loadAd: adId is null");
-                    adsLayout.setVisibility(GONE);
                 }
             }
         });
@@ -162,8 +156,6 @@ public class CustomBannerAd extends FrameLayout implements View.OnClickListener 
                             descriptionTv.setVisibility(VISIBLE);
                             actionBtn.setVisibility(VISIBLE);
 
-                            adsLayout.setVisibility(VISIBLE);
-                            adsLayout.invalidate();
                             return false;
                         }
 
@@ -176,8 +168,6 @@ public class CustomBannerAd extends FrameLayout implements View.OnClickListener 
                             bannerImage.setVisibility(VISIBLE);
                             actionBtn.setVisibility(VISIBLE);
 
-                            adsLayout.setVisibility(VISIBLE);
-                            adsLayout.invalidate();
                             listener.onAdImpression();
                             return false;
                         }
@@ -194,7 +184,6 @@ public class CustomBannerAd extends FrameLayout implements View.OnClickListener 
                 Log.d(TAG, "loadAd: listener is null");
             }
         }catch (Exception e){
-            adsLayout.setVisibility(GONE);
             if (listener != null){
                 listener.onAdFailedToLoad(Objects.requireNonNull(e.getMessage()));
             }
