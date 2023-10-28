@@ -13,3 +13,6 @@
 .externalNativeBuild
 .cxx
 local.properties
+/app/test.jks
+/app/release/release/output-metadata.json
+/app/release/release/bangla-keyboard-v13(1.13)-release.apk
