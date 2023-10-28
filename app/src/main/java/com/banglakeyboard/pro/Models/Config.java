@@ -28,6 +28,11 @@ public class Config {
     public String tutorial_link;
     public int top_ad_interval = 480;
 
+    @ColumnInfo(defaultValue = "0")
+    public int top_view_ad_type;
+
+    @ColumnInfo(defaultValue = "0")
+    public int emoji_ad_interval;
 
 
 

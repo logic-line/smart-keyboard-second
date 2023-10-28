@@ -63,9 +63,9 @@ public class EmojiAdView extends FrameLayout {
 
     public void loadBannerAds(){
         this.containerView.setVisibility(GONE);
-        /*if(MyApp.getConfig().emoji_view_ad_status==0 || !Common.isAdShownAllowed()){
+        if(!Common.isAdShownAllowed()){
             Log.d(TAG, "initViews: ad status " + MyApp.getConfig().emoji_view_ad_status);
-            Log.d(TAG, "loadBannerAd: ad shown not allowed "+Common.isAdShownAllowed());
+            Log.d(TAG, "loadBannerAd: ad shown allowed "+Common.isAdShownAllowed());
             adContainerView.setVisibility(GONE);
             return;
         }
@@ -74,10 +74,9 @@ public class EmojiAdView extends FrameLayout {
 
         if(adContainerView.getChildCount()>0){
             Log.d(TAG, "loadBannerAd: Ad already laoded");
+            this.containerView.setVisibility(VISIBLE);
             return;
-        }*/
-
-        MyApp.getConfig().emoji_view_ad_type = 2;
+        }
 
         if (MyApp.getConfig().emoji_view_ad_type == 1){
             //admob ads
@@ -86,6 +85,7 @@ public class EmojiAdView extends FrameLayout {
             //custom ads
             loadCustomBannerAds();
         }else {
+            //0 = None
             adContainerView.setVisibility(GONE);
         }
 
@@ -118,6 +118,7 @@ public class EmojiAdView extends FrameLayout {
                 super.onAdFailedToLoad(loadAdError);
                 Log.d(TAG, "onAdFailedToLoad: "+loadAdError.getMessage());
                 adContainerView.setVisibility(GONE);
+                containerView.setVisibility(GONE);
             }
 
             @Override
@@ -128,6 +129,7 @@ public class EmojiAdView extends FrameLayout {
             @Override
             public void onAdLoaded() {
                 super.onAdLoaded();
+                containerView.setVisibility(VISIBLE);
                 adContainerView.setVisibility(VISIBLE);
                 requestLayout();
                 //setAdAsShown();

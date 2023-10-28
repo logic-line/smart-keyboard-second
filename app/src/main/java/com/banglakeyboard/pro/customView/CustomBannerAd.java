@@ -259,7 +259,4 @@ public class CustomBannerAd extends FrameLayout implements View.OnClickListener 
 
     }
 
-
-
-
 }
