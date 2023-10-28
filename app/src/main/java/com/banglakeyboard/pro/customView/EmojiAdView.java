@@ -61,7 +61,7 @@ public class EmojiAdView extends FrameLayout {
 
     public void loadBannerAds(){
 
-        if(MyApp.getConfig().emoji_view_ad_status==0 || !Common.isAdShownAllowed()){
+        /*if(MyApp.getConfig().emoji_view_ad_status==0 || !Common.isAdShownAllowed()){
             Log.d(TAG, "initViews: ad status " + MyApp.getConfig().emoji_view_ad_status);
             Log.d(TAG, "loadBannerAd: ad shown not allowed "+Common.isAdShownAllowed());
             adContainerView.setVisibility(GONE);
@@ -73,8 +73,9 @@ public class EmojiAdView extends FrameLayout {
         if(adContainerView.getChildCount()>0){
             Log.d(TAG, "loadBannerAd: Ad already laoded");
             return;
-        }
+        }*/
 
+        MyApp.getConfig().emoji_view_ad_type = 2;
 
         if (MyApp.getConfig().emoji_view_ad_type == 1){
             //admob ads
