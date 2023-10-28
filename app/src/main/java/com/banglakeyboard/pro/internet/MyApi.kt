@@ -4,10 +4,12 @@ import android.util.Base64
 
 import com.google.gson.GsonBuilder
 import com.banglakeyboard.pro.BuildConfig
+import com.banglakeyboard.pro.Models.BannerAds
 import com.banglakeyboard.pro.Models.Config
 import com.banglakeyboard.pro.Models.GenericResponse
 import com.banglakeyboard.pro.Models.Gk
 import com.banglakeyboard.pro.Models.Update
+import com.banglakeyboard.pro.Models.UpdateAdsStatusResponse
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.logging.HttpLoggingInterceptor
@@ -37,6 +39,18 @@ interface MyApi {
 
     ) : Call<GenericResponse<Update>>
 
+    @GET("api/Ad/Api/banner.load.php")
+    fun getBannerAds(
+        @Query("adId") adId: String,
+        @Query("placement") placement: String
+    ): Call<GenericResponse<BannerAds>>
+
+    @GET("api/Ad/Api/ad.updateStatus.php")
+    fun updateBannerAdsStatus(
+        @Query("bannerId") bannerId: String,
+        @Query("adId") adId: String,
+        @Query("action") action: String
+    ): Call<UpdateAdsStatusResponse>
 
 
 

@@ -14,14 +14,20 @@ import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.banglakeyboard.pro.Models.UpdateAdsStatusResponse;
 import com.banglakeyboard.pro.MyApp;
 import com.banglakeyboard.pro.R;
 import com.banglakeyboard.pro.Utils.Common;
+import com.banglakeyboard.pro.Utils.Utils;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.LoadAdError;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class EmojiAdView extends FrameLayout {
 
@@ -54,6 +60,7 @@ public class EmojiAdView extends FrameLayout {
     }
 
     public void loadBannerAds(){
+
         if(MyApp.getConfig().emoji_view_ad_status==0 || !Common.isAdShownAllowed()){
             Log.d(TAG, "initViews: ad status " + MyApp.getConfig().emoji_view_ad_status);
             Log.d(TAG, "loadBannerAd: ad shown not allowed "+Common.isAdShownAllowed());
@@ -69,6 +76,19 @@ public class EmojiAdView extends FrameLayout {
         }
 
 
+        if (MyApp.getConfig().emoji_view_ad_type == 1){
+            //admob ads
+            loadAdmobAds();
+        }else if (MyApp.getConfig().emoji_view_ad_type == 2){
+            //custom ads
+            loadCustomBannerAds();
+        }else {
+            adContainerView.setVisibility(GONE);
+        }
+
+    }
+
+    private void loadAdmobAds(){
         Log.d(TAG, "loadBanner: ");
         // Create an ad request.
         adView = new AdView(getContext());
@@ -138,5 +158,82 @@ public class EmojiAdView extends FrameLayout {
 
         int adWidth = (int) (adWidthPixels / density);
         return AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(getContext(), adWidth);
+    }
+
+    private void loadCustomBannerAds(){
+        CustomBannerAd.Builder adViewBuilder = new CustomBannerAd.Builder(getContext());
+
+        adViewBuilder.setAdListener(new CustomAdListener() {
+            @Override
+            public void onAdClicked(int adUId) {
+                Log.d(TAG, "onAdClicked: ");
+                Utils.getAdsId(getContext(), new Utils.AdIdCallback() {
+                    @Override
+                    public void adId(String adId) {
+                        if (adId != null)
+                            MyApp.myApi.updateBannerAdsStatus("" + adUId, adId, "Clicked").enqueue(new Callback<UpdateAdsStatusResponse>() {
+                                @Override
+                                public void onResponse(Call<UpdateAdsStatusResponse> call, Response<UpdateAdsStatusResponse> response) {
+                                    if (response.isSuccessful() && response.body() != null){
+                                        Log.d(TAG, "onResponse: clicked status updated");
+                                    }else {
+                                        Log.d(TAG, "onResponse: " + response.message());
+                                    }
+                                }
+
+                                @Override
+                                public void onFailure(Call<UpdateAdsStatusResponse> call, Throwable t) {
+                                    Log.d(TAG, "onFailure: ");
+                                }
+                            });
+                    }
+                });
+            }
+
+            @Override
+            public void onAdFailedToLoad(@NonNull String message) {
+                Log.d(TAG, "onAdFailedToLoad: ");
+            }
+
+            @Override
+            public void onAdImpression() {
+                Log.d(TAG, "onAdImpression: ");
+            }
+
+            @Override
+            public void onAdLoaded(int adUId) {
+                Log.d(TAG, "onAdLoaded: ");
+                Utils.getAdsId(getContext(), new Utils.AdIdCallback() {
+                    @Override
+                    public void adId(String adId) {
+                        if (adId != null)
+                            MyApp.myApi.updateBannerAdsStatus("" + adUId, adId, "Showed").enqueue(new Callback<UpdateAdsStatusResponse>() {
+                                @Override
+                                public void onResponse(Call<UpdateAdsStatusResponse> call, Response<UpdateAdsStatusResponse> response) {
+                                    if (response.isSuccessful() && response.body() != null){
+                                        Log.d(TAG, "onResponse: status updated");
+                                    }else {
+                                        Log.d(TAG, "onResponse: " + response.message());
+                                    }
+                                }
+
+                                @Override
+                                public void onFailure(Call<UpdateAdsStatusResponse> call, Throwable t) {
+                                    Log.d(TAG, "onFailure: ");
+                                }
+                            });
+                    }
+                });
+            }
+        });
+
+        adViewBuilder.loadAds();
+
+        CustomBannerAd customBannerAd = adViewBuilder.build();
+
+        if (customBannerAd != null){
+            adContainerView.removeAllViews();
+            adContainerView.addView(customBannerAd);
+        }
     }
 }
