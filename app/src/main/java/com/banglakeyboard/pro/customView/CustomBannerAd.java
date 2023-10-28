@@ -178,6 +178,7 @@ public class CustomBannerAd extends FrameLayout implements View.OnClickListener 
 
                             adsLayout.setVisibility(VISIBLE);
                             adsLayout.invalidate();
+                            listener.onAdImpression();
                             return false;
                         }
                     })

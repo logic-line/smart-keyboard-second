@@ -8,6 +8,7 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Display;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
 
@@ -30,7 +31,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class EmojiAdView extends FrameLayout {
-
+    private View containerView;
     private FrameLayout adContainerView;
     private AdView adView;
     private static final String TAG = "EmojiAdView";
@@ -51,7 +52,8 @@ public class EmojiAdView extends FrameLayout {
     }
 
     private void initViews(){
-
+        this.setVisibility(GONE);
+        containerView = this;
         final LayoutInflater inflater = LayoutInflater.from(context);
         inflater.inflate(com.banglakeyboard.pro.R.layout.emoji_ad_view, this);
 
@@ -60,7 +62,7 @@ public class EmojiAdView extends FrameLayout {
     }
 
     public void loadBannerAds(){
-
+        this.containerView.setVisibility(GONE);
         /*if(MyApp.getConfig().emoji_view_ad_status==0 || !Common.isAdShownAllowed()){
             Log.d(TAG, "initViews: ad status " + MyApp.getConfig().emoji_view_ad_status);
             Log.d(TAG, "loadBannerAd: ad shown not allowed "+Common.isAdShownAllowed());
@@ -199,6 +201,7 @@ public class EmojiAdView extends FrameLayout {
             @Override
             public void onAdImpression() {
                 Log.d(TAG, "onAdImpression: ");
+                containerView.setVisibility(VISIBLE);
             }
 
             @Override
@@ -235,6 +238,7 @@ public class EmojiAdView extends FrameLayout {
         if (customBannerAd != null){
             adContainerView.removeAllViews();
             adContainerView.addView(customBannerAd);
+
         }
     }
 }
