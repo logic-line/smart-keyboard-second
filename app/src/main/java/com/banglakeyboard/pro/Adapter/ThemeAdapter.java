@@ -67,7 +67,7 @@ public class ThemeAdapter extends RecyclerView.Adapter<ThemeAdapter.MyViewHodler
         //View frame = mCurrentInputView.findViewById(R.id.main_keyboard_frame);
 
 
-        ContextThemeWrapper mThemeContext = new ContextThemeWrapper(context, KeyboardTheme.THEME_ID_LXX_LIGHT);
+        ContextThemeWrapper mThemeContext = new ContextThemeWrapper(context, KeyboardTheme.THEME_DARK_LIME);
 
         final KeyboardLayoutSet.Builder builder = new KeyboardLayoutSet.Builder(
                 mThemeContext, null);

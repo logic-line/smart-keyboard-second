@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <style name="KeyboardTheme.dark_lime" parent="KeyboardIcons.LXX_Dark">
+        <item name="iconDeleteKey">@drawable/sym_keyboard_delete_lxx_white</item>
+        <item name="iconShiftKey">@drawable/sym_keyboard_shift_holo_dark</item>
+        <item name="iconShiftKeyShifted">@drawable/sym_keyboard_shift_locked_holo_dark</item>
+
+        <item name="inputViewStyle">@style/InputView.Dark_Lime</item>
+        <item name="keyboardStyle">@style/Keyboard.dark_lime</item>
+        <item name="keyboardViewStyle">@style/KeyboardView.dark_lime</item>
+        <item name="mainKeyboardViewStyle">@style/MainKeyboardView.dark_lime</item>
+        <item name="emojiPalettesViewStyle">@style/EmojiPalettesView.dark_lime</item>
+        <item name="moreKeysKeyboardStyle">@style/MoreKeysKeyboard.dark_lime</item>
+        <item name="moreKeysKeyboardViewStyle">@style/MoreKeysKeyboardView.dark_lime</item>
+        <item name="moreKeysKeyboardViewForActionStyle">@style/MoreKeysKeyboardView.dark_lime.Action</item>
+        <item name="suggestionStripViewStyle">@style/SuggestionStripView.dark_lime</item>
+        <item name="suggestionWordStyle">@style/SuggestionWord.dark_lime</item>
+        <item name="gkViewStyle">@style/questionTextStyle.dark_lime</item>
+    </style>
+
+    <style
+        name="InputView.Dark_Lime"
+        parent="InputView.MJ"
+        >
+        <!-- This should be aligned with KeyboardTheme.THEME_ID_* -->
+
+
+    </style>
+
+    <style
+        name="Keyboard.dark_lime"
+        parent="Keyboard"
+        >
+        <!-- This should be aligned with KeyboardTheme.THEME_ID_* -->
+        <item name="themeId">ElegantMidnightAqua</item>
+        <item name="android:background">@drawable/dark_lime_keyboard_background</item>
+    </style>
+    <style
+        name="KeyboardView.dark_lime"
+        parent="KeyboardView.MJ">
+        <item name="keyBackground">@drawable/btn_keyboard_key_dark_lime</item>
+        <item name="functionalKeyBackground">@drawable/btn_keyboard_key_functional_dark_lime</item>
+        <item name="spacebarBackground">@drawable/space_key_background_dark_lime</item>
+        <item name="keyTextColor">@color/white</item>
+        <item name="keyTextInactivatedColor">@color/dark_lime_key_inactivated_color</item>
+        <item name="functionalTextColor">@color/white</item>
+        <item name="keyHintLetterColor">@color/dark_lime_key_inactivated_color</item>
+        <item name="keyHintLabelColor">@color/key_hint_label_color_holo</item>
+        <item name="keyShiftedLetterHintInactivatedColor">@color/key_shifted_letter_hint_inactivated_color_holo</item>
+        <item name="keyShiftedLetterHintActivatedColor">@color/white</item>
+        <item name="keyPreviewTextColor">@color/dark_lime_functional_bg_color</item>
+    </style>
+    <style
+        name="MainKeyboardView.dark_lime"
+        parent="KeyboardView.dark_lime"
+        >
+
+        <item name="keyPreviewBackground">@drawable/elegant_midnight_aqua_key_preview_bg</item>
+        <item name="keyPreviewHeight">@dimen/config_key_preview_height_holo</item>
+        <item name="keyPreviewOffset">@dimen/config_key_preview_offset_holo</item>
+        <item name="keyPreviewShowUpAnimator">@anim/key_preview_show_up_holo</item>
+        <item name="keyPreviewDismissAnimator">@anim/key_preview_dismiss_holo</item>
+        <item name="gestureFloatingPreviewTextColor">@color/highlight_color_ics</item>
+        <item name="gestureFloatingPreviewColor">@color/gesture_floating_preview_color_holo</item>
+        <item name="gestureTrailColor">@color/highlight_color_ics</item>
+        <item name="slidingKeyInputPreviewColor">@color/highlight_translucent_color_ics</item>
+        <item name="languageOnSpacebarTextColor">@android:color/white</item>
+        <item name="languageOnSpacebarTextShadowRadius">1.0</item>
+        <item name="languageOnSpacebarTextShadowColor">@color/spacebar_text_shadow_color_holo</item>
+        <item name="spaceBarLeftIcon">@drawable/baseline_arrow_left_black</item>
+    </style>
+    <!-- Though {@link com.android.inputmethod.keyboard.emoji.EmojiPalettesView} doesn't extend
+         {@link com.android.inputmethod.keyboard.KeyboardView}, some views inside it, for instance
+         delete button, need themed {@link com.android.inputmethod.keyboard.KeyboardView}
+         attributes. -->
+    <style
+        name="EmojiPalettesView.dark_lime"
+        parent="MainKeyboardView.dark_lime"
+        >
+        <item name="android:background">@drawable/dark_lime_keyboard_background</item>
+        <item name="categoryIndicatorEnabled">false</item>
+        <item name="categoryPageIndicatorColor">@color/highlight_color_lxx_dark</item>
+        <item name="categoryPageIndicatorBackground">@color/gnt_black</item>
+        <item name="iconEmojiRecentsTab">@drawable/ic_emoji_recents_lxx_dark</item>
+        <item name="iconEmojiCategory1Tab">@drawable/ic_emoji_people_lxx_dark</item>
+        <item name="iconEmojiCategory2Tab">@drawable/ic_emoji_objects_lxx_dark</item>
+        <item name="iconEmojiCategory3Tab">@drawable/ic_emoji_nature_lxx_dark</item>
+        <item name="iconEmojiCategory4Tab">@drawable/ic_emoji_places_lxx_dark</item>
+        <item name="iconEmojiCategory5Tab">@drawable/ic_emoji_symbols_lxx_dark</item>
+        <item name="iconEmojiCategory6Tab">@drawable/ic_emoji_emoticons_lxx_dark</item>
+        <item name="iconEmojiCategory7Tab">@drawable/ic_emoji_flag_lxx_dark</item>
+        <item name="iconEmojiCategory8Tab">@drawable/ic_emoji_people_lxx_dark</item>
+        <item name="iconEmojiCategory9Tab">@drawable/ic_emoji_nature_lxx_dark</item>
+        <item name="iconEmojiCategory10Tab">@drawable/ic_emoji_food_lxx_dark</item>
+        <item name="iconEmojiCategory11Tab">@drawable/ic_emoji_places_lxx_dark</item>
+        <item name="iconEmojiCategory12Tab">@drawable/ic_emoji_activity_lxx_dark</item>
+        <item name="iconEmojiCategory13Tab">@drawable/ic_emoji_objects_lxx_dark</item>
+        <item name="iconEmojiCategory14Tab">@drawable/ic_emoji_symbols_lxx_dark</item>
+        <item name="iconEmojiCategory15Tab">@drawable/ic_emoji_flag_lxx_dark</item>
+        <item name="iconEmojiCategory16Tab">@drawable/ic_emoji_people_lxx_dark</item>
+    </style>
+    <style
+        name="MoreKeysKeyboard.dark_lime"
+        parent="Keyboard.dark_lime"
+        >
+        <item name="keyboardTopPadding">0%p</item>
+        <item name="keyboardBottomPadding">0%p</item>
+        <item name="horizontalGap">0%p</item>
+        <item name="touchPositionCorrectionData">@null</item>
+    </style>
+    <style
+        name="MoreKeysKeyboardView.dark_lime"
+        parent="KeyboardView.dark_lime"
+        >
+        <item name="android:background">@drawable/keyboard_popup_panel_background_klp</item>
+        <item name="keyBackground">@drawable/btn_keyboard_key_popup_lxx_dark</item>
+        <item name="divider">@drawable/more_keys_divider</item>
+        <item name="keyTypeface">normal</item>
+        <item name="verticalCorrection">@dimen/config_more_keys_keyboard_vertical_correction_holo</item>
+    </style>
+    <style
+        name="MoreKeysKeyboardView.dark_lime.Action"
+        parent="MoreKeysKeyboardView.dark_lime"
+        >
+        <item name="android:background">@android:color/transparent</item>
+        <item name="keyBackground">@drawable/btn_keyboard_key_popup_action_lxx_dark</item>
+        <item name="divider">@null</item>
+        <item name="keyLabelFlags">keepBackgroundAspectRatio</item>
+    </style>
+    <style
+        name="SuggestionStripView.dark_lime"
+        parent="KeyboardView.dark_lime"
+        >
+        <item name="android:background">@android:color/transparent</item>
+        <item name="suggestionsCountInStrip">@integer/config_suggestions_count_in_strip</item>
+        <item name="centerSuggestionPercentile">@fraction/config_center_suggestion_percentile</item>
+        <item name="maxMoreSuggestionsRow">@integer/config_max_more_suggestions_row</item>
+        <item name="minMoreSuggestionsWidth">@fraction/config_min_more_suggestions_width</item>
+        <item name="android:src">@drawable/suggestions_strip_divider_holo</item>
+        <item name="suggestionStripOptions">autoCorrectBold|validTypedWordBold</item>
+        <item name="colorValidTypedWord">@color/typed_word_color_ics</item>
+        <item name="colorTypedWord">@color/auto_correct_color_lxx_dark</item>
+        <item name="colorAutoCorrect">@color/highlight_color_ics</item>
+        <item name="colorSuggested">@color/auto_correct_color_lxx_dark</item>
+        <item name="alphaObsoleted">70%</item>
+        <item name="savedGkIcon">@drawable/bookmark_generic_white</item>
+        <item name="emojiIcon">@drawable/emoji_generic_black</item>
+        <item name="backIcon">@drawable/arrow_left_black</item>
+        <item name="messageIcon">@drawable/message</item>
+        <item name="updateIcon">@drawable/updated</item>
+        <item name="themeIcon">@drawable/theme_generic_white</item>
+    </style>
+    <style
+        name="SuggestionWord.dark_lime"
+        parent="SuggestionWord"
+        >
+        <item name="android:background">@drawable/btn_suggestion_lxx_dark</item>
+        <item name="android:textColor">@color/highlight_color_lxx_dark</item>
+    </style>
+
+    <style name="questionTextStyle.dark_lime" parent="SuggestionStripView.dark_lime">
+        <item name="questIonTextColor">@android:color/white</item>
+    </style>
+
+</resources>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Functional keys. -->
+    <item android:state_pressed="true"
+        android:drawable="@color/key_background_pressed_lxx_dark" />
+
+    <item android:drawable="@drawable/functional_key_background_elegant_midnight_aqua" />
+</selector>
