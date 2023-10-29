@@ -624,5 +624,12 @@
     </declare-styleable>
 
 
+    <declare-styleable name="CustomAdView">
+        <attr name="position" format="enum">
+            <enum name="top" value="1"/>
+            <enum name="emoji" value="2"/>
+        </attr>
+    </declare-styleable>
+
 
 </resources>

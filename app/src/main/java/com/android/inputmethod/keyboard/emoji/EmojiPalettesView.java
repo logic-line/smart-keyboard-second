@@ -58,8 +58,7 @@ import com.android.inputmethod.latin.AudioAndHapticFeedbackManager;
 import com.android.inputmethod.latin.RichInputMethodSubtype;
 import com.android.inputmethod.latin.common.Constants;
 import com.android.inputmethod.latin.utils.ResourceUtils;
-import com.android.inputmethod.utils.GkEngine;
-import com.banglakeyboard.pro.customView.EmojiAdView;
+import com.banglakeyboard.pro.customView.CustomAdView;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdLoader;
 import com.google.android.gms.ads.AdRequest;
@@ -67,9 +66,7 @@ import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.LoadAdError;
 import com.banglakeyboard.pro.Models.Theme;
-import com.banglakeyboard.pro.MyApp;
 import com.banglakeyboard.pro.R;
-import com.banglakeyboard.pro.Utils.Common;
 import com.banglakeyboard.pro.Utils.CustomThemeHelper;
 import com.banglakeyboard.pro.Views.NativeAd.TemplateView;
 
@@ -97,7 +94,7 @@ public final class EmojiPalettesView extends LinearLayout implements OnTabChange
     private final int mCategoryPageIndicatorColor;
     private final int mCategoryPageIndicatorBackground;
     private final int keyBackgroundId;
-    private EmojiAdView emojiAdView;
+    private CustomAdView customAdView;
     private EmojiPalettesAdapter mEmojiPalettesAdapter;
     private final EmojiLayoutParams mEmojiLayoutParams;
     private final DeleteKeyOnTouchListener mDeleteKeyOnTouchListener;
@@ -286,7 +283,7 @@ public final class EmojiPalettesView extends LinearLayout implements OnTabChange
         mEmojiPager.setOffscreenPageLimit(0);
         mEmojiPager.setPersistentDrawingCache(PERSISTENT_NO_CACHE);
         mEmojiLayoutParams.setPagerProperties(mEmojiPager);
-        emojiAdView = findViewById(R.id.emojiAdView);
+        customAdView = findViewById(R.id.emojiAdView);
 
         mEmojiCategoryPageIndicatorView =
                 (EmojiCategoryPageIndicatorView) findViewById(R.id.emoji_category_page_id_view);
@@ -582,7 +579,7 @@ public final class EmojiPalettesView extends LinearLayout implements OnTabChange
 
         Log.d(TAG, "startEmojiPalettes: ");
         //loadBannerAd();
-        emojiAdView.loadBannerAds();
+        customAdView.loadBannerAds();
 
 
         final int deleteIconResId = iconSet.getIconResourceId(KeyboardIconsSet.NAME_DELETE_KEY);

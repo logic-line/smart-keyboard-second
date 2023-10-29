@@ -80,7 +80,7 @@
         android:layout_height="wrap_content"
         />-->
 
-    <com.banglakeyboard.pro.customView.EmojiAdView
+    <com.banglakeyboard.pro.customView.CustomAdView
         android:id="@+id/emojiAdView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>

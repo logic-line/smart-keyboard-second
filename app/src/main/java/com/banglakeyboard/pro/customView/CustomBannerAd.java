@@ -53,6 +53,8 @@ public class CustomBannerAd extends FrameLayout implements View.OnClickListener 
     private CustomAdListener listener;
     private String actionUrl;
     private int adUId = -1;
+    public static final int EMOJI_ADS= 1;
+    public static final int TOP_ADS = 2;
 
     private CustomBannerAd(@NonNull Context context) {
         super(context);
@@ -94,14 +96,23 @@ public class CustomBannerAd extends FrameLayout implements View.OnClickListener 
         descriptionTv.setOnClickListener(this);
     }
 
-    public void loadAd(){
+    private void loadAd(int position){
 
         Utils.getAdsId(getContext(), new Utils.AdIdCallback() {
             @Override
             public void adId(String adId) {
                 Log.d(TAG, "adId: " + adId);
                 if (adId != null){
-                    MyApp.myApi.getBannerAds(adId, "emoji").enqueue(new Callback<GenericResponse<BannerAds>>() {
+                    Call<GenericResponse<BannerAds>> adsResponse = null;
+
+                    if (position == TOP_ADS){
+                        adsResponse = MyApp.myApi.getBannerAds(adId, "top");
+                    }else if (position == EMOJI_ADS){
+                        adsResponse = MyApp.myApi.getBannerAds(adId, "emoji");
+                    }
+
+                    if (adsResponse != null)
+                        adsResponse.enqueue(new Callback<GenericResponse<BannerAds>>() {
                         @Override
                         public void onResponse(Call<GenericResponse<BannerAds>> call, Response<GenericResponse<BannerAds>> response) {
                             if(response.isSuccessful() && response.body()!=null){
@@ -212,16 +223,19 @@ public class CustomBannerAd extends FrameLayout implements View.OnClickListener 
         }
     }
 
-    static class Builder{
+    public static class Builder{
         private final Context context;
         private boolean isLoadCalled = false;
         private CustomAdListener listener;
+        private int position = 0;
+
         public Builder(Context context){
             this.context = context;
         }
 
-        public Builder loadAds(){
+        public Builder loadAds(int position){
             isLoadCalled = true;
+            this.position = position;
             return this;
         }
 
@@ -240,7 +254,7 @@ public class CustomBannerAd extends FrameLayout implements View.OnClickListener 
                     adsView.setAdListener(listener);
                 }
                 if (isLoadCalled){
-                    adsView.loadAd();
+                    adsView.loadAd(position);
                 }
             }
             return adsView;
