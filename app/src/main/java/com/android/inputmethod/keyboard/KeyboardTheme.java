@@ -40,7 +40,7 @@ public final class KeyboardTheme implements Comparable<KeyboardTheme> {
     public static final int THEME_ID_LXX_DARK = 4;
     public static final int THEME_ID_MJ_LIGHT = 5;
     public static final int THEME_ID_CUSTOM = 6;
-    public static final int CUSTOMIZED_MJ_LIGHT = 7;
+    public static final int THEME_ID_MJMLight = 7;
     public static final int THEME_ELEGANT_MIDNIGHT_AQUA = 8;
     public static final int THEME_DARK_LIME = 9;
     public static final int THEME_MIDNIGHT_BOLOSSOM = 10;
@@ -51,12 +51,25 @@ public final class KeyboardTheme implements Comparable<KeyboardTheme> {
     public static final int DEFAULT_THEME_ID = THEME_ID_KLP;
     /* package private for testing */
     public static final KeyboardTheme[] KEYBOARD_THEMES = {
-            new KeyboardTheme(THEME_ID_MJ_LIGHT, "MJLight", R.style.KeyboardTheme_MJ_Light,
+            new KeyboardTheme(THEME_ID_MJ_LIGHT, "MJLight", R.style.KeyboardTheme_custom_mj_light,
                     // Default theme for LXX.
                     VERSION_CODES.LOLLIPOP),
 
-            new KeyboardTheme(CUSTOMIZED_MJ_LIGHT, "Customized MJLight", R.style.KeyboardTheme_custom_mj_light,
+            new KeyboardTheme(THEME_ID_MJMLight, "MJMLight", R.style.KeyboardTheme_MJ_Light,
                     VERSION_CODES.LOLLIPOP),
+
+            new KeyboardTheme(THEME_ID_ICS, "ICS", R.style.KeyboardTheme_ICS,
+                    // This has never been selected because we support ICS or later.
+                    VERSION_CODES.BASE),
+            new KeyboardTheme(THEME_ID_KLP, "KLP", R.style.KeyboardTheme_KLP,
+                    // Default theme for ICS, JB, and KLP.
+                    VERSION_CODES.ICE_CREAM_SANDWICH),
+            new KeyboardTheme(THEME_ID_LXX_LIGHT, "LXXLight", KeyboardTheme_LXX_Light,
+                    // Default theme for LXX.
+                    VERSION_CODES.LOLLIPOP),
+            new KeyboardTheme(THEME_ID_LXX_DARK, "LXXDark", R.style.KeyboardTheme_LXX_Dark,
+                    // This has never been selected as default theme.
+                    VERSION_CODES.BASE),
 
             new KeyboardTheme(THEME_ELEGANT_MIDNIGHT_AQUA, "Elegant Midnight Aqua", R.style.KeyboardTheme_Elegant_midnight_aqua,
                     // Default theme for LXX.
@@ -76,19 +89,6 @@ public final class KeyboardTheme implements Comparable<KeyboardTheme> {
             new KeyboardTheme(THEME_PURPLE_HAZE, "Purple Haze", R.style.KeyboardTheme_purple_haze,
                     // Default theme for LXX.
                     VERSION_CODES.LOLLIPOP),
-            new KeyboardTheme(THEME_ID_ICS, "ICS", R.style.KeyboardTheme_ICS,
-                    // This has never been selected because we support ICS or later.
-                    VERSION_CODES.BASE),
-            new KeyboardTheme(THEME_ID_KLP, "KLP", R.style.KeyboardTheme_KLP,
-                    // Default theme for ICS, JB, and KLP.
-                    VERSION_CODES.ICE_CREAM_SANDWICH),
-            new KeyboardTheme(THEME_ID_LXX_LIGHT, "LXXLight", KeyboardTheme_LXX_Light,
-                    // Default theme for LXX.
-                    VERSION_CODES.LOLLIPOP),
-            new KeyboardTheme(THEME_ID_LXX_DARK, "LXXDark", R.style.KeyboardTheme_LXX_Dark,
-                    // This has never been selected as default theme.
-                    VERSION_CODES.BASE),
-
             new KeyboardTheme(THEME_ID_CUSTOM, "Custom", R.style.KeyboardTheme_CUSTOM,
                     // This has never been selected as default theme.
                     VERSION_CODES.BASE),
