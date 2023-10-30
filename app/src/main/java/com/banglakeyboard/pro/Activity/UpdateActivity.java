@@ -3,18 +3,23 @@ package com.banglakeyboard.pro.Activity;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.banglakeyboard.pro.BuildConfig;
 import com.banglakeyboard.pro.CommonMethod;
 import com.banglakeyboard.pro.Models.GenericResponse;
 import com.banglakeyboard.pro.Models.Update;
 import com.banglakeyboard.pro.MyApp;
 import com.banglakeyboard.pro.R;
+import com.bumptech.glide.Glide;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -26,6 +31,10 @@ public class UpdateActivity extends AppCompatActivity {
     LinearLayout checkingView;
     LinearLayout uptoDateView;
     private Button btnUpdate;
+    private ImageView updateImage;
+    private LottieAnimationView updateLottieAnim;
+    private TextView text;
+    private TextView versionCodeTv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +48,10 @@ public class UpdateActivity extends AppCompatActivity {
         checkingView = findViewById(R.id.layoutChecking);
         uptoDateView = findViewById(R.id.layoutUpToDate);
         btnUpdate = findViewById(R.id.btnUpdate);
+        updateImage = findViewById(R.id.iv_updateImage);
+        updateLottieAnim = findViewById(R.id.la_update);
+        text = findViewById(R.id.tv_text);
+        versionCodeTv = findViewById(R.id.tv_version_code);
 
         btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,11 +95,32 @@ public class UpdateActivity extends AppCompatActivity {
 
     }
 
+    @SuppressLint("SetTextI18n")
     private void updateView(Update data) {
         if (data.version_code>BuildConfig.VERSION_CODE){
             updateView.setVisibility(View.VISIBLE);
             checkingView.setVisibility(View.GONE);
             uptoDateView.setVisibility(View.GONE);
+
+            if (data.force_image_url != null){
+                updateLottieAnim.setVisibility(View.GONE);
+                Glide.with(this)
+                        .load(data.force_image_url)
+                        .into(updateImage);
+            }else {
+                updateImage.setVisibility(View.GONE);
+                updateLottieAnim.setVisibility(View.VISIBLE);
+            }
+
+            if (data.text != null){
+                text.setText(data.text);
+            }else {
+                text.setVisibility(View.GONE);
+            }
+
+            versionCodeTv.setText("Version Code: " + data.version_code);
+
+
         }else{
             updateView.setVisibility(View.GONE);
             checkingView.setVisibility(View.GONE);

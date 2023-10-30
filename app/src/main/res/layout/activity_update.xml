@@ -12,72 +12,102 @@
         android:layout_height="match_parent">
 
         <LinearLayout
-            android:layout_gravity="center"
             android:id="@+id/layoutChecking"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:orientation="vertical">
 
             <com.airbnb.lottie.LottieAnimationView
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
                 android:scaleType="fitCenter"
                 app:lottie_autoPlay="true"
-                app:lottie_fileName="update.json"
-                android:layout_width="match_parent"
-                android:layout_height="300dp"/>
+                app:lottie_fileName="update.json" />
 
             <TextView
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:layout_margin="8dp"
-                android:textSize="16sp"
-                android:text="Checking update...."
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="8dp"
+                android:gravity="center"
+                android:text="Checking update...."
+                android:textSize="16sp" />
 
         </LinearLayout>
 
         <LinearLayout
-            android:visibility="gone"
-            android:gravity="center"
-            android:layout_gravity="center"
-            android:layout_margin="8dp"
             android:id="@+id/layoutUpdateView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_gravity="center"
+            android:layout_margin="8dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="visible">
 
 
             <com.airbnb.lottie.LottieAnimationView
-                app:lottie_autoPlay="true"
-                app:lottie_fileName="update_available.json"
+                android:id="@+id/la_update"
                 android:layout_width="match_parent"
-                android:layout_height="300dp"/>
+                android:layout_height="300dp"
+                android:visibility="gone"
+                app:lottie_autoPlay="true"
+                app:lottie_fileName="update_available.json" />
+
+            <ImageView
+                android:id="@+id/iv_updateImage"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:scaleType="fitXY" />
+
+            <TextView
+                android:id="@+id/tv_version_code"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                android:gravity="center"
+                android:textStyle="bold"
+                tools:text="Version Code: " />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                tools:text="Hello World" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnUpdate"
-                android:textColor="@android:color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 android:background="@drawable/update_button_bg"
                 android:text="Update Now"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:textColor="@android:color/white" />
 
         </LinearLayout>
 
         <LinearLayout
-            android:visibility="gone"
+            android:id="@+id/layoutUpToDate"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
             android:layout_gravity="center"
             android:gravity="center"
             android:orientation="vertical"
-            android:id="@+id/layoutUpToDate"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent">
+            android:visibility="gone">
 
             <TextView
-                android:textStyle="bold"
-                android:textSize="14dp"
-                android:text="App is updated \n"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:text="App is updated \n"
+                android:textSize="14dp"
+                android:textStyle="bold" />
         </LinearLayout>
 
     </FrameLayout>
