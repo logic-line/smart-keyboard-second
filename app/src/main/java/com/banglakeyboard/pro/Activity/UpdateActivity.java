@@ -104,7 +104,7 @@ public class UpdateActivity extends AppCompatActivity {
 
             if (data.force_image_url != null){
                 updateLottieAnim.setVisibility(View.GONE);
-                Glide.with(this)
+                Glide.with(getApplicationContext())
                         .load(data.force_image_url)
                         .into(updateImage);
             }else {
