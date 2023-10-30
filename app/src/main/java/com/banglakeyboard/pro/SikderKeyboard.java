@@ -62,7 +62,12 @@ public class SikderKeyboard extends MyLatinIME {
             Log.d(TAG, "onStartInputView: update Available");
             if(MyApp.getUpdateInfo().update_type==1){
                 Log.d(TAG, "onStartInputView: forceUpdate");
-                startActivity(new Intent(this, UpdateActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+                try{
+                    startActivity(new Intent(this, UpdateActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+                }catch (Exception e){
+                    Log.d(TAG, "onStartInputView: start activity error " + e.getMessage());
+                }
+
             }
         }
         super.onStartInputView(editorInfo, restarting);
