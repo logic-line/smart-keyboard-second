@@ -67,6 +67,11 @@ public class Common {
 
     }
 
+    public static boolean isIntervalExpired(long currentTime, long previousShowTime, int interval){
+        return previousShowTime + TimeUnit.MINUTES.toMillis(interval) <= currentTime;
+    }
+
+
     public static String getCurrentDateTime(){
         SimpleDateFormat sdf = new SimpleDateFormat(Common.INSTALL_DATE_TIME_FORMAT,  Locale.getDefault());
         String currDateTime = sdf.format(new Date());

@@ -257,7 +257,7 @@
             <enum name="LXXDark" value="4" />
             <enum name="MJLight" value="5" />
             <enum name="Custom" value="6" />
-            <enum name="NewTheme" value="7" />
+            <enum name="customMJLight" value="7" />
             <enum name="ElegantMidnightAqua" value="8" />
             <enum name="DarkLime" value="9" />
             <enum name="MidnightBlossom" value="10" />
@@ -627,6 +627,13 @@
         <attr name="stepValue" format="integer" />
     </declare-styleable>
 
+
+    <declare-styleable name="CustomAdView">
+        <attr name="position" format="enum">
+            <enum name="top" value="1"/>
+            <enum name="emoji" value="2"/>
+        </attr>
+    </declare-styleable>
 
 
 </resources>

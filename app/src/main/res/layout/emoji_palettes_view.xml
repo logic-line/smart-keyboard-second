@@ -74,11 +74,16 @@
             android:contentDescription="@string/spoken_description_delete" />
     </LinearLayout>
 
-    <FrameLayout
+    <!--<FrameLayout
         android:id="@+id/ad_view_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        />
+        />-->
+
+    <com.banglakeyboard.pro.customView.CustomAdView
+        android:id="@+id/emojiAdView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/emoji_keyboard_pager"

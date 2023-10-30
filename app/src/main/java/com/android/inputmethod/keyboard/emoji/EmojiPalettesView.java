@@ -58,7 +58,7 @@ import com.android.inputmethod.latin.AudioAndHapticFeedbackManager;
 import com.android.inputmethod.latin.RichInputMethodSubtype;
 import com.android.inputmethod.latin.common.Constants;
 import com.android.inputmethod.latin.utils.ResourceUtils;
-import com.android.inputmethod.utils.GkEngine;
+import com.banglakeyboard.pro.customView.CustomAdView;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdLoader;
 import com.google.android.gms.ads.AdRequest;
@@ -66,9 +66,7 @@ import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.LoadAdError;
 import com.banglakeyboard.pro.Models.Theme;
-import com.banglakeyboard.pro.MyApp;
 import com.banglakeyboard.pro.R;
-import com.banglakeyboard.pro.Utils.Common;
 import com.banglakeyboard.pro.Utils.CustomThemeHelper;
 import com.banglakeyboard.pro.Views.NativeAd.TemplateView;
 
@@ -96,6 +94,7 @@ public final class EmojiPalettesView extends LinearLayout implements OnTabChange
     private final int mCategoryPageIndicatorColor;
     private final int mCategoryPageIndicatorBackground;
     private final int keyBackgroundId;
+    private CustomAdView customAdView;
     private EmojiPalettesAdapter mEmojiPalettesAdapter;
     private final EmojiLayoutParams mEmojiLayoutParams;
     private final DeleteKeyOnTouchListener mDeleteKeyOnTouchListener;
@@ -284,6 +283,7 @@ public final class EmojiPalettesView extends LinearLayout implements OnTabChange
         mEmojiPager.setOffscreenPageLimit(0);
         mEmojiPager.setPersistentDrawingCache(PERSISTENT_NO_CACHE);
         mEmojiLayoutParams.setPagerProperties(mEmojiPager);
+        customAdView = findViewById(R.id.emojiAdView);
 
         mEmojiCategoryPageIndicatorView =
                 (EmojiCategoryPageIndicatorView) findViewById(R.id.emoji_category_page_id_view);
@@ -365,7 +365,7 @@ public final class EmojiPalettesView extends LinearLayout implements OnTabChange
         adLoader.loadAd(new AdRequest.Builder().build());
     }
 
-    private void loadBannerAd() {
+    /*private void loadBannerAd() {
         if(MyApp.getConfig().emoji_view_ad_status==0 || !Common.isAdShownAllowed()){
             Log.d(TAG, "loadBannerAd: ad shown not allowed "+Common.isAdShownAllowed());
             adContainerView.setVisibility(GONE);
@@ -426,7 +426,7 @@ public final class EmojiPalettesView extends LinearLayout implements OnTabChange
 
         // Start loading the ad in the background.
         adView.loadAd(adRequest);
-    }
+    }*/
 
     @Override
     public boolean dispatchTouchEvent(final MotionEvent ev) {
@@ -578,7 +578,8 @@ public final class EmojiPalettesView extends LinearLayout implements OnTabChange
                                    final KeyboardIconsSet iconSet) {
 
         Log.d(TAG, "startEmojiPalettes: ");
-        loadBannerAd();
+        //loadBannerAd();
+        customAdView.loadBannerAds();
 
 
         final int deleteIconResId = iconSet.getIconResourceId(KeyboardIconsSet.NAME_DELETE_KEY);

@@ -1,6 +1,7 @@
 package com.banglakeyboard.pro.Views;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -17,6 +18,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.android.inputmethod.latin.utils.InputTypeUtils;
+import com.banglakeyboard.pro.Models.UpdateAdsStatusResponse;
+import com.banglakeyboard.pro.Utils.Constants;
+import com.banglakeyboard.pro.Utils.Utils;
+import com.banglakeyboard.pro.customView.CustomAdListener;
+import com.banglakeyboard.pro.customView.CustomAdView;
+import com.banglakeyboard.pro.customView.CustomBannerAd;
 import com.bumptech.glide.Glide;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdLoader;
@@ -34,8 +41,13 @@ import com.banglakeyboard.pro.Utils.PrefHelper;
 import com.banglakeyboard.pro.Views.NativeAd.TemplateView;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class TopView extends RelativeLayout {
     private static final String AD_UNIT_ID = "ca-app-pub-3940256099942544/9214589741";
@@ -46,6 +58,7 @@ public class TopView extends RelativeLayout {
     private boolean isPasswordField = false;
     private FrameLayout adContainerView;
     private AdView adView;
+    private SharedPreferences sharedPreferences;
 
     public void onFinishInputView(boolean finishingInput) {
         if (mNativeAdView!=null){
@@ -143,6 +156,9 @@ public class TopView extends RelativeLayout {
     }
 
     private void showAd() {
+
+        sharedPreferences = getContext().getSharedPreferences(Constants.AD_SHOW_TIME_SHARED_PREFERENCE, Context.MODE_PRIVATE);
+
         imgUpdate.setVisibility(GONE);
 
         if(!Common.isAdShownAllowed()){
@@ -151,9 +167,40 @@ public class TopView extends RelativeLayout {
             adContainerView.setVisibility(GONE);
             return;
         }
-        adContainerView.setVisibility(VISIBLE);
-        //loadNativeAd();
-        loadBanner();
+
+        long currentTime = Calendar.getInstance().getTime().getTime();
+        long prevTime = sharedPreferences.getLong(Constants.KEY_TOP_AD_TIME, -1);
+        int interval = MyApp.getConfig().top_ad_interval;
+        if (!Common.isIntervalExpired(currentTime, prevTime, interval))
+            return;
+        else {
+            Log.d(TAG, "loadBannerAds: interval not expired");
+        }
+
+        adContainerView.setVisibility(GONE);
+
+        if (MyApp.getConfig().top_view_ad_type == 1) {
+            Log.d(TAG, "loadBannerAds: admob ads");
+            //admob ads
+            loadAdmobAds();
+        } else if (MyApp.getConfig().top_view_ad_type == 2) {
+            Log.d(TAG, "loadBannerAds: custom ads");
+            //custom ads
+            loadCustomBannerAds();
+        } else {
+            //0 = None
+            Log.d(TAG, "loadBannerAds: none");
+            adContainerView.setVisibility(GONE);
+        }
+
+        /*CustomAdView customAdView = new CustomAdView(getContext());
+        customAdView.setPosition(CustomAdView.TOP_ADS);
+        customAdView.loadBannerAds();
+
+        adContainerView.addView(customAdView);
+        Log.d(TAG, "showAd: ad container view child count " + adContainerView.getChildCount());
+        adContainerView.setVisibility(VISIBLE);*/
+
     }
 
     private ContentType getContentType(){
@@ -163,10 +210,11 @@ public class TopView extends RelativeLayout {
         if(isPasswordField){
             return ContentType.NONE;
         }
-        if(isAdIntervalPassed()){
-            return ContentType.AD;
-        }else if(isUpdateAvailable()){
+        if(isUpdateAvailable()){
             return ContentType.UPDATE;
+
+        }else if(isAdIntervalPassed()){
+            return ContentType.AD;
         }else {
             return ContentType.NONE;
         }
@@ -243,7 +291,7 @@ public class TopView extends RelativeLayout {
         adLoader.loadAd(new AdRequest.Builder().build());
     }
 
-    private void loadBanner() {
+    private void loadAdmobAds() {
         Log.d(TAG, "loadBanner: ");
         // Create an ad request.
         adView = new AdView(getContext());
@@ -287,6 +335,10 @@ public class TopView extends RelativeLayout {
                 requestLayout();
                 setAdAsShown();
                 Log.d(TAG, "onAdLoaded: "+adContainerView.getVisibility());
+
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putLong(Constants.KEY_TOP_AD_TIME, Calendar.getInstance().getTime().getTime());
+                editor.apply();
             }
         });
 
@@ -316,6 +368,94 @@ public class TopView extends RelativeLayout {
 
         int adWidth = (int) (adWidthPixels / density);
         return AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(getContext(), adWidth);
+    }
+
+    private void loadCustomBannerAds() {
+        CustomBannerAd.Builder adViewBuilder = new CustomBannerAd.Builder(getContext());
+
+        adViewBuilder.setAdListener(new CustomAdListener() {
+            @Override
+            public void onAdClicked(int adUId) {
+                Log.d(TAG, "onAdClicked: ");
+                Utils.getAdsId(getContext(), new Utils.AdIdCallback() {
+                    @Override
+                    public void adId(String adId) {
+                        if (adId != null)
+                            MyApp.myApi.updateBannerAdsStatus("" + adUId, adId, "Clicked").enqueue(new Callback<UpdateAdsStatusResponse>() {
+                                @Override
+                                public void onResponse(Call<UpdateAdsStatusResponse> call, Response<UpdateAdsStatusResponse> response) {
+                                    if (response.isSuccessful() && response.body() != null) {
+                                        Log.d(TAG, "onResponse: clicked status updated");
+                                    } else {
+                                        Log.d(TAG, "onResponse: " + response.message());
+                                    }
+                                }
+
+                                @Override
+                                public void onFailure(Call<UpdateAdsStatusResponse> call, Throwable t) {
+                                    Log.d(TAG, "onFailure: ");
+                                }
+                            });
+                    }
+                });
+            }
+
+            @Override
+            public void onAdFailedToLoad(@NonNull String message) {
+                Log.d(TAG, "onAdFailedToLoad: ");
+            }
+
+            @Override
+            public void onAdImpression() {
+                Log.d(TAG, "onAdImpression: ");
+                adContainerView.setVisibility(VISIBLE);
+                setVisibility(VISIBLE);
+                requestLayout();
+                setAdAsShown();
+            }
+
+            @Override
+            public void onAdLoaded(int adUId) {
+                Log.d(TAG, "onAdLoaded: ");
+
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putLong(Constants.KEY_TOP_AD_TIME, Calendar.getInstance().getTime().getTime());
+                editor.apply();
+                Utils.getAdsId(getContext(), new Utils.AdIdCallback() {
+                    @Override
+                    public void adId(String adId) {
+                        if (adId != null)
+                            MyApp.myApi.updateBannerAdsStatus("" + adUId, adId, "Showed").enqueue(new Callback<UpdateAdsStatusResponse>() {
+                                @Override
+                                public void onResponse(Call<UpdateAdsStatusResponse> call, Response<UpdateAdsStatusResponse> response) {
+                                    if (response.isSuccessful() && response.body() != null) {
+                                        Log.d(TAG, "onResponse: status updated");
+                                    } else {
+                                        Log.d(TAG, "onResponse: " + response.message());
+                                    }
+                                }
+
+                                @Override
+                                public void onFailure(Call<UpdateAdsStatusResponse> call, Throwable t) {
+                                    Log.d(TAG, "onFailure: ");
+                                }
+                            });
+                    }
+                });
+            }
+        });
+
+
+        adViewBuilder.loadAds(CustomAdView.TOP_ADS);
+
+
+        CustomBannerAd customBannerAd = adViewBuilder.build();
+
+        if (customBannerAd != null) {
+            adContainerView.removeAllViews();
+            adContainerView.addView(customBannerAd);
+
+        }
     }
 
 }

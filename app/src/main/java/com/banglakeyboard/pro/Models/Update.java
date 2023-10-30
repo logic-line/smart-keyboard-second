@@ -11,6 +11,8 @@ public class Update {
     @ColumnInfo(defaultValue = "0")
     public int version_code=0;
     public String image_url;
+    public String text;
+    public String force_image_url;
     public String referLink;
     @ColumnInfo(defaultValue = "0")
     public int status=0;
