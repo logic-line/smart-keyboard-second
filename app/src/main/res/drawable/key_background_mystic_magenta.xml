@@ -11,10 +11,10 @@
                 android:left="0.5dp"
                 android:right="0.5dp"
                 android:top="0.5dp" />
-            <stroke
+            <!--<stroke
                 android:width="1dp"
-                android:color="@color/elegant_midnight_aqua_key_bg_color" />
-            <solid android:color="@color/elegant_midnight_aqua_key_bg_color" />
+                android:color="@color/elegant_midnight_aqua_key_bg_color" />-->
+            <solid android:color="@color/mystic_magenta_key_bg" />
             <corners android:radius="2dp" />
         </shape>
     </item>

@@ -115,4 +115,27 @@
     <color name="dark_lime_key_bg_color">#1C1B1E</color>
     <color name="dark_lime_key_inactivated_color">#555457</color>
 
+    <color name="midnight_bolossom_functional_bg">#F390B1</color>
+    <color name="midnight_bolossom_key_color">#BB90A0</color>
+    <color name="midnight_bolossom_sliding_preview_color">#220815</color>
+
+    <color name="mystic_magenta_key_bg">#EA1E63</color>
+    <color name="mystic_magenta_functional_bg">#1C1C1E</color>
+    <color name="mystic_magenta_key_inactivated_color">#F58FB1</color>
+    <color name="mystic_magenta_key_color">#fff</color>
+    <color name="mystic_magenta_functional_key_color">#EA1E63</color>
+
+    <color name="oceanic_elegance_background">#1C1C1E</color>
+    <color name="oceanic_elegance_key_bg">#016064</color>
+    <color name="oceanic_elegance_functional_key_bg">#009788</color>
+    <color name="oceanic_elegance_key">#80DEEB</color>
+    <color name="oceanic_elegance_key_inactive">#117B7C</color>
+    <color name="oceanic_elegance_functional_key">#81CBC4</color>
+
+    <color name="purple_haze_background">#683CB9</color>
+    <color name="purple_haze_key_bg">#EEE8F6</color>
+    <color name="purple_haze_functional_key_bg">#301B92</color>
+    <color name="purple_haze_key">#301B92</color>
+    <color name="purple_haze_key_inactive">#B39EDB</color>
+    <color name="purple_haze_functional_key">#F1F1F4</color>
 </resources>

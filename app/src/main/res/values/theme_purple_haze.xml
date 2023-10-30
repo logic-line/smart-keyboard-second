@@ -2,60 +2,57 @@
 
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
-    <style name="KeyboardTheme.Elegant_midnight_aqua" parent="KeyboardIcons.LXX_Dark">
-        <item name="iconDeleteKey">@drawable/sym_keyboard_delete_lxx_white</item>
-        <item name="iconShiftKey">@drawable/sym_keyboard_shift_holo_dark</item>
-        <item name="iconShiftKeyShifted">@drawable/sym_keyboard_shift_locked_holo_dark</item>
+    <style name="KeyboardTheme.purple_haze" parent="KeyboardIcons.LXX_Dark">
+        <item name="iconShiftKeyShifted">@drawable/keyboard_shift_locked_purple_haze</item>
 
-        <item name="inputViewStyle">@style/InputView.Elegant_midnight_aqua</item>
-        <item name="keyboardStyle">@style/Keyboard.Elegant_midnight_aqua</item>
-        <item name="keyboardViewStyle">@style/KeyboardView.Elegant_midnight_aqua</item>
-        <item name="mainKeyboardViewStyle">@style/MainKeyboardView.Elegant_midnight_aqua</item>
-        <item name="emojiPalettesViewStyle">@style/EmojiPalettesView.Elegant_midnight_aqua</item>
-        <item name="moreKeysKeyboardStyle">@style/MoreKeysKeyboard.Elegant_midnight_aqua</item>
-        <item name="moreKeysKeyboardViewStyle">@style/MoreKeysKeyboardView.Elegant_midnight_aqua</item>
-        <item name="moreKeysKeyboardViewForActionStyle">@style/MoreKeysKeyboardView.Elegant_midnight_aqua.Action</item>
-        <item name="suggestionStripViewStyle">@style/SuggestionStripView.Elegant_midnight_aqua</item>
-        <item name="suggestionWordStyle">@style/SuggestionWord.Elegant_midnight_aqua</item>
-        <item name="gkViewStyle">@style/questionTextStyle.Elegant_midnight_aqua</item>
+        <item name="inputViewStyle">@style/InputView.purple_haze</item>
+        <item name="keyboardStyle">@style/Keyboard.purple_haze</item>
+        <item name="keyboardViewStyle">@style/KeyboardView.purple_haze</item>
+        <item name="mainKeyboardViewStyle">@style/MainKeyboardView.purple_haze</item>
+        <item name="emojiPalettesViewStyle">@style/EmojiPalettesView.purple_haze</item>
+        <item name="moreKeysKeyboardStyle">@style/MoreKeysKeyboard.purple_haze</item>
+        <item name="moreKeysKeyboardViewStyle">@style/MoreKeysKeyboardView.purple_haze</item>
+        <item name="moreKeysKeyboardViewForActionStyle">@style/MoreKeysKeyboardView.purple_haze.Action</item>
+        <item name="suggestionStripViewStyle">@style/SuggestionStripView.purple_haze</item>
+        <item name="suggestionWordStyle">@style/SuggestionWord.purple_haze</item>
+        <item name="gkViewStyle">@style/questionTextStyle.purple_haze</item>
     </style>
+
     <style
-        name="InputView.Elegant_midnight_aqua"
+        name="InputView.purple_haze"
         parent="InputView.MJ"
         >
         <!-- This should be aligned with KeyboardTheme.THEME_ID_* -->
 
 
     </style>
-
     <style
-        name="Keyboard.Elegant_midnight_aqua"
+        name="Keyboard.purple_haze"
         parent="Keyboard"
         >
         <!-- This should be aligned with KeyboardTheme.THEME_ID_* -->
         <item name="themeId">ElegantMidnightAqua</item>
-        <item name="android:background">@color/black</item>
+        <item name="android:background">@color/purple_haze_background</item>
     </style>
     <style
-        name="KeyboardView.Elegant_midnight_aqua"
+        name="KeyboardView.purple_haze"
         parent="KeyboardView.MJ">
-        <item name="keyBackground">@drawable/btn_keyboard_key_elegant_midnight_aqua</item>
-        <item name="functionalKeyBackground">@drawable/btn_keyboard_key_functional_elegant_midnight_aqua</item>
-        <item name="spacebarBackground">@drawable/space_key_background_elegant_midnight_aqua</item>
-        <item name="keyTextColor">@color/elegant_midnight_aqua_key_color</item>
-        <item name="keyTextInactivatedColor">@color/elegant_midnight_aqua_key_inactivated_color</item>
-        <item name="functionalTextColor">@color/white</item>
-        <item name="keyHintLetterColor">@color/elegant_midnight_aqua_key_inactivated_color</item>
+        <item name="keyBackground">@drawable/btn_keyboard_key_purple_haze</item>
+        <item name="functionalKeyBackground">@drawable/btn_keyboard_key_functional_purple_haze</item>
+        <item name="spacebarBackground">@drawable/space_key_background_purple_haze</item>
+        <item name="keyTextColor">@color/purple_haze_key</item>
+        <item name="keyTextInactivatedColor">@color/purple_haze_key_inactive</item>
+        <item name="functionalTextColor">@color/purple_haze_functional_key</item>
+        <item name="keyHintLetterColor">@color/purple_haze_key_inactive</item>
         <item name="keyHintLabelColor">@color/key_hint_label_color_holo</item>
         <item name="keyShiftedLetterHintInactivatedColor">@color/key_shifted_letter_hint_inactivated_color_holo</item>
-        <item name="keyShiftedLetterHintActivatedColor">@color/white</item>
-        <item name="keyPreviewTextColor">@color/elegant_midnight_aqua_key_color</item>
+        <item name="keyShiftedLetterHintActivatedColor">@color/purple_haze_key_inactive</item>
+        <item name="keyPreviewTextColor">@color/purple_haze_background</item>
     </style>
     <style
-        name="MainKeyboardView.Elegant_midnight_aqua"
-        parent="KeyboardView.Elegant_midnight_aqua"
+        name="MainKeyboardView.purple_haze"
+        parent="KeyboardView.purple_haze"
         >
-
         <item name="keyPreviewBackground">@drawable/elegant_midnight_aqua_key_preview_bg</item>
         <item name="keyPreviewHeight">@dimen/config_key_preview_height_holo</item>
         <item name="keyPreviewOffset">@dimen/config_key_preview_offset_holo</item>
@@ -64,8 +61,8 @@
         <item name="gestureFloatingPreviewTextColor">@color/highlight_color_ics</item>
         <item name="gestureFloatingPreviewColor">@color/gesture_floating_preview_color_holo</item>
         <item name="gestureTrailColor">@color/highlight_color_ics</item>
-        <item name="slidingKeyInputPreviewColor">@color/highlight_translucent_color_ics</item>
-        <item name="languageOnSpacebarTextColor">@android:color/white</item>
+        <item name="slidingKeyInputPreviewColor">@color/purple_haze_key_inactive</item>
+        <item name="languageOnSpacebarTextColor">@color/purple_haze_key_inactive</item>
         <item name="languageOnSpacebarTextShadowRadius">1.0</item>
         <item name="languageOnSpacebarTextShadowColor">@color/spacebar_text_shadow_color_holo</item>
         <item name="spaceBarLeftIcon">@drawable/baseline_arrow_left_black</item>
@@ -75,10 +72,10 @@
          delete button, need themed {@link com.android.inputmethod.keyboard.KeyboardView}
          attributes. -->
     <style
-        name="EmojiPalettesView.Elegant_midnight_aqua"
-        parent="MainKeyboardView.Elegant_midnight_aqua"
+        name="EmojiPalettesView.purple_haze"
+        parent="MainKeyboardView.purple_haze"
         >
-        <item name="android:background">@color/black</item>
+        <item name="android:background">@color/purple_haze_background</item>
         <item name="categoryIndicatorEnabled">false</item>
         <item name="categoryPageIndicatorColor">@color/highlight_color_lxx_dark</item>
         <item name="iconEmojiRecentsTab">@drawable/ic_emoji_recents_lxx_dark</item>
@@ -100,8 +97,8 @@
         <item name="iconEmojiCategory16Tab">@drawable/ic_emoji_people_lxx_dark</item>
     </style>
     <style
-        name="MoreKeysKeyboard.Elegant_midnight_aqua"
-        parent="Keyboard.Elegant_midnight_aqua"
+        name="MoreKeysKeyboard.purple_haze"
+        parent="Keyboard.purple_haze"
         >
         <item name="keyboardTopPadding">0%p</item>
         <item name="keyboardBottomPadding">0%p</item>
@@ -109,8 +106,8 @@
         <item name="touchPositionCorrectionData">@null</item>
     </style>
     <style
-        name="MoreKeysKeyboardView.Elegant_midnight_aqua"
-        parent="KeyboardView.Elegant_midnight_aqua"
+        name="MoreKeysKeyboardView.purple_haze"
+        parent="KeyboardView.purple_haze"
         >
         <item name="android:background">@drawable/keyboard_popup_panel_background_klp</item>
         <item name="keyBackground">@drawable/btn_keyboard_key_popup_lxx_dark</item>
@@ -119,8 +116,8 @@
         <item name="verticalCorrection">@dimen/config_more_keys_keyboard_vertical_correction_holo</item>
     </style>
     <style
-        name="MoreKeysKeyboardView.Elegant_midnight_aqua.Action"
-        parent="MoreKeysKeyboardView.Elegant_midnight_aqua"
+        name="MoreKeysKeyboardView.purple_haze.Action"
+        parent="MoreKeysKeyboardView.purple_haze"
         >
         <item name="android:background">@android:color/transparent</item>
         <item name="keyBackground">@drawable/btn_keyboard_key_popup_action_lxx_dark</item>
@@ -128,20 +125,19 @@
         <item name="keyLabelFlags">keepBackgroundAspectRatio</item>
     </style>
     <style
-        name="SuggestionStripView.Elegant_midnight_aqua"
-        parent="KeyboardView.Elegant_midnight_aqua"
+        name="SuggestionStripView.purple_haze"
+        parent="KeyboardView.purple_haze"
         >
         <item name="suggestionsCountInStrip">@integer/config_suggestions_count_in_strip</item>
         <item name="centerSuggestionPercentile">@fraction/config_center_suggestion_percentile</item>
         <item name="maxMoreSuggestionsRow">@integer/config_max_more_suggestions_row</item>
         <item name="minMoreSuggestionsWidth">@fraction/config_min_more_suggestions_width</item>
-        <item name="android:background">@drawable/keybaord_suggest_strip_mj_light</item>
         <item name="android:src">@drawable/suggestions_strip_divider_holo</item>
         <item name="suggestionStripOptions">autoCorrectBold|validTypedWordBold</item>
         <item name="colorValidTypedWord">@color/typed_word_color_ics</item>
         <item name="colorTypedWord">@color/auto_correct_color_lxx_dark</item>
         <item name="colorAutoCorrect">@color/highlight_color_ics</item>
-        <item name="colorSuggested">@color/auto_correct_color_lxx_dark</item>
+        <item name="colorSuggested">@color/purple_haze_key_bg</item>
         <item name="alphaObsoleted">70%</item>
         <item name="savedGkIcon">@drawable/bookmark_generic_white</item>
         <item name="emojiIcon">@drawable/emoji_generic_black</item>
@@ -151,14 +147,14 @@
         <item name="themeIcon">@drawable/theme_generic_white</item>
     </style>
     <style
-        name="SuggestionWord.Elegant_midnight_aqua"
+        name="SuggestionWord.purple_haze"
         parent="SuggestionWord"
         >
         <item name="android:background">@drawable/btn_suggestion_lxx_dark</item>
         <item name="android:textColor">@color/highlight_color_lxx_dark</item>
     </style>
 
-    <style name="questionTextStyle.Elegant_midnight_aqua" parent="SuggestionStripView.Elegant_midnight_aqua">
+    <style name="questionTextStyle.purple_haze" parent="SuggestionStripView.purple_haze">
         <item name="questIonTextColor">@android:color/white</item>
     </style>
 
