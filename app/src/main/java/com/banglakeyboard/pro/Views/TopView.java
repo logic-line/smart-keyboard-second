@@ -171,11 +171,11 @@ public class TopView extends RelativeLayout {
         long currentTime = Calendar.getInstance().getTime().getTime();
         long prevTime = sharedPreferences.getLong(Constants.KEY_TOP_AD_TIME, -1);
         int interval = MyApp.getConfig().top_ad_interval;
-        if (!Common.isIntervalExpired(currentTime, prevTime, interval))
-            return;
-        else {
+        if (!Common.isIntervalExpired(currentTime, prevTime, interval)){
             Log.d(TAG, "loadBannerAds: interval not expired");
+            return;
         }
+
 
         adContainerView.setVisibility(GONE);
 

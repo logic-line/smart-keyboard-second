@@ -41,6 +41,7 @@ public class CustomAdView extends FrameLayout {
     private FrameLayout adContainerView;
     private AdView adView;
     private int position = 0;
+    private int shownAdType = 0;
     private SharedPreferences sharedPreferences;
 
     public static final int EMOJI_ADS= 1;
@@ -92,7 +93,16 @@ public class CustomAdView extends FrameLayout {
             return;
         }
 
-        Log.d(TAG, "loadBannerAd: ad shown not allowed " + Common.isAdShownAllowed());
+        Log.d(TAG, "loadBannerAd: ad shown allowed " + Common.isAdShownAllowed());
+
+        //if the ad type is changed then we have to reload the ads
+
+        if (position == CustomBannerAd.EMOJI_ADS && MyApp.getConfig().emoji_view_ad_type != shownAdType){
+            adContainerView.removeAllViews();
+
+            shownAdType = MyApp.getConfig().emoji_view_ad_type;
+            this.containerView.setVisibility(GONE);
+        }
 
         if (adContainerView.getChildCount() > 0) {
             Log.d(TAG, "loadBannerAd: Ad already laoded");

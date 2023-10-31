@@ -365,69 +365,6 @@ public final class EmojiPalettesView extends LinearLayout implements OnTabChange
         adLoader.loadAd(new AdRequest.Builder().build());
     }
 
-    /*private void loadBannerAd() {
-        if(MyApp.getConfig().emoji_view_ad_status==0 || !Common.isAdShownAllowed()){
-            Log.d(TAG, "loadBannerAd: ad shown not allowed "+Common.isAdShownAllowed());
-            adContainerView.setVisibility(GONE);
-            return;
-        }
-        
-        if(adContainerView.getChildCount()>0){
-            Log.d(TAG, "loadBannerAd: Ad already laoded");
-            return;
-        }
-
-
-        Log.d(TAG, "loadBanner: ");
-        // Create an ad request.
-        adView = new AdView(getContext());
-        adView.setAdUnitId(AD_UNIT_ID);
-        adContainerView.removeAllViews();
-        adContainerView.addView(adView);
-
-        AdSize adSize = getAdSize();
-        adView.setAdSize(adSize);
-
-        adView.setAdListener(new AdListener() {
-            @Override
-            public void onAdClicked() {
-                super.onAdClicked();
-            }
-
-            @Override
-            public void onAdClosed() {
-                super.onAdClosed();
-            }
-
-            @Override
-            public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
-                super.onAdFailedToLoad(loadAdError);
-                Log.d(TAG, "onAdFailedToLoad: "+loadAdError.getMessage());
-                adContainerView.setVisibility(GONE);
-            }
-
-            @Override
-            public void onAdImpression() {
-                super.onAdImpression();
-            }
-
-            @Override
-            public void onAdLoaded() {
-                super.onAdLoaded();
-                adContainerView.setVisibility(VISIBLE);
-                requestLayout();
-                //setAdAsShown();
-                Log.d(TAG, "onAdLoaded: "+adContainerView.getVisibility());
-            }
-        });
-
-        AdRequest adRequest = new AdRequest.Builder().build();
-
-
-        // Start loading the ad in the background.
-        adView.loadAd(adRequest);
-    }*/
-
     @Override
     public boolean dispatchTouchEvent(final MotionEvent ev) {
         // Add here to the stack trace to nail down the {@link IllegalArgumentException} exception
@@ -698,27 +635,6 @@ public final class EmojiPalettesView extends LinearLayout implements OnTabChange
     protected void onVisibilityChanged(@NonNull View changedView, int visibility) {
         super.onVisibilityChanged(changedView, visibility);
         requestLayout();
-    }
-
-    private AdSize getAdSize() {
-        // Determine the screen width (less decorations) to use for the ad width.
-        WindowManager wm = (WindowManager)getContext().getSystemService(Context.WINDOW_SERVICE);
-
-        Display display = wm.getDefaultDisplay();
-        DisplayMetrics outMetrics = new DisplayMetrics();
-        display.getMetrics(outMetrics);
-
-        float density = outMetrics.density;
-
-        float adWidthPixels = adContainerView.getWidth();
-
-        // If the ad hasn't been laid out, default to the full screen width.
-        if (adWidthPixels == 0) {
-            adWidthPixels = outMetrics.widthPixels;
-        }
-
-        int adWidth = (int) (adWidthPixels / density);
-        return AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(getContext(), adWidth);
     }
 
 }
