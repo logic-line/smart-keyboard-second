@@ -24,6 +24,7 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.media.MediaPlayer;
 import android.net.Uri;
@@ -44,12 +45,14 @@ import androidx.core.content.ContextCompat;
 
 import com.android.inputmethod.compat.TextViewCompatUtils;
 import com.android.inputmethod.compat.ViewCompatUtils;
+import com.android.inputmethod.latin.common.StringUtils;
 import com.android.inputmethod.latin.settings.SettingsActivity;
 import com.android.inputmethod.latin.utils.LeakGuardHandlerWrapper;
 import com.android.inputmethod.latin.utils.UncachedInputMethodManagerUtils;
 import com.banglakeyboard.pro.R;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 import javax.annotation.Nonnull;
 
@@ -132,6 +135,10 @@ public final class SetupWizardActivity extends Activity implements View.OnClickL
     protected void onCreate(final Bundle savedInstanceState) {
         setTheme(android.R.style.Theme_Translucent_NoTitleBar);
         super.onCreate(savedInstanceState);
+        Resources res = getResources();
+        Configuration config = new Configuration(res.getConfiguration());
+        config.setLocale(new Locale("bn"));
+        res.updateConfiguration(config, res.getDisplayMetrics());
 
         mImm = (InputMethodManager)getSystemService(INPUT_METHOD_SERVICE);
         mHandler = new SettingsPoolingHandler(this, mImm);
