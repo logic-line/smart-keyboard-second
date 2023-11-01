@@ -543,6 +543,7 @@ public class DictionaryFacilitatorImpl implements DictionaryFacilitator {
     private void addWordToUserHistory(final DictionaryGroup dictionaryGroup,
             final NgramContext ngramContext, final String word, final boolean wasAutoCapitalized,
             final int timeStampInSeconds, final boolean blockPotentiallyOffensive) {
+        Log.d(TAG, "addWordToUserHistory: "+word);
         final ExpandableBinaryDictionary userHistoryDictionary =
                 dictionaryGroup.getSubDict(Dictionary.TYPE_USER_HISTORY);
         if (userHistoryDictionary == null || !isForLocale(userHistoryDictionary.mLocale)) {

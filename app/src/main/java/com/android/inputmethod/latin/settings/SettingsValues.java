@@ -151,6 +151,7 @@ public class SettingsValues {
                 && inputAttributes.mIsGeneralTextInput;
         mBlockPotentiallyOffensive = Settings.readBlockPotentiallyOffensive(prefs, res);
         mAutoCorrectEnabled = Settings.readAutoCorrectEnabled(prefs, res);
+        Log.d(TAG, "SettingsValues: mAutoCorrectEnabled "+mAutoCorrectEnabled);
         final String autoCorrectionThresholdRawValue = mAutoCorrectEnabled
                 ? res.getString(R.string.auto_correction_threshold_mode_index_modest)
                 : res.getString(R.string.auto_correction_threshold_mode_index_off);
@@ -182,8 +183,8 @@ public class SettingsValues {
                 null /* default */);
         mGestureFloatingPreviewTextEnabled = !mInputAttributes.mDisableGestureFloatingPreviewText
                 && prefs.getBoolean(Settings.PREF_GESTURE_FLOATING_PREVIEW_TEXT, true);
-        mAutoCorrectionEnabledPerUserSettings =  false/*mAutoCorrectEnabled
-                && !mInputAttributes.mInputTypeNoAutoCorrect*/;
+        mAutoCorrectionEnabledPerUserSettings =  mAutoCorrectEnabled
+                && !mInputAttributes.mInputTypeNoAutoCorrect;
         mSuggestionsEnabledPerUserSettings = readSuggestionsEnabled(prefs);
         mIsInternal = Settings.isInternal(prefs);
         mHasCustomKeyPreviewAnimationParams = prefs.getBoolean(
