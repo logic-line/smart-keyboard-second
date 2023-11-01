@@ -135,10 +135,7 @@ public final class SetupWizardActivity extends Activity implements View.OnClickL
     protected void onCreate(final Bundle savedInstanceState) {
         setTheme(android.R.style.Theme_Translucent_NoTitleBar);
         super.onCreate(savedInstanceState);
-        Resources res = getResources();
-        Configuration config = new Configuration(res.getConfiguration());
-        config.setLocale(new Locale("bn"));
-        res.updateConfiguration(config, res.getDisplayMetrics());
+
 
         mImm = (InputMethodManager)getSystemService(INPUT_METHOD_SERVICE);
         mHandler = new SettingsPoolingHandler(this, mImm);
