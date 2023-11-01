@@ -43,6 +43,7 @@
         parent="KeyboardView.MJ">
 
         <item name="keyHintLetterPadding">4dp</item>
+        <item name="keyLetterSize">45%</item>
 
         <item name="keyBackground">@drawable/btn_keyboard_key_custom_mj_light</item>
         <item name="functionalKeyBackground">@drawable/btn_keyboard_key_custom_mj_light</item>

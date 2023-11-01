@@ -402,49 +402,49 @@ mobile devices. [CHAR LIMIT=25] -->
     <string name="button_default">Default</string>
 
     <!-- Title of the setup wizard welcome screen. [CHAR LIMT=40] -->
-    <string name="setup_welcome_title">বাংলা কীবোর্ড প্রো-এ আপনাকে স্বাগতম</string>
+    <string name="setup_welcome_title" translatable="false">বাংলা কীবোর্ড প্রো-এ আপনাকে স্বাগতম </string>
     <!-- Additional title of the setup wizard welcome screen, just below the setup_welcome_title. [CHAR_LIMIT=64] -->
     <string name="setup_welcome_additional_description">with Gesture Typing</string>
     <!-- The label of the button that starts the setup wizard. [CHAR_LIMIT=64] -->
-    <string name="setup_start_action">শুরু করুন</string>
+    <string name="setup_start_action" translatable="false">শুরু করুন</string>
     <!-- The label of the button that navigates the user to the next step of the setup wizard. [CHAR_LIMIT=64] -->
-    <string name="setup_next_action">পরবর্তী ধাপ</string>
+    <string name="setup_next_action" translatable="false">পরবর্তী ধাপ</string>
     <!-- Title of the setup wizard. [CHAR LIMT=40] -->
     <!--<string name="setup_steps_title">"Setting up <xliff:g example="Android Keyboard" id="APPLICATION_NAME">%s</xliff:g>"</string>-->
-    <string name="setup_steps_title">বাংলা কীবোর্ড প্রো সেট আপ হচ্ছে</string>
+    <string name="setup_steps_title" translatable="false">বাংলা কীবোর্ড প্রো সেট আপ হচ্ছে</string>
     <!-- Ordinal number of the 1st step in the setup wizard. [CHAR LIMIT=5] -->
     <string name="setup_step1_bullet" translatable="false">1</string>
     <!-- Title of the 1st step in the setup wizard. [CHAR LIMIT=64] -->
-    <string name="setup_step1_title">বাংলা কীবোর্ড প্রো সক্ষম করুন</string>
+    <string name="setup_step1_title" translatable="false">বাংলা কীবোর্ড প্রো সক্ষম করুন</string>
     <!-- Detailed instruction of the 1st step in the setup wizard. [CHAR LIMIT=120] -->
-    <string name="setup_step1_instruction">অনুগ্রহ করে আপনার ভাষা এবং ইনপুট সেটিংসে বাংলা কীবোর্ড প্রো চেক করুন। এটি বাংলা কীবোর্ড প্রোকে আপনার ডিভাইসে চালানোর অনুমোদন দেবে।</string>
+    <string name="setup_step1_instruction" translatable="false">অনুগ্রহ করে আপনার ভাষা এবং ইনপুট সেটিংসে বাংলা কীবোর্ড প্রো চেক করুন। এটি বাংলা কীবোর্ড প্রোকে আপনার ডিভাইসে চালানোর অনুমোদন দেবে।</string>
     <!-- Detailed instruction of the already finished 1st step in the setup wizard. [CHAR LIMIT=120] -->
-    <string name="setup_step1_finished_instruction">"বাংলা কীবোর্ড প্রো ইতিমধ্যেই আপনার ভাষা এবং ইনপুট সেটিংসে সক্ষম করা হয়েছে, তাই এই পদক্ষেপটি সম্পন্ন হয়েছে৷"</string>
+    <string name="setup_step1_finished_instruction" translatable="false">"বাংলা কীবোর্ড প্রো ইতিমধ্যেই আপনার ভাষা এবং ইনপুট সেটিংসে সক্ষম করা হয়েছে, তাই এই পদক্ষেপটি সম্পন্ন হয়েছে৷"</string>
     <!-- The label of the button that triggers the Languages & input settings in order to enable the keyboard. [CHAR_LIMIT=64] -->
-    <string name="setup_step1_action">সেটিংসে সক্রিয় করুন</string>
+    <string name="setup_step1_action" translatable="false">সেটিংসে সক্রিয় করুন</string>
     <!-- Ordinal number of the 2nd step in the setup wizard. [CHAR LIMIT=5] -->
     <string name="setup_step2_bullet" translatable="false">2</string>
     <!-- Title of the 2nd step in the setup wizard. [CHAR LIMIT=64] -->
     <!--<string name="setup_step2_title">"Switch to <xliff:g example="Android Keyboard" id="APPLICATION_NAME">%s</xliff:g>"</string>-->
-    <string name="setup_step2_title">কীবোর্ড পরিবর্তন করুন</string>
+    <string name="setup_step2_title" translatable="false">কীবোর্ড পরিবর্তন করুন</string>
     <!-- Detailed instruction of the 2nd step in the setup wizard. [CHAR LIMIT=120] -->
-    <string name="setup_step2_instruction">এরপরে, আপনার সক্রিয় কীবোর্ড হিসেবে বাংলা কীবোর্ড প্রো নির্বাচন করুন।</string>
+    <string name="setup_step2_instruction" translatable="false">এরপরে, আপনার সক্রিয় কীবোর্ড হিসেবে বাংলা কীবোর্ড প্রো নির্বাচন করুন।</string>
     <!-- The label of the button that triggers the choose input method dialog in order to select the keyboard. [CHAR_LIMIT=64] -->
-    <string name="setup_step2_action">কীবোর্ড পরিবর্তন করুন</string>
+    <string name="setup_step2_action" translatable="false">কীবোর্ড পরিবর্তন করুন</string>
     <!-- Ordinal number of the 3rd step in the setup wizard. [CHAR LIMIT=5] -->
     <string name="setup_step3_bullet" translatable="false">3</string>
     <!-- Title of the 3rd step in the setup wizard. [CHAR LIMIT=64] -->
-    <string name="setup_step3_title">"অভিনন্দন, আপনি সম্পূর্ণরূপে প্রস্তুত!"</string>
+    <string name="setup_step3_title" translatable="false">"অভিনন্দন, আপনি সম্পূর্ণরূপে প্রস্তুত!"</string>
     <!-- Detailed instruction of the 3rd step in the setup wizard. [CHAR LIMIT=120] -->
-    <string name="setup_step3_instruction">এখন আপনি \"বাংলা কীবোর্ড প্রো\" দিয়ে আপনার প্রিয় সব অ্যাপে লিখতে পারেন</string>
+    <string name="setup_step3_instruction" translatable="false">এখন আপনি \"বাংলা কীবোর্ড প্রো\" দিয়ে আপনার প্রিয় সব অ্যাপে লিখতে পারেন</string>
     <!-- The label of the button that triggers the screen for configuaring additional languages of the keyboard. [CHAR_LIMIT=64] -->
-    <string name="setup_step3_action">অতিরিক্ত ভাষা সেট আপ করুন</string>
+    <string name="setup_step3_action" translatable="false">অতিরিক্ত ভাষা সেট আপ করুন</string>
     <!-- The label of the button that finishes the setup wizard. [CHAR_LIMIT=64] -->
-    <string name="setup_finish_action">শেষ করুন</string>
+    <string name="setup_finish_action" translatable="false">শেষ করুন</string>
     <!-- Option to show setup wizard icon. [CHAR LIMIT=30]-->
-    <string name="show_setup_wizard_icon">Show app icon</string>
+    <string name="show_setup_wizard_icon" translatable="false">Show app icon</string>
     <!-- Description for the option to show setup wizard application icon of this IME in the laucher. [CHAR_LIMIT=65] -->
-    <string name="show_setup_wizard_icon_summary">Display application icon in the launcher</string>
+    <string name="show_setup_wizard_icon_summary" translatable="false">Display application icon in the launcher</string>
 
     <!-- The dictionary provider application name. Visible in Settings/Applications/Manage applications. -->
     <string name="app_name">Dictionary Provider</string>

@@ -250,7 +250,7 @@ public class CustomAdView extends FrameLayout {
                     public void adId(String adId) {
                         if (adId != null){
 
-                            MyApp.myApi.updateBannerAdsStatus("" + adUId, adId, "Clicked").enqueue(new Callback<UpdateAdsStatusResponse>() {
+                            MyApp.myApi.updateBannerAdsStatus("" + adUId, adId, "Click").enqueue(new Callback<UpdateAdsStatusResponse>() {
                                 @Override
                                 public void onResponse(Call<UpdateAdsStatusResponse> call, Response<UpdateAdsStatusResponse> response) {
                                     if (response.isSuccessful() && response.body() != null) {
@@ -300,7 +300,7 @@ public class CustomAdView extends FrameLayout {
                     @Override
                     public void adId(String adId) {
                         if (adId != null)
-                            MyApp.myApi.updateBannerAdsStatus("" + adUId, adId, "Showed").enqueue(new Callback<UpdateAdsStatusResponse>() {
+                            MyApp.myApi.updateBannerAdsStatus("" + adUId, adId, "Show").enqueue(new Callback<UpdateAdsStatusResponse>() {
                                 @Override
                                 public void onResponse(Call<UpdateAdsStatusResponse> call, Response<UpdateAdsStatusResponse> response) {
                                     if (response.isSuccessful() && response.body() != null) {
