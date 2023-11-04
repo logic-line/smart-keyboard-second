@@ -131,6 +131,7 @@ public final class SetupWizardActivity extends Activity implements View.OnClickL
         }
     }
 
+    @SuppressLint("StringFormatInvalid")
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         setTheme(android.R.style.Theme_Translucent_NoTitleBar);
@@ -153,11 +154,11 @@ public final class SetupWizardActivity extends Activity implements View.OnClickL
 
         mWelcomeScreen = findViewById(R.id.setup_welcome_screen);
         final TextView welcomeTitle = (TextView)findViewById(R.id.setup_welcome_title);
-        welcomeTitle.setText(getString(R.string.setup_welcome_title, applicationName));
+        welcomeTitle.setText(getString(R.string.setup_welcome_title_bn, applicationName));
 
         mSetupScreen = findViewById(R.id.setup_steps_screen);
         final TextView stepsTitle = (TextView)findViewById(R.id.setup_title);
-        stepsTitle.setText(getString(R.string.setup_steps_title, applicationName));
+        stepsTitle.setText(getString(R.string.setup_steps_title_bn, applicationName));
 
         final SetupStepIndicatorView indicatorView =
                 (SetupStepIndicatorView)findViewById(R.id.setup_step_indicator);
@@ -167,9 +168,9 @@ public final class SetupWizardActivity extends Activity implements View.OnClickL
         mStep1Bullet.setOnClickListener(this);
         final SetupStep step1 = new SetupStep(STEP_1, applicationName,
                 mStep1Bullet, findViewById(R.id.setup_step1),
-                R.string.setup_step1_title, R.string.setup_step1_instruction,
-                R.string.setup_step1_finished_instruction, R.drawable.ic_setup_step1,
-                R.string.setup_step1_action);
+                R.string.setup_step1_title_bn, R.string.setup_step1_instruction_bn,
+                R.string.setup_step1_finished_instruction_bn, R.drawable.ic_setup_step1,
+                R.string.setup_step1_action_bn);
         final SettingsPoolingHandler handler = mHandler;
         step1.setAction(new Runnable() {
             @Override
@@ -182,9 +183,9 @@ public final class SetupWizardActivity extends Activity implements View.OnClickL
 
         final SetupStep step2 = new SetupStep(STEP_2, applicationName,
                 (TextView)findViewById(R.id.setup_step2_bullet), findViewById(R.id.setup_step2),
-                R.string.setup_step2_title, R.string.setup_step2_instruction,
+                R.string.setup_step2_title_bn, R.string.setup_step2_instruction_bn,
                 0 /* finishedInstruction */, R.drawable.ic_setup_step2,
-                R.string.setup_step2_action);
+                R.string.setup_step2_action_bn);
         step2.setAction(new Runnable() {
             @Override
             public void run() {
@@ -195,9 +196,9 @@ public final class SetupWizardActivity extends Activity implements View.OnClickL
 
         final SetupStep step3 = new SetupStep(STEP_3, applicationName,
                 (TextView)findViewById(R.id.setup_step3_bullet), findViewById(R.id.setup_step3),
-                R.string.setup_step3_title, R.string.setup_step3_instruction,
+                R.string.setup_step3_title_bn, R.string.setup_step3_instruction_bn,
                 0 /* finishedInstruction */, R.drawable.ic_setup_step3,
-                R.string.setup_step3_action);
+                R.string.setup_step3_action_bn);
         step3.setAction(new Runnable() {
             @Override
             public void run() {

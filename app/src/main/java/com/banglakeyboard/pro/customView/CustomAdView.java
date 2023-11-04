@@ -97,7 +97,11 @@ public class CustomAdView extends FrameLayout {
 
         //if the ad type is changed then we have to reload the ads
 
+        /*Log.d(TAG, "loadBannerAds: shownAds type " + shownAdType);
+        Log.d(TAG, "loadBannerAds: loading ad type " + MyApp.getConfig().emoji_view_ad_type);*/
+
         if (position == CustomBannerAd.EMOJI_ADS && MyApp.getConfig().emoji_view_ad_type != shownAdType){
+            Log.d(TAG, "loadBannerAds: removing views");
             adContainerView.removeAllViews();
 
             shownAdType = MyApp.getConfig().emoji_view_ad_type;
