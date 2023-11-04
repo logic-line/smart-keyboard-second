@@ -127,7 +127,7 @@ public final class RichInputConnection implements PrivateCommandPerformer {
     private SpannableStringBuilder mTempObjectForCommitText = new SpannableStringBuilder();
 
     private final InputMethodService mParent;
-    private InputConnection mIC;
+    public InputConnection mIC;
     private int mNestLevel;
 
     /**
@@ -340,6 +340,7 @@ public final class RichInputConnection implements PrivateCommandPerformer {
     public CharSequence getSelectedText(final int flags) {
         return isConnected() ?  mIC.getSelectedText(flags) : null;
     }
+
 
     public boolean canDeleteCharacters() {
         return mExpectedSelStart > 0;

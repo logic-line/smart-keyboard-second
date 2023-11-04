@@ -18,6 +18,7 @@ package com.android.inputmethod.keyboard.internal;
 
 import android.os.Message;
 import android.os.SystemClock;
+import android.util.Log;
 import android.view.ViewConfiguration;
 
 import com.android.inputmethod.keyboard.Key;
@@ -63,6 +64,7 @@ public final class TimerHandler extends LeakGuardHandlerWrapper<DrawingProxy>
             tracker1.onKeyRepeat(msg.arg1 /* code */, msg.arg2 /* repeatCount */);
             break;
         case MSG_LONGPRESS_KEY:
+            Log.d("MSG_LONGPRESS_KEY", "handleMessage: ");
         case MSG_LONGPRESS_SHIFT_KEY:
             cancelLongPressTimers();
             final PointerTracker tracker2 = (PointerTracker) msg.obj;
@@ -112,6 +114,7 @@ public final class TimerHandler extends LeakGuardHandlerWrapper<DrawingProxy>
         if (key == null) {
             return;
         }
+        Log.d("", "startLongPressTimerOf: "+ key.getHintLabel());
         // Use a separate message id for long pressing shift key, because long press shift key
         // timers should be canceled when other key is pressed.
         final int messageId = (key.getCode() == Constants.CODE_SHIFT)
