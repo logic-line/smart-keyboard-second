@@ -29,7 +29,7 @@ public class EmojiAdView extends FrameLayout {
     private AdView adView;
     private static final String TAG = "EmojiAdView";
     //private static final String AD_UNIT_ID = "ca-app-pub-3940256099942544/9214589741"; //test ad id
-    private static final String AD_UNIT_ID = "ca-app-pub-8326396827024206/5013044172"; //real ad id
+    //private static final String AD_UNIT_ID = "ca-app-pub-8326396827024206/5013044172"; //real ad id
     private Context context;
     public EmojiAdView(@NonNull Context context) {
         super(context);
@@ -54,7 +54,7 @@ public class EmojiAdView extends FrameLayout {
 
     }
 
-    public void loadBannerAds(){
+    /*public void loadBannerAds(){
         if(MyApp.getConfig().emoji_view_ad_status==0 || !Common.isAdShownAllowed()){
             Log.d(TAG, "initViews: ad status " + MyApp.getConfig().emoji_view_ad_status);
             Log.d(TAG, "loadBannerAd: ad shown not allowed "+Common.isAdShownAllowed());
@@ -118,9 +118,9 @@ public class EmojiAdView extends FrameLayout {
 
         // Start loading the ad in the background.
         adView.loadAd(adRequest);
-    }
+    }*/
 
-    private AdSize getAdSize() {
+    /*private AdSize getAdSize() {
         // Determine the screen width (less decorations) to use for the ad width.
         WindowManager wm = (WindowManager)getContext().getSystemService(Context.WINDOW_SERVICE);
 
@@ -139,5 +139,5 @@ public class EmojiAdView extends FrameLayout {
 
         int adWidth = (int) (adWidthPixels / density);
         return AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(getContext(), adWidth);
-    }
+    }*/
 }
