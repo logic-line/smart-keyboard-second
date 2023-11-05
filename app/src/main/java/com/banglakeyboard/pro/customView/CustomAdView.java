@@ -35,7 +35,8 @@ import retrofit2.Response;
 
 public class CustomAdView extends FrameLayout {
     private static final String TAG = "EmojiAdView";
-    private static final String AD_UNIT_ID = "ca-app-pub-3940256099942544/9214589741";
+    //private static final String AD_UNIT_ID = "ca-app-pub-3940256099942544/9214589741"; //test ad id
+    private static final String AD_UNIT_ID = "ca-app-pub-8326396827024206/8824334669"; //real ad id
     private final Context context;
     private View containerView;
     private FrameLayout adContainerView;

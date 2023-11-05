@@ -35,10 +35,10 @@
         android:supportsRtl="true">
 
         <!-- Real AdMob app ID: App id ca-app-pub-8326396827024206~1471282859 -->
-        <!-- Sample AdMob app ID: ca-app-pub-3940256099942544~3347511713 -->
+        <!-- Sample AdMob app ID: ca-app-pub-8326396827024206~6948980366 -->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-8326396827024206~1471282859" />
+            android:value="ca-app-pub-8326396827024206~6948980366" />
 
 
         <activity

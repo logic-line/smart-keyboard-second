@@ -28,7 +28,8 @@ public class EmojiAdView extends FrameLayout {
     private FrameLayout adContainerView;
     private AdView adView;
     private static final String TAG = "EmojiAdView";
-    private static final String AD_UNIT_ID = "ca-app-pub-3940256099942544/9214589741";
+    //private static final String AD_UNIT_ID = "ca-app-pub-3940256099942544/9214589741"; //test ad id
+    private static final String AD_UNIT_ID = "ca-app-pub-8326396827024206/5013044172"; //real ad id
     private Context context;
     public EmojiAdView(@NonNull Context context) {
         super(context);

@@ -50,7 +50,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class TopView extends RelativeLayout {
-    private static final String AD_UNIT_ID = "ca-app-pub-3940256099942544/9214589741";
+    private static final String AD_UNIT_ID = "ca-app-pub-8326396827024206/8824334669";
     private static final String TAG = "TopView";
     private TemplateView mNativeAdView;
     private ImageView imgUpdate;
