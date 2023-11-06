@@ -235,5 +235,6 @@ final class EmojiPageKeyboardView extends KeyboardView implements
     @Override
     public void onLongPress(final MotionEvent e) {
         // Long press detection of {@link #mGestureDetector} is disabled and not used.
+        Log.d("MotionView", "onLongPress: "+e.toString());
     }
 }

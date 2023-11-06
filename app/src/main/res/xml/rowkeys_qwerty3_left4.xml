@@ -29,8 +29,10 @@
         keybaord:moreKeys="!text/morekeys_x" />
     <Key
         keybaord:keySpec="c"
-        keybaord:moreKeys="!text/morekeys_c" />
+        keybaord:keyActionFlags="enableLongPress"
+        />
     <Key
         keybaord:keySpec="v"
-        keybaord:moreKeys="!text/morekeys_v" />
+        keybaord:keyActionFlags="enableLongPress"
+        />
 </merge>

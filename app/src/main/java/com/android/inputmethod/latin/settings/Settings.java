@@ -217,7 +217,8 @@ public final class Settings implements SharedPreferences.OnSharedPreferenceChang
 
     public static boolean readAutoCorrectEnabled(final SharedPreferences prefs,
             final Resources res) {
-        return prefs.getBoolean(PREF_AUTO_CORRECTION, true);
+        Log.d(TAG, "readAutoCorrectEnabled: "+prefs.getBoolean(PREF_AUTO_CORRECTION, false));
+        return prefs.getBoolean(PREF_AUTO_CORRECTION, false);
     }
 
     public static float readPlausibilityThreshold(final Resources res) {

@@ -1,15 +1,23 @@
 package com.android.inputmethod.utils;
 
+import static android.content.ClipDescription.MIMETYPE_TEXT_PLAIN;
+
 import android.app.AlertDialog;
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.inputmethod.ExtractedText;
+import android.view.inputmethod.ExtractedTextRequest;
 import android.view.inputmethod.InputMethodSubtype;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -76,8 +84,50 @@ public class MyLatinIME extends LatinIME implements DrawingProxy {
             case Constants.KEYCODE_PREV_LANGUAGE:
                 toogleLanguage(requestCode);
                 return false;
+            case Constants.CUSTOM_CODE_COPY:
+                copyKeyboardText();
+                return true;
+            case Constants.CUSTOM_CODE_PASTE:
+                commitClipboardText();
+                return true;
         }
         return false;
+    }
+
+    private void copyKeyboardText(){
+        ExtractedText extractedText = mInputLogic.mConnection.mIC.getExtractedText(new ExtractedTextRequest(), 0);
+        if(extractedText!=null && extractedText.text.length()>0){
+            String text = extractedText.text.toString();
+            ClipboardManager clipboard = (ClipboardManager)getSystemService(Context.CLIPBOARD_SERVICE);
+            if (!text.isEmpty()){
+                ClipData clip = ClipData.newPlainText("",text);
+                clipboard.setPrimaryClip(clip);
+                Toast.makeText(this, "Text Copied", Toast.LENGTH_SHORT).show();
+
+            }
+        }
+
+
+    }
+    private void commitClipboardText(){
+
+        ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+        String pasteData = "";
+
+        // If it does contain data, decide if you can handle the data.
+        if (!(clipboard.hasPrimaryClip())) {
+        } else if (!(clipboard.getPrimaryClipDescription().hasMimeType(MIMETYPE_TEXT_PLAIN))) {
+            // since the clipboard has data but it is not plain text
+        } else {
+            //since the clipboard contains plain text.
+            ClipData.Item item = clipboard.getPrimaryClip().getItemAt(0);
+            // Gets the clipboard as text.
+            pasteData = item.getText().toString();
+            mInputLogic.mConnection.commitText(pasteData, 1);
+            Toast.makeText(this, "Pasted Successfully", Toast.LENGTH_SHORT).show();
+
+        }
+
     }
 
     private void toogleLanguage(int requestCode) {

@@ -33,6 +33,7 @@
         name="Keyboard.Custom_MJ_Light"
         parent="Keyboard"
         >
+        <item name="rowHeight">30%p</item>
         <!-- This should be aligned with KeyboardTheme.THEME_ID_* -->
         <item name="themeId">customMJLight</item>
         <item name="android:background">#1A1A1C</item>
@@ -40,6 +41,10 @@
     <style
         name="KeyboardView.Custom_MJ_Light"
         parent="KeyboardView.MJ">
+
+        <item name="keyHintLetterPadding">4dp</item>
+        <item name="keyLetterSize">45%</item>
+
         <item name="keyBackground">@drawable/btn_keyboard_key_custom_mj_light</item>
         <item name="functionalKeyBackground">@drawable/btn_keyboard_key_custom_mj_light</item>
         <item name="spacebarBackground">@drawable/space_key_background_custom_mj_light</item>

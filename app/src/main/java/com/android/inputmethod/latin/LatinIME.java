@@ -151,11 +151,11 @@ public class LatinIME extends InputMethodService implements KeyboardActionListen
      */
     private static final String SCHEME_PACKAGE = "package";
 
-    final Settings mSettings;
+    protected final Settings mSettings;
     private final DictionaryFacilitator mDictionaryFacilitator =
             DictionaryFacilitatorProvider.getDictionaryFacilitator(
                     false /* isNeededForSpellChecking */);
-    final InputLogic mInputLogic = new InputLogic(this /* LatinIME */,
+    protected final InputLogic mInputLogic = new InputLogic(this /* LatinIME */,
             this /* SuggestionStripViewAccessor */, mDictionaryFacilitator);
     // We expect to have only one decoder in almost all cases, hence the default capacity of 1.
     // If it turns out we need several, it will get grown seamlessly.
@@ -1109,6 +1109,7 @@ public class LatinIME extends InputMethodService implements KeyboardActionListen
                 mInputLogic.mConnection.tryFixLyingCursorPosition();
                 mHandler.postResumeSuggestionsForStartInput(true /* shouldDelay */);
                 needToCallLoadKeyboardLater = false;
+
             }
         } else {
             // If we have a hardware keyboard we don't need to call loadKeyboard later anyway.

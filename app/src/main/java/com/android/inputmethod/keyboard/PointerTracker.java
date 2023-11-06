@@ -1118,6 +1118,7 @@ public final class PointerTracker implements PointerTrackerQueue.Element,
     }
 
     public void onLongPressed() {
+        Log.d(TAG, "onLongPressed: ");
         sTimerProxy.cancelLongPressTimersOf(this);
         if (isShowingMoreKeysPanel()) {
             return;
@@ -1126,6 +1127,7 @@ public final class PointerTracker implements PointerTrackerQueue.Element,
         if (key == null) {
             return;
         }
+
 
 
 
@@ -1138,6 +1140,7 @@ public final class PointerTracker implements PointerTrackerQueue.Element,
             sListener.onReleaseKey(moreKeyCode, false /* withSliding */);
             return;
         }
+        Log.d(TAG, "onLongPressed: "+key.getLabel());
         final int code = key.getCode();
         if (code == Constants.CODE_SPACE || code == Constants.CODE_LANGUAGE_SWITCH) {
             // Long pressing the space key invokes IME switcher dialog.
@@ -1146,6 +1149,18 @@ public final class PointerTracker implements PointerTrackerQueue.Element,
                 sListener.onReleaseKey(code, false /* withSliding */);
                 return;
             }
+        }
+
+        if (code == 'c' || code=='C' || code == 'v' || code == 'V') {
+            // Long pressing the space key invokes IME switcher dialog.
+            if(code == 'c' || code == 'C'){
+                sListener.onCustomRequest(Constants.CUSTOM_CODE_COPY);
+            }else {
+                sListener.onCustomRequest(Constants.CUSTOM_CODE_PASTE);
+            }
+            cancelKeyTracking();
+            sListener.onReleaseKey(code, false /* withSliding */);
+            return;
         }
 
         setReleasedKeyGraphics(key, false /* withAnimation */);

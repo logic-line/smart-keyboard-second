@@ -21,7 +21,7 @@
 <merge xmlns:android="http://schemas.android.com/apk/res/android">
     <view class="com.android.inputmethod.latin.setup.SetupStartIndicatorView$LabelView"
         android:id="@+id/setup_start_label"
-        android:text="@string/setup_start_action"
+        android:text="@string/setup_start_action_bn"
         android:gravity="end|center_vertical"
         android:layout_width="0dp"
         android:layout_weight="1.0"

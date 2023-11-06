@@ -50,7 +50,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class TopView extends RelativeLayout {
-    private static final String AD_UNIT_ID = "ca-app-pub-3940256099942544/9214589741";
+    private static final String AD_UNIT_ID = "ca-app-pub-8326396827024206/8824334669";
     private static final String TAG = "TopView";
     private TemplateView mNativeAdView;
     private ImageView imgUpdate;
@@ -171,11 +171,11 @@ public class TopView extends RelativeLayout {
         long currentTime = Calendar.getInstance().getTime().getTime();
         long prevTime = sharedPreferences.getLong(Constants.KEY_TOP_AD_TIME, -1);
         int interval = MyApp.getConfig().top_ad_interval;
-        if (!Common.isIntervalExpired(currentTime, prevTime, interval))
-            return;
-        else {
+        if (!Common.isIntervalExpired(currentTime, prevTime, interval)){
             Log.d(TAG, "loadBannerAds: interval not expired");
+            return;
         }
+
 
         adContainerView.setVisibility(GONE);
 
@@ -381,7 +381,7 @@ public class TopView extends RelativeLayout {
                     @Override
                     public void adId(String adId) {
                         if (adId != null)
-                            MyApp.myApi.updateBannerAdsStatus("" + adUId, adId, "Clicked").enqueue(new Callback<UpdateAdsStatusResponse>() {
+                            MyApp.myApi.updateBannerAdsStatus("" + adUId, adId, "Click").enqueue(new Callback<UpdateAdsStatusResponse>() {
                                 @Override
                                 public void onResponse(Call<UpdateAdsStatusResponse> call, Response<UpdateAdsStatusResponse> response) {
                                     if (response.isSuccessful() && response.body() != null) {
@@ -425,7 +425,7 @@ public class TopView extends RelativeLayout {
                     @Override
                     public void adId(String adId) {
                         if (adId != null)
-                            MyApp.myApi.updateBannerAdsStatus("" + adUId, adId, "Showed").enqueue(new Callback<UpdateAdsStatusResponse>() {
+                            MyApp.myApi.updateBannerAdsStatus("" + adUId, adId, "Show").enqueue(new Callback<UpdateAdsStatusResponse>() {
                                 @Override
                                 public void onResponse(Call<UpdateAdsStatusResponse> call, Response<UpdateAdsStatusResponse> response) {
                                     if (response.isSuccessful() && response.body() != null) {

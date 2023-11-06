@@ -199,6 +199,9 @@ public final class Constants {
     public static final int KEYCODE_NEXT_LANGUAGE = -1002;
     public static final int  KEYCODE_PREV_LANGUAGE = -1003;
 
+    public static final int CUSTOM_CODE_COPY = -1004;
+    public static final int CUSTOM_CODE_PASTE = -1005;
+
     /**
      * Some common keys code. Must be positive.
      */
@@ -229,6 +232,9 @@ public final class Constants {
 
     public static final String REGEXP_PERIOD = "\\.";
     public static final String STRING_SPACE = " ";
+
+    public static final int CODE_COPY= 'c';
+    public static final int CODE_PASTE='v';
 
     /**
      * Special keys code. Must be negative.
