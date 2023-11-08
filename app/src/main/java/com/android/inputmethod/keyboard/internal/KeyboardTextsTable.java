@@ -797,6 +797,30 @@ public final class KeyboardTextsTable {
         /* ~ single_quotes */
         // U+09F3: "৳" BENGALI RUPEE SIGN
         /* keyspec_currency */ "\u09F3",
+
+
+
+
+            /* morekeys_y ~ */
+            null, null,null, null, null, null,
+            /* ~ morekeys_g */
+            /* single_angle_quotes */ null,
+            /* double_angle_quotes */ null,
+            /* morekeys_r ~ */
+            null, null, null, null, null, null, null, null, null, null, null, null,
+            /* ~ morekeys_cyrillic_soft_sign */
+            /* keyspec_symbols_1 */ null,
+            /* keyspec_symbols_2 */ null,
+            /* keyspec_symbols_3 */ null,
+            /* keyspec_symbols_4 */ null,
+            /* keyspec_symbols_5 */ null,
+            /* keyspec_symbols_6 */ null,
+            /* keyspec_symbols_7 */ null,
+            /* keyspec_symbols_8 */ null,
+            /* keyspec_symbols_9 */ null,
+            /* keyspec_symbols_0 */ null,
+            // Label for "switch to symbols" key.
+            /* keylabel_to_symbol */ "?\u09E7\u09E8\u09E9",
     };
 
     /* Locale bn_IN: Bengali (India) */
