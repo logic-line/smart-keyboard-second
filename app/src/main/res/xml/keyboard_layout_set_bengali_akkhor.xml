@@ -41,7 +41,7 @@
         keybaord:elementKeyboard="@xml/kbd_bengali_akkhor"
         keybaord:elementName="alphabetShiftLockShifted" />
     <Element
-        keybaord:elementKeyboard="@xml/kbd_symbols"
+        keybaord:elementKeyboard="@xml/kbd_symbols_bengali"
         keybaord:elementName="symbols" />
     <Element
         keybaord:elementKeyboard="@xml/kbd_symbols_shift"
@@ -50,7 +50,7 @@
         keybaord:elementKeyboard="@xml/kbd_phone"
         keybaord:elementName="phone" />
     <Element
-        keybaord:elementKeyboard="@xml/kbd_phone_symbols"
+        keybaord:elementKeyboard="@xml/kbd_phone_symbols_bengali"
         keybaord:elementName="phoneSymbols" />
     <Element
         keybaord:elementKeyboard="@xml/kbd_number"

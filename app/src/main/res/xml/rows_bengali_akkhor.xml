@@ -41,5 +41,5 @@
             keybaord:keyStyle="deleteKeyStyle"
             keybaord:keyWidth="fillRight" />
     </Row>
-    <include keybaord:keyboardLayout="@xml/row_qwerty4" />
+    <include keybaord:keyboardLayout="@xml/row_bengali_qwerty4" />
 </merge>
