@@ -543,6 +543,10 @@ public class MainKeyboardView extends KeyboardView implements DrawingProxy,
     @Override
     public void onKeyPressed(@Nonnull final Key key, final boolean withPreview) {
 
+        //hide space key preview
+        if(mPreviewPopup!=null){
+            mPreviewPopup.dismiss();
+        }
         key.onPressed();
         invalidateKey(key);
 
@@ -567,7 +571,7 @@ public class MainKeyboardView extends KeyboardView implements DrawingProxy,
             showSpacePreview(key);
             return;
         }else{
-            if (mPreviewPopup!=null && mPreviewPopup.isShowing()) {
+            if (mPreviewPopup!=null ) {
                 mPreviewPopup.dismiss();
             }
         }
@@ -661,6 +665,7 @@ public class MainKeyboardView extends KeyboardView implements DrawingProxy,
 
         if (mPreviewPopup==null){
             mPreviewPopup = new PopupWindow(getContext());
+            mPreviewPopup.setOutsideTouchable(true);
         }
 
         mPreviewPopup.setContentView(mPreviewText);
@@ -696,7 +701,7 @@ public class MainKeyboardView extends KeyboardView implements DrawingProxy,
     public void onKeyReleased(@Nonnull final Key key, final boolean withAnimation) {
         Log.d(TAG, "onKeyReleased: "+key.toString());
         key.onReleased();
-        if(mPreviewPopup!=null && mPreviewPopup.isShowing()){
+        if(mPreviewPopup!=null){
             mPreviewPopup.dismiss();
             //return;
         }
