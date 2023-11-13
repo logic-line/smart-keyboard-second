@@ -1393,6 +1393,46 @@
         <item>1f43b</item>
         <item>1f428</item>
         <item>1f43c</item>
+
+        <item>1f98d</item>
+        <item>1f9e7</item>
+        <item>1f9ae</item>
+        <item>1f415,200d,1f9ba</item>
+        <item>1f98a</item>
+        <item>1f99d</item>
+        <item>1f408,200d,2b1b</item>
+        <item>1f993</item>
+        <item>1f99c</item>
+        <item>1f9ac</item>
+        <item>1f999</item>
+        <item>1f992</item>
+        <item>1f98f</item>
+        <item>1f99b</item>
+        <item>1f99b</item>
+        <item>1f987</item>
+        <item>1f43b,200d,2744,fe0f</item>
+        <item>1f9a5</item>
+        <item>1f926,200d,1f9a8</item>
+        <item>1f9a8</item>
+        <item>1f98a</item>
+        <item>1f99a</item>
+        <item>1f9a2</item>
+        <item>1f9a4</item>
+        <item>1f988</item>
+        <item>1f99c</item>
+        <item>1f9aa</item>
+        <item>1f426</item>
+        <item>1f40b</item>
+        <item>1f981</item>
+        <item>1f41f</item>
+        <item>1f9f3</item>
+        <item>1f9f2</item>
+        <item>1f989</item>
+        <item>1f99f</item>
+        <item>1f9b0</item>
+
+
+
         <item>1f43e</item>
         <item>1f983</item>
         <item>1f414</item>
@@ -1447,6 +1487,17 @@
         <item>1f341</item>
         <item>1f342</item>
         <item>1f343</item>
+
+        <item>1f9a0</item>
+        <item>1fac2</item>
+        <item>1fab7</item>
+        <item>1f940</item>
+        <item>1fab4</item>
+        <item>2618,fe0f</item>
+        <item>1fab9</item>
+        <item>1faba</item>
+
+
     </array>
     <array
         name="emoji_eight_smiley_people"
@@ -1533,6 +1584,29 @@
         <item>1f64d</item>
         <item>1f64e</item>
         <item>1f64f</item>
+
+        <item>1f9d1</item>
+        <item>1f9d2</item>
+        <item>1f9d4</item>
+        <item>1f468,200d,1f9b0</item>
+        <item>1f468,200d,1f9b1</item>
+        <item>1f468,200d,1f9b3</item>
+        <item>1f468,200d,1f9b2</item>
+        <item>1f471,200d,2640</item>
+        <item>1f9d3</item>
+        <item>1f645,200d,2640</item>
+        <item>1f646,200d,2640</item>
+        <item>1f481,200d,2642</item>
+        <item>1f64b,200d,2642</item>
+        <item>1f9cf</item>
+        <item>1f9cf,200d,2642</item>
+        <item>1f9cf,200d,2640</item>
+        <item>1f647,200d,2640</item>
+        <item>1f926,200d,2642</item>
+        <item>1f926,200d,2640</item>
+        <item>1f937,200d,2642</item>
+        <item>1f937,200d,2640</item>
+
         <item>1f468,200d,2764,fe0f,200d,1f48b,200d,1f468</item>
         <item>1f469,200d,2764,fe0f,200d,1f48b,200d,1f469</item>
         <item>1f491</item>
@@ -1554,6 +1628,157 @@
         <item>1f469,200d,1f469,200d,1f467</item>
         <item>1f469,200d,1f469,200d,1f467,200d,1f466</item>
         <item>1f469,200d,1f469,200d,1f467,200d,1f467</item>
+
+        <item>1f469,200d,2764,fe0f,200d,1f468</item>
+        <item>1f468,200d,1f466</item>
+        <item>1f468,200d,1f466,200d,1f466</item>
+        <item>1f468,200d,1f467</item>
+        <item>1f468,200d,1f467,200d,1f466</item>
+        <item>1f469,200d,1f466,200d,1f466</item>
+        <item>1f469,200d,1f466</item>
+        <item>1f469,200d,1f466,200d,1f466</item>
+        <item>1f469,200d,1f466,200d,1f466</item>
+
+        <item>1f926,200d,2642</item>
+        <item>1f926,200d,1f9d1,200d,2695</item>
+        <item>1f468,200d,2695</item>
+        <item>1f469,200d,2695</item>
+        <item>1f9d1,200d,1f393</item>
+        <item>1f468,200d,1f393</item>
+        <item>1f469,200d,1f393</item>
+        <item>1f9d1,200d,1f3eb</item>
+        <item>1f468,200d,1f3eb</item>
+        <item>1f469,200d,1f3eb</item>
+        <item>1f9d1,200d,2696</item>
+        <item>1f468,200d,2696</item>
+        <item>1f469,200d,2696</item>
+        <item>1f9d1,200d,1f33e</item>
+        <item>1f468,200d,1f33e</item>
+        <item>1f469,200d,1f33e</item>
+        <item>1f9d1,200d,1f373</item>
+        <item>1f468,200d,1f373</item>
+        <item>1f469,200d,1f373</item>
+        <item>1f9d1,200d,1f527</item>
+        <item>1f468,200d,1f527</item>
+        <item>1f469,200d,1f527</item>
+        <item>1f9d1,200d,1f3ed</item>
+        <item>1f468,200d,1f3ed</item>
+        <item>1f469,200d,1f3ed</item>
+        <item>1f9d1,200d,1f4bc</item>
+        <item>1f468,200d,1f4bc</item>
+        <item>1f469,200d,1f4bc</item>
+        <item>1f9d1,200d,1f52c</item>
+        <item>1f468,200d,1f52c</item>
+        <item>1f469,200d,1f52c</item>
+
+        <item>1f9d6,200d,2642</item>
+        <item>1f9d6,200d,2640</item>
+        <item>1f9d7,200d,2642</item>
+        <item>1f9d7,200d,2640</item>
+        <item>1f93a</item>
+        <item>1f3c7</item>
+        <item>26f7,fe0f</item>
+        <item>1f3c2</item>
+        <item>1f3cc,fe0f,200d,2642</item>
+        <item>1f3cc,fe0f,200d,2640</item>
+        <item>1f6b4,200d,2642</item>
+        <item>1f6b4,200d,2640</item>
+        <item>1f6b5,200d,2642</item>
+        <item>1f6b5,200d,2640</item>
+        <item>1f938,200d,2642</item>
+        <item>1f938,200d,2640</item>
+        <item>1f93c,200d,2642</item>
+        <item>1f93c,200d,2640</item>
+        <item>1f93d,200d,2642</item>
+        <item>1f93d,200d,2640</item>
+        <item>1f93d,200d,2642</item>
+        <item>1f93d,200d,2640</item>
+        <item>1f93e,200d,2642</item>
+        <item>1f93e,200d,2640</item>
+        <item>1f93e,200d,2640</item>
+        <item>1f939,200d,2642</item>
+        <item>1f939,200d,2640</item>
+        <item>1f9d8,200d,2642</item>
+        <item>1f9d8,200d,2640</item>
+
+        <item>1f9d1,200d,1f4bb</item>
+        <item>1f468,200d,1f4bb</item>
+        <item>1f469,200d,1f4bb</item>
+        <item>1f9d1,200d,1f3a4</item>
+        <item>1f468,200d,1f3a4</item>
+        <item>1f469,200d,1f3a4</item>
+        <item>1f9d1,200d,1f3a8</item>
+        <item>1f468,200d,1f3a8</item>
+        <item>1f469,200d,1f3a8</item>
+        <item>1f9d1,200d,1f680</item>
+        <item>1f468,200d,1f680</item>
+        <item>1f469,200d,1f680</item>
+        <item>1f482,200d,1f46e,200d,2640,fe0f</item>
+        <item>1f977</item>
+        <item>1f934</item>
+        <item>1f473,200d,2640,fe0f</item>
+        <item>1f9db</item>
+        <item>1f473,200d,2642,fe0f</item>
+        <item>1f46e</item>
+        <item>1f935</item>
+        <item>1f935,200d,2642,fe0f</item>
+        <item>1f935,200d,2640</item>
+        <item>1f930</item>
+        <item>1f931</item>
+        <item>1f469,200d,1f37c</item>
+        <item>1f468,200d,1f37c</item>
+        <item>1f936</item>
+        <item>1f9d1,200d,1f384</item>
+        <item>1f9b8</item>
+        <item>1f9b8,200d,2642,fe0f</item>
+        <item>1f9b8,200d,2640,fe0f</item>
+        <item>1f9b9</item>
+        <item>1f9b9,200d,2642,fe0f</item>
+        <item>1f9b9,200d,2640,fe0f</item>
+
+
+        <item>1f9d9,200d,2642,fe0f</item>
+        <item>1f9d9,200d,2640,fe0f</item>
+        <item>1f9da,200d,2642,fe0f</item>
+        <item>1f9da,200d,2640,fe0f</item>
+        <item>1f9db,200d,2642,fe0f</item>
+        <item>1f9db,200d,2640,fe0f</item>
+        <item>1f9dc,200d,2642,fe0f</item>
+        <item>1f9dc,200d,2640,fe0f</item>
+        <item>1f9dd,200d,2642,fe0f</item>
+        <item>1f9dd,200d,2640,fe0f</item>
+        <item>1f9de,200d,2642,fe0f</item>
+        <item>1f9de,200d,2640,fe0f</item>
+        <item>1f9df,200d,2642,fe0f</item>
+        <item>1f9df,200d,2640,fe0f</item>
+
+        <item>1f468,200d,1f9af</item>
+        <item>1f9cf</item>
+        <item>1f9da,200d,2642,fe0f</item>
+        <item>1f9da,200d,2640,fe0f</item>
+        <item>1f9db,200d,2642,fe0f</item>
+        <item>1f9db,200d,2640,fe0f</item>
+
+        <item>1f9dc,200d,2642,fe0f</item>
+        <item>1f9dc,200d,2640,fe0f</item>
+        <item>1f9dd,200d,2642,fe0f</item>
+        <item>1f9dd,200d,2640,fe0f</item>
+        <item>1f9de,200d,2642,fe0f</item>
+        <item>1f9de,200d,2640,fe0f</item>
+        <item>1f9df,200d,2642,fe0f</item>
+        <item>1f9df,200d,2640,fe0f</item>
+        <!--<item>1f9e0,200d,2642,fe0f</item>
+        <item>1f9e0,200d,2640,fe0f</item>
+        <item>1f9e1,200d,2642,fe0f</item>
+        <item>1f9e1,200d,2640,fe0f</item>
+        <item>1f9e2,200d,2642,fe0f</item>
+        <item>1f9e2,200d,2640,fe0f</item>-->
+        <item>1f468,200d,1f9af</item>
+        <item>1f468,200d,1f9af</item>
+        <item>1f9cf</item>
+
+
+
         <item>1f4aa</item>
         <item>1f448</item>
         <item>1f449</item>
@@ -1568,9 +1793,17 @@
         <item>270a</item>
         <item>270b</item>
 
+        <item>1f44a</item>
+        <item>1f44c</item>
+        <item>1f44d</item>
+        <item>1f44e</item>
+        <item>1f44b</item>
+        <item>1f44f</item>
+        <item>1f450</item>
+        <item>270d</item>
+
         <item>1f91a</item>
-        <item>"1f91a"</item>
-        <item>1f9b1"</item>
+        <item>1f9b1</item>
         <item>1f9b2</item>
         <item>1f9b3</item>
         <item>1f90c</item>
@@ -1582,51 +1815,59 @@
         <item>1f9b5</item>
         <item>1f91b</item>
         <item>1f91c</item>
-        <item>1f9b6</item>
         <item>1f932</item>
         <item>1f91d</item>
         <item>1f933</item>
-        <item>1f933</item>
         <item>1f9be</item>
         <item>1f9bf</item>
-        <item>1f9b5</item>
         <item>1f9b6</item>
         <item>1f9bb</item>
 
 
-        <item>1f44a</item>
-        <item>1f44c</item>
-        <item>1f44d</item>
-        <item>1f44e</item>
-        <item>1f44b</item>
-        <item>1f44f</item>
-        <item>1f450</item>
-        <item>270d</item>
         <item>1f485</item>
         <item>1f442</item>
         <item>1f443</item>
         <item>1f463</item>
         <item>1f440</item>
         <item>1f441</item>
+        <item>1f9e0</item>
+        <item>1fac0</item>
+        <item>1f9b7,200d</item>
+        <item>1f9b4</item>
         <item>1f445</item>
         <item>1f444</item>
+
+        <!--does not load emoji-->
+        <item>1FAE6</item>
+
         <item>1f48b</item>
         <item>1f498</item>
         <item>2764</item>
+
+        <item>1f9e1</item>
+        <item>1f90e</item>
+        <item>1f5a4</item>
+        <item>1f499</item>
+        <item>1f49a</item>
+        <item>1f49b</item>
+        <item>1f49c</item>
+        <!--<item>2764,fe0f,200d,1f525</item>
+        <item>2764,fe0f,200d,1fa79</item>-->
+
+        <item>2763,fe0f</item>
         <item>1f493</item>
         <item>1f494</item>
         <item>1f495</item>
         <item>1f496</item>
         <item>1f497</item>
-        <item>1f499</item>
-        <item>1f49a</item>
-        <item>1f49b</item>
-        <item>1f49c</item>
         <item>1f49d</item>
         <item>1f49e</item>
         <item>1f49f</item>
+
+
         <item>2763</item>
         <item>1f48c</item>
+        <item>1f4af</item>
         <item>1f4a4</item>
         <item>1f4a2</item>
         <item>1f4a3</item>
@@ -1830,6 +2071,7 @@
         <item>1f647</item>
         <item>1f64c</item>
         <item>1f64f</item>
+
         <item>1f5e3</item>
         <item>1f464</item>
         <item>1f465</item>
@@ -1955,6 +2197,41 @@
         <item>1f353</item>
         <item>1f345</item>
         <item>1f346</item>
+
+        <item>1fAD0</item>
+        <item>1f95d</item>
+        <item>1fAB2</item>
+        <item>1f965</item>
+        <item>1f951</item>
+        <item>1f954</item>
+        <item>1f955</item>
+        <item>1fAB1</item>
+        <item>1f96c</item>
+        <item>1f966</item>
+        <item>1f964</item>
+        <item>1f960</item>
+        <item>1f95c</item>
+        <item>1f9c7</item>
+        <item>1f9c8</item>
+        <item>1fAD3</item>
+        <item>1f968</item>
+        <item>1f9c7</item>
+        <item>1fAD4</item>
+        <item>1f356</item>
+        <item>1fAD4</item>
+        <item>1f964</item>
+        <item>1fAD4</item>
+        <item>1f965</item>
+        <item>1fAB1</item>
+        <item>1fAD4</item>
+        <item>1f966</item>
+        <item>1fAD4</item>
+        <item>1fAD4</item>
+        <item>1fAD4</item>
+        <item>1fAD4</item>
+
+
+
         <item>1f33d</item>
         <item>1f336</item>
         <item>1f344</item>
@@ -2010,6 +2287,24 @@
         <item>1f374</item>
         <item>1f373</item>
         <item>1f3fa</item>
+
+        <item>1f96f</item>
+        <item>1f9c1</item>
+        <item>1f967</item>
+        <item>1f945</item>
+        <item>1fad6</item>
+        <item>1f942</item>
+        <item>1f943</item>
+        <item>1fad7</item>
+        <item>1f964</item>
+        <item>1f9cb</item>
+        <item>1f9c3</item>
+        <item>1f9c9</item>
+        <item>1f962</item>
+        <item>1f944</item>
+        <item>1f52a</item>
+        <item>1fac9</item>
+
     </array>
     <array
         name="emoji_eight_objects"
