@@ -26,7 +26,7 @@ import android.view.View;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-import com.banglakeyboard.pro.R;
+import com.sikderithub.keyboard.R;
 
 public final class SeekBarDialogPreference extends DialogPreference
         implements SeekBar.OnSeekBarChangeListener {

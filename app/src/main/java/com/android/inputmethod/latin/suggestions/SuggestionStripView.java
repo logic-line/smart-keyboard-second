@@ -77,12 +77,12 @@ import com.android.inputmethod.utils.LanguageSwitcher;
 import com.github.angads25.toggle.interfaces.OnToggledListener;
 import com.github.angads25.toggle.model.ToggleableView;
 import com.github.angads25.toggle.widget.LabeledSwitch;
-import com.banglakeyboard.pro.Activity.ThemeActivity;
-import com.banglakeyboard.pro.BuildConfig;
-import com.banglakeyboard.pro.CommonMethod;
-import com.banglakeyboard.pro.MyApp;
-import com.banglakeyboard.pro.R;
-import com.banglakeyboard.pro.Utils.CustomThemeHelper;
+import com.sikderithub.keyboard.Activity.ThemeActivity;
+import com.sikderithub.keyboard.BuildConfig;
+import com.sikderithub.keyboard.CommonMethod;
+import com.sikderithub.keyboard.MyApp;
+import com.sikderithub.keyboard.R;
+import com.sikderithub.keyboard.Utils.CustomThemeHelper;
 
 import java.util.ArrayList;
 

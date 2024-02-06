@@ -18,7 +18,7 @@
 */
 -->
 
-<merge xmlns:keybaord="http://schemas.android.com/apk/res/com.banglakeyboard.pro">
+<merge xmlns:keybaord="http://schemas.android.com/apk/res/com.sikderithub.keyboard">
     <switch>
         <case keybaord:keyboardLayoutSetElement="alphabetManualShifted|alphabetShiftLocked|alphabetShiftLockShifted">
             <!-- U+0985: "অ" BENGALI LETTER A -->

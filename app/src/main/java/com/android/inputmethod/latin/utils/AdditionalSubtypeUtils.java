@@ -31,7 +31,7 @@ import android.view.inputmethod.InputMethodSubtype;
 import com.android.inputmethod.annotations.UsedForTesting;
 import com.android.inputmethod.compat.InputMethodSubtypeCompatUtils;
 import com.android.inputmethod.latin.common.StringUtils;
-import com.banglakeyboard.pro.R;
+import com.sikderithub.keyboard.R;
 
 import java.util.ArrayList;
 import java.util.Arrays;

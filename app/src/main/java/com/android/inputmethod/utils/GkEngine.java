@@ -2,9 +2,9 @@ package com.android.inputmethod.utils;
 
 import android.util.Log;
 
-import com.banglakeyboard.pro.Models.Gk;
-import com.banglakeyboard.pro.MyApp;
-import com.banglakeyboard.pro.local.Dao.QuestionDatabase;
+import com.sikderithub.keyboard.Models.Gk;
+import com.sikderithub.keyboard.MyApp;
+import com.sikderithub.keyboard.local.Dao.QuestionDatabase;
 
 import java.util.ArrayList;
 import java.util.List;

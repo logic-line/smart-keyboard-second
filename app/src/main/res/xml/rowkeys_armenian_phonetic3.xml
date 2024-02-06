@@ -18,7 +18,7 @@
 */
 -->
 
-<merge xmlns:keybaord="http://schemas.android.com/apk/res/com.banglakeyboard.pro">
+<merge xmlns:keybaord="http://schemas.android.com/apk/res/com.sikderithub.keyboard">
     <!-- U+0561: "ա" ARMENIAN SMALL LETTER AYB -->
     <Key keybaord:keySpec="&#x0561;" />
     <!-- U+057D: "ս" ARMENIAN SMALL LETTER SEH -->

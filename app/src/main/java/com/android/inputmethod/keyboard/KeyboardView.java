@@ -37,9 +37,9 @@ import com.android.inputmethod.keyboard.internal.KeyDrawParams;
 import com.android.inputmethod.keyboard.internal.KeyVisualAttributes;
 import com.android.inputmethod.latin.common.Constants;
 import com.android.inputmethod.latin.utils.TypefaceUtils;
-import com.banglakeyboard.pro.Models.Theme;
-import com.banglakeyboard.pro.R;
-import com.banglakeyboard.pro.Utils.CustomThemeHelper;
+import com.sikderithub.keyboard.Models.Theme;
+import com.sikderithub.keyboard.R;
+import com.sikderithub.keyboard.Utils.CustomThemeHelper;
 
 import java.util.HashSet;
 

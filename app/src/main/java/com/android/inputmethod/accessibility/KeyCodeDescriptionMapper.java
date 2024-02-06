@@ -28,7 +28,7 @@ import com.android.inputmethod.keyboard.Keyboard;
 import com.android.inputmethod.keyboard.KeyboardId;
 import com.android.inputmethod.latin.common.Constants;
 import com.android.inputmethod.latin.common.StringUtils;
-import com.banglakeyboard.pro.R;
+import com.sikderithub.keyboard.R;
 
 import java.util.Locale;
 

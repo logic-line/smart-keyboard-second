@@ -18,7 +18,7 @@ package com.android.inputmethod.latin.utils;
 
 import android.content.Context;
 
-import com.banglakeyboard.pro.R;
+import com.sikderithub.keyboard.R;
 
 /**
  * Helper class to get the metadata URI and the additional ID.

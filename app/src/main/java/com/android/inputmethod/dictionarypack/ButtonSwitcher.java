@@ -25,7 +25,7 @@ import android.view.ViewPropertyAnimator;
 import android.widget.Button;
 import android.widget.FrameLayout;
 
-import com.banglakeyboard.pro.R;
+import com.sikderithub.keyboard.R;
 
 /**
  * A view that handles buttons inside it according to a status.

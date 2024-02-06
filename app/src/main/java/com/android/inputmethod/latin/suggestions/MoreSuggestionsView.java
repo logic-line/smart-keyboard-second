@@ -27,7 +27,7 @@ import com.android.inputmethod.keyboard.MoreKeysKeyboardView;
 import com.android.inputmethod.latin.SuggestedWords;
 import com.android.inputmethod.latin.SuggestedWords.SuggestedWordInfo;
 import com.android.inputmethod.latin.suggestions.MoreSuggestions.MoreSuggestionKey;
-import com.banglakeyboard.pro.R;
+import com.sikderithub.keyboard.R;
 
 /**
  * A view that renders a virtual {@link MoreSuggestions}. It handles rendering of keys and detecting

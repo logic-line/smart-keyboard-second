@@ -18,7 +18,7 @@
 */
 -->
 
-<merge xmlns:keybaord="http://schemas.android.com/apk/res/com.banglakeyboard.pro">
+<merge xmlns:keybaord="http://schemas.android.com/apk/res/com.sikderithub.keyboard">
     <!-- U+0D15: "ക" MALAYALAM LETTER KA
          U+0D16: "ഖ" MALAYALAM LETTER KHA -->
     <Key

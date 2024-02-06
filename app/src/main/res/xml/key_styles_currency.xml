@@ -18,7 +18,7 @@
 */
 -->
 
-<merge xmlns:keybaord="http://schemas.android.com/apk/res/com.banglakeyboard.pro">
+<merge xmlns:keybaord="http://schemas.android.com/apk/res/com.sikderithub.keyboard">
     <switch>
         <case keybaord:passwordInput="true">
             <include keybaord:keyboardLayout="@xml/key_styles_currency_dollar" />

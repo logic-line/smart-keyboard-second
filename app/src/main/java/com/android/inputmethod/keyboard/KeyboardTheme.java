@@ -16,7 +16,7 @@
 
 package com.android.inputmethod.keyboard;
 
-import static com.banglakeyboard.pro.R.style.KeyboardTheme_LXX_Light;
+import static com.sikderithub.keyboard.R.style.KeyboardTheme_LXX_Light;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -25,7 +25,7 @@ import android.preference.PreferenceManager;
 import android.util.Log;
 
 import com.android.inputmethod.compat.BuildCompatUtils;
-import com.banglakeyboard.pro.R;
+import com.sikderithub.keyboard.R;
 
 import java.util.ArrayList;
 import java.util.Arrays;

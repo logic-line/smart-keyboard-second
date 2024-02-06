@@ -18,7 +18,7 @@
 */
 -->
 
-<merge xmlns:keybaord="http://schemas.android.com/apk/res/com.banglakeyboard.pro" >
+<merge xmlns:keybaord="http://schemas.android.com/apk/res/com.sikderithub.keyboard" >
     <include keybaord:keyboardLayout="@xml/rowkeys_qwerty2" />
     <!-- U+010D: "č" LATIN SMALL LETTER C WITH CARON -->
     <Key keybaord:keySpec="&#x010D;" />

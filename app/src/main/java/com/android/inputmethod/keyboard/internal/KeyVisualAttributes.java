@@ -21,7 +21,7 @@ import android.graphics.Typeface;
 import android.util.SparseIntArray;
 
 import com.android.inputmethod.latin.utils.ResourceUtils;
-import com.banglakeyboard.pro.R;
+import com.sikderithub.keyboard.R;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;

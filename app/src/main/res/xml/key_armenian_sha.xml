@@ -19,7 +19,7 @@
 -->
 
 <merge
-    xmlns:keybaord="http://schemas.android.com/apk/res/com.banglakeyboard.pro"
+    xmlns:keybaord="http://schemas.android.com/apk/res/com.sikderithub.keyboard"
 >
     <!-- U+0577: "շ" ARMENIAN SMALL LETTER SHA -->
     <Key

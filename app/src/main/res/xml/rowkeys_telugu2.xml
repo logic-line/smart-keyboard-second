@@ -18,7 +18,7 @@
 */
 -->
 
-<merge xmlns:keybaord="http://schemas.android.com/apk/res/com.banglakeyboard.pro">
+<merge xmlns:keybaord="http://schemas.android.com/apk/res/com.sikderithub.keyboard">
     <!-- U+0C4B: "ో" TELUGU VOWEL SIGN OO
          U+0C13: "ఓ" TELUGU LETTER OO -->
     <Key

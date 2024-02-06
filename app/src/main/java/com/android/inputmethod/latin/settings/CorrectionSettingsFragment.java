@@ -34,7 +34,7 @@ import com.android.inputmethod.latin.permissions.PermissionsManager;
 import com.android.inputmethod.latin.permissions.PermissionsUtil;
 import com.android.inputmethod.latin.userdictionary.UserDictionaryList;
 import com.android.inputmethod.latin.userdictionary.UserDictionarySettings;
-import com.banglakeyboard.pro.R;
+import com.sikderithub.keyboard.R;
 
 import java.util.TreeSet;
 

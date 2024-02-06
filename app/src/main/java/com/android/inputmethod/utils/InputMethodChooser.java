@@ -5,7 +5,7 @@ import android.content.Context;
 import android.util.Log;
 import android.view.Window;
 
-import com.banglakeyboard.pro.R;
+import com.sikderithub.keyboard.R;
 
 public class InputMethodChooser {
 
