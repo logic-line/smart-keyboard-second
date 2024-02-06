@@ -18,7 +18,7 @@
 */
 -->
 
-<merge xmlns:keybaord="http://schemas.android.com/apk/res/com.banglakeyboard.pro" >
+<merge xmlns:keybaord="http://schemas.android.com/apk/res/com.sikderithub.keyboard" >
     <include keybaord:keyboardLayout="@xml/rowkeys_qwerty2" />
     <!-- U+0067/U+02BB: "gʻ" LATIN SMALL LETTER G/MODIFIER LETTER TURNED COMMA -->
     <Key

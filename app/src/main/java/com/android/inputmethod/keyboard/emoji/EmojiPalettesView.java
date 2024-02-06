@@ -25,15 +25,12 @@ import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.preference.PreferenceManager;
 import android.util.AttributeSet;
-import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.Pair;
 import android.util.TypedValue;
-import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -58,17 +55,16 @@ import com.android.inputmethod.latin.AudioAndHapticFeedbackManager;
 import com.android.inputmethod.latin.RichInputMethodSubtype;
 import com.android.inputmethod.latin.common.Constants;
 import com.android.inputmethod.latin.utils.ResourceUtils;
-import com.banglakeyboard.pro.customView.CustomAdView;
+import com.sikderithub.keyboard.customView.CustomAdView;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdLoader;
 import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.LoadAdError;
-import com.banglakeyboard.pro.Models.Theme;
-import com.banglakeyboard.pro.R;
-import com.banglakeyboard.pro.Utils.CustomThemeHelper;
-import com.banglakeyboard.pro.Views.NativeAd.TemplateView;
+import com.sikderithub.keyboard.Models.Theme;
+import com.sikderithub.keyboard.R;
+import com.sikderithub.keyboard.Utils.CustomThemeHelper;
+import com.sikderithub.keyboard.Views.NativeAd.TemplateView;
 
 /**
  * View class to implement Emoji palettes.

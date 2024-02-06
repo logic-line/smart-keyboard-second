@@ -25,7 +25,7 @@ import android.preference.ListPreference;
 
 import com.android.inputmethod.latin.AudioAndHapticFeedbackManager;
 import com.android.inputmethod.latin.SystemBroadcastReceiver;
-import com.banglakeyboard.pro.R;
+import com.sikderithub.keyboard.R;
 
 /**
  * "Advanced" settings sub screen.

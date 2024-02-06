@@ -27,7 +27,7 @@ import android.widget.Toast;
 
 import com.android.inputmethod.latin.BinaryDictionaryFileDumper;
 import com.android.inputmethod.latin.common.LocaleUtils;
-import com.banglakeyboard.pro.R;
+import com.sikderithub.keyboard.R;
 
 import java.util.Locale;
 import java.util.Random;

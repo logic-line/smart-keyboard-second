@@ -65,8 +65,8 @@ import com.android.inputmethod.latin.utils.TypefaceUtils;
 import com.android.inputmethod.utils.Constant;
 import com.android.inputmethod.utils.LanguageSwitcher;
 import com.android.inputmethod.utils.SlidingLocaleDrawable;
-import com.banglakeyboard.pro.R;
-import com.banglakeyboard.pro.Utils.CustomThemeHelper;
+import com.sikderithub.keyboard.R;
+import com.sikderithub.keyboard.Utils.CustomThemeHelper;
 
 import java.util.WeakHashMap;
 

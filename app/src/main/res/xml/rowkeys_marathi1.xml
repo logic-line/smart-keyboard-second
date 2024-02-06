@@ -18,7 +18,7 @@
 */
 -->
 
-<merge xmlns:keybaord="http://schemas.android.com/apk/res/com.banglakeyboard.pro">
+<merge xmlns:keybaord="http://schemas.android.com/apk/res/com.sikderithub.keyboard">
     <!-- Because the font rendering system prior to API version 16 can't automatically
          render dotted circle for incomplete combining letter of some scripts, different
          set of Key definitions are needed based on the API version. -->

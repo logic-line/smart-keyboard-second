@@ -31,7 +31,7 @@ import com.android.inputmethod.latin.RichInputMethodManager;
 import com.android.inputmethod.latin.utils.AsyncResultHolder;
 import com.android.inputmethod.latin.utils.ResourceUtils;
 import com.android.inputmethod.latin.utils.TargetPackageInfoGetterTask;
-import com.banglakeyboard.pro.R;
+import com.sikderithub.keyboard.R;
 
 import java.util.Arrays;
 import java.util.Locale;

@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    namespace 'com.banglakeyboard.pro'
+    namespace 'com.sikderithub.keyboard'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.banglakeyboard.pro"
+        applicationId "com.sikderithub.keyboard"
         minSdk 21
         targetSdk 33
         versionCode 17

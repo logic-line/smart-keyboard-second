@@ -19,7 +19,7 @@
 -->
 
 <KeyboardLayoutSet
-    xmlns:keybaord="http://schemas.android.com/apk/res/com.banglakeyboard.pro">
+    xmlns:keybaord="http://schemas.android.com/apk/res/com.sikderithub.keyboard">
     <Element
         keybaord:elementName="alphabet"
         keybaord:elementKeyboard="@xml/kbd_qwertz"

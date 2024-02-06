@@ -26,7 +26,7 @@
     style="?attr/keyboardStyle"
     android:orientation="vertical" >
 
-    <com.banglakeyboard.pro.Views.TopView
+    <com.sikderithub.keyboard.Views.TopView
         android:id="@+id/topView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
@@ -49,7 +49,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.banglakeyboard.pro.Views.SavedGkViews
+        <com.sikderithub.keyboard.Views.SavedGkViews
             android:visibility="gone"
             android:id="@+id/saved_gk_view"
             android:layout_width="match_parent"

@@ -36,7 +36,7 @@ import androidx.core.view.accessibility.AccessibilityEventCompat;
 import com.android.inputmethod.compat.SettingsSecureCompatUtils;
 import com.android.inputmethod.latin.SuggestedWords;
 import com.android.inputmethod.latin.utils.InputTypeUtils;
-import com.banglakeyboard.pro.R;
+import com.sikderithub.keyboard.R;
 
 public final class AccessibilityUtils {
     private static final String TAG = AccessibilityUtils.class.getSimpleName();

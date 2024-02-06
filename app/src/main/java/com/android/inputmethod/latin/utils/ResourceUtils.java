@@ -26,7 +26,7 @@ import android.util.TypedValue;
 
 import com.android.inputmethod.annotations.UsedForTesting;
 import com.android.inputmethod.latin.settings.SettingsValues;
-import com.banglakeyboard.pro.R;
+import com.sikderithub.keyboard.R;
 
 import java.util.ArrayList;
 import java.util.HashMap;

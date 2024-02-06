@@ -37,7 +37,7 @@ import com.android.inputmethod.latin.common.StringUtils;
 import com.android.inputmethod.latin.utils.ResourceUtils;
 import com.android.inputmethod.latin.utils.XmlParseUtils;
 import com.android.inputmethod.latin.utils.XmlParseUtils.ParseException;
-import com.banglakeyboard.pro.R;
+import com.sikderithub.keyboard.R;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;

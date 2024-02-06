@@ -11,7 +11,7 @@ import android.text.TextPaint;
 import android.util.Log;
 import android.view.ViewConfiguration;
 
-import com.banglakeyboard.pro.R;
+import com.sikderithub.keyboard.R;
 
 /**
  * Animation to be displayed on the spacebar preview popup when switching

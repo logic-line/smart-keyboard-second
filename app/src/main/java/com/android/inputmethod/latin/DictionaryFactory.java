@@ -23,7 +23,7 @@ import android.net.Uri;
 import android.util.Log;
 
 import com.android.inputmethod.latin.utils.DictionaryInfoUtils;
-import com.banglakeyboard.pro.R;
+import com.sikderithub.keyboard.R;
 
 import java.io.File;
 import java.util.ArrayList;

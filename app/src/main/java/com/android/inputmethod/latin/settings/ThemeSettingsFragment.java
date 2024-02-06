@@ -24,7 +24,7 @@ import android.preference.PreferenceScreen;
 
 import com.android.inputmethod.keyboard.KeyboardTheme;
 import com.android.inputmethod.latin.settings.RadioButtonPreference.OnRadioButtonClickedListener;
-import com.banglakeyboard.pro.R;
+import com.sikderithub.keyboard.R;
 
 /**
  * "Keyboard theme" settings sub screen.

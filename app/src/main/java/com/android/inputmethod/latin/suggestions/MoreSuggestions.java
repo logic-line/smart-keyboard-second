@@ -29,7 +29,7 @@ import com.android.inputmethod.keyboard.internal.KeyboardParams;
 import com.android.inputmethod.latin.SuggestedWords;
 import com.android.inputmethod.latin.common.Constants;
 import com.android.inputmethod.latin.utils.TypefaceUtils;
-import com.banglakeyboard.pro.R;
+import com.sikderithub.keyboard.R;
 
 public final class MoreSuggestions extends Keyboard {
     public final SuggestedWords mSuggestedWords;

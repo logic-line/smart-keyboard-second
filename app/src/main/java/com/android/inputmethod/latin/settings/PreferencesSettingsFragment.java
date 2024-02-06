@@ -25,7 +25,7 @@ import android.preference.Preference;
 
 import com.android.inputmethod.latin.AudioAndHapticFeedbackManager;
 import com.android.inputmethod.latin.RichInputMethodManager;
-import com.banglakeyboard.pro.R;
+import com.sikderithub.keyboard.R;
 
 
 /**

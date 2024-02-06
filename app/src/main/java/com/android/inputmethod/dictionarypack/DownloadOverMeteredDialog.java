@@ -26,7 +26,7 @@ import android.widget.TextView;
 
 import com.android.inputmethod.annotations.ExternallyReferenced;
 import com.android.inputmethod.latin.common.LocaleUtils;
-import com.banglakeyboard.pro.R;
+import com.sikderithub.keyboard.R;
 
 import javax.annotation.Nullable;
 

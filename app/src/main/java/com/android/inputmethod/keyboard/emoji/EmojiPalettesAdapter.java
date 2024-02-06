@@ -27,7 +27,7 @@ import androidx.viewpager.widget.PagerAdapter;
 import com.android.inputmethod.keyboard.Key;
 import com.android.inputmethod.keyboard.Keyboard;
 import com.android.inputmethod.keyboard.KeyboardView;
-import com.banglakeyboard.pro.R;
+import com.sikderithub.keyboard.R;
 
 final class EmojiPalettesAdapter extends PagerAdapter {
     private static final String TAG = EmojiPalettesAdapter.class.getSimpleName();

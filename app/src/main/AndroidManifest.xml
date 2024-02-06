@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.banglakeyboard.pro">
+    package="com.sikderithub.keyboard">
 
     <uses-permission android:name="com.google.android.gms.permission.AD_ID"/>
 
@@ -22,11 +22,11 @@
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
     <permission
-        android:name="com.banglakeyboard.pro.HIDE_SOFT_INPUT"
+        android:name="com.sikderithub.keyboard.HIDE_SOFT_INPUT"
         android:protectionLevel="signature" />
 
     <application
-        android:name="com.banglakeyboard.pro.MyApp"
+        android:name="com.sikderithub.keyboard.MyApp"
         android:allowBackup="true"
         android:defaultToDeviceProtectedStorage="true"
         android:directBootAware="true"
@@ -47,33 +47,33 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
 
         <activity
-            android:name="com.banglakeyboard.pro.Activity.CreateThemeActivity"
+            android:name="com.sikderithub.keyboard.Activity.CreateThemeActivity"
             android:exported="false"
             android:theme="@style/Theme.AppCompat.DayNight" />
         <activity
-            android:name="com.banglakeyboard.pro.Activity.KeyMapActivity"
+            android:name="com.sikderithub.keyboard.Activity.KeyMapActivity"
             android:exported="false"
             android:theme="@style/Theme.AppCompat.DayNight" />
         <activity
-            android:name="com.banglakeyboard.pro.Activity.UpdateActivity"
+            android:name="com.sikderithub.keyboard.Activity.UpdateActivity"
             android:exported="false"
             android:theme="@style/Theme.AppCompat.DayNight" />
 
 
 
         <activity
-            android:name="com.banglakeyboard.pro.Activity.ThemeActivity"
+            android:name="com.sikderithub.keyboard.Activity.ThemeActivity"
             android:exported="false"
             android:theme="@style/Theme.AppCompat.DayNight" /> <!-- Services -->
         <service
-            android:name="com.banglakeyboard.pro.Service.NotificationService"
+            android:name="com.sikderithub.keyboard.Service.NotificationService"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
         <service
-            android:name="com.banglakeyboard.pro.SikderKeyboard"
+            android:name="com.sikderithub.keyboard.SikderKeyboard"
             android:exported="true"
             android:label="@string/english_ime_name_emoji"
             android:permission="android.permission.BIND_INPUT_METHOD">

@@ -59,7 +59,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
 
-                <com.banglakeyboard.pro.Views.MyRecyclerView
+                <com.sikderithub.keyboard.Views.MyRecyclerView
                     android:id="@+id/recyThemes"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>

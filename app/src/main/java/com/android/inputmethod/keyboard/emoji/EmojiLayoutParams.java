@@ -23,7 +23,7 @@ import android.widget.LinearLayout;
 import androidx.viewpager.widget.ViewPager;
 
 import com.android.inputmethod.latin.utils.ResourceUtils;
-import com.banglakeyboard.pro.R;
+import com.sikderithub.keyboard.R;
 
 final class EmojiLayoutParams {
     private static final int DEFAULT_KEYBOARD_ROWS = 4;

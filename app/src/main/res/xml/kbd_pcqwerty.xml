@@ -19,7 +19,7 @@
 -->
 
 <Keyboard
-    xmlns:keybaord="http://schemas.android.com/apk/res/com.banglakeyboard.pro"
+    xmlns:keybaord="http://schemas.android.com/apk/res/com.sikderithub.keyboard"
     keybaord:rowHeight="20%p"
     keybaord:verticalGap="@fraction/config_key_vertical_gap_5row"
     keybaord:keyLetterSize="@fraction/config_key_letter_ratio_5row"

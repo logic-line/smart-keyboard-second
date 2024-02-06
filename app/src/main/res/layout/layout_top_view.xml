@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
          />
 
-    <com.banglakeyboard.pro.Views.NativeAd.TemplateView
+    <com.sikderithub.keyboard.Views.NativeAd.TemplateView
         android:visibility="gone"
         android:id="@+id/templateView"
         android:layout_width="match_parent"

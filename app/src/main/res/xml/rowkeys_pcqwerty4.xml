@@ -19,7 +19,7 @@
 -->
 
 <merge
-    xmlns:keybaord="http://schemas.android.com/apk/res/com.banglakeyboard.pro"
+    xmlns:keybaord="http://schemas.android.com/apk/res/com.sikderithub.keyboard"
 >
     <!-- The keys on this PC layout row4 consist of the letters of QWERTY layout row3 and
          some symbols keys. -->

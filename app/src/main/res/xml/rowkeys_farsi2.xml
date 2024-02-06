@@ -18,7 +18,7 @@
 */
 -->
 
-<merge xmlns:keybaord="http://schemas.android.com/apk/res/com.banglakeyboard.pro">
+<merge xmlns:keybaord="http://schemas.android.com/apk/res/com.sikderithub.keyboard">
     <!-- U+0634: "ش" ARABIC LETTER SHEEN -->
     <Key keybaord:keySpec="&#x0634;" />
     <!-- U+0633: "س" ARABIC LETTER SEEN -->

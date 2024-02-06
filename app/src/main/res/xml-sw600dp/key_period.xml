@@ -19,7 +19,7 @@
 -->
 
 <merge
-    xmlns:keybaord="http://schemas.android.com/apk/res/com.banglakeyboard.pro"
+    xmlns:keybaord="http://schemas.android.com/apk/res/com.sikderithub.keyboard"
 >
     <!-- The table period key which may have different label depending on locale -->
     <!-- Kept as a separate file for cleaner overriding by an overlay.  -->

@@ -35,7 +35,7 @@ import android.util.Log;
 import com.android.inputmethod.latin.makedict.FormatSpec;
 import com.android.inputmethod.latin.utils.ApplicationUtils;
 import com.android.inputmethod.latin.utils.DebugLogUtils;
-import com.banglakeyboard.pro.R;
+import com.sikderithub.keyboard.R;
 
 import java.io.File;
 import java.io.FileInputStream;
