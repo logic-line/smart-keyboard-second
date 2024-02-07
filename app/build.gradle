@@ -13,11 +13,11 @@ android {
         applicationId "com.sikderithub.keyboard"
         minSdk 21
         targetSdk 33
-        versionCode 17
-        versionName "1.17"
+        versionCode 14
+        versionName "1.14"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        archivesBaseName = "bangla-keyboard-v$versionCode($versionName)"
+        archivesBaseName = "Smart-keyboard-v$versionCode($versionName)"
 
     }
 
