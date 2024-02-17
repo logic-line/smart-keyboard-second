@@ -37,8 +37,8 @@ public class CustomAdView extends FrameLayout {
     public static final int EMOJI_ADS = 1;
     public static final int TOP_ADS = 2;
     private static final String TAG = "EmojiAdView";
-    //private static final String AD_UNIT_ID = "ca-app-pub-3940256099942544/9214589741"; //test ad id
-    private static final String AD_UNIT_ID = "ca-app-pub-8326396827024206/8824334669"; //real ad id
+    //private static final String AD_UNIT_ID = "ca-app-pub-3940256099942544/6300978111"; //test ad id
+    //private static final String AD_UNIT_ID = "ca-app-pub-8326396827024206/8824334669"; //real ad id
     private final Context context;
     private View containerView;
     private FrameLayout adContainerView;
@@ -178,7 +178,7 @@ public class CustomAdView extends FrameLayout {
         Log.d(TAG, "loadBanner: ");
         // Create an ad request.
         adView = new AdView(getContext());
-        adView.setAdUnitId(AD_UNIT_ID);
+        adView.setAdUnitId(Constants.EMOJI_AD_UNIT_ID);
         adContainerView.removeAllViews();
         adContainerView.addView(adView);
 

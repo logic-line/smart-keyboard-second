@@ -50,7 +50,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class TopView extends RelativeLayout {
-    private static final String AD_UNIT_ID = "ca-app-pub-8326396827024206/8824334669";
+    //private static final String AD_UNIT_ID = "ca-app-pub-3940256099942544/6300978111";
     private static final String TAG = "TopView";
     private TemplateView mNativeAdView;
     private ImageView imgUpdate;
@@ -295,7 +295,7 @@ public class TopView extends RelativeLayout {
         Log.d(TAG, "loadBanner: ");
         // Create an ad request.
         adView = new AdView(getContext());
-        adView.setAdUnitId(AD_UNIT_ID);
+        adView.setAdUnitId(Constants.TOP_AD_UNIT_ID);
         adContainerView.removeAllViews();
         adContainerView.addView(adView);
 
