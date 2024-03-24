@@ -73,11 +73,12 @@ public class MyLatinIME extends LatinIME implements DrawingProxy {
         if (isShowingOptionDialog()) return false;
         switch (requestCode) {
             case Constants.CUSTOM_CODE_SHOW_INPUT_METHOD_PICKER:
-                showDialog();
+                //showDialog();
                 if (mRichImm.hasMultipleEnabledIMEsOrSubtypes(true /* include aux subtypes */)) {
-                    mRichImm.getInputMethodManager().showInputMethodPicker();
+                    throw new RuntimeException("Test Crash"); // Force a crash
+//                    mRichImm.getInputMethodManager().showInputMethodPicker();
 
-                    return true;
+//                    return true;
                 }
                 return true;
             case Constants.KEYCODE_NEXT_LANGUAGE:

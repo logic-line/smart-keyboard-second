@@ -544,9 +544,9 @@ public class MainKeyboardView extends KeyboardView implements DrawingProxy,
     public void onKeyPressed(@Nonnull final Key key, final boolean withPreview) {
 
         //hide space key preview
-        if(mPreviewPopup!=null){
-            mPreviewPopup.dismiss();
-        }
+//        if(mPreviewPopup!=null){
+//            mPreviewPopup.dismiss();
+//        }
         key.onPressed();
         invalidateKey(key);
 
@@ -557,42 +557,57 @@ public class MainKeyboardView extends KeyboardView implements DrawingProxy,
 
 
     }
-
     private void showKeyPreview(@Nonnull final Key key) {
-
-
         final Keyboard keyboard = getKeyboard();
         if (keyboard == null) {
             return;
         }
-
-        if(key.getCode()==Constants.CODE_SPACE){
-            Log.d(TAG, "showKeyPreview: showSpacePreview");
-            showSpacePreview(key);
-            return;
-        }else{
-            if (mPreviewPopup!=null ) {
-                mPreviewPopup.dismiss();
-            }
-        }
-
         final KeyPreviewDrawParams previewParams = mKeyPreviewDrawParams;
         if (!previewParams.isPopupEnabled()) {
             previewParams.setVisibleOffset(-keyboard.mVerticalGap);
             return;
         }
 
-
-
         locatePreviewPlacerView();
         getLocationInWindow(mOriginCoords);
-
-
         mKeyPreviewChoreographer.placeAndShowKeyPreview(key, keyboard.mIconsSet, getKeyDrawParams(),
                 getWidth(), mOriginCoords, mDrawingPreviewPlacerView, isHardwareAccelerated());
-
-
     }
+//    private void showKeyPreview(@Nonnull final Key key) {
+//
+//
+//        final Keyboard keyboard = getKeyboard();
+//        if (keyboard == null) {
+//            return;
+//        }
+//
+//        if(key.getCode()==Constants.CODE_SPACE){
+//            Log.d(TAG, "showKeyPreview: showSpacePreview");
+//            //showSpacePreview(key);
+//            //return;
+//        }else{
+//            if (mPreviewPopup!=null ) {
+//                mPreviewPopup.dismiss();
+//            }
+//        }
+//
+//        final KeyPreviewDrawParams previewParams = mKeyPreviewDrawParams;
+//        if (!previewParams.isPopupEnabled()) {
+//            previewParams.setVisibleOffset(-keyboard.mVerticalGap);
+//            return;
+//        }
+//
+//
+//
+//        locatePreviewPlacerView();
+//        getLocationInWindow(mOriginCoords);
+//
+//
+//        mKeyPreviewChoreographer.placeAndShowKeyPreview(key, keyboard.mIconsSet, getKeyDrawParams(),
+//                getWidth(), mOriginCoords, mDrawingPreviewPlacerView, isHardwareAccelerated());
+//
+//
+//    }
 
     @SuppressLint("ResourceAsColor")
     private void showSpacePreview(Key key) {
@@ -926,9 +941,6 @@ public class MainKeyboardView extends KeyboardView implements DrawingProxy,
     }
 
     public boolean processMotionEvent(final MotionEvent event) {
-
-
-
         final int index = event.getActionIndex();
         final int id = event.getPointerId(index);
         final PointerTracker tracker = PointerTracker.getPointerTracker(id);
@@ -938,90 +950,107 @@ public class MainKeyboardView extends KeyboardView implements DrawingProxy,
                 && PointerTracker.getActivePointerTrackerCount() == 1) {
             return true;
         }
-
-
-
-        switch (event.getAction()) {
-
-            case MotionEvent.ACTION_DOWN:
-                startX = event.getX();
-                startY = event.getY();
-                isSpaceDrag = false;
-                break;
-            case MotionEvent.ACTION_UP:
-
-                if(tracker.getKey()!=null){
-                    if (isSpaceDrag && tracker.getKey().getCode() == Constants.CODE_SPACE){
-                        int languageDirection = getLanguageChangeDirection();
-                        if (languageDirection != 0) {
-                            mKeyboardActionListener.onCustomRequest(languageDirection == 1 ? Constants.KEYCODE_NEXT_LANGUAGE : Constants.KEYCODE_PREV_LANGUAGE);
-                        }
-                        event.setAction(MotionEvent.ACTION_CANCEL);
-                        updateLocaleDrag(Integer.MAX_VALUE);
-                    }
-                }
-
-
-
-                isSpaceDrag =false;
-                break;
-
-            case MotionEvent.ACTION_POINTER_UP:
-                if (isSpaceDrag){
-                    event.setAction(MotionEvent.ACTION_CANCEL);
-                }
-                isSpaceDrag  =false;
-                break;
-
-            case MotionEvent.ACTION_MOVE:
-
-                endX = event.getX();
-                endY = event.getY();
-                if(startX<=0){
-                    startX = endX;
-                }
-                int diff = (int) (endX - startX);
-                if(tracker.getKey()!=null){
-                    Log.d(TAG, "processMotionEvent: endx "+endX+ " startX "+startX+" diff "+diff+" mSpaceDragLastDiff "+mSpaceDragLastDiff +" key "+tracker.getKey().getCode());
-
-                }
-
-                if(tracker.getKey()!=null && tracker.getKey().getCode()==Constants.CODE_SPACE){
-
-
-                    if (Math.abs(diff - mSpaceDragLastDiff) > 0) {
-
-                        if(mPreviewPopup==null || !mPreviewPopup.isShowing()){
-                            showKeyPreview(tracker.getKey());
-                        }
-                        updateLocaleDrag(diff);
-                        mSpaceDragLastDiff = diff;
-
-
-                        if(Math.abs(diff)<200){
-                            break;
-                        }
-
-                        isSpaceDrag = true;
-                    }
-                }else {
-                    startX = 0;
-                    //mSpaceDragLastDiff = 0;
-                    isSpaceDrag = false;
-                    updateLocaleDrag(0);
-                }
-
-                break;
-            default:
-                isSpaceDrag = false;
-        }
-
         tracker.processMotionEvent(event, mKeyDetector);
-
-
-
         return true;
     }
+
+//    public boolean processMotionEvent(final MotionEvent event) {
+//
+//
+//
+//        final int index = event.getActionIndex();
+//        final int id = event.getPointerId(index);
+//        final PointerTracker tracker = PointerTracker.getPointerTracker(id);
+//        // When a more keys panel is showing, we should ignore other fingers' single touch events
+//        // other than the finger that is showing the more keys panel.
+//        if (isShowingMoreKeysPanel() && !tracker.isShowingMoreKeysPanel()
+//                && PointerTracker.getActivePointerTrackerCount() == 1) {
+//            return true;
+//        }
+//
+//
+//
+//        switch (event.getAction()) {
+//
+//            case MotionEvent.ACTION_DOWN:
+//                startX = event.getX();
+//                startY = event.getY();
+//                isSpaceDrag = false;
+//                break;
+//            case MotionEvent.ACTION_UP:
+//
+//                if(tracker.getKey()!=null){
+//                    if (isSpaceDrag && tracker.getKey().getCode() == Constants.CODE_SPACE){
+//                        int languageDirection = getLanguageChangeDirection();
+//                        if (languageDirection != 0) {
+//                            mKeyboardActionListener.onCustomRequest(languageDirection == 1 ? Constants.KEYCODE_NEXT_LANGUAGE : Constants.KEYCODE_PREV_LANGUAGE);
+//                        }
+//                        event.setAction(MotionEvent.ACTION_CANCEL);
+//                        updateLocaleDrag(Integer.MAX_VALUE);
+//                    }
+//                }
+//
+//
+//
+//                isSpaceDrag =false;
+//                break;
+//
+//            case MotionEvent.ACTION_POINTER_UP:
+//                if (isSpaceDrag){
+//                    event.setAction(MotionEvent.ACTION_CANCEL);
+//                }
+//                isSpaceDrag  =false;
+//                break;
+//
+//            case MotionEvent.ACTION_MOVE:
+//
+//                endX = event.getX();
+//                endY = event.getY();
+//                if(startX<=0){
+//                    startX = endX;
+//                }
+//                int diff = (int) (endX - startX);
+//                if(tracker.getKey()!=null){
+//                    Log.d(TAG, "processMotionEvent: endx "+endX+ " startX "+startX+" diff "+diff+" mSpaceDragLastDiff "+mSpaceDragLastDiff +" key "+tracker.getKey().getCode());
+//
+//                }
+//
+//                if(tracker.getKey()!=null && tracker.getKey().getCode()==Constants.CODE_SPACE){
+//
+//
+//                    if (Math.abs(diff - mSpaceDragLastDiff) > 0) {
+//
+//                        if(mPreviewPopup==null || !mPreviewPopup.isShowing()){
+//                            showKeyPreview(tracker.getKey());
+//                        }
+//                        updateLocaleDrag(diff);
+//                        mSpaceDragLastDiff = diff;
+//
+//
+//                        if(Math.abs(diff)<200){
+//                            break;
+//                        }
+//
+//                        isSpaceDrag = true;
+//                    }
+//                }else {
+//                    startX = 0;
+//                    //mSpaceDragLastDiff = 0;
+//                    isSpaceDrag = false;
+//                    updateLocaleDrag(0);
+//                }
+//
+//                break;
+//            default:
+//                isSpaceDrag = false;
+//        }
+//
+//        tracker.processMotionEvent(event, mKeyDetector);
+//
+//
+//
+//        return true;
+//    }
 
     private int getLanguageChangeDirection() {
 
@@ -1190,9 +1219,7 @@ public class MainKeyboardView extends KeyboardView implements DrawingProxy,
         paint.setTextAlign(Align.CENTER);
         paint.setTypeface(Typeface.DEFAULT);
         paint.setTextSize(mLanguageOnSpacebarTextSize);
-        //final String language = layoutLanguageOnSpacebar(paint, keyboard.mId.mSubtype, width);
-        final String language = Constant.getLanguageName(LanguageSwitcher.instance.getInputLocale());
-        Log.d(TAG, "drawLanguageOnSpacebar: "+language);
+        final String language = layoutLanguageOnSpacebar(paint, keyboard.mId.mSubtype, width);
         // Draw language text with shadow
         final float descent = paint.descent();
         final float textHeight = -paint.ascent() + descent;
@@ -1206,10 +1233,41 @@ public class MainKeyboardView extends KeyboardView implements DrawingProxy,
         paint.setColor(mLanguageOnSpacebarTextColor);
         paint.setAlpha(mLanguageOnSpacebarAnimAlpha);
         canvas.drawText(language, width / 2, baseline - descent, paint);
-
         paint.clearShadowLayer();
         paint.setTextScaleX(1.0f);
     }
+
+
+//    private void drawLanguageOnSpacebar(final Key key, final Canvas canvas, final Paint paint) {
+//        final Keyboard keyboard = getKeyboard();
+//        if (keyboard == null) {
+//            return;
+//        }
+//        final int width = key.getWidth();
+//        final int height = key.getHeight();
+//        paint.setTextAlign(Align.CENTER);
+//        paint.setTypeface(Typeface.DEFAULT);
+//        paint.setTextSize(mLanguageOnSpacebarTextSize);
+//        //final String language = layoutLanguageOnSpacebar(paint, keyboard.mId.mSubtype, width);
+//        final String language = Constant.getLanguageName(LanguageSwitcher.instance.getInputLocale());
+//        Log.d(TAG, "drawLanguageOnSpacebar: "+language);
+//        // Draw language text with shadow
+//        final float descent = paint.descent();
+//        final float textHeight = -paint.ascent() + descent;
+//        final float baseline = height / 2 + textHeight / 2;
+//        if (mLanguageOnSpacebarTextShadowRadius > 0.0f) {
+//            paint.setShadowLayer(mLanguageOnSpacebarTextShadowRadius, 0, 0,
+//                    mLanguageOnSpacebarTextShadowColor);
+//        } else {
+//            paint.clearShadowLayer();
+//        }
+//        paint.setColor(mLanguageOnSpacebarTextColor);
+//        paint.setAlpha(mLanguageOnSpacebarAnimAlpha);
+//        canvas.drawText(language, width / 2, baseline - descent, paint);
+//
+//        paint.clearShadowLayer();
+//        paint.setTextScaleX(1.0f);
+//    }
 
     @Override
     public void deallocateMemory() {

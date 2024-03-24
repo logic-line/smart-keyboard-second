@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.util.Log;
 import android.view.inputmethod.EditorInfo;
 
+import com.android.inputmethod.latin.LatinIME;
 import com.android.inputmethod.latin.PhoneticBangla;
 import com.android.inputmethod.utils.MyLatinIME;
 import com.google.gson.Gson;
