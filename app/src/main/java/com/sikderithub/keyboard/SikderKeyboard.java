@@ -5,10 +5,13 @@ import android.util.Log;
 import android.view.inputmethod.EditorInfo;
 
 import com.android.inputmethod.latin.PhoneticBangla;
+import com.android.inputmethod.latin.setup.SetupWizardActivity;
 import com.android.inputmethod.utils.MyLatinIME;
 import com.google.gson.Gson;
 import com.sikderithub.keyboard.Activity.UpdateActivity;
+import com.sikderithub.keyboard.Utils.LogKey;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class SikderKeyboard extends MyLatinIME {
@@ -70,7 +73,13 @@ public class SikderKeyboard extends MyLatinIME {
 
             }
         }
+
+        HashMap<String, String> data = new HashMap<>();
+        data.put("onStartInputView", "openKeyboardInputView");
+        MyApp.logEvent(LogKey.SCREEN_OPEN, data);
+
         super.onStartInputView(editorInfo, restarting);
+
 
 
     }

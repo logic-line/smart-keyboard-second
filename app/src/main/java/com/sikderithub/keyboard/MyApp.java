@@ -2,6 +2,7 @@ package com.sikderithub.keyboard;
 
 import android.app.Application;
 import android.content.Context;
+import android.os.Bundle;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
@@ -10,6 +11,7 @@ import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApp;
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.gson.Gson;
 import com.sikderithub.keyboard.Models.Config;
@@ -18,10 +20,14 @@ import com.sikderithub.keyboard.Models.Gk;
 import com.sikderithub.keyboard.Models.NotificationData;
 import com.sikderithub.keyboard.Models.Update;
 import com.sikderithub.keyboard.Utils.Common;
+import com.sikderithub.keyboard.Utils.LogKey;
 import com.sikderithub.keyboard.internet.MyApi;
 import com.sikderithub.keyboard.local.Dao.QuestionDatabase;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.function.BiConsumer;
+import java.util.function.Consumer;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -35,6 +41,7 @@ public class MyApp extends Application {
     private static int lastQuestionId;
     private static Config cachedConfig = new Config();
     public static NotificationData cachedNotification = null;
+    private static FirebaseAnalytics firebaseAnalytics = null;
 
     public static MyApi getMyApi() {
         if (myApi == null) {
@@ -53,6 +60,9 @@ public class MyApp extends Application {
         //getConfigFromServer();
         Common.setInstallTimeIfNotExits();
         registerFcmTopic();
+        if (firebaseAnalytics == null) {
+            firebaseAnalytics = FirebaseAnalytics.getInstance(this);
+        }
     }
 
     private void registerFcmTopic() {
@@ -224,5 +234,16 @@ public class MyApp extends Application {
                     .deleteCustomTheme(id);
         });
    }
-
+   public static void logEvent(LogKey logKey, HashMap<String, String> data){
+        Bundle bundle = new Bundle();
+       if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+           data.forEach(new BiConsumer<String, String>() {
+               @Override
+               public void accept(String s, String s2) {
+                   bundle.putString(s, s2);
+               }
+           });
+       }
+       firebaseAnalytics.logEvent(logKey.name(), bundle);
+   }
 }

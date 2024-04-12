@@ -33,6 +33,8 @@
         android:icon="@mipmap/ic_launcher_round"
         android:label="@string/english_ime_name"
         android:supportsRtl="true">
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+        <meta-data android:name="com.facebook.sdk.ClientToken" android:value="@string/facebook_client_token"/>
 
         <!-- Real AdMob app ID: App id ca-app-pub-8326396827024206~1471282859 -->
         <!-- Sample AdMob app ID: ca-app-pub-8326396827024206~6948980366 -->

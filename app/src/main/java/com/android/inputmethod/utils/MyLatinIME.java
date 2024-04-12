@@ -28,9 +28,14 @@ import com.android.inputmethod.keyboard.PointerTracker;
 import com.android.inputmethod.keyboard.internal.DrawingProxy;
 import com.android.inputmethod.latin.LatinIME;
 import com.android.inputmethod.latin.common.Constants;
+import com.sikderithub.keyboard.MyApp;
 import com.sikderithub.keyboard.R;
+import com.sikderithub.keyboard.Utils.LogKey;
+
+import org.mockito.internal.stubbing.answers.ThrowsException;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
 
@@ -150,6 +155,10 @@ public class MyLatinIME extends LatinIME implements DrawingProxy {
         }
 
         mHandler.postSwitchLanguage(listOfInputMethods.get(index));
+
+        HashMap<String, String> data = new HashMap<>();
+        data.put("toogleLanguage", "Language changed to "+languageSwitcher.getInputLocale().getLanguage());
+        MyApp.logEvent(LogKey.BUTTON_CLICK, data);
     }
 
 
@@ -230,6 +239,9 @@ public class MyLatinIME extends LatinIME implements DrawingProxy {
     @Override
     public void onKeyPressed(@NonNull Key key, boolean withPreview) {
         Log.d(TAG, "onKeyPressed: "+key);
+        HashMap<String, String> data = new HashMap<>();
+        data.put("onKeyPressed", "Language changed to "+key.toString());
+        MyApp.logEvent(LogKey.BUTTON_CLICK, data);
     }
 
     @Override

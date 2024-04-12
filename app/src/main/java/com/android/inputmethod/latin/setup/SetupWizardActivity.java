@@ -47,9 +47,12 @@ import com.android.inputmethod.compat.ViewCompatUtils;
 import com.android.inputmethod.latin.settings.SettingsActivity;
 import com.android.inputmethod.latin.utils.LeakGuardHandlerWrapper;
 import com.android.inputmethod.latin.utils.UncachedInputMethodManagerUtils;
+import com.sikderithub.keyboard.MyApp;
 import com.sikderithub.keyboard.R;
+import com.sikderithub.keyboard.Utils.LogKey;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.annotation.Nonnull;
 
@@ -238,17 +241,27 @@ public final class SetupWizardActivity extends Activity implements View.OnClickL
         TextViewCompatUtils.setCompoundDrawablesRelativeWithIntrinsicBounds(mActionFinish,
                 getResources().getDrawable(R.drawable.ic_setup_finish), null, null, null);
         mActionFinish.setOnClickListener(this);
+
+        HashMap<String, String> data = new HashMap<>();
+        data.put("Activity", SetupWizardActivity.class.getSimpleName());
+        MyApp.logEvent(LogKey.SCREEN_OPEN, data);
     }
 
     @Override
     public void onClick(final View v) {
         if (v == mActionFinish) {
+            HashMap<String, String> data = new HashMap<>();
+            data.put("Button", "Setup finished");
+            MyApp.logEvent(LogKey.BUTTON_CLICK, data);
             finish();
             return;
         }
         final int currentStep = determineSetupStepNumber();
         final int nextStep;
         if (v == mActionStart) {
+            HashMap<String, String> data = new HashMap<>();
+            data.put("Button", "Setup step start");
+            MyApp.logEvent(LogKey.BUTTON_CLICK, data);
             nextStep = STEP_1;
         } else if (v == mActionNext) {
             nextStep = mStepNumber + 1;
@@ -402,6 +415,10 @@ public final class SetupWizardActivity extends Activity implements View.OnClickL
         mWelcomeVideoView.setVisibility(View.VISIBLE);
         mWelcomeVideoView.setVideoURI(mWelcomeVideoUri);
         mWelcomeVideoView.start();
+
+        HashMap<String, String> data = new HashMap<>();
+        data.put("Button", "showAndStartWelcomeVideo");
+        MyApp.logEvent(LogKey.BUTTON_CLICK, data);
     }
 
     private void hideAndStopWelcomeVideo() {
@@ -444,6 +461,10 @@ public final class SetupWizardActivity extends Activity implements View.OnClickL
         mSetupStepGroup.enableStep(mStepNumber, isStepActionAlreadyDone);
         mActionNext.setVisibility(isStepActionAlreadyDone ? View.VISIBLE : View.GONE);
         mActionFinish.setVisibility((mStepNumber == STEP_3) ? View.VISIBLE : View.GONE);
+
+        HashMap<String, String> data = new HashMap<>();
+        data.put("Button", "Setup step no "+mStepNumber);
+        MyApp.logEvent(LogKey.BUTTON_CLICK, data);
     }
 
     static final class SetupStep implements View.OnClickListener {
