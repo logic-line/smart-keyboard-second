@@ -59,4 +59,12 @@
         <intent android:targetPackage="com.sikderithub.keyboard"
             android:targetClass="com.sikderithub.keyboard.Activity.ThemeActivity" />
     </PreferenceScreen>
+
+
+    <Preference
+        android:key="social_view_preference"
+        android:title="Find Us On Social Media"
+        android:summary="Find Us On Social Media"
+        android:layout="@layout/custom_preference_social" />
+
 </PreferenceScreen>
