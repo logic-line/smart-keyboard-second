@@ -37,13 +37,13 @@ public class SocialPreference extends Preference {
     private void customMethod(String buttonId) {
         switch (buttonId) {
             case "btnFacebook":
-                openURL("https://www.facebook.com");
+                openURL("https://www.facebook.com/groups/1178280536938323/?ref=share_group_link");
                 break;
             case "btnWeb":
                 openURL("https://sikderithub.com");
                 break;
             case "btnYoutube":
-                openURL("https://www.youtube.com");
+                openURL("https://youtube.com/@SmartKeyboard-gt7ch?si=jMQSKU_JQTUI-qjS");
                 break;
             default:
                 break;
