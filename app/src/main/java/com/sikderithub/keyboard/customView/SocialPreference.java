@@ -6,8 +6,8 @@ import android.net.Uri;
 import android.util.AttributeSet;
 
 import androidx.annotation.NonNull;
-import androidx.preference.Preference;
-import androidx.preference.PreferenceViewHolder;
+import android.preference.Preference;
+import android.view.View;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.sikderithub.keyboard.R;
@@ -19,10 +19,9 @@ public class SocialPreference extends Preference {
         setLayoutResource(R.layout.custom_preference_social);
     }
 
-
     @Override
-    public void onBindViewHolder(@NonNull PreferenceViewHolder holder) {
-        super.onBindViewHolder(holder);
+    protected void onBindView(View holder) {
+        super.onBindView(holder);
 
         LottieAnimationView btnFacebook = (LottieAnimationView) holder.findViewById(R.id.btnFacebook);
         LottieAnimationView btnYoutube = (LottieAnimationView) holder.findViewById(R.id.btnYoutube);
@@ -32,6 +31,8 @@ public class SocialPreference extends Preference {
         btnYoutube.setOnClickListener(v -> customMethod("btnYoutube"));
         btnWeb.setOnClickListener(v -> customMethod("btnWeb"));
     }
+
+
 
     private void customMethod(String buttonId) {
         switch (buttonId) {

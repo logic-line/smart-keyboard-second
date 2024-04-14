@@ -60,11 +60,12 @@
             android:targetClass="com.sikderithub.keyboard.Activity.ThemeActivity" />
     </PreferenceScreen>
 
-
-    <Preference
+    <com.sikderithub.keyboard.customView.SocialPreference
         android:key="social_view_preference"
         android:title="Find Us On Social Media"
-        android:summary="Find Us On Social Media"
-        android:layout="@layout/custom_preference_social" />
+        android:summary="Find Us On Social Media" />
+
+
+
 
 </PreferenceScreen>

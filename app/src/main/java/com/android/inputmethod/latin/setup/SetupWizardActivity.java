@@ -186,12 +186,7 @@ public final class SetupWizardActivity extends Activity implements View.OnClickL
                 R.string.setup_step2_title_bn, R.string.setup_step2_instruction_bn,
                 0 /* finishedInstruction */, R.drawable.ic_setup_step2,
                 R.string.setup_step2_action_bn);
-        step2.setAction(new Runnable() {
-            @Override
-            public void run() {
-                invokeInputMethodPicker();
-            }
-        });
+        step2.setAction(() -> invokeInputMethodPicker());
         mSetupStepGroup.addStep(step2);
 
         final SetupStep step3 = new SetupStep(STEP_3, applicationName,
