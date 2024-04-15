@@ -124,6 +124,23 @@
                     app:textOff="বাংলা"
                     app:colorBorder="@color/colorAccent"/>
 
+                <RelativeLayout
+                    android:id="@+id/fb_layout"
+                    android:layout_margin="@dimen/action_icon_margin"
+                    android:layout_weight=".2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/action_icon_size">
+                    <ImageView
+                        android:layout_centerVertical="true"
+                        android:layout_weight="1"
+                        android:id="@+id/fb_icon"
+                        android:src="@drawable/fb_icon"
+                        android:layout_width="@dimen/action_icon_size"
+                        android:layout_height="@dimen/action_icon_size"/>
+
+
+                </RelativeLayout>
+
 
                 <RelativeLayout
                     android:id="@+id/tutorial_layout"

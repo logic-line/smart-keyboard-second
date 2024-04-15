@@ -11,9 +11,9 @@
       "type": "SINGLE",
       "filters": [],
       "attributes": [],
-      "versionCode": 16,
-      "versionName": "1.16",
-      "outputFile": "Smart-keyboard-v16(1.16)-release.apk"
+      "versionCode": 17,
+      "versionName": "1.17",
+      "outputFile": "Smart-keyboard-v17(1.17)-release.apk"
     }
   ],
   "elementType": "File"

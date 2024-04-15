@@ -8,6 +8,7 @@ import com.sikderithub.keyboard.Models.BannerAds
 import com.sikderithub.keyboard.Models.Config
 import com.sikderithub.keyboard.Models.GenericResponse
 import com.sikderithub.keyboard.Models.Gk
+import com.sikderithub.keyboard.Models.SocialLink
 import com.sikderithub.keyboard.Models.Update
 import com.sikderithub.keyboard.Models.UpdateAdsStatusResponse
 import okhttp3.OkHttpClient
@@ -51,6 +52,13 @@ interface MyApi {
         @Query("adId") adId: String,
         @Query("action") action: String
     ): Call<UpdateAdsStatusResponse>
+
+
+
+    @POST("api/get_social_link.php")
+    fun getSocialLink(
+
+    ) : Call<GenericResponse<SocialLink>>
 
 
 

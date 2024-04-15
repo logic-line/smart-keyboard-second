@@ -3,16 +3,26 @@ package com.sikderithub.keyboard.customView;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.util.AttributeSet;
-
-import androidx.annotation.NonNull;
 import android.preference.Preference;
+import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 
 import com.airbnb.lottie.LottieAnimationView;
+import com.sikderithub.keyboard.Models.GenericResponse;
+import com.sikderithub.keyboard.Models.SocialLink;
+import com.sikderithub.keyboard.MyApp;
 import com.sikderithub.keyboard.R;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class SocialPreference extends Preference {
+
+    private static final String TAG = "SocialLink";
+    private String webLink, fbLink, youtubeLink;
+
 
     public SocialPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -30,24 +40,56 @@ public class SocialPreference extends Preference {
         btnFacebook.setOnClickListener(v -> customMethod("btnFacebook"));
         btnYoutube.setOnClickListener(v -> customMethod("btnYoutube"));
         btnWeb.setOnClickListener(v -> customMethod("btnWeb"));
+        getAllLink();
     }
-
 
 
     private void customMethod(String buttonId) {
         switch (buttonId) {
             case "btnFacebook":
-                openURL("https://www.facebook.com/groups/1178280536938323/?ref=share_group_link");
+                openURL(fbLink);
                 break;
             case "btnWeb":
-                openURL("https://sikderithub.com");
+                openURL(webLink);
                 break;
             case "btnYoutube":
-                openURL("https://youtube.com/@SmartKeyboard-gt7ch?si=jMQSKU_JQTUI-qjS");
+                openURL(youtubeLink);
                 break;
             default:
                 break;
         }
+    }
+
+
+    private void getAllLink() {
+
+        MyApp.getMyApi()
+                .getSocialLink()
+                .enqueue(new Callback<GenericResponse<SocialLink>>() {
+                    @Override
+                    public void onResponse(Call<GenericResponse<SocialLink>> call, Response<GenericResponse<SocialLink>> response) {
+
+                        if (response.isSuccessful() && response.body() != null) {
+
+                            SocialLink model = response.body().data;
+
+                            Log.d(TAG, "onResponse: " + model);
+
+                            webLink = model.web_link;
+                            fbLink = model.facebook_link;
+                            youtubeLink = model.youtube_link;
+
+
+                        } else {
+                            Log.d(TAG, "onResponse: " + response.message());
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<GenericResponse<SocialLink>> call, Throwable t) {
+
+                    }
+                });
     }
 
     private void openURL(String url) {
