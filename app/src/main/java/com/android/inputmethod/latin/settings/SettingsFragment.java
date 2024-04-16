@@ -18,12 +18,14 @@ package com.android.inputmethod.latin.settings;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceScreen;
 import android.provider.Settings.Secure;
+import android.text.Html;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -81,6 +83,13 @@ public final class SettingsFragment extends PreferenceFragment {
                 return true;
             }
         });
+
+
+        PreferenceScreen preferenceScreenTitle = (PreferenceScreen) findPreference("screen_custom_theme");
+        if (preferenceScreenTitle != null) {
+            preferenceScreenTitle.setTitle(Html.fromHtml("<font color='#FF0000'>কি-বোর্ডে পছন্দের ছবি সেট করুন।</font>"));
+
+        }
     }
 
     @Override

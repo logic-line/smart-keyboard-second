@@ -3,6 +3,7 @@ package com.sikderithub.keyboard.Activity;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
@@ -31,7 +32,7 @@ public class KeyMapActivity extends AppCompatActivity {
 
         recyKeyCat  = findViewById(R.id.recyKeyCat);
         recyKeyCat.setHasFixedSize(true);
-        recyKeyCat.setLayoutManager(new GridLayoutManager(this, 2));
+        recyKeyCat.setLayoutManager(new LinearLayoutManager(this));
 
         phoneticBangla = new PhoneticBangla();
 

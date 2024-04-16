@@ -1,12 +1,14 @@
 package com.sikderithub.keyboard.Adapter;
 
 import android.content.Context;
+import android.graphics.Rect;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -58,9 +60,19 @@ public class KeyMapCatAdapter extends RecyclerView.Adapter<KeyMapCatAdapter.MyVi
         public void bind(PhoneticBangla.KeyMap keyMap) {
             tvTitle.setText(keyMap.getTitle());
             KeyMapItemAdapter adapter = new KeyMapItemAdapter(keyMap.getCharList(), context);
-            rvMapItem.setLayoutManager(new LinearLayoutManager(context));
+            rvMapItem.setLayoutManager(new GridLayoutManager(context, 2));
+
             rvMapItem.setHasFixedSize(true);
             rvMapItem.setAdapter(adapter);
+
+
+            int marginInPixels = (int) (2 * context.getResources().getDisplayMetrics().density);
+            rvMapItem.addItemDecoration(new RecyclerView.ItemDecoration() {
+                @Override
+                public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
+                    outRect.set(marginInPixels, marginInPixels, marginInPixels, marginInPixels);
+                }
+            });
 
         }
     }

@@ -17,7 +17,6 @@
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:keybaord="http://schemas.android.com/apk/res/com.sikderithub.keyboard"
-    xmlns:tools="http://schemas.android.com/tools"
     android:key="english_ime_settings">
     <PreferenceScreen
         android:fragment="com.android.inputmethod.latin.settings.PreferencesSettingsFragment"
@@ -56,7 +55,8 @@
         android:icon="@drawable/photo_keybaord_icon"
         android:title="@string/settings_screen_photo_keyboard"
         android:summary="Set keyboard background photo"
-        android:key="screen_custom_theme">
+        android:key="screen_custom_theme"
+        android:titleTextColor="#FF0000">>
         <intent android:targetPackage="com.sikderithub.keyboard"
             android:targetClass="com.sikderithub.keyboard.Activity.ThemeActivity" />
     </PreferenceScreen>

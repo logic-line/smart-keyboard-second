@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="CustomPreferenceScreenTheme" parent="Theme.AppCompat">
+        <!-- Define your custom colors for the preference screen -->
+        <item name="android:titleTextColor">#FF0000</item> <!-- Red color -->
+    </style>
+</resources>

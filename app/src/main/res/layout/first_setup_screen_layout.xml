@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/highlight_translucent_color_klp">
+
+
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="@dimen/_60sdp"
+        android:layout_height="@dimen/_60sdp"
+        android:background="@drawable/image_rounded_corner"
+        android:clipToOutline="true"
+        android:scaleType="fitXY"
+        android:src="@mipmap/ic_launcher"
+        app:layout_constraintBottom_toTopOf="@+id/user_declaration"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:text="@string/english_ime_name"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_14sdp"
+        app:layout_constraintTop_toBottomOf="@+id/icon" />
+
+
+    <LinearLayout
+        android:id="@+id/user_declaration"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_8sdp"
+        android:background="@color/cardview_light_background"
+        android:orientation="vertical"
+        android:layout_margin="@dimen/_10sdp"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_layout">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:padding="@dimen/_3sdp"
+            android:orientation="horizontal">
+
+
+            <ImageView
+                android:layout_width="@dimen/_18sdp"
+                android:layout_height="@dimen/_15sdp"
+                android:layout_gravity="center_vertical"
+                android:padding="@dimen/_2sdp"
+                android:src="@drawable/ic_shield" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Trusted by millions users"
+                android:textColor="@color/dark_lime_functional_bg_color"/>
+
+        </LinearLayout>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="This keyboard does not collect any sensitive information.A standard warning will be show when you enable any third party keyboard"
+            android:textColor="@color/dark_lime_functional_bg_color"
+            android:textAlignment="center"
+            android:textSize="@dimen/_8sdp"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/bottom_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/cardview_light_background"
+        android:paddingBottom="@dimen/_20sdp"
+        android:paddingHorizontal="@dimen/_6sdp"
+        android:paddingTop="@dimen/_15sdp"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+
+        <TextView
+            android:id="@+id/setup_step1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Step 1"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_14sdp"
+            android:padding="@dimen/_10sdp"/>
+
+
+        <Button
+            android:id="@+id/btn_active_keyboard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_5sdp"
+            android:background="@color/dark_lime_functional_bg_color"
+            android:textColor="@color/white"
+            android:text="Active Keyboard"
+            tools:ignore="MissingConstraints"
+            />
+
+
+    </LinearLayout>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
