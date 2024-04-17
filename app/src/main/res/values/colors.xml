@@ -32,6 +32,7 @@
     <color name="teal_200">#03DAC5</color>
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
+    <color name="logo_colour">#351263</color>
 
     <!-- Color resources for IceCreamSandwich theme. Base color = 33B5E5 -->
     <!-- android:color/holo_blue_light value is #FF33B5E5 -->

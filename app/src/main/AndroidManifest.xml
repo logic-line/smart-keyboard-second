@@ -124,7 +124,7 @@
             android:taskAffinity=""
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         <activity
-            android:name="com.android.inputmethod.latin.setup.SetupWizardActivity"
+            android:name="com.android.inputmethod.latin.setup.SecondSetupWizardActivity"
             android:clearTaskOnLaunch="true"
             android:exported="true"
             android:label="@string/english_ime_name"

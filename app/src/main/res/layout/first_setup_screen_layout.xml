@@ -23,13 +23,13 @@
 
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/app_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_5sdp"
         android:text="@string/english_ime_name"
         android:textAlignment="center"
-        android:textColor="@color/black"
+        android:textColor="@color/logo_colour"
         android:textSize="@dimen/_14sdp"
         app:layout_constraintTop_toBottomOf="@+id/icon" />
 
@@ -64,7 +64,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Trusted by millions users"
-                android:textColor="@color/dark_lime_functional_bg_color"/>
+                android:textColor="@color/logo_colour"/>
 
         </LinearLayout>
 
@@ -73,7 +73,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="This keyboard does not collect any sensitive information.A standard warning will be show when you enable any third party keyboard"
-            android:textColor="@color/dark_lime_functional_bg_color"
+            android:textColor="@color/logo_colour"
             android:textAlignment="center"
             android:textSize="@dimen/_8sdp"/>
 
@@ -99,17 +99,17 @@
             android:text="Step 1"
             android:textStyle="bold"
             android:textAlignment="center"
-            android:textColor="@color/black"
+            android:textColor="@color/logo_colour"
             android:textSize="@dimen/_14sdp"
             android:padding="@dimen/_10sdp"/>
 
 
         <Button
-            android:id="@+id/btn_active_keyboard"
+            android:id="@+id/action_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/_5sdp"
-            android:background="@color/dark_lime_functional_bg_color"
+            android:background="@color/logo_colour"
             android:textColor="@color/white"
             android:text="Active Keyboard"
             tools:ignore="MissingConstraints"
