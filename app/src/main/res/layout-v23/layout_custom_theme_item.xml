@@ -3,8 +3,8 @@
     android:orientation="vertical"
     android:layout_margin="4dp"
     android:layout_width="match_parent"
-    android:padding="3dp"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:padding="3dp">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -13,7 +13,7 @@
             android:visibility="gone"
             android:id="@+id/ivAdd"
             android:layout_centerInParent="true"
-            android:src="@drawable/picture"
+            android:src="@drawable/baseline_add_photo_alternate"
             android:layout_width="50dp"
             android:layout_height="50dp"/>
 
@@ -21,12 +21,12 @@
 
 
         <ImageView
-            android:padding="3dp"
-            android:foreground="@drawable/theme_showcase_round_border_bg"
+            android:background="@drawable/theme_showcase_round_border_bg"
             android:scaleType="fitXY"
             android:id="@+id/ivThemeBg"
             android:layout_width="match_parent"
-            android:layout_height="140dp"/>
+            android:layout_height="@dimen/_60sdp"
+            android:src="@drawable/photo_keybaord_icon"/>
 
 
         <LinearLayout

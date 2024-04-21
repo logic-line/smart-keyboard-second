@@ -26,7 +26,7 @@
 
                 <TextView
                     android:layout_marginBottom="8dp"
-                    style="@style/TextAppearance.MaterialComponents.Headline6"
+                    style="@style/TextAppearance.M3.Sys.Typescale.TitleMedium"
                     android:text="Custom Theme"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
@@ -54,7 +54,7 @@
 
                 <TextView
                     android:layout_marginBottom="8dp"
-                    style="@style/TextAppearance.MaterialComponents.Headline6"
+                    style="@style/TextAppearance.M3.Sys.Typescale.TitleMedium"
                     android:text="Default Themes"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
