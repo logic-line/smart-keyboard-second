@@ -27,4 +27,14 @@
         android:id="@+id/second_setup_welcome_screen"
         layout="@layout/first_setup_screen_layout" />
 
+    <include
+        android:visibility="gone"
+        android:id="@+id/second_setup_screen_layout"
+        layout="@layout/second_setup_screen_layout" />
+
+    <include
+        android:visibility="gone"
+        android:id="@+id/complete_setup_page"
+        layout="@layout/complete_setup_screen_layout" />
+
 </FrameLayout>

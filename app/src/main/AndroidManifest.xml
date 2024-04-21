@@ -128,7 +128,7 @@
             android:clearTaskOnLaunch="true"
             android:exported="true"
             android:label="@string/english_ime_name"
-            android:theme="@style/platformActivityTheme">
+            android:theme="@style/Theme.Design.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>

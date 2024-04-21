@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -38,10 +37,10 @@
         android:id="@+id/user_declaration"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/_8sdp"
+        android:layout_margin="@dimen/_10sdp"
         android:background="@color/cardview_light_background"
         android:orientation="vertical"
-        android:layout_margin="@dimen/_10sdp"
+        android:padding="@dimen/_8sdp"
         app:layout_constraintBottom_toTopOf="@+id/bottom_layout">
 
 
@@ -49,8 +48,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:padding="@dimen/_3sdp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:padding="@dimen/_3sdp">
 
 
             <ImageView
@@ -64,7 +63,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Trusted by millions users"
-                android:textColor="@color/logo_colour"/>
+                android:textColor="@color/logo_colour" />
 
         </LinearLayout>
 
@@ -72,10 +71,10 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="This keyboard does not collect any sensitive information.A standard warning will be show when you enable any third party keyboard"
-            android:textColor="@color/logo_colour"
+            android:text="@string/opening_screen_text"
             android:textAlignment="center"
-            android:textSize="@dimen/_8sdp"/>
+            android:textColor="@color/logo_colour"
+            android:textSize="@dimen/_8sdp" />
 
 
     </LinearLayout>
@@ -84,11 +83,11 @@
         android:id="@+id/bottom_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:background="@color/cardview_light_background"
-        android:paddingBottom="@dimen/_20sdp"
+        android:orientation="vertical"
         android:paddingHorizontal="@dimen/_6sdp"
         android:paddingTop="@dimen/_15sdp"
+        android:paddingBottom="@dimen/_20sdp"
         app:layout_constraintBottom_toBottomOf="parent">
 
 
@@ -96,29 +95,27 @@
             android:id="@+id/setup_step1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:padding="@dimen/_10sdp"
             android:text="Step 1"
-            android:textStyle="bold"
             android:textAlignment="center"
             android:textColor="@color/logo_colour"
             android:textSize="@dimen/_14sdp"
-            android:padding="@dimen/_10sdp"/>
+            android:textStyle="bold" />
 
 
         <Button
-            android:id="@+id/action_button"
+            android:id="@+id/btn_active_keyboard"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/_5sdp"
             android:background="@color/logo_colour"
-            android:textColor="@color/white"
+            android:padding="@dimen/_5sdp"
             android:text="Active Keyboard"
-            tools:ignore="MissingConstraints"
-            />
+            android:textColor="@color/white"
+            tools:ignore="MissingConstraints" />
 
 
     </LinearLayout>
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

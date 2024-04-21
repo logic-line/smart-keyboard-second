@@ -595,4 +595,5 @@ Tip: You can download and remove dictionaries by going to &lt;b>Languages&#160;&
     <string name="admob_native_ad_top" translatable="false">ca-app-pub-8326396827024206/3209253393</string>
     <string name="admob_native_ad_gk" translatable="false">ca-app-pub-8326396827024206/2135010725</string>
     <string name="admob_native_ad_gk_test" translatable="false">ca-app-pub-3940256099942544/1044960115</string>
+    <string name="opening_screen_text" translatable="false">This keyboard does not collect any sensitive information.A standard warning will be show when you enable any third party keyboard</string>
 </resources>
