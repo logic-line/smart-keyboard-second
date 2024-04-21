@@ -22,6 +22,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -39,7 +40,14 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import com.android.inputmethod.latin.settings.SettingsActivity;
+import com.sikderithub.keyboard.Models.GenericResponse;
+import com.sikderithub.keyboard.Models.SocialLink;
+import com.sikderithub.keyboard.MyApp;
 import com.sikderithub.keyboard.R;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 // TODO: Use Fragment to implement welcome screen and setup steps.
 public class SecondSetupWizardActivity extends AppCompatActivity {
@@ -50,12 +58,11 @@ public class SecondSetupWizardActivity extends AppCompatActivity {
     private static final String FIRST_STEP_KEY = "firstStep";
     private static final String SECOND_STEP_KEY = "secondStep";
     private static final String THIRD_STEP_KEY = "thirdStep";
-
+    public String fbLink;
     private FrameLayout secondSetupWizardLayout;
     private View firstSetupScreen;
     private View secondSetupScreen;
     private View completeSetupPage;
-
     private SharedPreferences sharedPreferences;
 
     @Override
@@ -95,6 +102,8 @@ public class SecondSetupWizardActivity extends AppCompatActivity {
             Log.d(TAG, "onStart: not granted");
             askNotificationPermission();
         }
+
+        getAllLink();
     }
 
     private void askNotificationPermission() {
@@ -154,6 +163,15 @@ public class SecondSetupWizardActivity extends AppCompatActivity {
             finish();
             sharedPreferences.edit().putBoolean(THIRD_STEP_KEY, true).apply();
         });
+
+
+        TextView showTutorial = findViewById(R.id.tutorial_button);
+
+        showTutorial.setOnClickListener(v -> {
+            openURL(fbLink);
+            sharedPreferences.edit().putBoolean(THIRD_STEP_KEY, false).apply();
+        });
+
     }
 
     private void invokeLanguageAndInputSettings() {
@@ -173,21 +191,60 @@ public class SecondSetupWizardActivity extends AppCompatActivity {
                 showFirstSetupScreen();
                 sharedPreferences.edit().putBoolean(FIRST_STEP_KEY, false).apply();
             }
+        } else {
+
+            showFirstSetupScreen();
+            sharedPreferences.edit().putBoolean(FIRST_STEP_KEY, false).apply();
+
         }
     }
 
     private boolean isInputMethodSettingsComplete() {
-        return isKeyboardActivated();
+        String defaultInputMethod = Settings.Secure.getString(getContentResolver(), Settings.Secure.DEFAULT_INPUT_METHOD);
+        return (defaultInputMethod != null && !defaultInputMethod.isEmpty());
     }
 
-    private boolean isKeyboardActivated() {
-        return true;
-    }
 
     private void invokeInputMethodPicker() {
         InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.showInputMethodPicker();
-        showCompleteSetupPage();
         sharedPreferences.edit().putBoolean(SECOND_STEP_KEY, true).apply();
+        showCompleteSetupPage();
+
+    }
+
+
+    private void getAllLink() {
+
+        MyApp.getMyApi()
+                .getSocialLink()
+                .enqueue(new Callback<GenericResponse<SocialLink>>() {
+                    @Override
+                    public void onResponse(Call<GenericResponse<SocialLink>> call, Response<GenericResponse<SocialLink>> response) {
+
+                        if (response.isSuccessful() && response.body() != null) {
+
+                            SocialLink model = response.body().data;
+
+                            Log.d(TAG, "onResponse: " + model);
+
+                            fbLink = model.facebook_link;
+
+
+                        } else {
+                            Log.d(TAG, "onResponse: " + response.message());
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<GenericResponse<SocialLink>> call, Throwable t) {
+
+                    }
+                });
+    }
+
+    private void openURL(String url) {
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+        startActivity(intent);
     }
 }
