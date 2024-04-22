@@ -11,6 +11,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/key_background_lxx_light"
         app:cardCornerRadius="10dp">
 
         <LinearLayout
@@ -31,21 +32,18 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:alpha="0.75"
-                    tools:ignore="UnusedAttribute" />
+                    android:elevation="4dp"
+                    android:outlineSpotShadowColor="#A9A9A9" />
 
 
                 <ImageView
                     android:id="@+id/imgSelected"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:layout_centerHorizontal="true"
-                    android:layout_above="@id/keyboardView"
-                    android:src="@drawable/checked"
-                    android:padding="@dimen/_3sdp"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/check_mark"
+                    android:visibility="gone"
                     tools:ignore="ContentDescription" />
-
-
-
 
             </RelativeLayout>
 
