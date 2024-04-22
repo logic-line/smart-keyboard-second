@@ -30,6 +30,7 @@
         android:textAlignment="center"
         android:textColor="@color/logo_colour"
         android:textSize="@dimen/_14sdp"
+        android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@+id/icon" />
 
 
@@ -38,7 +39,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/_10sdp"
-        android:background="@color/cardview_light_background"
+        android:background="@drawable/setup_layout_bg_2"
         android:orientation="vertical"
         android:padding="@dimen/_8sdp"
         app:layout_constraintBottom_toTopOf="@+id/bottom_layout">
@@ -83,7 +84,7 @@
         android:id="@+id/bottom_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/cardview_light_background"
+        android:background="@drawable/setup_layout_bg_1"
         android:orientation="vertical"
         android:paddingHorizontal="@dimen/_6sdp"
         android:paddingTop="@dimen/_15sdp"
@@ -108,7 +109,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/_5sdp"
-            android:background="@color/logo_colour"
+            android:background="@drawable/setup_button_bg_1"
             android:padding="@dimen/_5sdp"
             android:text="Active Keyboard"
             android:textColor="@color/white"

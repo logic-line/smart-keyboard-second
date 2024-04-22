@@ -125,7 +125,7 @@ public class ThemeActivity extends AppCompatActivity {
 
 
         MyRecyclerView recyclerView = findViewById(R.id.recyThemes);
-        GridLayoutManager layoutManager = new GridLayoutManager(this, 2);
+        GridLayoutManager layoutManager = new GridLayoutManager(this, 3);
         recyclerView.setLayoutManager(layoutManager);
 
         adapter.setDefaultThemeSelectListener(new ThemeAdapter.DefaultThemeSelectListener() {

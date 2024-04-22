@@ -40,6 +40,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import com.android.inputmethod.latin.settings.SettingsActivity;
+import com.sikderithub.keyboard.Activity.ThemeActivity;
 import com.sikderithub.keyboard.Models.GenericResponse;
 import com.sikderithub.keyboard.Models.SocialLink;
 import com.sikderithub.keyboard.MyApp;
@@ -170,6 +171,16 @@ public class SecondSetupWizardActivity extends AppCompatActivity {
         showTutorial.setOnClickListener(v -> {
             openURL(fbLink);
             sharedPreferences.edit().putBoolean(THIRD_STEP_KEY, false).apply();
+        });
+
+
+        TextView showTheme = findViewById(R.id.theme_button);
+
+        showTheme.setOnClickListener(v -> {
+            Intent intent = new Intent(this, ThemeActivity.class);
+            startActivity(intent);
+            finish();
+            sharedPreferences.edit().putBoolean(THIRD_STEP_KEY, true).apply();
         });
 
     }

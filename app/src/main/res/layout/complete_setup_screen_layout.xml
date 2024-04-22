@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -34,16 +33,15 @@
         app:layout_constraintTop_toBottomOf="@+id/icon" />
 
 
-
     <LinearLayout
         android:id="@+id/bottom_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/setup_layout_bg_1"
         android:orientation="vertical"
-        android:background="@color/cardview_light_background"
-        android:paddingBottom="@dimen/_20sdp"
         android:paddingHorizontal="@dimen/_6sdp"
         android:paddingTop="@dimen/_15sdp"
+        android:paddingBottom="@dimen/_20sdp"
         app:layout_constraintBottom_toBottomOf="parent">
 
 
@@ -51,12 +49,26 @@
             android:id="@+id/setup_step2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:padding="@dimen/_10sdp"
             android:text="Completed"
-            android:textStyle="bold"
             android:textAlignment="center"
             android:textColor="@color/logo_colour"
             android:textSize="@dimen/_14sdp"
-            android:padding="@dimen/_10sdp"/>
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:id="@+id/theme_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:background="@drawable/setup_button_bg_1"
+            android:padding="@dimen/_8sdp"
+            android:text="@string/settings_screen_photo_keyboard"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            tools:ignore="MissingConstraints" />
 
 
         <TextView
@@ -64,30 +76,26 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/_5sdp"
+            android:background="@drawable/setup_button_bg_1"
             android:padding="@dimen/_8sdp"
+            android:text="How to write Bangla - বাংলা লেখা শিখুন"
             android:textAlignment="center"
-            android:background="@color/logo_colour"
             android:textColor="@color/white"
-            android:text="How to write in Bangla ?"
-            tools:ignore="MissingConstraints"
-            />
-
+            tools:ignore="MissingConstraints" />
 
         <TextView
             android:id="@+id/goto_setting_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="@dimen/_8sdp"
+            android:text="Goto Setting"
+            android:textStyle="bold"
             android:textAlignment="center"
             android:textColor="@color/logo_colour"
-            android:text="Goto Setting"
-            tools:ignore="MissingConstraints"
-            />
+            tools:ignore="MissingConstraints" />
 
 
     </LinearLayout>
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

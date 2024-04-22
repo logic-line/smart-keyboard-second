@@ -8,8 +8,7 @@
     android:padding="3dp">
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:ignore="UselessParent">
+        android:layout_height="match_parent">
 
         <ImageView
             android:visibility="gone"
@@ -17,8 +16,7 @@
             android:layout_centerInParent="true"
             android:src="@drawable/baseline_add_photo_alternate"
             android:layout_width="50dp"
-            android:layout_height="50dp"
-            tools:ignore="ContentDescription" />
+            android:layout_height="50dp"/>
 
 
 
@@ -31,7 +29,7 @@
             android:layout_height="@dimen/_60sdp"
             android:clipToOutline="true"
             android:alpha="0.8"
-            tools:ignore="ContentDescription,UnusedAttribute" />
+            tools:ignore="ContentDescription" />
 
 
         <LinearLayout
@@ -44,8 +42,7 @@
                 android:id="@+id/ivSelected"
                 android:src="@drawable/check_mark"
                 android:layout_width="30dp"
-                android:layout_height="30dp"
-                tools:ignore="ContentDescription" />
+                android:layout_height="30dp"/>
 
             <ImageView
                 android:layout_margin="8dp"
@@ -53,8 +50,7 @@
                 android:id="@+id/ivDelete"
                 android:src="@drawable/trash"
                 android:layout_width="30dp"
-                android:layout_height="30dp"
-                tools:ignore="ContentDescription" />
+                android:layout_height="30dp"/>
         </LinearLayout>
     </RelativeLayout>
 </LinearLayout>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -19,7 +18,8 @@
         app:layout_constraintBottom_toTopOf="@+id/bottom_layout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:targetApi="s" />
 
 
     <TextView
@@ -34,16 +34,15 @@
         app:layout_constraintTop_toBottomOf="@+id/icon" />
 
 
-
     <LinearLayout
         android:id="@+id/bottom_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/setup_layout_bg_1"
         android:orientation="vertical"
-        android:background="@color/cardview_light_background"
-        android:paddingBottom="@dimen/_20sdp"
         android:paddingHorizontal="@dimen/_6sdp"
         android:paddingTop="@dimen/_15sdp"
+        android:paddingBottom="@dimen/_20sdp"
         app:layout_constraintBottom_toBottomOf="parent">
 
 
@@ -51,12 +50,12 @@
             android:id="@+id/setup_step2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:padding="@dimen/_10sdp"
             android:text="Step 2"
-            android:textStyle="bold"
             android:textAlignment="center"
             android:textColor="@color/logo_colour"
             android:textSize="@dimen/_14sdp"
-            android:padding="@dimen/_10sdp"/>
+            android:textStyle="bold" />
 
 
         <Button
@@ -64,16 +63,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/_5sdp"
-            android:background="@color/logo_colour"
-            android:textColor="@color/white"
+            android:background="@drawable/setup_button_bg_1"
             android:text="Select Keyboard"
-            tools:ignore="MissingConstraints"
-            />
+            android:textColor="@color/white"
+            tools:ignore="MissingConstraints" />
 
 
     </LinearLayout>
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
