@@ -20,7 +20,8 @@
 
 <resources xmlns:tools="http://schemas.android.com/tools" xmlns:android="http://schemas.android.com/apk/res/android">
     <style name="KeyboardIcons" />
-    <style name="InputView" />
+    <style name="InputView">
+    </style>
     <!-- Default theme values -->
     <style name="Keyboard">
         <item name="rowHeight">25%p</item>

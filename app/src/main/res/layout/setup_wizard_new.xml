@@ -24,6 +24,7 @@
     android:layout_height="match_parent"
     android:background="@color/setup_background">
     <include
+        android:visibility="gone"
         android:id="@+id/second_setup_welcome_screen"
         layout="@layout/first_setup_screen_layout" />
 

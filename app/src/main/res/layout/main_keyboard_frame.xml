@@ -23,7 +23,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="bottom"
-    style="?attr/keyboardStyle"
+    style="?attr/keyboardViewStyle"
     android:orientation="vertical" >
 
     <com.sikderithub.keyboard.Views.TopView
@@ -63,6 +63,9 @@
             android:layout_height="wrap_content" />
 
 
+
+
     </FrameLayout>
+
 
 </LinearLayout>

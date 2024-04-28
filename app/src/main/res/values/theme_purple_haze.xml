@@ -32,11 +32,11 @@
         >
         <!-- This should be aligned with KeyboardTheme.THEME_ID_* -->
         <item name="themeId">ElegantMidnightAqua</item>
-        <item name="android:background">@color/purple_haze_background</item>
     </style>
     <style
         name="KeyboardView.purple_haze"
         parent="KeyboardView.MJ">
+        <item name="android:background">@color/purple_haze_background</item>
         <item name="keyBackground">@drawable/btn_keyboard_key_purple_haze</item>
         <item name="functionalKeyBackground">@drawable/btn_keyboard_key_functional_purple_haze</item>
         <item name="spacebarBackground">@drawable/space_key_background_purple_haze</item>

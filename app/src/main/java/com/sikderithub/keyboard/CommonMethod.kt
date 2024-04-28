@@ -10,6 +10,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Color
 import android.graphics.Insets
+import android.graphics.Point
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.net.Uri
@@ -18,7 +19,9 @@ import android.provider.Settings
 import android.util.DisplayMetrics
 import android.util.Log
 import android.util.TypedValue
+import android.view.Display
 import android.view.View
+import android.view.ViewConfiguration
 import android.view.ViewGroup
 import android.view.WindowInsets
 import android.view.WindowManager
@@ -27,8 +30,11 @@ import android.view.animation.Transformation
 import android.webkit.MimeTypeMap
 import android.widget.Toast
 import androidx.annotation.ColorInt
+import com.android.inputmethod.latin.LatinIME
+import java.lang.reflect.InvocationTargetException
 import java.text.SimpleDateFormat
-import java.util.*
+import java.util.Date
+import java.util.Locale
 import java.util.concurrent.TimeUnit
 
 
@@ -464,6 +470,99 @@ object CommonMethod {
         // Combine the RGB components into a single color integer
         return Color.rgb(oppositeRed, oppositeGreen, oppositeBlue)
     }
+    fun updateSystemUiFlag(flags: Int, view :View) {
+        val maskFlags = (View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                or View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR)
+        val visFlags: Int = view.getSystemUiVisibility()
+        view.setSystemUiVisibility(visFlags and maskFlags.inv() or (flags and maskFlags))
+    }
 
+    fun switchToExtendedNavBarMode(isLightNavBar: Boolean, view: View) {
+
+        // This hides the ColorView.
+        LatinIME.mWindow.setNavigationBarColor(Color.TRANSPARENT)
+
+        // This allows us to use setNavigationBarColor() + SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR.
+        LatinIME.mWindow.setFlags(
+            WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS,
+            WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS
+        )
+        updateSystemUiFlag(
+            View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                    or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                    or if (isLightNavBar) View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR else 0, view
+        )
+    }
+
+    public fun switchToSeparateNavBarMode(navBarColor: Int, isLightNavBar: Boolean, view: View) {
+        // This allows us to use setNavigationBarColor() + SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR.
+        LatinIME.mWindow.setFlags(
+            WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS,
+            WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS
+        )
+        LatinIME.mWindow.navigationBarColor = navBarColor
+
+
+        // updateSystemUiFlag(if (isLightNavBar) 0 else 0, view)
+
+        // View#onApplyWindowInsets() will not be called if direct or indirect parent View
+        // consumes all the insets.  Hence we need to make sure that the bottom padding is
+        // cleared here.
+//        updateBottomPaddingIfNecessary(0);
+    }
+
+    fun getNavigationBarHeight(context : Context): Int {
+        val hasMenuKey = ViewConfiguration.get(context).hasPermanentMenuKey()
+        val resourceId: Int =
+            context.getResources().getIdentifier("navigation_bar_height", "dimen", "android")
+        return if (resourceId > 0 && !hasMenuKey) {
+            context.getResources().getDimensionPixelSize(resourceId)
+        } else 0
+    }
+
+    fun getNavigationBarSize(context: Context): Point {
+        val appUsableSize: Point = getAppUsableScreenSize(context)
+        val realScreenSize: Point = getRealScreenSize(context)
+
+        // navigation bar on the right
+        if (appUsableSize.x < realScreenSize.x) {
+            return Point(realScreenSize.x - appUsableSize.x, appUsableSize.y)
+        }
+
+        // navigation bar at the bottom
+        return if (appUsableSize.y < realScreenSize.y) {
+            Point(appUsableSize.x, realScreenSize.y - appUsableSize.y)
+        } else Point()
+
+        // navigation bar is not present
+    }
+    fun getAppUsableScreenSize(context: Context): Point {
+        val windowManager = context.getSystemService(Context.WINDOW_SERVICE) as WindowManager
+        val display = windowManager.defaultDisplay
+        val size = Point()
+        display.getSize(size)
+        return size
+    }
+
+    fun getRealScreenSize(context: Context): Point {
+        val windowManager = context.getSystemService(Context.WINDOW_SERVICE) as WindowManager
+        val display = windowManager.defaultDisplay
+        val size = Point()
+        if (Build.VERSION.SDK_INT >= 17) {
+            display.getRealSize(size)
+        } else if (Build.VERSION.SDK_INT >= 14) {
+            try {
+                size.x =
+                    (Display::class.java.getMethod("getRawWidth").invoke(display) as Int)!!
+                size.y =
+                    (Display::class.java.getMethod("getRawHeight").invoke(display) as Int)!!
+            } catch (e: IllegalAccessException) {
+            } catch (e: InvocationTargetException) {
+            } catch (e: NoSuchMethodException) {
+            }
+        }
+        return size
+    }
 
 }

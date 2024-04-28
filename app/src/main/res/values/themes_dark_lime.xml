@@ -35,11 +35,11 @@
         >
         <!-- This should be aligned with KeyboardTheme.THEME_ID_* -->
         <item name="themeId">ElegantMidnightAqua</item>
-        <item name="android:background">@drawable/dark_lime_keyboard_background</item>
     </style>
     <style
         name="KeyboardView.dark_lime"
         parent="KeyboardView.MJ">
+        <item name="android:background">@drawable/dark_lime_keyboard_background</item>
         <item name="keyBackground">@drawable/btn_keyboard_key_dark_lime</item>
         <item name="functionalKeyBackground">@drawable/btn_keyboard_key_functional_dark_lime</item>
         <item name="spacebarBackground">@drawable/space_key_background_dark_lime</item>

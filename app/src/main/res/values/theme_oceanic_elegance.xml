@@ -42,11 +42,11 @@
         >
         <!-- This should be aligned with KeyboardTheme.THEME_ID_* -->
         <item name="themeId">ElegantMidnightAqua</item>
-        <item name="android:background">@color/oceanic_elegance_background</item>
     </style>
     <style
         name="KeyboardView.oceanic_elegance"
         parent="KeyboardView.MJ">
+        <item name="android:background">@color/oceanic_elegance_background</item>
         <item name="keyBackground">@drawable/btn_keyboard_key_oceanic_elegance</item>
         <item name="functionalKeyBackground">@drawable/btn_keyboard_key_functional_oceanic_elegance</item>
         <item name="spacebarBackground">@drawable/space_key_background_oceanic_elegance</item>

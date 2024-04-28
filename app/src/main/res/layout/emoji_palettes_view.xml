@@ -25,7 +25,6 @@
     android:layout_height="wrap_content"
     android:layout_gravity="bottom"
     android:orientation="vertical"
-    style="?attr/emojiPalettesViewStyle"
     app:ignore="NamespaceTypo">
     <LinearLayout
         android:id="@+id/llTabHostContainer"

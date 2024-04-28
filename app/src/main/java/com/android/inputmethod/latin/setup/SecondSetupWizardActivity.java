@@ -34,12 +34,14 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import com.android.inputmethod.latin.settings.SettingsActivity;
+import com.android.inputmethod.latin.utils.UncachedInputMethodManagerUtils;
 import com.sikderithub.keyboard.Activity.ThemeActivity;
 import com.sikderithub.keyboard.Models.GenericResponse;
 import com.sikderithub.keyboard.Models.SocialLink;
@@ -59,12 +61,17 @@ public class SecondSetupWizardActivity extends AppCompatActivity {
     private static final String FIRST_STEP_KEY = "firstStep";
     private static final String SECOND_STEP_KEY = "secondStep";
     private static final String THIRD_STEP_KEY = "thirdStep";
+    private static final int STEP_1 = 1;
+    private static final int STEP_2 = 2;
+    private static final int STEP_3 = 3;
     public String fbLink;
     private FrameLayout secondSetupWizardLayout;
     private View firstSetupScreen;
     private View secondSetupScreen;
     private View completeSetupPage;
     private SharedPreferences sharedPreferences;
+    private InputMethodManager mImm;
+    private boolean forceToSettingPage = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,6 +81,9 @@ public class SecondSetupWizardActivity extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         setContentView(R.layout.setup_wizard_new);
+
+        mImm = (InputMethodManager)getSystemService(INPUT_METHOD_SERVICE);
+
 
         // Initialize SharedPreferences
         sharedPreferences = getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
@@ -87,16 +97,18 @@ public class SecondSetupWizardActivity extends AppCompatActivity {
         boolean secondStep = sharedPreferences.getBoolean(SECOND_STEP_KEY, false);
         boolean thirdStep = sharedPreferences.getBoolean(THIRD_STEP_KEY, false);
 
-        if (firstStep) {
-            showSecondSetupScreen();
-        } else {
-            showFirstSetupScreen();
-        }
+        updateSetupStepView();
 
-        if (thirdStep) {
-            startActivity(new Intent(this, SettingsActivity.class));
-            finish();
-        }
+//        if (firstStep) {
+//            showSecondSetupScreen();
+//        } else {
+//            showFirstSetupScreen();
+//        }
+//
+//        if (thirdStep) {
+//            startActivity(new Intent(this, SettingsActivity.class));
+//            finish();
+//        }
 
         if (!isNotificationPermissionGranted(this)) {
             // Request notification permission
@@ -106,6 +118,50 @@ public class SecondSetupWizardActivity extends AppCompatActivity {
 
         getAllLink();
     }
+
+    private void invokeSettingsOfThisIme() {
+        final Intent intent = new Intent();
+        intent.setClass(this, SettingsActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED
+                | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.putExtra(SettingsActivity.EXTRA_ENTRY_KEY,
+                SettingsActivity.EXTRA_ENTRY_VALUE_APP_ICON);
+        startActivity(intent);
+    }
+
+
+    private int determineSetupStepNumber() {
+
+        if (!UncachedInputMethodManagerUtils.isThisImeEnabled(this, mImm)) {
+            return STEP_1;
+        }
+        if (!UncachedInputMethodManagerUtils.isThisImeCurrent(this, mImm)) {
+            return STEP_2;
+        }
+        return STEP_3;
+    }
+    private void updateSetupStepView() {
+        final int stepNumber = determineSetupStepNumber();
+        switch (stepNumber){
+            case STEP_1:
+                showFirstSetupScreen();
+                break;
+            case STEP_2:
+                showSecondSetupScreen();
+                break;
+            default:
+                showCompleteSetupPage();
+        }
+    }
+
+    @Override
+    public void onWindowFocusChanged(final boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        if (hasFocus) {
+            updateSetupStepView();
+        }
+    }
+
 
     private void askNotificationPermission() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
@@ -138,19 +194,23 @@ public class SecondSetupWizardActivity extends AppCompatActivity {
         secondSetupWizardLayout.removeAllViews();
         secondSetupWizardLayout.addView(secondSetupScreen);
         firstSetupScreen.setVisibility(View.GONE);
-        secondSetupScreen.setVisibility(View.VISIBLE);
         completeSetupPage.setVisibility(View.GONE);
+        secondSetupScreen.setVisibility(View.VISIBLE);
 
         Button selectKeyboardButton = findViewById(R.id.btn_select_keyboard);
 
         selectKeyboardButton.setOnClickListener(v -> invokeInputMethodPicker());
-
-        if (sharedPreferences.getBoolean(SECOND_STEP_KEY, false)) {
-            showCompleteSetupPage();
-        }
+        forceToSettingPage = false;
+//
+//        if (sharedPreferences.getBoolean(SECOND_STEP_KEY, false)) {
+//            showCompleteSetupPage();
+//        }
     }
 
     private void showCompleteSetupPage() {
+        if(forceToSettingPage){
+            invokeSettingsOfThisIme();
+        }
         secondSetupWizardLayout.removeAllViews();
         secondSetupWizardLayout.addView(completeSetupPage);
         firstSetupScreen.setVisibility(View.GONE);
@@ -220,7 +280,6 @@ public class SecondSetupWizardActivity extends AppCompatActivity {
         InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.showInputMethodPicker();
         sharedPreferences.edit().putBoolean(SECOND_STEP_KEY, true).apply();
-        showCompleteSetupPage();
 
     }
 

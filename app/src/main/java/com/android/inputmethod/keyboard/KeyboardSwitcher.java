@@ -20,10 +20,14 @@ import static com.android.inputmethod.latin.utils.RecapitalizeStatus.CAPS_MODE_A
 
 import android.content.Context;
 import android.content.res.Resources;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.WindowInsets;
 import android.view.inputmethod.EditorInfo;
 import android.widget.LinearLayout;
 
@@ -50,18 +54,22 @@ import com.android.inputmethod.latin.utils.RecapitalizeStatus;
 import com.android.inputmethod.latin.utils.ResourceUtils;
 import com.android.inputmethod.latin.utils.ScriptUtils;
 import com.android.inputmethod.utils.LanguageSwitcher;
+import com.sikderithub.keyboard.CommonMethod;
+import com.sikderithub.keyboard.Models.Theme;
 import com.sikderithub.keyboard.R;
 import com.sikderithub.keyboard.Utils.CustomThemeHelper;
 import com.sikderithub.keyboard.Views.TopView;
 
 import javax.annotation.Nonnull;
 
+import kotlin.reflect.KFunction;
+
 public final class KeyboardSwitcher implements KeyboardState.SwitchActions {
     private static final String TAG = KeyboardSwitcher.class.getSimpleName();
     private int lastCustomThemeId = -1;
 
     private InputView mCurrentInputView;
-    private View mMainKeyboardFrame;
+    public View mMainKeyboardFrame;
     private MainKeyboardView mKeyboardView;
     private EmojiPalettesView mEmojiPalettesView;
     private LatinIME mLatinIME;
@@ -135,6 +143,7 @@ public final class KeyboardSwitcher implements KeyboardState.SwitchActions {
             mLatinIME.setInputView(
                     onCreateInputView(displayContext, mIsHardwareAcceleratedDrawingEnabled));
         }
+
     }
 
     private boolean updateKeyboardThemeAndContextThemeWrapper(final Context context,
@@ -148,6 +157,8 @@ public final class KeyboardSwitcher implements KeyboardState.SwitchActions {
         }
         return false;
     }
+
+
 
     public void loadKeyboard(final EditorInfo editorInfo, final SettingsValues settingsValues,
             final int currentAutoCapsState,  int currentRecapitalizeState) {
@@ -373,6 +384,19 @@ public final class KeyboardSwitcher implements KeyboardState.SwitchActions {
         // The visibility of {@link #mKeyboardView} must be aligned with {@link #MainKeyboardFrame}.
         // @see #getVisibleKeyboardView() and
         // @see LatinIME#onComputeInset(android.inputmethodservice.InputMethodService.Insets)
+
+        if(CustomThemeHelper.isCustomThemeApplicable(mThemeContext ) && CustomThemeHelper.selectedCustomTheme!=null){
+            Drawable bgDrawable = CustomThemeHelper.getKeyboardBackgroundDrawable(mThemeContext,  CustomThemeHelper.selectedCustomTheme);
+            Theme theme = CustomThemeHelper.selectedCustomTheme;
+            if (bgDrawable!=null && theme!=null){
+                Log.d("bgDrawable", "KeyboardView: not null");
+                //mKeyBackground = bgDrawable;
+                if(mMainKeyboardFrame!=null){
+                    mMainKeyboardFrame.setBackground(bgDrawable);
+                }
+            }
+        }
+
         mMainKeyboardFrame.setVisibility(visibility);
         mEmojiPalettesView.setVisibility(View.GONE);
         mEmojiPalettesView.stopEmojiPalettes();
@@ -601,6 +625,17 @@ public final class KeyboardSwitcher implements KeyboardState.SwitchActions {
         }
     }
 
+    public int getBgColor(){
+        Drawable viewColor =  mMainKeyboardFrame.getBackground();
+        int color = Color.BLACK;
+        if(viewColor instanceof ColorDrawable){
+            color = ((ColorDrawable) viewColor).getColor();
+        }
+        return  color;
+    }
+
+
+
     public View onCreateInputView(@NonNull Context displayContext,
             final boolean isHardwareAcceleratedDrawingEnabled) {
         if (mKeyboardView != null) {
@@ -628,7 +663,30 @@ public final class KeyboardSwitcher implements KeyboardState.SwitchActions {
         mEmojiPalettesView.setHardwareAcceleratedDrawingEnabled(
                 isHardwareAcceleratedDrawingEnabled);
         mEmojiPalettesView.setKeyboardActionListener(mLatinIME);
+
+//        setNavSizePaddingToView(mMainKeyboardFrame);
+//        setNavSizePaddingToView(mEmojiPalettesView);
+
+        updateBottomPaddingIfNecessary(CommonMethod.INSTANCE.getNavigationBarSize(displayContext).y, mMainKeyboardFrame);
+        updateBottomPaddingIfNecessary(CommonMethod.INSTANCE.getNavigationBarSize(displayContext).y, mEmojiPalettesView);
+
+
+
+        Log.d(TAG, "setNavSizePaddingToView: called");
         return mCurrentInputView;
+    }
+
+
+
+
+
+    private void updateBottomPaddingIfNecessary(int newPaddingBottom, View view) {
+        Log.d(TAG, "updateBottomPaddingIfNecessary: outside");
+
+        if (view.getPaddingBottom() != newPaddingBottom) {
+            Log.d(TAG, "updateBottomPaddingIfNecessary: ");
+            view.setPadding(view.getPaddingLeft(), view.getPaddingTop(), view.getPaddingRight(), newPaddingBottom);
+        }
     }
 
     public int getKeyboardShiftMode() {

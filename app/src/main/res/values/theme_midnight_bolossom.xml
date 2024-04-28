@@ -33,11 +33,11 @@
         >
         <!-- This should be aligned with KeyboardTheme.THEME_ID_* -->
         <item name="themeId">ElegantMidnightAqua</item>
-        <item name="android:background">@color/black</item>
     </style>
     <style
         name="KeyboardView.midnight_bolossom"
         parent="KeyboardView.MJ">
+        <item name="android:background">@color/black</item>
         <item name="keyBackground">@drawable/btn_keyboard_key_midnight_bolossom</item>
         <item name="functionalKeyBackground">@drawable/btn_keyboard_key_functional_midnight_bolossom</item>
         <item name="spacebarBackground">@drawable/space_key_background_elegant_midnight_aqua</item>
