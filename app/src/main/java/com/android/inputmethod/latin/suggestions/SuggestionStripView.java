@@ -213,7 +213,7 @@ public final class SuggestionStripView extends RelativeLayout implements OnClick
         inflater.inflate(R.layout.suggestions_strip, this);
 
         if (CustomThemeHelper.isCustomThemeApplicable(getContext()) && CustomThemeHelper.selectedCustomTheme != null) {
-            setBackgroundColor(CustomThemeHelper.selectedCustomTheme.dominateColor);
+            setBackgroundColor(android.R.color.transparent);
         }
         speechRecognizer = SpeechRecognizer.createSpeechRecognizer(context);
         speechRecognizer.setRecognitionListener(recognitionListener);

@@ -31,6 +31,7 @@ import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -55,6 +56,7 @@ import com.android.inputmethod.latin.AudioAndHapticFeedbackManager;
 import com.android.inputmethod.latin.RichInputMethodSubtype;
 import com.android.inputmethod.latin.common.Constants;
 import com.android.inputmethod.latin.utils.ResourceUtils;
+import com.sikderithub.keyboard.CommonMethod;
 import com.sikderithub.keyboard.customView.CustomAdView;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdLoader;
@@ -227,7 +229,7 @@ public final class EmojiPalettesView extends LinearLayout implements OnTabChange
             Log.d(TAG, "addTab: "+mCategoryPageIndicatorBackground);
             iconView.setBackgroundColor(mCategoryPageIndicatorBackground);
         }else {
-            iconView.setBackgroundColor(CustomThemeHelper.selectedCustomTheme.dominateColor);
+//            iconView.setBackgroundColor(CustomThemeHelper.selectedCustomTheme.dominateColor);
         }
 
         int tabIconResId = mEmojiCategory.getCategoryTabIcon(categoryId);
@@ -252,7 +254,7 @@ public final class EmojiPalettesView extends LinearLayout implements OnTabChange
         llTabHostContainer = (LinearLayout) findViewById(R.id.llTabHostContainer);
 
         if (CustomThemeHelper.isCustomThemeApplicable(getContext()) && CustomThemeHelper.selectedCustomTheme != null) {
-            llTabHostContainer.setBackgroundColor(CustomThemeHelper.selectedCustomTheme.dominateColor);
+            llTabHostContainer.setBackgroundColor(CommonMethod.INSTANCE.getOppositeColorWithAlpha(CustomThemeHelper.selectedCustomTheme.bodyTextColor, 100));
         }
 
         mTabHost.setup();
@@ -333,8 +335,6 @@ public final class EmojiPalettesView extends LinearLayout implements OnTabChange
         //mNativeAdView = findViewById(R.id.my_template);
         //loadNativeAd();
         //loadBannerAd();
-
-
 
 
     }

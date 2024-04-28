@@ -667,8 +667,8 @@ public final class KeyboardSwitcher implements KeyboardState.SwitchActions {
 //        setNavSizePaddingToView(mMainKeyboardFrame);
 //        setNavSizePaddingToView(mEmojiPalettesView);
 
-        updateBottomPaddingIfNecessary(CommonMethod.INSTANCE.getNavigationBarSize(displayContext).y, mMainKeyboardFrame);
-        updateBottomPaddingIfNecessary(CommonMethod.INSTANCE.getNavigationBarSize(displayContext).y, mEmojiPalettesView);
+//        updateBottomPaddingIfNecessary(CommonMethod.INSTANCE.getNavigationBarSize(displayContext).y, mMainKeyboardFrame);
+//        updateBottomPaddingIfNecessary(CommonMethod.INSTANCE.getNavigationBarSize(displayContext).y, mEmojiPalettesView);
 
 
 
@@ -680,14 +680,6 @@ public final class KeyboardSwitcher implements KeyboardState.SwitchActions {
 
 
 
-    private void updateBottomPaddingIfNecessary(int newPaddingBottom, View view) {
-        Log.d(TAG, "updateBottomPaddingIfNecessary: outside");
-
-        if (view.getPaddingBottom() != newPaddingBottom) {
-            Log.d(TAG, "updateBottomPaddingIfNecessary: ");
-            view.setPadding(view.getPaddingLeft(), view.getPaddingTop(), view.getPaddingRight(), newPaddingBottom);
-        }
-    }
 
     public int getKeyboardShiftMode() {
         final Keyboard keyboard = getKeyboard();

@@ -56,6 +56,7 @@ import android.view.WindowManager;
 import android.view.inputmethod.CompletionInfo;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodSubtype;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
@@ -190,7 +191,6 @@ public class LatinIME extends InputMethodService implements KeyboardActionListen
     private final BroadcastReceiver mDictionaryDumpBroadcastReceiver =
             new DictionaryDumpBroadcastReceiver(this);
     private SavedGkViews savedGkView;
-    private View llNavigationSpace;
 
 
     final static class HideSoftInputReceiver extends BroadcastReceiver {
@@ -878,7 +878,6 @@ public class LatinIME extends InputMethodService implements KeyboardActionListen
         savedGkView = view.findViewById(R.id.saved_gk_view);
         //mGkView =  view.findViewById(R.id.gk_view);
         mTopView =  view.findViewById(R.id.topView);
-//        llNavigationSpace =  view.findViewById(R.id.llNavigationSpace);
         //mGkView.setSavedGkView(savedGkView);
 
         if (hasSuggestionStripView()) {
@@ -1350,6 +1349,7 @@ public class LatinIME extends InputMethodService implements KeyboardActionListen
             return;
         }
 
+        int navHeight = CommonMethod.INSTANCE.getNavigationBarSize(mDisplayContext).y;
 
         final int inputHeight = mInputView.getHeight();
         if (isImeSuppressedByHardwareKeyboard() && !visibleKeyboardView.isShown()) {
@@ -1365,7 +1365,6 @@ public class LatinIME extends InputMethodService implements KeyboardActionListen
                 && mSuggestionStripView.getVisibility() == View.VISIBLE)
                 ? mSuggestionStripView.getHeight() : 0;
 
-        suggestionsHeight = suggestionsHeight+30;
 
         int gkViewHeight = 0;
         int topViewHeight = 0;
@@ -1380,13 +1379,20 @@ public class LatinIME extends InputMethodService implements KeyboardActionListen
         }
 
         if(suggestionsHeight>0){
-            suggestionsHeight+=gkViewHeight/*+topViewHeight+llNavigationSpace.getHeight()*/;
+            suggestionsHeight+=suggestionsHeight;
         }
 
 
-        int extraHeight = getResources().getDimensionPixelSize(com.intuit.sdp.R.dimen._30sdp);
 
-        final int visibleTopY = inputHeight - visibleKeyboardView.getHeight() - suggestionsHeight - CommonMethod.INSTANCE.getNavigationBarSize(getDisplayContext()).y;
+
+        Log.d(TAG, "suggestionsHeight: "+suggestionsHeight+navHeight);
+
+        if(hasSuggestionStripView()){
+
+        }
+
+
+        final int visibleTopY = inputHeight - visibleKeyboardView.getHeight() - suggestionsHeight;
         mSuggestionStripView.setMoreSuggestionsHeight(visibleTopY);
         // Need to set expanded touchable region only if a keyboard view is being shown.
         if (visibleKeyboardView.isShown()) {
@@ -2178,10 +2184,14 @@ public class LatinIME extends InputMethodService implements KeyboardActionListen
         if (BuildCompatUtils.EFFECTIVE_SDK_INT > Build.VERSION_CODES.M) {
             // For N and later, IMEs can specify Color.TRANSPARENT to make the navigation bar
             // transparent.  For other colors the system uses the default color.
-//            getWindow().getWindow().setNavigationBarColor(
-//                    visible ?  color  : Color.TRANSPARENT);
+            getWindow().getWindow().setNavigationBarColor(
+                     Color.TRANSPARENT);
             CommonMethod.INSTANCE.switchToExtendedNavBarMode(false, mInputView);
 
+//            getWindow().getWindow().setFlags(
+//                    WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS,
+//                    WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS
+//            );
         }
     }
 

@@ -178,7 +178,7 @@ public class KeyboardView extends View {
                 Log.d("bgDrawable", "KeyboardView: not null");
                 //mKeyBackground = bgDrawable;
                 if(getClass()!= MoreKeysKeyboardView.class){
-                    this.setBackground(bgDrawable);
+                    this.setBackground(null);
                 }
 
                 if(theme.showKeyBorder){

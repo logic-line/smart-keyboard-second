@@ -224,10 +224,8 @@ public class CreateThemeActivity extends AppCompatActivity {
 
         Palette.from(bitmapBg)/*.setRegion(0, 0, bitmapBg.getWidth(), 40)*/.generate(palette -> {
             assert palette != null;
-            //dominateColor = palette.getVibrantColor(MyApp.getApContext().getResources().getColor(R.color.cardview_dark_background));
             dominateColor = palette.getDominantColor(MyApp.getApContext().getResources().getColor(R.color.highlight_color_lxx_light));
             textColor = palette.getDominantSwatch()!=null ? palette.getDominantSwatch().getBodyTextColor() : MyApp.getApContext().getResources().getColor(R.color.key_text_color_lxx_dark) ;
-            Log.d(TAG, "saveTheme: "+textColor);
 
             textColor = CommonMethod.INSTANCE.getContrastColor(dominateColor);
 

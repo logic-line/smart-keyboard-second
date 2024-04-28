@@ -25,37 +25,29 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.WindowInsets;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 
 import com.android.inputmethod.accessibility.AccessibilityUtils;
 import com.android.inputmethod.keyboard.MainKeyboardView;
 import com.android.inputmethod.keyboard.emoji.EmojiPalettesView;
 import com.android.inputmethod.latin.suggestions.MoreSuggestionsView;
 import com.android.inputmethod.latin.suggestions.SuggestionStripView;
+import com.sikderithub.keyboard.CommonMethod;
 import com.sikderithub.keyboard.R;
 
 public final class InputView extends FrameLayout {
     private final Rect mInputViewRect = new Rect();
-    private  TypedArray inputViewStyle;
     private MainKeyboardView mMainKeyboardView;
     private KeyboardTopPaddingForwarder mKeyboardTopPaddingForwarder;
     private MoreSuggestionsViewCanceler mMoreSuggestionsViewCanceler;
     private MotionEventForwarder<?, ?> mActiveForwarder;
-    private int mBackGroundColor;
 
     public InputView(final Context context, final AttributeSet attrs) {
         super(context, attrs, 0);
-        inputViewStyle  = context.obtainStyledAttributes(
-                attrs, R.styleable.KeyboardTheme, 0, R.style.InputView);
-    }
 
-
-
-    private void updateBottomPaddingIfNecessary(int newPaddingBottom, View view) {
-        if (getPaddingBottom() != newPaddingBottom) {
-            view.setPadding(getPaddingLeft(), getPaddingTop(), getPaddingRight(), newPaddingBottom);
-        }
     }
 
     @Override
@@ -68,6 +60,7 @@ public final class InputView extends FrameLayout {
                 mMainKeyboardView, suggestionStripView);
         mMoreSuggestionsViewCanceler = new MoreSuggestionsViewCanceler(
                 mMainKeyboardView, suggestionStripView);
+
         super.onFinishInflate();
     }
 

@@ -135,18 +135,15 @@ public class ThemeListAdapter extends RecyclerView.Adapter<ThemeListAdapter.MyVi
             txtKey = itemView.findViewById(R.id.txtKey);
             imgSelected = itemView.findViewById(R.id.imgSelected);
 
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    if(defaultThemeSelectListener!=null){
-                        int pos = getAdapterPosition();
-                        if (pos>=0){
-                            selectedThemeId = keyboardThemes[pos].mThemeId;
+            itemView.setOnClickListener(view -> {
+                if(defaultThemeSelectListener!=null){
+                    int pos = getAdapterPosition();
+                    if (pos>=0){
+                        selectedThemeId = keyboardThemes[pos].mThemeId;
 
-                            if(defaultThemeSelectListener!=null){
-                                defaultThemeSelectListener.onSelect(selectedThemeId);
-                                notifyDataSetChanged();
-                            }
+                        if(defaultThemeSelectListener!=null){
+                            defaultThemeSelectListener.onSelect(selectedThemeId);
+                            notifyDataSetChanged();
                         }
                     }
                 }

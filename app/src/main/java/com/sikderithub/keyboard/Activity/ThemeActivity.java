@@ -26,6 +26,7 @@ import com.android.inputmethod.latin.InputAttributes;
 import com.android.inputmethod.latin.settings.SettingsValues;
 import com.sikderithub.keyboard.Adapter.CustomThemeAdapter;
 import com.sikderithub.keyboard.Adapter.ThemeAdapter;
+import com.sikderithub.keyboard.Adapter.ThemeListAdapter;
 import com.sikderithub.keyboard.Models.Theme;
 import com.sikderithub.keyboard.MyApp;
 import com.android.inputmethod.latin.RichInputMethodManager;
@@ -56,6 +57,7 @@ public class ThemeActivity extends AppCompatActivity {
     private List<Theme> customThemeList = new ArrayList<>();
     private SharedPreferences pref;
     private ThemeAdapter adapter;
+    private ThemeListAdapter themeListAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,7 +90,8 @@ public class ThemeActivity extends AppCompatActivity {
 
 
         customThemeAdapter = new CustomThemeAdapter(this, customThemeList);
-        adapter = new ThemeAdapter(mThemeContext, themes);
+//        adapter = new ThemeAdapter(mThemeContext, themes);
+        themeListAdapter = new ThemeListAdapter(mThemeContext, themes);
 
 
 
@@ -97,7 +100,7 @@ public class ThemeActivity extends AppCompatActivity {
             public void onThemeItemClick(Theme theme) {
                 KeyboardTheme.saveKeyboardThemeId(KeyboardTheme.THEME_ID_CUSTOM, pref);
                 KeyboardTheme.saveCustomSelectedThemeId(pref, theme.id);
-                adapter.notifyDataSetChanged();
+                themeListAdapter.notifyDataSetChanged();
             }
 
             @Override
@@ -128,7 +131,7 @@ public class ThemeActivity extends AppCompatActivity {
         GridLayoutManager layoutManager = new GridLayoutManager(this, 3);
         recyclerView.setLayoutManager(layoutManager);
 
-        adapter.setDefaultThemeSelectListener(new ThemeAdapter.DefaultThemeSelectListener() {
+        themeListAdapter.setDefaultThemeSelectListener(new ThemeAdapter.DefaultThemeSelectListener() {
             @Override
             public void onSelect(int themeId) {
                 KeyboardTheme.saveKeyboardThemeId(themeId, pref);
@@ -140,7 +143,7 @@ public class ThemeActivity extends AppCompatActivity {
                 customThemeAdapter.notifyDataSetChanged();
             }
         });
-        recyclerView.setAdapter(adapter);
+        recyclerView.setAdapter(themeListAdapter);
 
 
     }

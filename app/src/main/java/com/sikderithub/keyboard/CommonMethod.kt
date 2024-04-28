@@ -8,6 +8,7 @@ import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.content.res.Resources
 import android.graphics.Color
 import android.graphics.Insets
 import android.graphics.Point
@@ -233,6 +234,12 @@ object CommonMethod {
             dp,
             context.resources.displayMetrics
         ).toInt()
+    }
+
+    fun convertPixelsToDp(px: Float, context: Context): Int {
+        val resources: Resources = context.resources
+        val metrics: DisplayMetrics = resources.getDisplayMetrics()
+        return (px / (metrics.densityDpi.toFloat() / DisplayMetrics.DENSITY_DEFAULT)).toInt()
     }
 
     fun subStringFromString(value: String, length: Int): String {
@@ -470,13 +477,29 @@ object CommonMethod {
         // Combine the RGB components into a single color integer
         return Color.rgb(oppositeRed, oppositeGreen, oppositeBlue)
     }
+
+    fun getOppositeColorWithAlpha(color: Int, alpha: Int): Int {
+        // Extract the RGB components from the color integer
+        val red = Color.red(color)
+        val green = Color.green(color)
+        val blue = Color.blue(color)
+
+        // Calculate the complementary color by subtracting each component from 255
+        val oppositeRed = 255 - red
+        val oppositeGreen = 255 - green
+        val oppositeBlue = 255 - blue
+
+        // Return the opposite color with the specified alpha
+        return Color.argb(alpha, oppositeRed, oppositeGreen, oppositeBlue)
+    }
     fun updateSystemUiFlag(flags: Int, view :View) {
         val maskFlags = (View.SYSTEM_UI_FLAG_LAYOUT_STABLE
                 or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
                 or View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR)
         val visFlags: Int = view.getSystemUiVisibility()
-        view.setSystemUiVisibility(visFlags and maskFlags.inv() or (flags and maskFlags))
+        view.setSystemUiVisibility( maskFlags)
     }
+
 
     fun switchToExtendedNavBarMode(isLightNavBar: Boolean, view: View) {
 
@@ -564,5 +587,12 @@ object CommonMethod {
         }
         return size
     }
+
+    fun updateBottomPaddingIfNecessary(newPaddingBottom: Int, view: View) {
+        if (view.paddingBottom != newPaddingBottom) {
+            view.setPadding(view.paddingLeft, 0, view.paddingRight, newPaddingBottom)
+        }
+    }
+
 
 }

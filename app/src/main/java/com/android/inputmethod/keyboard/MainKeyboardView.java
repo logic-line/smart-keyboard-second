@@ -65,6 +65,7 @@ import com.android.inputmethod.latin.utils.TypefaceUtils;
 import com.android.inputmethod.utils.Constant;
 import com.android.inputmethod.utils.LanguageSwitcher;
 import com.android.inputmethod.utils.SlidingLocaleDrawable;
+import com.sikderithub.keyboard.CommonMethod;
 import com.sikderithub.keyboard.R;
 import com.sikderithub.keyboard.Utils.CustomThemeHelper;
 
@@ -346,6 +347,8 @@ public class MainKeyboardView extends KeyboardView implements DrawingProxy,
 
         mLanguageOnSpacebarHorizontalMargin = (int)getResources().getDimension(
                 R.dimen.config_language_on_spacebar_horizontal_margin);
+
+
     }
 
     @Override
