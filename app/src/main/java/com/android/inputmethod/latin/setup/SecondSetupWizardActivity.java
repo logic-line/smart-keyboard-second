@@ -128,6 +128,7 @@ public class SecondSetupWizardActivity extends AppCompatActivity {
         intent.putExtra(SettingsActivity.EXTRA_ENTRY_KEY,
                 SettingsActivity.EXTRA_ENTRY_VALUE_APP_ICON);
         startActivity(intent);
+        finish();
     }
 
 
@@ -222,8 +223,9 @@ public class SecondSetupWizardActivity extends AppCompatActivity {
         gotoSetting.setOnClickListener(v -> {
             Intent intent = new Intent(this, SettingsActivity.class);
             startActivity(intent);
-            finish();
             sharedPreferences.edit().putBoolean(THIRD_STEP_KEY, true).apply();
+            finish();
+
         });
 
 
@@ -240,8 +242,9 @@ public class SecondSetupWizardActivity extends AppCompatActivity {
         showTheme.setOnClickListener(v -> {
             Intent intent = new Intent(this, ThemeActivity.class);
             startActivity(intent);
-            finish();
             sharedPreferences.edit().putBoolean(THIRD_STEP_KEY, true).apply();
+            finish();
+
         });
 
     }

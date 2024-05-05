@@ -9,6 +9,9 @@ import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
 import com.google.android.gms.common.GooglePlayServicesRepairableException;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 public class Utils {
     private static final String TAG = "Utils";
@@ -43,6 +46,22 @@ public class Utils {
 
         };
         task.execute();
+    }
+
+    public static String getCurrentDateTimeString() {
+        // Create a Calendar instance
+        Calendar calendar = Calendar.getInstance();
+
+        // Get the current date and time
+        Date currentDate = calendar.getTime();
+
+        String format = "yyyy-MM-dd HH:mm:ss";
+
+        // Create a date formatter with the specified format
+        SimpleDateFormat dateFormat = new SimpleDateFormat(format);
+
+        // Format the date and time
+        return dateFormat.format(currentDate);
     }
 
     public interface AdIdCallback{

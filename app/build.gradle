@@ -12,10 +12,10 @@ android {
 
     defaultConfig {
         applicationId "com.sikderithub.keyboard"
-        minSdk 21
+        minSdk 23
         targetSdk 33
-        versionCode 17
-        versionName "1.17"
+        versionCode 19
+        versionName "1.19"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         archivesBaseName = "Smart-keyboard-v$versionCode($versionName)"
@@ -127,6 +127,9 @@ dependencies {
 
     implementation 'com.intuit.sdp:sdp-android:1.1.0'
     implementation("com.facebook.android:facebook-android-sdk:17.0.0")
+    implementation("com.google.ads.mediation:facebook:6.17.0.0")
+    implementation("com.facebook.android:audience-network-sdk:6.+")
+
 
 
 }

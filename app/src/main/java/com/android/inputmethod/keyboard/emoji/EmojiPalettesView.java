@@ -336,7 +336,7 @@ public final class EmojiPalettesView extends LinearLayout implements OnTabChange
         //loadNativeAd();
         //loadBannerAd();
 
-
+//        customAdView.loadBannerAds();
     }
 
     private void loadNativeAd() {

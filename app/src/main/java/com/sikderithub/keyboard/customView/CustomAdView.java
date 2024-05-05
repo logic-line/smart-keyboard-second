@@ -15,6 +15,7 @@ import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.google.android.gms.ads.AdLoader;
 import com.sikderithub.keyboard.Models.UpdateAdsStatusResponse;
 import com.sikderithub.keyboard.MyApp;
 import com.sikderithub.keyboard.R;
@@ -26,6 +27,7 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.LoadAdError;
+import com.sikderithub.keyboard.Views.NativeAd.TemplateView;
 
 import java.util.Calendar;
 
@@ -47,6 +49,7 @@ public class CustomAdView extends FrameLayout {
     private int position = 0;
     private int shownAdType = 0;
     private SharedPreferences sharedPreferences;
+    private TemplateView templateView;
 
     public CustomAdView(@NonNull Context context) {
         super(context);
@@ -82,7 +85,7 @@ public class CustomAdView extends FrameLayout {
         inflater.inflate(com.sikderithub.keyboard.R.layout.custom_ad_view, this);
 
         adContainerView = findViewById(com.sikderithub.keyboard.R.id.ad_view_container);
-
+        templateView = findViewById(R.id.templateView);
 
         adContainerView.setVisibility(GONE);
         this.containerView.setVisibility(GONE);
@@ -142,7 +145,8 @@ public class CustomAdView extends FrameLayout {
 
             if (MyApp.getConfig().emoji_view_ad_type == 1) {
                 //admob ads
-                loadAdmobAds();
+//                loadAdmobAds();
+                loadNativeAd();
             } else if (MyApp.getConfig().emoji_view_ad_type == 2) {
                 //custom ads
                 loadCustomBannerAds();
@@ -355,4 +359,34 @@ public class CustomAdView extends FrameLayout {
             containerView.setVisibility(VISIBLE);
         }
     }
+
+    public void loadNativeAd() {
+        AdLoader adLoader = new AdLoader.Builder(getContext(), "ca-app-pub-8326396827024206/3509837650")
+                .forNativeAd(nativeAd -> {
+//                        NativeTemplateStyle styles = new
+//                                NativeTemplateStyle.Builder().withMainBackgroundColor(background).build();
+//                        mNativeAdView.setStyles(styles);
+//                    TemplateView mNativeAdView = new TemplateView(getContext());
+                    templateView.setNativeAd(nativeAd);
+                    templateView.setVisibility(VISIBLE);
+                    this.containerView.setVisibility(VISIBLE);
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putLong(Constants.KEY_EMOJI_AD_TIME, Calendar.getInstance().getTime().getTime());
+                    editor.apply();
+                    requestLayout();
+                    Log.d(TAG, "loadNativeAd: add loaded");
+                }).withAdListener(new AdListener() {
+                    @Override
+                    public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+                        super.onAdFailedToLoad(loadAdError);
+//                        mNativeAdView.setVisibility(GONE);
+                        measure(0, 0);
+                        Log.d(TAG, "onAdFailedToLoad: "+loadAdError.getMessage());
+                    }
+                })
+                .build();
+
+        adLoader.loadAd(new AdRequest.Builder().build());
+    }
+
 }

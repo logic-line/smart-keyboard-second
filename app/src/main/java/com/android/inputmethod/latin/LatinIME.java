@@ -1336,7 +1336,6 @@ public class LatinIME extends InputMethodService implements KeyboardActionListen
     @Override
     public void onComputeInsets(final Insets outInsets) {
         super.onComputeInsets(outInsets);
-        Log.d(TAG, "onComputeInsets: ");
 
         // This method may be called before {@link #setInputView(View)}.
         if (mInputView == null) {
@@ -1349,9 +1348,10 @@ public class LatinIME extends InputMethodService implements KeyboardActionListen
             return;
         }
 
-        int navHeight = CommonMethod.INSTANCE.getNavigationBarSize(mDisplayContext).y;
+//        int navHeight = CommonMethod.INSTANCE.getNavigationBarSize(mDisplayContext).y;
 
         final int inputHeight = mInputView.getHeight();
+        final int maxDisplayY = (Resources.getSystem().getDisplayMetrics().heightPixels);
         if (isImeSuppressedByHardwareKeyboard() && !visibleKeyboardView.isShown()) {
             // If there is a hardware keyboard and a visible software keyboard view has been hidden,
             // no visual element will be shown on the screen.
@@ -1366,6 +1366,10 @@ public class LatinIME extends InputMethodService implements KeyboardActionListen
                 ? mSuggestionStripView.getHeight() : 0;
 
 
+
+        Log.d(TAG, "onComputeInsets-----"+ (mKeyboardSwitcher.isShowingEmojiPalettes() ? "Emoji" : "Keybaord")+"------");
+
+
         int gkViewHeight = 0;
         int topViewHeight = 0;
 
@@ -1378,31 +1382,51 @@ public class LatinIME extends InputMethodService implements KeyboardActionListen
             topViewHeight = mTopView.getHeight();
         }
 
-        if(suggestionsHeight>0){
-            suggestionsHeight+=suggestionsHeight;
-        }
-
-
-
-
-        Log.d(TAG, "suggestionsHeight: "+suggestionsHeight+navHeight);
-
         if(hasSuggestionStripView()){
 
         }
 
+        int visibleKeyboardViewHeight = 0;
 
-        final int visibleTopY = inputHeight - visibleKeyboardView.getHeight() - suggestionsHeight;
+        if (mKeyboardSwitcher.isShowingEmojiPalettes()){
+            visibleKeyboardViewHeight = visibleKeyboardView.getHeight();
+        }else{
+            visibleKeyboardViewHeight = visibleKeyboardView.getHeight();;
+        }
+
+        int adjustValue = inputHeight- maxDisplayY;
+
+         int visibleTopY = inputHeight - visibleKeyboardViewHeight - suggestionsHeight - topViewHeight;
+
+        if(adjustValue==0){
+            visibleTopY+=mInputView.possibleNavBarHeight;
+        }
+
         mSuggestionStripView.setMoreSuggestionsHeight(visibleTopY);
         // Need to set expanded touchable region only if a keyboard view is being shown.
         if (visibleKeyboardView.isShown()) {
             final int touchLeft = 0;
-            final int touchTop = mKeyboardSwitcher.isShowingMoreKeysPanel() ? 0 : visibleTopY;
+            final int touchTop = mKeyboardSwitcher.isShowingMoreKeysPanel() ? 0 : adjustValue==0 ? (visibleTopY-mInputView.possibleNavBarHeight) : visibleTopY;
             final int touchRight = visibleKeyboardView.getWidth();
             final int touchBottom = inputHeight;
             outInsets.touchableInsets = Insets.TOUCHABLE_INSETS_REGION;
             outInsets.touchableRegion.set(touchLeft, touchTop, touchRight, touchBottom);
+
+            Log.d(TAG, "onComputeInsets: inputHeight "+inputHeight);
+            Log.d(TAG, "onComputeInsets: visibleTopY "+visibleTopY);
+            Log.d(TAG, "onComputeInsets: touchLeft "+touchLeft);
+            Log.d(TAG, "onComputeInsets: touchTop "+touchTop);
+            Log.d(TAG, "onComputeInsets: touchRight "+touchRight);
+            Log.d(TAG, "onComputeInsets: touchBottom "+touchBottom);
+            Log.d(TAG, "onComputeInsets: visibleKeyboardView "+visibleKeyboardViewHeight);
+            Log.d(TAG, "onComputeInsets: keyboardHeight "+(inputHeight-visibleTopY));
+            Log.d(TAG, "onComputeInsets: getDisplayMetrics "+(Resources.getSystem().getDisplayMetrics().heightPixels));
+            Log.d(TAG, "onComputeInsets: adjustValue "+adjustValue);
+            Log.d(TAG, "onComputeInsets: possibleNavBarHeight "+mInputView.possibleNavBarHeight);
+
         }
+
+
         outInsets.contentTopInsets = visibleTopY;
         outInsets.visibleTopInsets = visibleTopY;
 
@@ -2184,8 +2208,8 @@ public class LatinIME extends InputMethodService implements KeyboardActionListen
         if (BuildCompatUtils.EFFECTIVE_SDK_INT > Build.VERSION_CODES.M) {
             // For N and later, IMEs can specify Color.TRANSPARENT to make the navigation bar
             // transparent.  For other colors the system uses the default color.
-            getWindow().getWindow().setNavigationBarColor(
-                     Color.TRANSPARENT);
+//            getWindow().getWindow().setNavigationBarColor(
+//                     Color.TRANSPARENT);
             CommonMethod.INSTANCE.switchToExtendedNavBarMode(false, mInputView);
 
 //            getWindow().getWindow().setFlags(

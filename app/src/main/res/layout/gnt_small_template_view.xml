@@ -22,7 +22,7 @@
           android:layout_marginStart="@dimen/gnt_default_margin"
           android:layout_marginTop="@dimen/gnt_default_margin"
           android:layout_marginBottom="@dimen/gnt_default_margin"
-          app:layout_constraintDimensionRatio="H,4:1"
+          app:layout_constraintDimensionRatio="H,5:1"
           app:layout_constraintEnd_toEndOf="parent"
           app:layout_constraintStart_toStartOf="parent"
           app:layout_constraintTop_toTopOf="parent"

@@ -60,9 +60,6 @@
             android:name="com.sikderithub.keyboard.Activity.UpdateActivity"
             android:exported="false"
             android:theme="@style/Theme.AppCompat.DayNight" />
-
-
-
         <activity
             android:name="com.sikderithub.keyboard.Activity.ThemeActivity"
             android:exported="false"

@@ -1,7 +1,10 @@
 package com.sikderithub.keyboard;
 
 import android.content.Intent;
+import android.icu.util.Calendar;
+import android.icu.util.TimeUnit;
 import android.util.Log;
+import android.util.TimeUtils;
 import android.view.inputmethod.EditorInfo;
 
 import com.android.inputmethod.latin.PhoneticBangla;
@@ -10,9 +13,12 @@ import com.android.inputmethod.utils.MyLatinIME;
 import com.google.gson.Gson;
 import com.sikderithub.keyboard.Activity.UpdateActivity;
 import com.sikderithub.keyboard.Utils.LogKey;
+import com.sikderithub.keyboard.Utils.Utils;
 
+import java.sql.Timestamp;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 public class SikderKeyboard extends MyLatinIME {
     private static final String TAG = "SikderKeyBaord";
@@ -55,16 +61,13 @@ public class SikderKeyboard extends MyLatinIME {
 
 
         MyApp.getConfigFromServer();
-        MyApp.getLatestQuestion();
-        Log.d(TAG, "onStartInputView: "+new Gson().toJson(MyApp.getUpdateInfo()));
+//        MyApp.getLatestQuestion();
 
         MyApp.initLocalConfig();
 
         if(MyApp.getUpdateInfo().version_code>BuildConfig.VERSION_CODE && MyApp.getUpdateInfo().status==1){
             //updateAvailable
-            Log.d(TAG, "onStartInputView: update Available");
             if(MyApp.getUpdateInfo().update_type==1){
-                Log.d(TAG, "onStartInputView: forceUpdate");
                 try{
                     startActivity(new Intent(this, UpdateActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
                 }catch (Exception e){
@@ -76,7 +79,9 @@ public class SikderKeyboard extends MyLatinIME {
 
         HashMap<String, String> data = new HashMap<>();
         data.put("onStartInputView", "openKeyboardInputView");
-        MyApp.logEvent(LogKey.SCREEN_OPEN, data);
+        data.put("UUID", UUID.randomUUID().toString());
+        data.put("Time", Utils.getCurrentDateTimeString());
+        MyApp.logEvent(LogKey.KEYBOARD_OPEN, data);
 
         super.onStartInputView(editorInfo, restarting);
 

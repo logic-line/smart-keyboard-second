@@ -37,6 +37,7 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowInsets;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
@@ -350,6 +351,7 @@ public class MainKeyboardView extends KeyboardView implements DrawingProxy,
 
 
     }
+
 
     @Override
     public void setHardwareAcceleratedDrawingEnabled(final boolean enabled) {
@@ -984,10 +986,6 @@ public class MainKeyboardView extends KeyboardView implements DrawingProxy,
                     startX = endX;
                 }
                 int diff = (int) (endX - startX);
-                if(tracker.getKey()!=null){
-                    Log.d(TAG, "processMotionEvent: endx "+endX+ " startX "+startX+" diff "+diff+" mSpaceDragLastDiff "+mSpaceDragLastDiff +" key "+tracker.getKey().getCode());
-
-                }
 
                 if(tracker.getKey()!=null && tracker.getKey().getCode()==Constants.CODE_SPACE){
 

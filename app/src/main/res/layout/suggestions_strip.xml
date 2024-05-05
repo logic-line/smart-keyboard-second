@@ -106,7 +106,6 @@
                     android:id="@+id/theme_icon"
                     android:layout_marginEnd="8dp"
                     android:layout_marginStart="8dp"
-                    android:src="@drawable/theme"
                     android:paddingVertical="@dimen/_8sdp"
                     style="?attr/suggestionWordStyle"
                     android:layout_width="@dimen/action_icon_size"
@@ -144,27 +143,17 @@
 
                 <RelativeLayout
                     android:id="@+id/tutorial_layout"
-                    android:paddingEnd="4dp"
-                    android:paddingStart="4dp"
+                    android:paddingEnd="@dimen/_8sdp"
+                    android:paddingStart="@dimen/_8sdp"
                     android:layout_margin="@dimen/action_icon_margin"
                     android:background="@drawable/curve_border_bg"
-                    android:layout_weight="1"
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/action_icon_size">
-                    <ImageView
-                        android:visibility="gone"
-                        android:layout_centerVertical="true"
-                        android:layout_weight="1"
-                        android:id="@+id/tutorial_icon"
-                        android:src="@drawable/video"
-                        android:layout_width="@dimen/action_icon_size"
-                        android:layout_height="@dimen/action_icon_size"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
-                        android:layout_toRightOf="@+id/tutorial_icon"
                         android:text="বাংলা লেখা শিখুন"
                         android:textColor="@android:color/white"
                         android:textSize="8sp" />

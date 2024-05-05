@@ -42,7 +42,7 @@
         android:orientation="vertical"
         android:paddingHorizontal="@dimen/_6sdp"
         android:paddingTop="@dimen/_15sdp"
-        android:paddingBottom="@dimen/_20sdp"
+        android:paddingBottom="@dimen/_40sdp"
         app:layout_constraintBottom_toBottomOf="parent">
 
 
@@ -58,7 +58,7 @@
             android:textStyle="bold" />
 
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_select_keyboard"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -58,7 +58,7 @@ public class TemplateView extends FrameLayout {
   private static final String SMALL_TEMPLATE = "small_template";
 
   public TemplateView(Context context) {
-    super(context);
+    this(context, null);
   }
 
   public TemplateView(Context context, @Nullable AttributeSet attrs) {

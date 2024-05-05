@@ -144,7 +144,7 @@
             android:hapticFeedbackEnabled="false"
             android:soundEffectsEnabled="false" />
     </LinearLayout>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_30sdp"/>
+<!--    <View-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="@dimen/_33sdp"/>-->
 </com.android.inputmethod.keyboard.emoji.EmojiPalettesView>

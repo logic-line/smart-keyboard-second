@@ -90,11 +90,8 @@ interface MyApi {
             val interceptor = run {
                 val httpLoggingInterceptor = HttpLoggingInterceptor()
                 httpLoggingInterceptor.apply {
-                    if(BuildConfig.DEBUG){
-                        httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
-                    }else{
-                        httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.NONE
-                    }
+                    httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
+
                 }
             }
 

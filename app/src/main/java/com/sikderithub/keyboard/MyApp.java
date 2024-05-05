@@ -21,11 +21,13 @@ import com.sikderithub.keyboard.Models.NotificationData;
 import com.sikderithub.keyboard.Models.Update;
 import com.sikderithub.keyboard.Utils.Common;
 import com.sikderithub.keyboard.Utils.LogKey;
+import com.sikderithub.keyboard.Utils.PrefHelper;
 import com.sikderithub.keyboard.internet.MyApi;
 import com.sikderithub.keyboard.local.Dao.QuestionDatabase;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.UUID;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
@@ -42,6 +44,7 @@ public class MyApp extends Application {
     private static Config cachedConfig = new Config();
     public static NotificationData cachedNotification = null;
     private static FirebaseAnalytics firebaseAnalytics = null;
+    private static String UUID = null;
 
     public static MyApi getMyApi() {
         if (myApi == null) {
@@ -81,6 +84,14 @@ public class MyApp extends Application {
 
     public static Config getConfig(){
         return cachedConfig;
+//        Config c = new Config();
+//        c.ad_hold_time = 0;
+//        c.emoji_view_ad_status =1;
+//        c.emoji_view_ad_type = 1;
+//        c.top_ad_interval = 0;
+//        c.top_view_ad_type = 1;
+//        c.emoji_ad_interval = 10;
+//        return  c;
     }
     public static Update getUpdateInfo(){
         Log.d(TAG, "getUpdateInfo: "+new Gson().toJson(cachedUpdate));
@@ -245,5 +256,17 @@ public class MyApp extends Application {
            });
        }
        firebaseAnalytics.logEvent(logKey.name(), bundle);
+   }
+
+   public static String getUUID(){
+        if(UUID==null){
+            String storedUUID =  PrefHelper.getPref("UUID", null);
+            if(storedUUID==null){
+                UUID= java.util.UUID.randomUUID().toString();
+                PrefHelper.putPref("UUID", UUID);
+            }
+        }
+
+        return UUID;
    }
 }

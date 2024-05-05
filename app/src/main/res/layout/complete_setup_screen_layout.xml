@@ -41,7 +41,7 @@
         android:orientation="vertical"
         android:paddingHorizontal="@dimen/_6sdp"
         android:paddingTop="@dimen/_15sdp"
-        android:paddingBottom="@dimen/_20sdp"
+        android:paddingBottom="@dimen/_40sdp"
         app:layout_constraintBottom_toBottomOf="parent">
 
 

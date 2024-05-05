@@ -605,6 +605,7 @@ public final class KeyboardSwitcher implements KeyboardState.SwitchActions {
         }
 
         if(mSavedGkView.isShown()){
+            Log.d(TAG, "getVisibleKeyboardView: mSavedGkView showing");
             return mSavedGkView;
         }
         return mKeyboardView;
@@ -667,14 +668,16 @@ public final class KeyboardSwitcher implements KeyboardState.SwitchActions {
 //        setNavSizePaddingToView(mMainKeyboardFrame);
 //        setNavSizePaddingToView(mEmojiPalettesView);
 
-//        updateBottomPaddingIfNecessary(CommonMethod.INSTANCE.getNavigationBarSize(displayContext).y, mMainKeyboardFrame);
-//        updateBottomPaddingIfNecessary(CommonMethod.INSTANCE.getNavigationBarSize(displayContext).y, mEmojiPalettesView);
-
+//        CommonMethod.INSTANCE.updateBottomPaddingIfNecessary(CommonMethod.INSTANCE.getKeyboardBottomPadding(displayContext), mMainKeyboardFrame);
+//        CommonMethod.INSTANCE.updateBottomPaddingIfNecessary(CommonMethod.INSTANCE.getKeyboardBottomPadding(displayContext), mEmojiPalettesView);
+//
 
 
         Log.d(TAG, "setNavSizePaddingToView: called");
         return mCurrentInputView;
     }
+
+
 
 
 

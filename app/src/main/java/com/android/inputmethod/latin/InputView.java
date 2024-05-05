@@ -22,7 +22,9 @@ import android.graphics.Color;
 import android.graphics.Rect;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,9 +43,11 @@ import com.sikderithub.keyboard.R;
 public final class InputView extends FrameLayout {
     private final Rect mInputViewRect = new Rect();
     private MainKeyboardView mMainKeyboardView;
+    private EmojiPalettesView mEmojiPalettesView;
     private KeyboardTopPaddingForwarder mKeyboardTopPaddingForwarder;
     private MoreSuggestionsViewCanceler mMoreSuggestionsViewCanceler;
     private MotionEventForwarder<?, ?> mActiveForwarder;
+    public int possibleNavBarHeight = 0;
 
     public InputView(final Context context, final AttributeSet attrs) {
         super(context, attrs, 0);
@@ -56,6 +60,7 @@ public final class InputView extends FrameLayout {
         final SuggestionStripView suggestionStripView =
                 (SuggestionStripView) findViewById(R.id.suggestion_strip_view);
         mMainKeyboardView = (MainKeyboardView) findViewById(R.id.keyboard_view);
+        mEmojiPalettesView = (EmojiPalettesView) findViewById(R.id.emoji_palettes_view);
         mKeyboardTopPaddingForwarder = new KeyboardTopPaddingForwarder(
                 mMainKeyboardView, suggestionStripView);
         mMoreSuggestionsViewCanceler = new MoreSuggestionsViewCanceler(
@@ -63,6 +68,55 @@ public final class InputView extends FrameLayout {
 
         super.onFinishInflate();
     }
+    @Override
+    protected void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        // force window insets to get re-applied if we're being attached by a fragment.
+        requestApplyInsets();
+    }
+
+    @Override
+    public WindowInsets onApplyWindowInsets(WindowInsets insets) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            Log.d("possibleNavBarHeight", "onApplyWindowInsets: "+insets.getSystemGestureInsets().left);
+        }
+
+        if (insets.isConsumed()
+                || (getSystemUiVisibility() & SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION) == 0) {
+            // In this case we are not interested in consuming NavBar region.
+            // Make sure that the bottom padding is empty.
+            return insets;
+        }
+
+        // In some cases the bottom system window inset is not a navigation bar. Wear devices
+        // that have bottom chin are examples.  For now, assume that it's a navigation bar if it
+        // has the same height as the root window's stable bottom inset.
+        WindowInsets rootWindowInsets = null;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            rootWindowInsets = getRootWindowInsets();
+        }
+        if (rootWindowInsets != null && (rootWindowInsets.getStableInsetBottom() !=
+                insets.getSystemWindowInsetBottom())) {
+            // This is probably not a NavBar.
+            return insets;
+        }
+
+         possibleNavBarHeight = insets.getSystemWindowInsetBottom();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            Log.d("possibleNavBarHeight", "onApplyWindowInsets: "+insets.getSystemGestureInsets().left);
+        }
+        CommonMethod.INSTANCE.updateBottomPaddingIfNecessary(possibleNavBarHeight, mMainKeyboardView);
+        CommonMethod.INSTANCE.updateBottomPaddingIfNecessary(possibleNavBarHeight, mEmojiPalettesView);
+        return possibleNavBarHeight <= 0
+                ? insets
+                : insets.replaceSystemWindowInsets(
+                insets.getSystemWindowInsetLeft(),
+                insets.getSystemWindowInsetTop(),
+                insets.getSystemWindowInsetRight(),
+                0 /* bottom */);
+    }
+
+
 
     public void setKeyboardTopPadding(final int keyboardTopPadding) {
         mKeyboardTopPaddingForwarder.setKeyboardTopPadding(keyboardTopPadding);

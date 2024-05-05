@@ -497,8 +497,7 @@ object CommonMethod {
                 or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
                 or View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR)
         val visFlags: Int = view.getSystemUiVisibility()
-        view.setSystemUiVisibility( maskFlags)
-    }
+        view.setSystemUiVisibility(visFlags and maskFlags.inv() or (flags and maskFlags))    }
 
 
     fun switchToExtendedNavBarMode(isLightNavBar: Boolean, view: View) {
@@ -592,6 +591,11 @@ object CommonMethod {
         if (view.paddingBottom != newPaddingBottom) {
             view.setPadding(view.paddingLeft, 0, view.paddingRight, newPaddingBottom)
         }
+    }
+
+    fun getKeyboardBottomPadding(context: Context): Int {
+//        return context.resources.getDimensionPixelOffset(com.intuit.sdp.R.dimen._40sdp);
+        return getNavigationBarHeight(context)
     }
 
 
