@@ -1367,7 +1367,6 @@ public class LatinIME extends InputMethodService implements KeyboardActionListen
 
 
 
-        Log.d(TAG, "onComputeInsets-----"+ (mKeyboardSwitcher.isShowingEmojiPalettes() ? "Emoji" : "Keybaord")+"------");
 
 
         int gkViewHeight = 0;
@@ -1411,18 +1410,6 @@ public class LatinIME extends InputMethodService implements KeyboardActionListen
             final int touchBottom = inputHeight;
             outInsets.touchableInsets = Insets.TOUCHABLE_INSETS_REGION;
             outInsets.touchableRegion.set(touchLeft, touchTop, touchRight, touchBottom);
-
-            Log.d(TAG, "onComputeInsets: inputHeight "+inputHeight);
-            Log.d(TAG, "onComputeInsets: visibleTopY "+visibleTopY);
-            Log.d(TAG, "onComputeInsets: touchLeft "+touchLeft);
-            Log.d(TAG, "onComputeInsets: touchTop "+touchTop);
-            Log.d(TAG, "onComputeInsets: touchRight "+touchRight);
-            Log.d(TAG, "onComputeInsets: touchBottom "+touchBottom);
-            Log.d(TAG, "onComputeInsets: visibleKeyboardView "+visibleKeyboardViewHeight);
-            Log.d(TAG, "onComputeInsets: keyboardHeight "+(inputHeight-visibleTopY));
-            Log.d(TAG, "onComputeInsets: getDisplayMetrics "+(Resources.getSystem().getDisplayMetrics().heightPixels));
-            Log.d(TAG, "onComputeInsets: adjustValue "+adjustValue);
-            Log.d(TAG, "onComputeInsets: possibleNavBarHeight "+mInputView.possibleNavBarHeight);
 
         }
 
@@ -2210,6 +2197,10 @@ public class LatinIME extends InputMethodService implements KeyboardActionListen
             // transparent.  For other colors the system uses the default color.
 //            getWindow().getWindow().setNavigationBarColor(
 //                     Color.TRANSPARENT);
+            if(mInputView==null){
+                return;
+            }
+
             CommonMethod.INSTANCE.switchToExtendedNavBarMode(false, mInputView);
 
 //            getWindow().getWindow().setFlags(

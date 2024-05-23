@@ -454,7 +454,6 @@ public class TopView extends RelativeLayout {
         if (customBannerAd != null) {
             adContainerView.removeAllViews();
             adContainerView.addView(customBannerAd);
-
         }
     }
 

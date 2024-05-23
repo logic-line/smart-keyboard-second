@@ -511,7 +511,7 @@ public final class EmojiPalettesView extends LinearLayout implements OnTabChange
                                    final KeyboardIconsSet iconSet) {
 
         Log.d(TAG, "startEmojiPalettes: ");
-        //loadBannerAd();
+//        loadBannerAd();
         customAdView.loadBannerAds();
 
 

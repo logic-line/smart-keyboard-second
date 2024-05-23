@@ -17,8 +17,8 @@
 */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="facebook_app_id" translatable="false">1381944935848152</string>
-    <string name="facebook_client_token" translatable="false">7be9c5956fbca47f5ae0804397ea314f</string>
+    <string name="facebook_app_id" translatable="false">788771859852942</string>
+    <string name="facebook_client_token" translatable="false">32ddbb82dd1f089cbb1960f2e7014944</string>
 
     <!-- Title for Latin keyboard input options dialog [CHAR LIMIT=25] -->
     <string name="english_ime_input_options" translatable="false">Input options</string>

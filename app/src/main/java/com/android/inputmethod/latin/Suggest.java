@@ -165,7 +165,6 @@ public final class Suggest {
             final int sequenceNumber, final OnGetSuggestedWordsCallback callback) {
         final String typedWordString = wordComposer.getTypedWord();
 
-        Log.d(TAG, "getSuggestedWordsForNonBatchInput: "+typedWordString);
 
 
         final int trailingSingleQuotesCount =

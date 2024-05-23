@@ -99,7 +99,7 @@ public final class SuggestionStripView extends RelativeLayout implements OnClick
     private final ImageView update_icon;
     private final ImageView message_icon;
     private final RichInputMethodManager mRichIME;
-    private final RelativeLayout tutorial_layout,facebook_layout;
+    private final RelativeLayout tutorial_layout; ImageView fbIcon;
     private final Animation xlargeAnim;
     private final View mVoiceStrip;
     private TextView txtVoiceRecordingStatus;
@@ -240,7 +240,7 @@ public final class SuggestionStripView extends RelativeLayout implements OnClick
         ImageView theme_icon = (ImageView) findViewById(R.id.theme_icon);
         update_icon = (ImageView) findViewById(R.id.update_icon);
         tutorial_layout = (RelativeLayout) findViewById(R.id.tutorial_layout);
-        facebook_layout = (RelativeLayout) findViewById(R.id.fb_layout);
+        fbIcon = findViewById(R.id.fb_icon);
         langSwitch = findViewById(R.id.langSwitch);
 
         xlargeAnim = AnimationUtils.loadAnimation(context, R.anim.view_xlarge);
@@ -258,6 +258,9 @@ public final class SuggestionStripView extends RelativeLayout implements OnClick
         Drawable emojiIconRes = ss.getDrawable(R.styleable.SuggestionStripView_emojiIcon);
         Drawable themeIconRes = ss.getDrawable(R.styleable.SuggestionStripView_themeIcon);
 
+        if(emojiIconRes!=null){
+            Log.d(TAG, "emojiIconRes: null");
+        }
 
         int emojiColor = 0;
 
@@ -318,7 +321,6 @@ public final class SuggestionStripView extends RelativeLayout implements OnClick
         langSwitch.setOnToggledListener(new OnToggledListener() {
             @Override
             public void onSwitched(ToggleableView toggleableView, boolean isOn) {
-                Log.d(TAG, "onSwitched: " + isOn);
                 if (isOn) {
                     mListener.onCodeInput(Constants.CODE_ACTION_SWITCH_TO_AVRO, Constants.SUGGESTION_STRIP_COORDINATE, Constants.SUGGESTION_STRIP_COORDINATE,
                             false);
@@ -764,9 +766,9 @@ public final class SuggestionStripView extends RelativeLayout implements OnClick
 
                             String fbLink = model.facebook_link;
 
-                            facebook_layout.setVisibility(VISIBLE);
+                            fbIcon.setVisibility(VISIBLE);
 
-                            facebook_layout.setOnClickListener(new OnClickListener() {
+                            fbIcon.setOnClickListener(new OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
 

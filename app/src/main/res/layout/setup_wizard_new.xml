@@ -18,24 +18,26 @@
 */
 -->
 
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/second_setup_wizard"
-    android:layout_width="match_parent"
+
+<FrameLayout android:id="@+id/second_setup_wizard"
     android:layout_height="match_parent"
-    android:background="@color/setup_background">
-    <include
-        android:visibility="gone"
-        android:id="@+id/second_setup_welcome_screen"
-        layout="@layout/first_setup_screen_layout" />
+    android:background="@color/setup_background"
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent">
 
-    <include
-        android:visibility="gone"
-        android:id="@+id/second_setup_screen_layout"
-        layout="@layout/second_setup_screen_layout" />
+        <include
+            android:visibility="gone"
+            android:id="@+id/second_setup_welcome_screen"
+            layout="@layout/first_setup_screen_layout" />
 
-    <include
-        android:visibility="gone"
-        android:id="@+id/complete_setup_page"
-        layout="@layout/complete_setup_screen_layout" />
+        <include
+            android:visibility="visible"
+            android:id="@+id/second_setup_screen_layout"
+            layout="@layout/second_setup_screen_layout" />
+
+        <include
+            android:visibility="gone"
+            android:id="@+id/complete_setup_page"
+            layout="@layout/complete_setup_screen_layout" />
+
 
 </FrameLayout>

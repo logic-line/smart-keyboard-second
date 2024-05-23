@@ -26,8 +26,6 @@ public class SikderKeyboard extends MyLatinIME {
     @Override
     public void onCreate() {
         super.onCreate();
-        Log.d(TAG, "onCreate: ");
-
 
         //phoneticKeyMap();
 
@@ -79,7 +77,7 @@ public class SikderKeyboard extends MyLatinIME {
 
         HashMap<String, String> data = new HashMap<>();
         data.put("onStartInputView", "openKeyboardInputView");
-        data.put("UUID", UUID.randomUUID().toString());
+        data.put("UUID", MyApp.getUUID());
         data.put("Time", Utils.getCurrentDateTimeString());
         MyApp.logEvent(LogKey.KEYBOARD_OPEN, data);
 
@@ -88,17 +86,4 @@ public class SikderKeyboard extends MyLatinIME {
 
 
     }
-
-    @Override
-    public void onWindowHidden() {
-        Log.d(TAG, "onWindowHidden: ");
-        super.onWindowHidden();
-    }
-
-    @Override
-    public void onWindowShown() {
-        Log.d(TAG, "onWindowShown: ");
-        super.onWindowShown();
-    }
-
 }

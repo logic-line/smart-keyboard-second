@@ -120,11 +120,8 @@ public class CombinerChain {
                 }
             } else {
                 final CharSequence textToCommit = event.getTextToCommit();
-                Log.d(TAG, "applyProcessedEvent: "+textToCommit);
                 if (!TextUtils.isEmpty(textToCommit)) {
-                    Log.d(TAG, "applyProcessedEvent: before "+mCombinedText);
                     mCombinedText.append(textToCommit);
-                    Log.d(TAG, "applyProcessedEvent: before "+mCombinedText);
 
                 }
             }
@@ -137,7 +134,6 @@ public class CombinerChain {
      * styling spans.
      */
     public CharSequence getComposingWordWithCombiningFeedback() {
-        Log.d(TAG, "getComposingWordWithCombiningFeedback: "+mCombinedText);
         final SpannableStringBuilder s = new SpannableStringBuilder(mCombinedText);
         return s.append(mStateFeedback);
     }

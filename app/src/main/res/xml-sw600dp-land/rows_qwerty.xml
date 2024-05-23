@@ -54,6 +54,7 @@
         </switch>
     </Row>
     <!-- Second row -->
+
     <Row>
         <switch>
             <!-- Split keyboard layout for the second row -->
@@ -81,7 +82,7 @@
                     keybaord:keyWidth="9.0%p" />
                 <Key
                     keybaord:keyStyle="enterKeyStyle"
-                    keybaord:keyWidth="fillRight" />
+                    keybaord:keyWidth="10.0%p" />
             </default>
         </switch>
     </Row>

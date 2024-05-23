@@ -53,12 +53,6 @@ public class MyLatinIME extends LatinIME implements DrawingProxy {
 
         Log.d(TAG, "onCreate: spaceLocale "+languageSwitcher.getInputLocale());
         Log.d(TAG, "onCreate: actualLocale "+mRichImm.getCurrentSubtype().getLocale().toString());
-        if(!languageSwitcher.getInputLocale().toString().equals(mRichImm.getCurrentSubtype().getLocale().toString())){
-            Log.d(TAG, "onCreate: localeNotMatched");
-        }else {
-            Log.d(TAG, "onCreate: localeMatched");
-        }
-
 
         int subTypes = mRichImm.getInputMethodInfoOfThisIme().getSubtypeCount();
         for (int i=0; i<subTypes; i++){
@@ -78,6 +72,7 @@ public class MyLatinIME extends LatinIME implements DrawingProxy {
         if (isShowingOptionDialog()) return false;
         switch (requestCode) {
             case Constants.CUSTOM_CODE_SHOW_INPUT_METHOD_PICKER:
+                Log.d(TAG, "onCustomRequest: CUSTOM_CODE_SHOW_INPUT_METHOD_PICKER");
                 showDialog();
                 if (mRichImm.hasMultipleEnabledIMEsOrSubtypes(true /* include aux subtypes */)) {
                     mRichImm.getInputMethodManager().showInputMethodPicker();

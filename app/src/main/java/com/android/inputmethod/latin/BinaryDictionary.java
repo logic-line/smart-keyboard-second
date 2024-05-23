@@ -330,7 +330,6 @@ public final class BinaryDictionary extends Dictionary {
 
         final int count = session.mOutputSuggestionCount[0];
         final ArrayList<SuggestedWordInfo> suggestions = new ArrayList<>();
-        Log.d(TAG, "getSuggestions: "+session.mOutputCodePoints[1]);
 
         for (int j = 0; j < count; ++j) {
             final int start = j * DICTIONARY_MAX_WORD_LENGTH;

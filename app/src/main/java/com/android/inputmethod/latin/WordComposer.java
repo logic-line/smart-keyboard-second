@@ -145,7 +145,6 @@ public final class WordComposer {
     }
 
     private final void refreshTypedWordCache() {
-        Log.d(TAG, "refreshTypedWordCache: "+mCombinerChain.getComposingWordWithCombiningFeedback());
         if(isPhonetic){
             mTypedWordCache = new PhoneticBangla().phonetic(new StringBuilder(mCombinerChain.getComposingWordWithCombiningFeedback()));
         }else {
@@ -202,7 +201,6 @@ public final class WordComposer {
      * @param event the event to apply. Must not be null.
      */
     public void applyProcessedEvent(final Event event) {
-        Log.d(TAG, "applyProcessedEvent: "+event.mText);
         mCombinerChain.applyProcessedEvent(event);
         final int primaryCode = event.mCodePoint;
         final int keyX = event.mX;
@@ -354,7 +352,6 @@ public final class WordComposer {
      * @return the word that was typed so far. Never returns null.
      */
     public String getTypedWord() {
-        Log.d(TAG, "getTypedWord: mTypedWordCache "+mTypedWordCache);
         return mTypedWordCache.toString();
     }
 

@@ -6,12 +6,14 @@ import android.os.Bundle;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
+import androidx.room.util.UUIDUtil;
 
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.analytics.FirebaseAnalytics;
+import com.google.firebase.installations.FirebaseInstallations;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.gson.Gson;
 import com.sikderithub.keyboard.Models.Config;
@@ -66,6 +68,7 @@ public class MyApp extends Application {
         if (firebaseAnalytics == null) {
             firebaseAnalytics = FirebaseAnalytics.getInstance(this);
         }
+
     }
 
     private void registerFcmTopic() {
@@ -245,28 +248,24 @@ public class MyApp extends Application {
                     .deleteCustomTheme(id);
         });
    }
+
    public static void logEvent(LogKey logKey, HashMap<String, String> data){
         Bundle bundle = new Bundle();
+       Log.d(TAG, "logEvent: "+bundle.toString());
        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
-           data.forEach(new BiConsumer<String, String>() {
-               @Override
-               public void accept(String s, String s2) {
-                   bundle.putString(s, s2);
-               }
-           });
+           data.forEach((s, s2) -> bundle.putString(s, s2));
        }
        firebaseAnalytics.logEvent(logKey.name(), bundle);
    }
 
    public static String getUUID(){
-        if(UUID==null){
-            String storedUUID =  PrefHelper.getPref("UUID", null);
-            if(storedUUID==null){
-                UUID= java.util.UUID.randomUUID().toString();
+       if(UUID==null){
+            UUID =  PrefHelper.getPref("UUID", null);
+            if(UUID==null){
+                UUID = java.util.UUID.randomUUID().toString();
                 PrefHelper.putPref("UUID", UUID);
             }
         }
-
         return UUID;
    }
 }

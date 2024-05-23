@@ -151,7 +151,7 @@ public class SettingsValues {
                 && inputAttributes.mIsGeneralTextInput;
         mBlockPotentiallyOffensive = Settings.readBlockPotentiallyOffensive(prefs, res);
         mAutoCorrectEnabled = Settings.readAutoCorrectEnabled(prefs, res);
-        Log.d(TAG, "SettingsValues: mAutoCorrectEnabled "+mAutoCorrectEnabled);
+//        Log.d(TAG, "SettingsValues: mAutoCorrectEnabled "+mAutoCorrectEnabled);
         final String autoCorrectionThresholdRawValue = mAutoCorrectEnabled
                 ? res.getString(R.string.auto_correction_threshold_mode_index_modest)
                 : res.getString(R.string.auto_correction_threshold_mode_index_off);

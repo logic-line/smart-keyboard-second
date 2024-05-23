@@ -3,7 +3,7 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'com.google.gms.google-services'
     id("com.google.firebase.crashlytics")
-
+    id("com.google.firebase.firebase-perf")
 }
 
 android {
@@ -14,8 +14,8 @@ android {
         applicationId "com.sikderithub.keyboard"
         minSdk 23
         targetSdk 33
-        versionCode 19
-        versionName "1.19"
+        versionCode 22
+        versionName "1.22"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         archivesBaseName = "Smart-keyboard-v$versionCode($versionName)"
@@ -89,12 +89,14 @@ dependencies {
     implementation 'org.mockito:mockito-core:1.10.19'
 
 
-    implementation(platform("com.google.firebase:firebase-bom:32.8.0"))
+    implementation(platform("com.google.firebase:firebase-bom:33.0.0"))
 
     // Add the dependencies for the Crashlytics and Analytics libraries
     // When using the BoM, you don't specify versions in Firebase library dependencies
     implementation("com.google.firebase:firebase-crashlytics")
     implementation("com.google.firebase:firebase-analytics")
+    implementation("com.google.firebase:firebase-perf")
+    implementation("com.google.firebase:firebase-messaging")
 
     implementation 'com.airbnb.android:lottie:6.0.0'
 
@@ -116,7 +118,6 @@ dependencies {
 
     implementation "androidx.recyclerview:recyclerview-selection:1.1.0"
     implementation 'com.google.android.gms:play-services-ads:22.1.0'
-    implementation 'com.google.firebase:firebase-messaging:23.1.2'
 
     implementation 'com.github.angads25:toggle:1.1.0'
     implementation 'androidx.palette:palette-ktx:1.0.0'

@@ -104,7 +104,6 @@ public final class KeyboardSwitcher implements KeyboardState.SwitchActions {
     }
 
     private void initInternal(final LatinIME latinIme) {
-        Log.d(TAG, "initInternal: ");
         mLatinIME = latinIme;
         mRichImm = RichInputMethodManager.getInstance();
         mState = new KeyboardState(this);

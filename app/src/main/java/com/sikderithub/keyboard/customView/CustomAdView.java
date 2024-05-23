@@ -16,6 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.google.android.gms.ads.AdLoader;
+import com.google.android.gms.ads.nativead.NativeAd;
 import com.sikderithub.keyboard.Models.UpdateAdsStatusResponse;
 import com.sikderithub.keyboard.MyApp;
 import com.sikderithub.keyboard.R;
@@ -50,6 +51,7 @@ public class CustomAdView extends FrameLayout {
     private int shownAdType = 0;
     private SharedPreferences sharedPreferences;
     private TemplateView templateView;
+    private NativeAd nativeAd;
 
     public CustomAdView(@NonNull Context context) {
         super(context);
@@ -134,6 +136,7 @@ public class CustomAdView extends FrameLayout {
             long currentTime = Calendar.getInstance().getTime().getTime();
             long prevTime = sharedPreferences.getLong(Constants.KEY_EMOJI_AD_TIME, -1);
             int interval = MyApp.getConfig().emoji_ad_interval;
+
             if (!Common.isIntervalExpired(currentTime, prevTime, interval)) {
                 Log.d(TAG, "loadBannerAds: interval not expired");
                 return;
@@ -362,20 +365,7 @@ public class CustomAdView extends FrameLayout {
 
     public void loadNativeAd() {
         AdLoader adLoader = new AdLoader.Builder(getContext(), "ca-app-pub-8326396827024206/3509837650")
-                .forNativeAd(nativeAd -> {
-//                        NativeTemplateStyle styles = new
-//                                NativeTemplateStyle.Builder().withMainBackgroundColor(background).build();
-//                        mNativeAdView.setStyles(styles);
-//                    TemplateView mNativeAdView = new TemplateView(getContext());
-                    templateView.setNativeAd(nativeAd);
-                    templateView.setVisibility(VISIBLE);
-                    this.containerView.setVisibility(VISIBLE);
-                    SharedPreferences.Editor editor = sharedPreferences.edit();
-                    editor.putLong(Constants.KEY_EMOJI_AD_TIME, Calendar.getInstance().getTime().getTime());
-                    editor.apply();
-                    requestLayout();
-                    Log.d(TAG, "loadNativeAd: add loaded");
-                }).withAdListener(new AdListener() {
+                .forNativeAd(this::showNativeAd).withAdListener(new AdListener() {
                     @Override
                     public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
                         super.onAdFailedToLoad(loadAdError);
@@ -387,6 +377,22 @@ public class CustomAdView extends FrameLayout {
                 .build();
 
         adLoader.loadAd(new AdRequest.Builder().build());
+    }
+
+    private void showNativeAd(NativeAd ad) {
+        nativeAd = ad;
+//                        NativeTemplateStyle styles = new
+//                                NativeTemplateStyle.Builder().withMainBackgroundColor(background).build();
+//                        mNativeAdView.setStyles(styles);
+//                    TemplateView mNativeAdView = new TemplateView(getContext());
+
+        templateView.setNativeAd(nativeAd);
+        templateView.setVisibility(VISIBLE);
+        this.containerView.setVisibility(VISIBLE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putLong(Constants.KEY_EMOJI_AD_TIME, Calendar.getInstance().getTime().getTime());
+        editor.apply();
+        requestLayout();
     }
 
 }

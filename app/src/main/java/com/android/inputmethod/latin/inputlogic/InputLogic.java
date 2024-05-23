@@ -900,7 +900,6 @@ public final class InputLogic {
                 mWordComposer.setCapitalizedModeAtStartComposingTime(inputTransaction.mShiftState);
             }
 
-            Log.d(TAG, "handleNonSeparatorEvent: isComposingWord "+mWordComposer.getTypedWord());
             setComposingTextInternal(getTextWithUnderline(mWordComposer.getTypedWord()), 1);
         } else {
             final boolean swapWeakSpace = tryStripSpaceAndReturnWhetherShouldSwapInstead(event,
@@ -939,7 +938,6 @@ public final class InputLogic {
             sendDownUpKeyEvent(KeyEvent.KEYCODE_ENTER);
         } else {
             mWordComposer.applyProcessedEvent(Event.createEventForCodePointFromUnknownSource(codePoint));
-            Log.d(TAG, "sendPhoneticKeyCodePoint: "+mWordComposer.getTypedWord());
 
             mConnection.setComposingText(mWordComposer.getTypedWord(), 1);
         }
@@ -1551,9 +1549,7 @@ public final class InputLogic {
                     public void onGetSuggestedWords(final SuggestedWords suggestedWords) {
 
                         final String typedWordString = mWordComposer.getTypedWord();
-                        for (int i=0; i<=suggestedWords.size()-1; i++ ){
-                            Log.d(TAG, "onGetSuggestedWords: "+suggestedWords.getWord(i));
-                        }
+
                         final SuggestedWordInfo typedWordInfo = new SuggestedWordInfo(
                                 typedWordString, "" /* prevWordsContext */,
                                 SuggestedWordInfo.MAX_SCORE,

@@ -318,6 +318,9 @@ public class SecondSetupWizardActivity extends AppCompatActivity {
     }
 
     private void openURL(String url) {
+        if (url==null){
+            return;
+        }
         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
         startActivity(intent);
     }

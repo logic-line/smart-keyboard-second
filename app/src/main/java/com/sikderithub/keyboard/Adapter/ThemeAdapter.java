@@ -49,7 +49,6 @@ public class ThemeAdapter extends RecyclerView.Adapter<ThemeAdapter.MyViewHodler
         this.keyboardThemes = keyboardThemes;
         currentSettingsValues = Settings.getInstance().getCurrent();
         if(currentSettingsValues==null){
-            Log.d(TAG, "ThemeAdapter: currentSettingsValues==null");
         }
         selectedThemeId = KeyboardTheme.getKeyboardTheme(context).mThemeId;
         setHasStableIds(true);

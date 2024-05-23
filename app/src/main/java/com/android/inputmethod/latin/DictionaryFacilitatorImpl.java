@@ -620,7 +620,6 @@ public class DictionaryFacilitatorImpl implements DictionaryFacilitator {
             SettingsValuesForSuggestion settingsValuesForSuggestion, int sessionId,
             int inputStyle) {
 
-        Log.d(TAG, "getSuggestionResults: "+composedData.mTypedWord);
 
 
         long proximityInfoHandle = keyboard.getProximityInfo().getNativeProximityInfo();
@@ -645,7 +644,6 @@ public class DictionaryFacilitatorImpl implements DictionaryFacilitator {
                     ? mDictionaryGroup.mWeightForGesturingInLocale
                     : mDictionaryGroup.mWeightForTypingInLocale;
 
-            Log.d(TAG, "getSuggestionResults: dicType "+dictType);
 
 
             final ArrayList<SuggestedWordInfo> dictionarySuggestions =
@@ -655,7 +653,6 @@ public class DictionaryFacilitatorImpl implements DictionaryFacilitator {
 
 
             if (null == dictionarySuggestions) continue;
-            Log.d(TAG, "getSuggestionResults: dicType "+dictType);
 
             suggestionResults.addAll(dictionarySuggestions);
             if (null != suggestionResults.mRawSuggestions) {

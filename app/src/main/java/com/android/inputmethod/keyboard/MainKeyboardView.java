@@ -572,7 +572,6 @@ public class MainKeyboardView extends KeyboardView implements DrawingProxy,
         }
 
         if(key.getCode()==Constants.CODE_SPACE){
-            Log.d(TAG, "showKeyPreview: showSpacePreview");
             showSpacePreview(key);
             return;
         }else{

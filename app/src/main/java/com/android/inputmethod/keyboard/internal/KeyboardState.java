@@ -39,7 +39,7 @@ import com.android.inputmethod.latin.utils.RecapitalizeStatus;
  */
 public final class KeyboardState {
     private static final String TAG = KeyboardState.class.getSimpleName();
-    private static final boolean DEBUG_EVENT = true;
+    private static final boolean DEBUG_EVENT = false;
     private static final boolean DEBUG_INTERNAL_ACTION = true;
 
     public interface SwitchActions {

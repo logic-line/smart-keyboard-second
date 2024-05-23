@@ -54,8 +54,8 @@ public final class PointerTracker implements PointerTrackerQueue.Element,
     }
 
     private static final String TAG = PointerTracker.class.getSimpleName();
-    private static final boolean DEBUG_EVENT = true;
-    private static final boolean DEBUG_MOVE_EVENT = true;
+    private static final boolean DEBUG_EVENT = false;
+    private static final boolean DEBUG_MOVE_EVENT = false;
     private static final boolean DEBUG_LISTENER = false;
     private static boolean DEBUG_MODE = DebugFlags.DEBUG_ENABLED || DEBUG_EVENT;
 
@@ -1142,7 +1142,7 @@ public final class PointerTracker implements PointerTrackerQueue.Element,
         }
         Log.d(TAG, "onLongPressed: "+key.getLabel());
         final int code = key.getCode();
-        if (code == Constants.CODE_SPACE || code == Constants.CODE_LANGUAGE_SWITCH) {
+        if (/*code == Constants.CODE_SPACE || */code == Constants.CODE_LANGUAGE_SWITCH) {
             // Long pressing the space key invokes IME switcher dialog.
             if (sListener.onCustomRequest(Constants.CUSTOM_CODE_SHOW_INPUT_METHOD_PICKER)) {
                 cancelKeyTracking();
