@@ -111,6 +111,8 @@ public class SlidingLocaleDrawable extends Drawable {
             }
 
             mCurrentLanguage =  mCurrentLanguage == null ? "Language" : mCurrentLanguage;
+            mNextLanguage =  mNextLanguage == null ? "Language" : mNextLanguage;
+            mPrevLanguage =  mPrevLanguage == null ? "Language" : mPrevLanguage;
             // Draw language text with shadow
             final float baseline = mHeight * SPACEBAR_LANGUAGE_BASELINE - paint.descent();
             paint.setColor(spaceSlideTextColor);

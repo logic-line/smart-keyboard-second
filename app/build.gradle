@@ -14,8 +14,8 @@ android {
         applicationId "com.sikderithub.keyboard"
         minSdk 23
         targetSdk 33
-        versionCode 22
-        versionName "1.22"
+        versionCode 23
+        versionName "1.23"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         archivesBaseName = "Smart-keyboard-v$versionCode($versionName)"
@@ -96,7 +96,7 @@ dependencies {
     implementation("com.google.firebase:firebase-crashlytics")
     implementation("com.google.firebase:firebase-analytics")
     implementation("com.google.firebase:firebase-perf")
-    implementation("com.google.firebase:firebase-messaging")
+   implementation("com.google.firebase:firebase-messaging")
 
     implementation 'com.airbnb.android:lottie:6.0.0'
 

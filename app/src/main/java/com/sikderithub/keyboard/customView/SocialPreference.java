@@ -96,7 +96,11 @@ public class SocialPreference extends Preference {
         if(url==null){
             return;
         }
-        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-        getContext().startActivity(intent);
+        try{
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+            getContext().startActivity(intent);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }

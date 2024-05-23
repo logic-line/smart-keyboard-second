@@ -221,6 +221,11 @@ public class CreateThemeActivity extends AppCompatActivity {
 
         Bitmap bitmapBg = drawableToBitmap(drawable);
 
+        if(bitmapBg==null){
+            Toast.makeText(this, "Something went wrong", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
 
         Palette.from(bitmapBg)/*.setRegion(0, 0, bitmapBg.getWidth(), 40)*/.generate(palette -> {
             assert palette != null;

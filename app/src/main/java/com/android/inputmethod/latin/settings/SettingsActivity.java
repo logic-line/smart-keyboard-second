@@ -1,19 +1,3 @@
-/*
- * Copyright (C) 2012 The Android Open Source Project
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package com.android.inputmethod.latin.settings;
 
 import android.app.ActionBar;
@@ -58,9 +42,8 @@ public final class SettingsActivity extends PreferenceActivity
                 intent.hasExtra(EXTRA_ENTRY_KEY) ? intent.getStringExtra(EXTRA_ENTRY_KEY)
                         : EXTRA_ENTRY_VALUE_SYSTEM_SETTINGS);
 
-
-
     }
+
 
     @Override
     public boolean onOptionsItemSelected(final MenuItem item) {
@@ -72,7 +55,7 @@ public final class SettingsActivity extends PreferenceActivity
     }
 
     @Override
-    public Intent getIntent() {
+    public synchronized   Intent getIntent() {
         final Intent intent = super.getIntent();
         final String fragment = intent.getStringExtra(EXTRA_SHOW_FRAGMENT);
         if (fragment == null) {
@@ -86,7 +69,6 @@ public final class SettingsActivity extends PreferenceActivity
     public boolean isValidFragment(final String fragmentName) {
         return FragmentUtils.isValidFragment(fragmentName);
     }
-
 
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
